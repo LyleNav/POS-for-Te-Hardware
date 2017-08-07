@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.labelAddEmployee = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.txtEname = new System.Windows.Forms.TextBox();
             this.txtEid = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // labelAddEmployee
             // 
@@ -99,7 +102,7 @@
             this.txtEuser.Location = new System.Drawing.Point(196, 174);
             this.txtEuser.Name = "txtEuser";
             this.txtEuser.Size = new System.Drawing.Size(158, 25);
-            this.txtEuser.TabIndex = 174;
+            this.txtEuser.TabIndex = 4;
             // 
             // labelEpass
             // 
@@ -119,7 +122,7 @@
             this.txtEpass.Name = "txtEpass";
             this.txtEpass.PasswordChar = '*';
             this.txtEpass.Size = new System.Drawing.Size(158, 25);
-            this.txtEpass.TabIndex = 175;
+            this.txtEpass.TabIndex = 5;
             // 
             // btnCancel
             // 
@@ -133,9 +136,10 @@
             this.btnCancel.Location = new System.Drawing.Point(264, 260);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 178;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -149,9 +153,10 @@
             this.btnClear.Location = new System.Drawing.Point(167, 260);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 177;
+            this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
@@ -165,9 +170,10 @@
             this.btnAdd.Location = new System.Drawing.Point(70, 260);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 176;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // labelEname
             // 
@@ -197,7 +203,7 @@
             this.txtEname.Location = new System.Drawing.Point(196, 140);
             this.txtEname.Name = "txtEname";
             this.txtEname.Size = new System.Drawing.Size(158, 25);
-            this.txtEname.TabIndex = 173;
+            this.txtEname.TabIndex = 3;
             // 
             // txtEid
             // 
@@ -206,7 +212,7 @@
             this.txtEid.Name = "txtEid";
             this.txtEid.ReadOnly = true;
             this.txtEid.Size = new System.Drawing.Size(158, 25);
-            this.txtEid.TabIndex = 172;
+            this.txtEid.TabIndex = 2;
             // 
             // btnClose
             // 
@@ -221,9 +227,15 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 184;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // formAddEmployee
             // 
@@ -249,6 +261,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formAddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formAddEmployee_FormClosing);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formAddEmployee_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formAddEmployee_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formAddEmployee_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -273,5 +289,6 @@
         private System.Windows.Forms.TextBox txtEname;
         private System.Windows.Forms.TextBox txtEid;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Timer timer1;
     }
 }

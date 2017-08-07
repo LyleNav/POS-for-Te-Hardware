@@ -111,7 +111,7 @@
             this.btnClose.Location = new System.Drawing.Point(664, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 10;
+            this.btnClose.TabIndex = 11;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -280,6 +280,7 @@
             this.btnEmpManage.TabIndex = 10;
             this.btnEmpManage.Text = "Employee Management";
             this.btnEmpManage.UseVisualStyleBackColor = false;
+            this.btnEmpManage.Click += new System.EventHandler(this.btnEmpManage_Click);
             // 
             // timer1
             // 

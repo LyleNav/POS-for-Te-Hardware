@@ -16,3 +16,9 @@ C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardw
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.csproj.GenerateResource.Cache
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.exe
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.pdb
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formAddEmployee.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formAddProduct.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditEmployee.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditProduct.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEmployeeManage.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formProductManage.resources

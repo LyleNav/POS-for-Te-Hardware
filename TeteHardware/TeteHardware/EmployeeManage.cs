@@ -11,13 +11,13 @@ using MySql.Data.MySqlClient;
 
 namespace TeteHardware
 {
-    public partial class EmployeeManage : Form
+    public partial class formEmployeeManage : Form
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
         public int employeeID;
         public string eName, eUser, ePass;
-        public EmployeeManage()
+        public formEmployeeManage()
         {
             InitializeComponent();
             conn = new MySqlConnection("Server=localhost;Database=tetehardware;Uid=root;Pwd=root"); //connection
@@ -60,7 +60,7 @@ namespace TeteHardware
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             formAddEmployee formAE = new formAddEmployee(); //variable reference to formAddEmployee
-            formAE.ReferenceToSupManage = this; //sets the reference form to this form
+            formAE.ReferenceToEmpManage = this; //sets the reference form to this form
             formAE.Show(); //shows referenced form
             this.Hide(); //hides current form
         }
@@ -75,13 +75,13 @@ namespace TeteHardware
                 DataTable dt = new DataTable(); //datatable for adapter
                 adp.Fill(dt); //adapter fills the data with data table
 
-                /* formEditSupplier formES = new formEditSupplier(); //variable reference to formEditEmployee
-                 formES.ReferenceToSupManage = this; //sets the reference form to this form
-                 formES.supName = supplierName;
-                 formES.supDesc = supplierDesc;
-                 formES.supContact = supplierContact;
-                 formES.supID = supplierID;
-                 formES.Show(); //shows referenced form*/
+                formEditEmployee formEE = new formEditEmployee(); //variable reference to formEditEmployee
+                formEE.ReferenceToEmpManage = this; //sets the reference form to this form
+                formEE.empName = eName;
+                formEE.empUser = eUser;
+                formEE.empPass = ePass;
+                formEE.empID = employeeID;
+                formEE.Show(); //shows referenced form*/
                 this.Hide(); //hides current form
                 conn.Close();
             }
@@ -158,7 +158,8 @@ namespace TeteHardware
             btnDeleteEmployee.Enabled = true;
 
             eName = dataGridEmployee.Rows[e.RowIndex].Cells["eName"].Value.ToString();
-            eUser = dataGridEmployee.Rows[e.RowIndex].Cells["eUser"].Value.ToString();
+            eUser = dataGridEmployee.Rows[e.RowIndex].Cells["username"].Value.ToString();
+            ePass = dataGridEmployee.Rows[e.RowIndex].Cells["password"].Value.ToString();
             employeeID = int.Parse(dataGridEmployee.Rows[e.RowIndex].Cells["employeeID"].Value.ToString());
         }
 

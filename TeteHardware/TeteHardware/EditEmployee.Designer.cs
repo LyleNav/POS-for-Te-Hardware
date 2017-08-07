@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.labelEditEmployee = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.labelEid = new System.Windows.Forms.Label();
             this.txtEname = new System.Windows.Forms.TextBox();
             this.txtEid = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // labelEditEmployee
             // 
@@ -95,9 +98,10 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 197;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // labelEuser
             // 
@@ -116,7 +120,7 @@
             this.txtEuser.Location = new System.Drawing.Point(196, 174);
             this.txtEuser.Name = "txtEuser";
             this.txtEuser.Size = new System.Drawing.Size(158, 25);
-            this.txtEuser.TabIndex = 188;
+            this.txtEuser.TabIndex = 4;
             // 
             // labelEpass
             // 
@@ -136,7 +140,7 @@
             this.txtEpass.Name = "txtEpass";
             this.txtEpass.PasswordChar = '*';
             this.txtEpass.Size = new System.Drawing.Size(158, 25);
-            this.txtEpass.TabIndex = 189;
+            this.txtEpass.TabIndex = 5;
             // 
             // btnCancel
             // 
@@ -150,9 +154,10 @@
             this.btnCancel.Location = new System.Drawing.Point(264, 260);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 192;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -166,9 +171,10 @@
             this.btnClear.Location = new System.Drawing.Point(167, 260);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 191;
+            this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnEdit
             // 
@@ -182,9 +188,10 @@
             this.btnEdit.Location = new System.Drawing.Point(70, 260);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(91, 40);
-            this.btnEdit.TabIndex = 190;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // labelEname
             // 
@@ -214,7 +221,7 @@
             this.txtEname.Location = new System.Drawing.Point(196, 140);
             this.txtEname.Name = "txtEname";
             this.txtEname.Size = new System.Drawing.Size(158, 25);
-            this.txtEname.TabIndex = 187;
+            this.txtEname.TabIndex = 3;
             // 
             // txtEid
             // 
@@ -223,7 +230,12 @@
             this.txtEid.Name = "txtEid";
             this.txtEid.ReadOnly = true;
             this.txtEid.Size = new System.Drawing.Size(158, 25);
-            this.txtEid.TabIndex = 186;
+            this.txtEid.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // formEditEmployee
             // 
@@ -249,6 +261,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formEditEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formEditEmployee_FormClosing);
+            this.Load += new System.EventHandler(this.formEditEmployee_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formEditEmployee_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formEditEmployee_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formEditEmployee_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -273,5 +290,6 @@
         private System.Windows.Forms.Label labelEid;
         private System.Windows.Forms.TextBox txtEname;
         private System.Windows.Forms.TextBox txtEid;
+        private System.Windows.Forms.Timer timer1;
     }
 }

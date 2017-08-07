@@ -111,9 +111,17 @@ namespace TeteHardware
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            formSupplierManage formSM = new formSupplierManage(); //variable reference to formCatalogManage
-            formSM.ReferenceToAfterLogin = this; // sets the reference form to this form
+            formSupplierManage formSM = new formSupplierManage(); //variable reference to formSupplierManage
+            formSM.ReferenceToAfterLogin = this; //sets the reference form to this form
             formSM.Show(); //shows referenced form
+            this.Hide(); //hides current form
+        }
+
+        private void btnEmpManage_Click(object sender, EventArgs e)
+        {
+            formEmployeeManage formEM = new formEmployeeManage(); //variable reference to formEmployeeManage
+            formEM.ReferenceToAfterLogin = this; //sets the reference form to this form
+            formEM.Show(); //shows referenced form
             this.Hide(); //hides current form
         }
     }
