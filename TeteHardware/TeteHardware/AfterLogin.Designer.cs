@@ -40,7 +40,7 @@
             this.btnOrderSupplier = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnCustOrder = new System.Windows.Forms.Button();
-            this.btnPromo = new System.Windows.Forms.Button();
+            this.btnPromos = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnCustReturn = new System.Windows.Forms.Button();
             this.btnEmpManage = new System.Windows.Forms.Button();
@@ -123,7 +123,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnOrderSupplier);
             this.flowLayoutPanel1.Controls.Add(this.btnSupplier);
             this.flowLayoutPanel1.Controls.Add(this.btnCustOrder);
-            this.flowLayoutPanel1.Controls.Add(this.btnPromo);
+            this.flowLayoutPanel1.Controls.Add(this.btnPromos);
             this.flowLayoutPanel1.Controls.Add(this.btnReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnCustReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnEmpManage);
@@ -216,22 +216,22 @@
             this.btnCustOrder.Text = "Customer Order";
             this.btnCustOrder.UseVisualStyleBackColor = false;
             // 
-            // btnPromo
+            // btnPromos
             // 
-            this.btnPromo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnPromo.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnPromo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
-            this.btnPromo.FlatAppearance.BorderSize = 0;
-            this.btnPromo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnPromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPromo.ForeColor = System.Drawing.Color.White;
-            this.btnPromo.Location = new System.Drawing.Point(395, 188);
-            this.btnPromo.Name = "btnPromo";
-            this.btnPromo.Size = new System.Drawing.Size(185, 169);
-            this.btnPromo.TabIndex = 7;
-            this.btnPromo.Text = "Promos";
-            this.btnPromo.UseVisualStyleBackColor = false;
+            this.btnPromos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnPromos.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnPromos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnPromos.FlatAppearance.BorderSize = 0;
+            this.btnPromos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnPromos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPromos.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromos.ForeColor = System.Drawing.Color.White;
+            this.btnPromos.Location = new System.Drawing.Point(395, 188);
+            this.btnPromos.Name = "btnPromos";
+            this.btnPromos.Size = new System.Drawing.Size(185, 169);
+            this.btnPromos.TabIndex = 7;
+            this.btnPromos.Text = "Promos";
+            this.btnPromos.UseVisualStyleBackColor = false;
             // 
             // btnReturn
             // 
@@ -325,7 +325,7 @@
         private System.Windows.Forms.Button btnOrderSupplier;
         private System.Windows.Forms.Button btnSupplier;
         private System.Windows.Forms.Button btnCustOrder;
-        private System.Windows.Forms.Button btnPromo;
+        private System.Windows.Forms.Button btnPromos;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnCustReturn;
         private System.Windows.Forms.Timer timer1;
