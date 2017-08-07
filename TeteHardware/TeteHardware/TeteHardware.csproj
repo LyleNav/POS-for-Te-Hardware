@@ -59,6 +59,12 @@
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPromo.Designer.cs">
+      <DependentUpon>AddPromo.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
