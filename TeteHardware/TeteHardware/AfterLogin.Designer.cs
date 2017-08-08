@@ -232,6 +232,7 @@
             this.btnPromos.TabIndex = 7;
             this.btnPromos.Text = "Promos";
             this.btnPromos.UseVisualStyleBackColor = false;
+            this.btnPromos.Click += new System.EventHandler(this.btnPromos_Click);
             // 
             // btnReturn
             // 

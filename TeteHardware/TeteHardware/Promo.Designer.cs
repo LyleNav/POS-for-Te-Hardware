@@ -1,6 +1,6 @@
 ﻿namespace TeteHardware
 {
-    partial class formDiscount
+    partial class formPromoManage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,14 +36,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridDiscount = new System.Windows.Forms.DataGridView();
+            this.dataGridPromo = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnDeletePromo = new System.Windows.Forms.Button();
             this.btnClearSelection = new System.Windows.Forms.Button();
             this.btnEditPromo = new System.Windows.Forms.Button();
             this.btnAddPromo = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDiscount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPromo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,6 +71,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label8
             // 
@@ -81,15 +84,15 @@
             this.label8.TabIndex = 101;
             this.label8.Text = "Promotions";
             // 
-            // dataGridDiscount
+            // dataGridPromo
             // 
-            this.dataGridDiscount.AllowUserToAddRows = false;
-            this.dataGridDiscount.AllowUserToDeleteRows = false;
-            this.dataGridDiscount.AllowUserToResizeColumns = false;
-            this.dataGridDiscount.AllowUserToResizeRows = false;
-            this.dataGridDiscount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.dataGridDiscount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridDiscount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridPromo.AllowUserToAddRows = false;
+            this.dataGridPromo.AllowUserToDeleteRows = false;
+            this.dataGridPromo.AllowUserToResizeColumns = false;
+            this.dataGridPromo.AllowUserToResizeRows = false;
+            this.dataGridPromo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.dataGridPromo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridPromo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,8 +100,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridDiscount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridDiscount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPromo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridPromo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,12 +109,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridDiscount.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridDiscount.EnableHeadersVisualStyles = false;
-            this.dataGridDiscount.Location = new System.Drawing.Point(41, 121);
-            this.dataGridDiscount.MultiSelect = false;
-            this.dataGridDiscount.Name = "dataGridDiscount";
-            this.dataGridDiscount.ReadOnly = true;
+            this.dataGridPromo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridPromo.EnableHeadersVisualStyles = false;
+            this.dataGridPromo.Location = new System.Drawing.Point(41, 121);
+            this.dataGridPromo.MultiSelect = false;
+            this.dataGridPromo.Name = "dataGridPromo";
+            this.dataGridPromo.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,14 +122,15 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridDiscount.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridDiscount.RowHeadersVisible = false;
+            this.dataGridPromo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridPromo.RowHeadersVisible = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.dataGridDiscount.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridDiscount.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.dataGridDiscount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridDiscount.Size = new System.Drawing.Size(392, 248);
-            this.dataGridDiscount.TabIndex = 119;
+            this.dataGridPromo.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridPromo.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.dataGridPromo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridPromo.Size = new System.Drawing.Size(392, 248);
+            this.dataGridPromo.TabIndex = 119;
+            this.dataGridPromo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPromo_CellClick);
             // 
             // btnClose
             // 
@@ -138,12 +142,13 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(611, 12);
+            this.btnClose.Location = new System.Drawing.Point(605, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDeletePromo
             // 
@@ -160,6 +165,7 @@
             this.btnDeletePromo.TabIndex = 4;
             this.btnDeletePromo.Text = "Delete Promo";
             this.btnDeletePromo.UseVisualStyleBackColor = false;
+            this.btnDeletePromo.Click += new System.EventHandler(this.btnDeletePromo_Click);
             // 
             // btnClearSelection
             // 
@@ -176,6 +182,7 @@
             this.btnClearSelection.TabIndex = 5;
             this.btnClearSelection.Text = "Clear Selection";
             this.btnClearSelection.UseVisualStyleBackColor = false;
+            this.btnClearSelection.Click += new System.EventHandler(this.btnClearSelection_Click);
             // 
             // btnEditPromo
             // 
@@ -192,6 +199,7 @@
             this.btnEditPromo.TabIndex = 3;
             this.btnEditPromo.Text = "Edit Promo";
             this.btnEditPromo.UseVisualStyleBackColor = false;
+            this.btnEditPromo.Click += new System.EventHandler(this.btnEditPromo_Click);
             // 
             // btnAddPromo
             // 
@@ -208,28 +216,39 @@
             this.btnAddPromo.TabIndex = 2;
             this.btnAddPromo.Text = "Add New Promo";
             this.btnAddPromo.UseVisualStyleBackColor = false;
+            this.btnAddPromo.Click += new System.EventHandler(this.btnAddPromo_Click);
             // 
-            // formDiscount
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // formPromoManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(652, 400);
+            this.ClientSize = new System.Drawing.Size(646, 400);
             this.ControlBox = false;
             this.Controls.Add(this.btnDeletePromo);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditPromo);
             this.Controls.Add(this.btnAddPromo);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dataGridDiscount);
+            this.Controls.Add(this.dataGridPromo);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "formDiscount";
+            this.Name = "formPromoManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPromoManage_FormClosing);
+            this.Load += new System.EventHandler(this.formPromoManage_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formPromoManage_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formPromoManage_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formPromoManage_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDiscount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPromo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,11 +258,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridDiscount;
+        private System.Windows.Forms.DataGridView dataGridPromo;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnDeletePromo;
         private System.Windows.Forms.Button btnClearSelection;
         private System.Windows.Forms.Button btnEditPromo;
         private System.Windows.Forms.Button btnAddPromo;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -5,7 +5,6 @@ C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardw
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.csprojResolveAssemblyReference.cache
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formAddSupplier.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formCatalogManage.resources
-C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formDiscount.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formAddCatalog.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditCatalog.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditSupplier.resources
@@ -22,3 +21,6 @@ C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardw
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditProduct.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEmployeeManage.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formProductManage.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formAddPromo.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formPromoManage.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditPromo.resources

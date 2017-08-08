@@ -124,5 +124,13 @@ namespace TeteHardware
             formEM.Show(); //shows referenced form
             this.Hide(); //hides current form
         }
+
+        private void btnPromos_Click(object sender, EventArgs e)
+        {
+            formPromoManage formPM = new formPromoManage();
+            formPM.ReferenceToAfterLogin = this;
+            formPM.Show();
+            this.Hide();
+        }
     }
 }
