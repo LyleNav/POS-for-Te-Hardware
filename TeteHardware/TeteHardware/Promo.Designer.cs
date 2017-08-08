@@ -35,21 +35,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.labelDpercent = new System.Windows.Forms.Label();
-            this.labelDname = new System.Windows.Forms.Label();
-            this.labelDid = new System.Windows.Forms.Label();
-            this.txtDpercent = new System.Windows.Forms.TextBox();
-            this.txtDname = new System.Windows.Forms.TextBox();
-            this.txtDid = new System.Windows.Forms.TextBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridDiscount = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
-            this.labelDstatus = new System.Windows.Forms.Label();
-            this.labelDvalue = new System.Windows.Forms.Label();
-            this.txtDvalue = new System.Windows.Forms.TextBox();
-            this.comboDstatus = new System.Windows.Forms.ComboBox();
+            this.btnDeletePromo = new System.Windows.Forms.Button();
+            this.btnClearSelection = new System.Windows.Forms.Button();
+            this.btnEditPromo = new System.Windows.Forms.Button();
+            this.btnAddPromo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDiscount)).BeginInit();
             this.SuspendLayout();
@@ -86,115 +77,9 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(35, 13);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 31);
+            this.label8.Size = new System.Drawing.Size(131, 31);
             this.label8.TabIndex = 101;
-            this.label8.Text = "Discount";
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(652, 306);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(78, 29);
-            this.btnClear.TabIndex = 118;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // labelDpercent
-            // 
-            this.labelDpercent.AutoSize = true;
-            this.labelDpercent.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDpercent.ForeColor = System.Drawing.Color.White;
-            this.labelDpercent.Location = new System.Drawing.Point(451, 197);
-            this.labelDpercent.Name = "labelDpercent";
-            this.labelDpercent.Size = new System.Drawing.Size(113, 19);
-            this.labelDpercent.TabIndex = 120;
-            this.labelDpercent.Text = "Discount Percent:";
-            // 
-            // labelDname
-            // 
-            this.labelDname.AutoSize = true;
-            this.labelDname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDname.ForeColor = System.Drawing.Color.White;
-            this.labelDname.Location = new System.Drawing.Point(451, 161);
-            this.labelDname.Name = "labelDname";
-            this.labelDname.Size = new System.Drawing.Size(106, 19);
-            this.labelDname.TabIndex = 121;
-            this.labelDname.Text = "Discount Name:";
-            // 
-            // labelDid
-            // 
-            this.labelDid.AutoSize = true;
-            this.labelDid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDid.ForeColor = System.Drawing.Color.White;
-            this.labelDid.Location = new System.Drawing.Point(451, 126);
-            this.labelDid.Name = "labelDid";
-            this.labelDid.Size = new System.Drawing.Size(81, 19);
-            this.labelDid.TabIndex = 122;
-            this.labelDid.Text = "Discount ID:";
-            // 
-            // txtDpercent
-            // 
-            this.txtDpercent.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDpercent.Location = new System.Drawing.Point(596, 191);
-            this.txtDpercent.Name = "txtDpercent";
-            this.txtDpercent.Size = new System.Drawing.Size(134, 25);
-            this.txtDpercent.TabIndex = 115;
-            // 
-            // txtDname
-            // 
-            this.txtDname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDname.Location = new System.Drawing.Point(596, 156);
-            this.txtDname.Name = "txtDname";
-            this.txtDname.Size = new System.Drawing.Size(134, 25);
-            this.txtDname.TabIndex = 113;
-            // 
-            // txtDid
-            // 
-            this.txtDid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDid.Location = new System.Drawing.Point(596, 121);
-            this.txtDid.Name = "txtDid";
-            this.txtDid.ReadOnly = true;
-            this.txtDid.Size = new System.Drawing.Size(134, 25);
-            this.txtDid.TabIndex = 114;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(568, 306);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(78, 29);
-            this.btnUpdate.TabIndex = 117;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(484, 306);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(78, 29);
-            this.btnAdd.TabIndex = 116;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
+            this.label8.Text = "Promotions";
             // 
             // dataGridDiscount
             // 
@@ -240,7 +125,7 @@
             this.dataGridDiscount.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridDiscount.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dataGridDiscount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridDiscount.Size = new System.Drawing.Size(392, 279);
+            this.dataGridDiscount.Size = new System.Drawing.Size(392, 248);
             this.dataGridDiscount.TabIndex = 119;
             // 
             // btnClose
@@ -253,74 +138,89 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(733, 12);
+            this.btnClose.Location = new System.Drawing.Point(611, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 123;
+            this.btnClose.TabIndex = 6;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // labelDstatus
+            // btnDeletePromo
             // 
-            this.labelDstatus.AutoSize = true;
-            this.labelDstatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDstatus.ForeColor = System.Drawing.Color.White;
-            this.labelDstatus.Location = new System.Drawing.Point(451, 266);
-            this.labelDstatus.Name = "labelDstatus";
-            this.labelDstatus.Size = new System.Drawing.Size(104, 19);
-            this.labelDstatus.TabIndex = 126;
-            this.labelDstatus.Text = "Discount Status:";
+            this.btnDeletePromo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnDeletePromo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnDeletePromo.FlatAppearance.BorderSize = 0;
+            this.btnDeletePromo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnDeletePromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletePromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletePromo.ForeColor = System.Drawing.Color.White;
+            this.btnDeletePromo.Location = new System.Drawing.Point(453, 251);
+            this.btnDeletePromo.Name = "btnDeletePromo";
+            this.btnDeletePromo.Size = new System.Drawing.Size(160, 53);
+            this.btnDeletePromo.TabIndex = 4;
+            this.btnDeletePromo.Text = "Delete Promo";
+            this.btnDeletePromo.UseVisualStyleBackColor = false;
             // 
-            // labelDvalue
+            // btnClearSelection
             // 
-            this.labelDvalue.AutoSize = true;
-            this.labelDvalue.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDvalue.ForeColor = System.Drawing.Color.White;
-            this.labelDvalue.Location = new System.Drawing.Point(451, 230);
-            this.labelDvalue.Name = "labelDvalue";
-            this.labelDvalue.Size = new System.Drawing.Size(104, 19);
-            this.labelDvalue.TabIndex = 127;
-            this.labelDvalue.Text = "Discount Value:";
+            this.btnClearSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnClearSelection.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnClearSelection.FlatAppearance.BorderSize = 0;
+            this.btnClearSelection.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearSelection.ForeColor = System.Drawing.Color.White;
+            this.btnClearSelection.Location = new System.Drawing.Point(453, 316);
+            this.btnClearSelection.Name = "btnClearSelection";
+            this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
+            this.btnClearSelection.TabIndex = 5;
+            this.btnClearSelection.Text = "Clear Selection";
+            this.btnClearSelection.UseVisualStyleBackColor = false;
             // 
-            // txtDvalue
+            // btnEditPromo
             // 
-            this.txtDvalue.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDvalue.Location = new System.Drawing.Point(596, 225);
-            this.txtDvalue.Name = "txtDvalue";
-            this.txtDvalue.Size = new System.Drawing.Size(134, 25);
-            this.txtDvalue.TabIndex = 124;
+            this.btnEditPromo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnEditPromo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnEditPromo.FlatAppearance.BorderSize = 0;
+            this.btnEditPromo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnEditPromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditPromo.ForeColor = System.Drawing.Color.White;
+            this.btnEditPromo.Location = new System.Drawing.Point(453, 186);
+            this.btnEditPromo.Name = "btnEditPromo";
+            this.btnEditPromo.Size = new System.Drawing.Size(160, 53);
+            this.btnEditPromo.TabIndex = 3;
+            this.btnEditPromo.Text = "Edit Promo";
+            this.btnEditPromo.UseVisualStyleBackColor = false;
             // 
-            // comboDstatus
+            // btnAddPromo
             // 
-            this.comboDstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDstatus.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboDstatus.FormattingEnabled = true;
-            this.comboDstatus.Location = new System.Drawing.Point(596, 260);
-            this.comboDstatus.Name = "comboDstatus";
-            this.comboDstatus.Size = new System.Drawing.Size(134, 25);
-            this.comboDstatus.TabIndex = 128;
+            this.btnAddPromo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnAddPromo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnAddPromo.FlatAppearance.BorderSize = 0;
+            this.btnAddPromo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnAddPromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPromo.ForeColor = System.Drawing.Color.White;
+            this.btnAddPromo.Location = new System.Drawing.Point(453, 121);
+            this.btnAddPromo.Name = "btnAddPromo";
+            this.btnAddPromo.Size = new System.Drawing.Size(160, 53);
+            this.btnAddPromo.TabIndex = 2;
+            this.btnAddPromo.Text = "Add New Promo";
+            this.btnAddPromo.UseVisualStyleBackColor = false;
             // 
             // formDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(774, 447);
+            this.ClientSize = new System.Drawing.Size(652, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.comboDstatus);
-            this.Controls.Add(this.labelDstatus);
-            this.Controls.Add(this.labelDvalue);
-            this.Controls.Add(this.txtDvalue);
+            this.Controls.Add(this.btnDeletePromo);
+            this.Controls.Add(this.btnClearSelection);
+            this.Controls.Add(this.btnEditPromo);
+            this.Controls.Add(this.btnAddPromo);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.labelDpercent);
-            this.Controls.Add(this.labelDname);
-            this.Controls.Add(this.labelDid);
-            this.Controls.Add(this.txtDpercent);
-            this.Controls.Add(this.txtDname);
-            this.Controls.Add(this.txtDid);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridDiscount);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
@@ -331,7 +231,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDiscount)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -340,20 +239,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label labelDpercent;
-        private System.Windows.Forms.Label labelDname;
-        private System.Windows.Forms.Label labelDid;
-        private System.Windows.Forms.TextBox txtDpercent;
-        private System.Windows.Forms.TextBox txtDname;
-        private System.Windows.Forms.TextBox txtDid;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dataGridDiscount;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label labelDstatus;
-        private System.Windows.Forms.Label labelDvalue;
-        private System.Windows.Forms.TextBox txtDvalue;
-        private System.Windows.Forms.ComboBox comboDstatus;
+        private System.Windows.Forms.Button btnDeletePromo;
+        private System.Windows.Forms.Button btnClearSelection;
+        private System.Windows.Forms.Button btnEditPromo;
+        private System.Windows.Forms.Button btnAddPromo;
     }
 }
