@@ -15,8 +15,8 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int promoID, promoValue, promoType, promoStatus;
-        public string promoName;
+        public int promoID, promoValue;
+        public string promoName, promoType, promoStatus;
         public formPromoManage()
         {
             InitializeComponent();
@@ -97,16 +97,18 @@ namespace TeteHardware
         {
             Delete();
             dataGridPromo.ClearSelection();
-            btnEditPromo.Enabled = false;
             btnAddPromo.Enabled = true;
+            btnEditPromo.Enabled = false;
             btnDeletePromo.Enabled = false;
+            btnViewDetails.Enabled = false;
         }
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
-            btnEditPromo.Enabled = false;
             btnAddPromo.Enabled = true;
+            btnEditPromo.Enabled = false;  
             btnDeletePromo.Enabled = false;
+            btnViewDetails.Enabled = false;
             dataGridPromo.ClearSelection();
         }
 
@@ -125,6 +127,7 @@ namespace TeteHardware
             dataLoad();
             btnEditPromo.Enabled = false;
             btnDeletePromo.Enabled = false;
+            btnViewDetails.Enabled = false;
             dataGridPromo.ClearSelection();
         }
 
@@ -133,15 +136,16 @@ namespace TeteHardware
             btnAddPromo.Enabled = false;
             btnEditPromo.Enabled = true;
             btnDeletePromo.Enabled = true;
+            btnViewDetails.Enabled = true;
 
             promoName = dataGridPromo.Rows[e.RowIndex].Cells["promoName"].Value.ToString();
-            promoType = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString());
+            promoType = dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString();
             promoValue = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoValue"].Value.ToString());
-            promoStatus = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoStatus"].Value.ToString());
+            promoStatus = dataGridPromo.Rows[e.RowIndex].Cells["promoStatus"].Value.ToString();
             promoID = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoID"].Value.ToString());
         }
 
-        private void dataLoad() //loads the data from the database
+        public void dataLoad() //loads the data from the database
         {
             try
             {
@@ -153,10 +157,10 @@ namespace TeteHardware
 
                 dataGridPromo.DataSource = dt; //sets datasource to datatable
                 dataGridPromo.Columns["promoID"].Visible = false; //gets the promoID and sets it's visibility to false
-                dataGridPromo.Columns["promoName"].HeaderText = "Promo Name"; //gets the promoName and sets it as a header
-                dataGridPromo.Columns["promoType"].HeaderText = "Promo Type"; //gets the promoPercent and sets it as a header
-                dataGridPromo.Columns["promoValue"].HeaderText = "Promo Value"; //gets the promoValue and sets it as a header
-                dataGridPromo.Columns["promoStatus"].HeaderText = "Promo Status"; //gets the promoStatus and sets it as a header
+                dataGridPromo.Columns["promoName"].HeaderText = "Name"; //gets the promoName and sets it as a header
+                dataGridPromo.Columns["promoType"].HeaderText = "Type"; //gets the promoPercent and sets it as a header
+                dataGridPromo.Columns["promoValue"].HeaderText = "Value"; //gets the promoValue and sets it as a header
+                dataGridPromo.Columns["promoStatus"].HeaderText = "Status"; //gets the promoStatus and sets it as a header
                 conn.Close(); //closes the connection
             }
             catch (Exception x)

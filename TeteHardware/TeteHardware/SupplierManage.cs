@@ -102,7 +102,7 @@ namespace TeteHardware
                 conn.Close();
             }
         }
-        private void dataLoad() //loads the data from the database
+        public void dataLoad() //loads the data from the database
         {
             try
             {
@@ -114,9 +114,9 @@ namespace TeteHardware
 
                 dataGridSupplier.DataSource = dt; //sets datasource to datatable
                 dataGridSupplier.Columns["supplierID"].Visible = false; //gets the supplierID and sets it's visibility to false
-                dataGridSupplier.Columns["supplierName"].HeaderText = "Supplier Name"; //gets the supplierName and sets it as a header
-                dataGridSupplier.Columns["supplierDesc"].HeaderText = "Supplier Desc."; //gets the supplierDesc and sets it as a header
-                dataGridSupplier.Columns["supplierContactInfo"].HeaderText = "Supplier Contact Info"; //gets the supplierDesc and sets it as a header
+                dataGridSupplier.Columns["supplierName"].HeaderText = "Name"; //gets the supplierName and sets it as a header
+                dataGridSupplier.Columns["supplierDesc"].HeaderText = "Description"; //gets the supplierDesc and sets it as a header
+                dataGridSupplier.Columns["supplierContactInfo"].HeaderText = "Contact Info"; //gets the supplierDesc and sets it as a header
                 conn.Close(); //closes the connection
             }
             catch (Exception x)
@@ -150,6 +150,7 @@ namespace TeteHardware
             dataLoad();
             btnEditSupplier.Enabled = false;
             btnDeleteSupplier.Enabled = false;
+            btnViewDetails.Enabled = false;
             dataGridSupplier.ClearSelection();
         }
 
@@ -157,16 +158,18 @@ namespace TeteHardware
         {
             Delete();
             dataGridSupplier.ClearSelection();
-            btnEditSupplier.Enabled = false;
             btnAddSupplier.Enabled = true;
+            btnEditSupplier.Enabled = false;
             btnDeleteSupplier.Enabled = false;
+            btnViewDetails.Enabled = false;
         }
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
-            btnEditSupplier.Enabled = false;
             btnAddSupplier.Enabled = true;
+            btnEditSupplier.Enabled = false;
             btnDeleteSupplier.Enabled = false;
+            btnViewDetails.Enabled = false;
             dataGridSupplier.ClearSelection();
         }
 
@@ -175,6 +178,7 @@ namespace TeteHardware
             btnAddSupplier.Enabled = false;
             btnEditSupplier.Enabled = true;
             btnDeleteSupplier.Enabled = true;
+            btnViewDetails.Enabled = true;
 
             supplierName = dataGridSupplier.Rows[e.RowIndex].Cells["supplierName"].Value.ToString();
             supplierDesc = dataGridSupplier.Rows[e.RowIndex].Cells["supplierDesc"].Value.ToString();

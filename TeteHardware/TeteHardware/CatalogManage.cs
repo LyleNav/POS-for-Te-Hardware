@@ -102,7 +102,7 @@ namespace TeteHardware
             }
         }
 
-        private void dataLoad() //loads the data from the database
+        public void dataLoad() //loads the data from the database
         {
             try
             {
@@ -114,8 +114,8 @@ namespace TeteHardware
 
                 dataGridCatalog.DataSource = dt; //sets datasource to datatable
                 dataGridCatalog.Columns["productCatalogID"].Visible = false; //gets the productCatalogID and sets it's visibility to false
-                dataGridCatalog.Columns["productCatalogName"].HeaderText = "Catalog Name"; //gets the productCatalogName and sets it as a header
-                dataGridCatalog.Columns["productCatalogDesc"].HeaderText = "Catalog Desc."; //gets the productCatalogDesc and sets it as a header
+                dataGridCatalog.Columns["productCatalogName"].HeaderText = "Name"; //gets the productCatalogName and sets it as a header
+                dataGridCatalog.Columns["productCatalogDesc"].HeaderText = "Description"; //gets the productCatalogDesc and sets it as a header
                 conn.Close(); //closes the connection
             }
             catch (Exception x)
@@ -130,6 +130,7 @@ namespace TeteHardware
             dataLoad();
             btnEditCatalog.Enabled = false;
             btnDeleteCatalog.Enabled = false;
+            btnViewDetails.Enabled = false;
             dataGridCatalog.ClearSelection();
         }
 
@@ -138,6 +139,7 @@ namespace TeteHardware
             btnAddCatalog.Enabled = false;
             btnEditCatalog.Enabled = true;
             btnDeleteCatalog.Enabled = true;
+            btnViewDetails.Enabled = true;
 
             catalogName = dataGridCatalog.Rows[e.RowIndex].Cells["productCatalogName"].Value.ToString();
             catalogDesc = dataGridCatalog.Rows[e.RowIndex].Cells["productCatalogDesc"].Value.ToString();
@@ -146,9 +148,10 @@ namespace TeteHardware
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
-            btnEditCatalog.Enabled = false;
             btnAddCatalog.Enabled = true;
+            btnEditCatalog.Enabled = false;
             btnDeleteCatalog.Enabled = false;
+            btnViewDetails.Enabled = false;
             dataGridCatalog.ClearSelection();
         }
 
@@ -156,9 +159,10 @@ namespace TeteHardware
         {
             Delete();
             dataGridCatalog.ClearSelection();
-            btnEditCatalog.Enabled = false;
             btnAddCatalog.Enabled = true;
+            btnEditCatalog.Enabled = false;
             btnDeleteCatalog.Enabled = false;
+            btnViewDetails.Enabled = false;
         }
 
         public void getData() //gets the data from the database

@@ -55,9 +55,9 @@
             this.labelSname.ForeColor = System.Drawing.Color.White;
             this.labelSname.Location = new System.Drawing.Point(51, 145);
             this.labelSname.Name = "labelSname";
-            this.labelSname.Size = new System.Drawing.Size(118, 19);
+            this.labelSname.Size = new System.Drawing.Size(108, 19);
             this.labelSname.TabIndex = 150;
-            this.labelSname.Text = "Employee Name:";
+            this.labelSname.Text = "Supplier Name:";
             // 
             // labelSid
             // 

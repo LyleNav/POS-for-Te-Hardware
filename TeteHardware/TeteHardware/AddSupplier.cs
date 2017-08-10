@@ -92,6 +92,7 @@ namespace TeteHardware
                 query.ExecuteNonQuery();
                 conn.Close();
                 ReferenceToSupManage.getData();
+                ReferenceToSupManage.dataLoad();
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }

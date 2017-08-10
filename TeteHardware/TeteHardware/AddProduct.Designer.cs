@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelPstock = new System.Windows.Forms.Label();
             this.txtPstock = new System.Windows.Forms.TextBox();
             this.labelPdesc = new System.Windows.Forms.Label();
@@ -49,6 +50,13 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.labelAddProduct = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelSupplier = new System.Windows.Forms.Label();
+            this.comboPsupplier = new System.Windows.Forms.ComboBox();
+            this.labelPromo = new System.Windows.Forms.Label();
+            this.comboPpromo = new System.Windows.Forms.ComboBox();
+            this.labelUnit = new System.Windows.Forms.Label();
+            this.txtPunit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +65,7 @@
             this.labelPstock.AutoSize = true;
             this.labelPstock.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPstock.ForeColor = System.Drawing.Color.White;
-            this.labelPstock.Location = new System.Drawing.Point(53, 304);
+            this.labelPstock.Location = new System.Drawing.Point(53, 371);
             this.labelPstock.Name = "labelPstock";
             this.labelPstock.Size = new System.Drawing.Size(42, 19);
             this.labelPstock.TabIndex = 192;
@@ -66,10 +74,10 @@
             // txtPstock
             // 
             this.txtPstock.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPstock.Location = new System.Drawing.Point(198, 304);
+            this.txtPstock.Location = new System.Drawing.Point(198, 371);
             this.txtPstock.Name = "txtPstock";
             this.txtPstock.Size = new System.Drawing.Size(192, 25);
-            this.txtPstock.TabIndex = 180;
+            this.txtPstock.TabIndex = 8;
             // 
             // labelPdesc
             // 
@@ -89,14 +97,14 @@
             this.txtPdesc.Multiline = true;
             this.txtPdesc.Name = "txtPdesc";
             this.txtPdesc.Size = new System.Drawing.Size(192, 78);
-            this.txtPdesc.TabIndex = 178;
+            this.txtPdesc.TabIndex = 4;
             // 
             // labelPstatus
             // 
             this.labelPstatus.AutoSize = true;
             this.labelPstatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPstatus.ForeColor = System.Drawing.Color.White;
-            this.labelPstatus.Location = new System.Drawing.Point(53, 374);
+            this.labelPstatus.Location = new System.Drawing.Point(53, 474);
             this.labelPstatus.Name = "labelPstatus";
             this.labelPstatus.Size = new System.Drawing.Size(101, 19);
             this.labelPstatus.TabIndex = 190;
@@ -118,7 +126,7 @@
             this.labelPprice.AutoSize = true;
             this.labelPprice.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPprice.ForeColor = System.Drawing.Color.White;
-            this.labelPprice.Location = new System.Drawing.Point(53, 339);
+            this.labelPprice.Location = new System.Drawing.Point(53, 406);
             this.labelPprice.Name = "labelPprice";
             this.labelPprice.Size = new System.Drawing.Size(43, 19);
             this.labelPprice.TabIndex = 187;
@@ -133,7 +141,7 @@
             this.comboPcat.Location = new System.Drawing.Point(198, 269);
             this.comboPcat.Name = "comboPcat";
             this.comboPcat.Size = new System.Drawing.Size(192, 25);
-            this.comboPcat.TabIndex = 179;
+            this.comboPcat.TabIndex = 5;
             // 
             // labelPname
             // 
@@ -160,10 +168,10 @@
             // txtPprice
             // 
             this.txtPprice.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPprice.Location = new System.Drawing.Point(198, 339);
+            this.txtPprice.Location = new System.Drawing.Point(198, 406);
             this.txtPprice.Name = "txtPprice";
             this.txtPprice.Size = new System.Drawing.Size(192, 25);
-            this.txtPprice.TabIndex = 181;
+            this.txtPprice.TabIndex = 9;
             // 
             // txtPname
             // 
@@ -171,7 +179,7 @@
             this.txtPname.Location = new System.Drawing.Point(198, 145);
             this.txtPname.Name = "txtPname";
             this.txtPname.Size = new System.Drawing.Size(192, 25);
-            this.txtPname.TabIndex = 176;
+            this.txtPname.TabIndex = 3;
             // 
             // txtPid
             // 
@@ -180,14 +188,18 @@
             this.txtPid.Name = "txtPid";
             this.txtPid.ReadOnly = true;
             this.txtPid.Size = new System.Drawing.Size(192, 25);
-            this.txtPid.TabIndex = 177;
+            this.txtPid.TabIndex = 2;
             // 
             // comboPstatus
             // 
             this.comboPstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPstatus.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPstatus.FormattingEnabled = true;
-            this.comboPstatus.Location = new System.Drawing.Point(198, 374);
+            this.comboPstatus.Items.AddRange(new object[] {
+            "",
+            "Available",
+            "Unavailable"});
+            this.comboPstatus.Location = new System.Drawing.Point(198, 474);
             this.comboPstatus.Name = "comboPstatus";
             this.comboPstatus.Size = new System.Drawing.Size(192, 25);
             this.comboPstatus.TabIndex = 182;
@@ -201,12 +213,13 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(279, 428);
+            this.btnCancel.Location = new System.Drawing.Point(279, 528);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 195;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -217,12 +230,13 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(182, 428);
+            this.btnClear.Location = new System.Drawing.Point(182, 528);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 194;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
@@ -233,12 +247,13 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(85, 428);
+            this.btnAdd.Location = new System.Drawing.Point(85, 528);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 193;
+            this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel1
             // 
@@ -264,6 +279,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // labelAddProduct
             // 
@@ -289,17 +305,92 @@
             this.btnClose.Location = new System.Drawing.Point(421, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 197;
+            this.btnClose.TabIndex = 14;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelSupplier
+            // 
+            this.labelSupplier.AutoSize = true;
+            this.labelSupplier.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSupplier.ForeColor = System.Drawing.Color.White;
+            this.labelSupplier.Location = new System.Drawing.Point(53, 303);
+            this.labelSupplier.Name = "labelSupplier";
+            this.labelSupplier.Size = new System.Drawing.Size(65, 19);
+            this.labelSupplier.TabIndex = 199;
+            this.labelSupplier.Text = "Supplier:";
+            // 
+            // comboPsupplier
+            // 
+            this.comboPsupplier.AllowDrop = true;
+            this.comboPsupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPsupplier.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPsupplier.FormattingEnabled = true;
+            this.comboPsupplier.Location = new System.Drawing.Point(198, 303);
+            this.comboPsupplier.Name = "comboPsupplier";
+            this.comboPsupplier.Size = new System.Drawing.Size(192, 25);
+            this.comboPsupplier.TabIndex = 6;
+            // 
+            // labelPromo
+            // 
+            this.labelPromo.AutoSize = true;
+            this.labelPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPromo.ForeColor = System.Drawing.Color.White;
+            this.labelPromo.Location = new System.Drawing.Point(53, 337);
+            this.labelPromo.Name = "labelPromo";
+            this.labelPromo.Size = new System.Drawing.Size(53, 19);
+            this.labelPromo.TabIndex = 201;
+            this.labelPromo.Text = "Promo:";
+            // 
+            // comboPpromo
+            // 
+            this.comboPpromo.AllowDrop = true;
+            this.comboPpromo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPpromo.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPpromo.FormattingEnabled = true;
+            this.comboPpromo.Location = new System.Drawing.Point(198, 337);
+            this.comboPpromo.Name = "comboPpromo";
+            this.comboPpromo.Size = new System.Drawing.Size(192, 25);
+            this.comboPpromo.TabIndex = 7;
+            // 
+            // labelUnit
+            // 
+            this.labelUnit.AutoSize = true;
+            this.labelUnit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUnit.ForeColor = System.Drawing.Color.White;
+            this.labelUnit.Location = new System.Drawing.Point(53, 439);
+            this.labelUnit.Name = "labelUnit";
+            this.labelUnit.Size = new System.Drawing.Size(37, 19);
+            this.labelUnit.TabIndex = 203;
+            this.labelUnit.Text = "Unit:";
+            // 
+            // txtPunit
+            // 
+            this.txtPunit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPunit.Location = new System.Drawing.Point(198, 439);
+            this.txtPunit.Name = "txtPunit";
+            this.txtPunit.Size = new System.Drawing.Size(192, 25);
+            this.txtPunit.TabIndex = 10;
             // 
             // formAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(462, 495);
+            this.ClientSize = new System.Drawing.Size(462, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.labelUnit);
+            this.Controls.Add(this.txtPunit);
+            this.Controls.Add(this.labelPromo);
+            this.Controls.Add(this.comboPpromo);
+            this.Controls.Add(this.labelSupplier);
+            this.Controls.Add(this.comboPsupplier);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
@@ -323,6 +414,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formAddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formAddProduct_FormClosing);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formAddProduct_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formAddProduct_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formAddProduct_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -352,5 +447,12 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label labelAddProduct;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelSupplier;
+        private System.Windows.Forms.ComboBox comboPsupplier;
+        private System.Windows.Forms.Label labelPromo;
+        private System.Windows.Forms.ComboBox comboPpromo;
+        private System.Windows.Forms.Label labelUnit;
+        private System.Windows.Forms.TextBox txtPunit;
     }
 }

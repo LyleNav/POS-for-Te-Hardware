@@ -83,6 +83,12 @@
     <Compile Include="EditPromo.Designer.cs">
       <DependentUpon>EditPromo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductManage.Designer.cs">
+      <DependentUpon>ProductManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Promo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,12 +143,6 @@
     <Compile Include="AfterLogin.Designer.cs">
       <DependentUpon>AfterLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductManage.Designer.cs">
-      <DependentUpon>ProductManage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupplierManage.cs">
@@ -168,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditPromo.resx">
       <DependentUpon>EditPromo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductManage.resx">
+      <DependentUpon>ProductManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Promo.resx">
       <DependentUpon>Promo.cs</DependentUpon>
@@ -195,9 +198,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AfterLogin.resx">
       <DependentUpon>AfterLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductManage.resx">
-      <DependentUpon>ProductManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

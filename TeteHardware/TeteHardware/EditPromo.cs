@@ -15,8 +15,8 @@ namespace TeteHardware
     {
         public formPromoManage ReferenceToPromoManage { get; set; } //Reference formPromoManage to this form
         public MySqlConnection conn; //connection
-        public int promID, promType, promValue, promStatus;
-        public string promName;
+        public int promID, promValue;
+        public string promName, promType, promStatus;
         public formEditPromo()
         {
             InitializeComponent();

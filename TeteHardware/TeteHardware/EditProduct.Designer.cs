@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.txtPunit = new System.Windows.Forms.TextBox();
+            this.labelPromo = new System.Windows.Forms.Label();
+            this.comboPpromo = new System.Windows.Forms.ComboBox();
+            this.labelSupplier = new System.Windows.Forms.Label();
+            this.comboPsupplier = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.labelEditProduct = new System.Windows.Forms.Label();
+            this.labelUnit = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -52,6 +60,63 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // txtPunit
+            // 
+            this.txtPunit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPunit.Location = new System.Drawing.Point(198, 439);
+            this.txtPunit.Name = "txtPunit";
+            this.txtPunit.Size = new System.Drawing.Size(192, 25);
+            this.txtPunit.TabIndex = 10;
+            // 
+            // labelPromo
+            // 
+            this.labelPromo.AutoSize = true;
+            this.labelPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPromo.ForeColor = System.Drawing.Color.White;
+            this.labelPromo.Location = new System.Drawing.Point(53, 337);
+            this.labelPromo.Name = "labelPromo";
+            this.labelPromo.Size = new System.Drawing.Size(53, 19);
+            this.labelPromo.TabIndex = 226;
+            this.labelPromo.Text = "Promo:";
+            // 
+            // comboPpromo
+            // 
+            this.comboPpromo.AllowDrop = true;
+            this.comboPpromo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPpromo.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPpromo.FormattingEnabled = true;
+            this.comboPpromo.Location = new System.Drawing.Point(198, 337);
+            this.comboPpromo.Name = "comboPpromo";
+            this.comboPpromo.Size = new System.Drawing.Size(192, 25);
+            this.comboPpromo.TabIndex = 7;
+            // 
+            // labelSupplier
+            // 
+            this.labelSupplier.AutoSize = true;
+            this.labelSupplier.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSupplier.ForeColor = System.Drawing.Color.White;
+            this.labelSupplier.Location = new System.Drawing.Point(53, 303);
+            this.labelSupplier.Name = "labelSupplier";
+            this.labelSupplier.Size = new System.Drawing.Size(65, 19);
+            this.labelSupplier.TabIndex = 224;
+            this.labelSupplier.Text = "Supplier:";
+            // 
+            // comboPsupplier
+            // 
+            this.comboPsupplier.AllowDrop = true;
+            this.comboPsupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPsupplier.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPsupplier.FormattingEnabled = true;
+            this.comboPsupplier.Location = new System.Drawing.Point(198, 303);
+            this.comboPsupplier.Name = "comboPsupplier";
+            this.comboPsupplier.Size = new System.Drawing.Size(192, 25);
+            this.comboPsupplier.TabIndex = 6;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -65,9 +130,10 @@
             this.btnClose.Location = new System.Drawing.Point(421, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 216;
+            this.btnClose.TabIndex = 15;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnBack
             // 
@@ -83,16 +149,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.panel1.Controls.Add(this.btnBack);
-            this.panel1.Controls.Add(this.labelEditProduct);
-            this.panel1.Location = new System.Drawing.Point(0, 18);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(340, 58);
-            this.panel1.TabIndex = 215;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // labelEditProduct
             // 
@@ -105,6 +162,27 @@
             this.labelEditProduct.TabIndex = 101;
             this.labelEditProduct.Text = "Edit Product";
             // 
+            // labelUnit
+            // 
+            this.labelUnit.AutoSize = true;
+            this.labelUnit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUnit.ForeColor = System.Drawing.Color.White;
+            this.labelUnit.Location = new System.Drawing.Point(53, 439);
+            this.labelUnit.Name = "labelUnit";
+            this.labelUnit.Size = new System.Drawing.Size(37, 19);
+            this.labelUnit.TabIndex = 228;
+            this.labelUnit.Text = "Unit:";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Controls.Add(this.labelEditProduct);
+            this.panel1.Location = new System.Drawing.Point(0, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(340, 58);
+            this.panel1.TabIndex = 221;
+            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
@@ -114,12 +192,13 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(279, 428);
+            this.btnCancel.Location = new System.Drawing.Point(279, 528);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 214;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -130,12 +209,13 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(182, 428);
+            this.btnClear.Location = new System.Drawing.Point(182, 528);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 213;
+            this.btnClear.TabIndex = 13;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnEdit
             // 
@@ -146,31 +226,32 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(85, 428);
+            this.btnEdit.Location = new System.Drawing.Point(85, 528);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(91, 40);
-            this.btnEdit.TabIndex = 212;
+            this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // labelPstock
             // 
             this.labelPstock.AutoSize = true;
             this.labelPstock.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPstock.ForeColor = System.Drawing.Color.White;
-            this.labelPstock.Location = new System.Drawing.Point(53, 304);
+            this.labelPstock.Location = new System.Drawing.Point(53, 371);
             this.labelPstock.Name = "labelPstock";
             this.labelPstock.Size = new System.Drawing.Size(42, 19);
-            this.labelPstock.TabIndex = 211;
+            this.labelPstock.TabIndex = 217;
             this.labelPstock.Text = "Stock";
             // 
             // txtPstock
             // 
             this.txtPstock.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPstock.Location = new System.Drawing.Point(198, 304);
+            this.txtPstock.Location = new System.Drawing.Point(198, 371);
             this.txtPstock.Name = "txtPstock";
             this.txtPstock.Size = new System.Drawing.Size(192, 25);
-            this.txtPstock.TabIndex = 202;
+            this.txtPstock.TabIndex = 8;
             // 
             // labelPdesc
             // 
@@ -180,7 +261,7 @@
             this.labelPdesc.Location = new System.Drawing.Point(53, 180);
             this.labelPdesc.Name = "labelPdesc";
             this.labelPdesc.Size = new System.Drawing.Size(132, 19);
-            this.labelPdesc.TabIndex = 210;
+            this.labelPdesc.TabIndex = 216;
             this.labelPdesc.Text = "Product Description:";
             // 
             // txtPdesc
@@ -190,17 +271,17 @@
             this.txtPdesc.Multiline = true;
             this.txtPdesc.Name = "txtPdesc";
             this.txtPdesc.Size = new System.Drawing.Size(192, 78);
-            this.txtPdesc.TabIndex = 200;
+            this.txtPdesc.TabIndex = 4;
             // 
             // labelPstatus
             // 
             this.labelPstatus.AutoSize = true;
             this.labelPstatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPstatus.ForeColor = System.Drawing.Color.White;
-            this.labelPstatus.Location = new System.Drawing.Point(53, 374);
+            this.labelPstatus.Location = new System.Drawing.Point(53, 474);
             this.labelPstatus.Name = "labelPstatus";
             this.labelPstatus.Size = new System.Drawing.Size(101, 19);
-            this.labelPstatus.TabIndex = 209;
+            this.labelPstatus.TabIndex = 215;
             this.labelPstatus.Text = "Product Status:";
             // 
             // labelPcat
@@ -211,7 +292,7 @@
             this.labelPcat.Location = new System.Drawing.Point(53, 269);
             this.labelPcat.Name = "labelPcat";
             this.labelPcat.Size = new System.Drawing.Size(125, 19);
-            this.labelPcat.TabIndex = 205;
+            this.labelPcat.TabIndex = 211;
             this.labelPcat.Text = "Product Category:";
             // 
             // labelPprice
@@ -219,10 +300,10 @@
             this.labelPprice.AutoSize = true;
             this.labelPprice.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPprice.ForeColor = System.Drawing.Color.White;
-            this.labelPprice.Location = new System.Drawing.Point(53, 339);
+            this.labelPprice.Location = new System.Drawing.Point(53, 406);
             this.labelPprice.Name = "labelPprice";
             this.labelPprice.Size = new System.Drawing.Size(43, 19);
-            this.labelPprice.TabIndex = 206;
+            this.labelPprice.TabIndex = 212;
             this.labelPprice.Text = "Price:";
             // 
             // comboPcat
@@ -234,7 +315,7 @@
             this.comboPcat.Location = new System.Drawing.Point(198, 269);
             this.comboPcat.Name = "comboPcat";
             this.comboPcat.Size = new System.Drawing.Size(192, 25);
-            this.comboPcat.TabIndex = 201;
+            this.comboPcat.TabIndex = 5;
             // 
             // labelPname
             // 
@@ -244,7 +325,7 @@
             this.labelPname.Location = new System.Drawing.Point(53, 145);
             this.labelPname.Name = "labelPname";
             this.labelPname.Size = new System.Drawing.Size(103, 19);
-            this.labelPname.TabIndex = 207;
+            this.labelPname.TabIndex = 213;
             this.labelPname.Text = "Product Name:";
             // 
             // labelPid
@@ -255,16 +336,16 @@
             this.labelPid.Location = new System.Drawing.Point(53, 110);
             this.labelPid.Name = "labelPid";
             this.labelPid.Size = new System.Drawing.Size(78, 19);
-            this.labelPid.TabIndex = 208;
+            this.labelPid.TabIndex = 214;
             this.labelPid.Text = "Product ID:";
             // 
             // txtPprice
             // 
             this.txtPprice.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPprice.Location = new System.Drawing.Point(198, 339);
+            this.txtPprice.Location = new System.Drawing.Point(198, 406);
             this.txtPprice.Name = "txtPprice";
             this.txtPprice.Size = new System.Drawing.Size(192, 25);
-            this.txtPprice.TabIndex = 203;
+            this.txtPprice.TabIndex = 9;
             // 
             // txtPname
             // 
@@ -272,7 +353,7 @@
             this.txtPname.Location = new System.Drawing.Point(198, 145);
             this.txtPname.Name = "txtPname";
             this.txtPname.Size = new System.Drawing.Size(192, 25);
-            this.txtPname.TabIndex = 198;
+            this.txtPname.TabIndex = 3;
             // 
             // txtPid
             // 
@@ -281,26 +362,32 @@
             this.txtPid.Name = "txtPid";
             this.txtPid.ReadOnly = true;
             this.txtPid.Size = new System.Drawing.Size(192, 25);
-            this.txtPid.TabIndex = 199;
+            this.txtPid.TabIndex = 2;
             // 
             // comboPstatus
             // 
             this.comboPstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPstatus.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPstatus.FormattingEnabled = true;
-            this.comboPstatus.Location = new System.Drawing.Point(198, 374);
+            this.comboPstatus.Location = new System.Drawing.Point(198, 474);
             this.comboPstatus.Name = "comboPstatus";
             this.comboPstatus.Size = new System.Drawing.Size(192, 25);
-            this.comboPstatus.TabIndex = 204;
+            this.comboPstatus.TabIndex = 11;
             // 
             // formEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(462, 495);
+            this.ClientSize = new System.Drawing.Size(462, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.txtPunit);
+            this.Controls.Add(this.labelPromo);
+            this.Controls.Add(this.comboPpromo);
+            this.Controls.Add(this.labelSupplier);
+            this.Controls.Add(this.comboPsupplier);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.labelUnit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
@@ -323,6 +410,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formEditProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formEditProduct_FormClosing);
+            this.Load += new System.EventHandler(this.formEditProduct_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formEditProduct_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formEditProduct_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formEditProduct_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -332,10 +424,17 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox txtPunit;
+        private System.Windows.Forms.Label labelPromo;
+        private System.Windows.Forms.ComboBox comboPpromo;
+        private System.Windows.Forms.Label labelSupplier;
+        private System.Windows.Forms.ComboBox comboPsupplier;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelEditProduct;
+        private System.Windows.Forms.Label labelUnit;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEdit;

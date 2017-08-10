@@ -88,6 +88,8 @@ namespace TeteHardware
 
         private void Add()
         {
+            promoType = comboPtype.SelectedIndex - 1;
+            promoStatus = comboPtype.SelectedIndex - 1;
             try
             {
                 conn.Open();
@@ -95,6 +97,7 @@ namespace TeteHardware
                 query.ExecuteNonQuery();
                 conn.Close();
                 ReferenceToPromoManage.getData();
+                ReferenceToPromoManage.dataLoad();
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
@@ -103,23 +106,6 @@ namespace TeteHardware
                 MessageBox.Show("Error in Add() :" + x.ToString());
                 conn.Close();
             }
-        }
-
-        private void Checker()
-        {
-            if(comboPtype.Text == "Percent")
-                promoType = 0;
-            else if (comboPtype.Text == "Value")
-                promoType = 1;
-            else
-                promoType = int.Parse(null);
-            if (comboPstatus.Text == "On-going")
-                promoStatus = 0;
-            if (comboPstatus.Text == "Paused")
-                promoStatus = 1;
-            else
-                promoStatus = int.Parse(null);
-
         }
     }
 }

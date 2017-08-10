@@ -55,6 +55,10 @@
             this.comboPtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPtype.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPtype.FormattingEnabled = true;
+            this.comboPtype.Items.AddRange(new object[] {
+            "",
+            "Percent",
+            "Value"});
             this.comboPtype.Location = new System.Drawing.Point(197, 172);
             this.comboPtype.Name = "comboPtype";
             this.comboPtype.Size = new System.Drawing.Size(134, 25);
@@ -206,6 +210,10 @@
             this.comboPstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPstatus.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPstatus.FormattingEnabled = true;
+            this.comboPstatus.Items.AddRange(new object[] {
+            "",
+            "On-going",
+            "Paused"});
             this.comboPstatus.Location = new System.Drawing.Point(197, 241);
             this.comboPstatus.Name = "comboPstatus";
             this.comboPstatus.Size = new System.Drawing.Size(134, 25);

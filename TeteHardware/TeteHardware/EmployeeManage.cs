@@ -126,7 +126,7 @@ namespace TeteHardware
         {
             this.Close(); //closes current form, shows previous form
         }
-        private void dataLoad() //loads the data from the database
+        public void dataLoad() //loads the data from the database
         {
             try
             {

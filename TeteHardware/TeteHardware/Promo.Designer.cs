@@ -43,6 +43,7 @@
             this.btnEditPromo = new System.Windows.Forms.Button();
             this.btnAddPromo = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnViewDetails = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPromo)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +129,7 @@
             this.dataGridPromo.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridPromo.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dataGridPromo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPromo.Size = new System.Drawing.Size(392, 248);
+            this.dataGridPromo.Size = new System.Drawing.Size(402, 312);
             this.dataGridPromo.TabIndex = 119;
             this.dataGridPromo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPromo_CellClick);
             // 
@@ -142,7 +143,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(605, 12);
+            this.btnClose.Location = new System.Drawing.Point(619, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 6;
@@ -159,7 +160,7 @@
             this.btnDeletePromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletePromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletePromo.ForeColor = System.Drawing.Color.White;
-            this.btnDeletePromo.Location = new System.Drawing.Point(453, 251);
+            this.btnDeletePromo.Location = new System.Drawing.Point(465, 251);
             this.btnDeletePromo.Name = "btnDeletePromo";
             this.btnDeletePromo.Size = new System.Drawing.Size(160, 53);
             this.btnDeletePromo.TabIndex = 4;
@@ -176,7 +177,7 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(453, 316);
+            this.btnClearSelection.Location = new System.Drawing.Point(465, 316);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
             this.btnClearSelection.TabIndex = 5;
@@ -193,7 +194,7 @@
             this.btnEditPromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditPromo.ForeColor = System.Drawing.Color.White;
-            this.btnEditPromo.Location = new System.Drawing.Point(453, 186);
+            this.btnEditPromo.Location = new System.Drawing.Point(465, 186);
             this.btnEditPromo.Name = "btnEditPromo";
             this.btnEditPromo.Size = new System.Drawing.Size(160, 53);
             this.btnEditPromo.TabIndex = 3;
@@ -210,7 +211,7 @@
             this.btnAddPromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPromo.ForeColor = System.Drawing.Color.White;
-            this.btnAddPromo.Location = new System.Drawing.Point(453, 121);
+            this.btnAddPromo.Location = new System.Drawing.Point(465, 121);
             this.btnAddPromo.Name = "btnAddPromo";
             this.btnAddPromo.Size = new System.Drawing.Size(160, 53);
             this.btnAddPromo.TabIndex = 2;
@@ -223,13 +224,30 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnViewDetails
+            // 
+            this.btnViewDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnViewDetails.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnViewDetails.FlatAppearance.BorderSize = 0;
+            this.btnViewDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewDetails.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDetails.ForeColor = System.Drawing.Color.White;
+            this.btnViewDetails.Location = new System.Drawing.Point(465, 380);
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.Size = new System.Drawing.Size(160, 53);
+            this.btnViewDetails.TabIndex = 120;
+            this.btnViewDetails.Text = "View Details";
+            this.btnViewDetails.UseVisualStyleBackColor = false;
+            // 
             // formPromoManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(646, 400);
+            this.ClientSize = new System.Drawing.Size(660, 459);
             this.ControlBox = false;
+            this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.btnDeletePromo);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditPromo);
@@ -265,5 +283,6 @@
         private System.Windows.Forms.Button btnEditPromo;
         private System.Windows.Forms.Button btnAddPromo;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnViewDetails;
     }
 }
