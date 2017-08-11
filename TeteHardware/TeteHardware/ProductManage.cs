@@ -115,14 +115,29 @@ namespace TeteHardware
 
         private void dataGridProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnAddProduct.Enabled = false;
+            btnEditProduct.Enabled = true;
+            btnDeleteProduct.Enabled = true;
+            btnViewDetails.Enabled = true;
 
+            productID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productID"].Value.ToString());
+            categoryID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["pCatalogID"].Value.ToString());
+            supplierID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["pSupplierID"].Value.ToString());
+            promoID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["pPromoID"].Value.ToString());
+            prodName = dataGridProduct.Rows[e.RowIndex].Cells["productName"].Value.ToString();
+            prodDesc = dataGridProduct.Rows[e.RowIndex].Cells["productDesc"].Value.ToString();
+            prodUnit = dataGridProduct.Rows[e.RowIndex].Cells["productUnit"].Value.ToString();
+            prodPrice = float.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productPrice"].Value.ToString());
+            productStock = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productStock"].Value.ToString());
+            productStatus = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productUnit"].Value.ToString());
+            
         }
         public void dataLoad() //loads the data from the database
         {
-           /* try
+           try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand query = new MySqlCommand("SELECT promoID, promoName, (CASE WHEN promoType = 0 THEN 'Percent' ELSE 'Value' END) AS promoType, promoValue, (CASE WHEN promoStatus = 0 THEN 'On-going' ELSE 'Paused' END) AS promoStatus FROM tbl_promo", conn); //query to select all entries in tbl_promo
+                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_product", conn); //query to select all entries in tbl_promo
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter
                 adp.Fill(dt); //adapter fills the data with data table
@@ -145,7 +160,7 @@ namespace TeteHardware
             {
                 MessageBox.Show("Error in dataLoad(): " + x).ToString(); //shows an error if there is one
                 conn.Close(); // closes the connection
-            } */
+            }
         }
 
         public void getData() //gets the data from the database

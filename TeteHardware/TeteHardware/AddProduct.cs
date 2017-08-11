@@ -15,7 +15,7 @@ namespace TeteHardware
     {
         public formProductManage ReferenceToProdManage { get; set; } //Reference formCatalogManage to this form
         public MySqlConnection conn; //connection
-        private int prodStatus;
+        private int prodStatus, prodSupplier, prodPromo, prodCatalog;
         public formAddProduct()
         {
             InitializeComponent();
@@ -97,7 +97,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_product(productName, productDesc) VALUES('" + txtPname.Text + "','" + txtPdesc.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_product(pSupplierID, pPromoID, pCatalogID, productName, productDesc, productStock, productPrice, productUnit, productStatus) VALUES('" + txtPname.Text + "','" + txtPdesc.Text + "')", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 ReferenceToProdManage.getData();
