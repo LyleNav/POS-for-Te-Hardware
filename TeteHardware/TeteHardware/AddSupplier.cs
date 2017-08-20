@@ -15,6 +15,7 @@ namespace TeteHardware
     {
         public formSupplierManage ReferenceToSupManage { get; set; } //Reference formSupplierManage to this form
         public MySqlConnection conn; //connection
+        Test func = new Test();
         public formAddSupplier()
         {
             InitializeComponent();
@@ -35,9 +36,11 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtSid.Text = "";
             txtSname.Text = "";
-            txtSdesc.Text = "";
+            txtSaddress.Text = "";
+            txtScontact.Text = "";
+            txtScontactNum.Text = "";
+            txtSothers.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -79,8 +82,15 @@ namespace TeteHardware
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Add();
-            this.Close();
+            if (txtSname.Text == "" || txtSaddress.Text == "" || txtScontact.Text == "" || txtScontactNum.Text == "" || txtSothers.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                Add();
+                this.Close();
+            }
         }
 
         private void Add()
@@ -88,12 +98,15 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_supplier(supplierName, supplierDesc, supplierContactInfo) VALUES('" + txtSname.Text + "','" + txtSdesc.Text + "','" + txtScontact.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_supplier(supName, supAddress, supContact, supContactNum, supOthers) VALUES('" + txtSname.Text + "','" + txtSaddress.Text + "','" + txtScontact.Text + "','" + txtScontactNum.Text + "','" + txtSothers.Text + "')", conn);
                 query.ExecuteNonQuery();
+                MySqlCommand query1 = new MySqlCommand("Update tbl_supplier SET supID = autoID WHERE supName = '" + txtSname.Text + "'", conn);
+                query1.ExecuteNonQuery();
+                func.ChangeLog("tbl_supplier", "All", "None");
                 conn.Close();
                 ReferenceToSupManage.getData();
                 ReferenceToSupManage.dataLoad();
-
+                
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)

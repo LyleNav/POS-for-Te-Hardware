@@ -41,10 +41,14 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelSaddress = new System.Windows.Forms.Label();
+            this.txtSaddress = new System.Windows.Forms.TextBox();
             this.labelScontact = new System.Windows.Forms.Label();
             this.txtScontact = new System.Windows.Forms.TextBox();
-            this.labelSdesc = new System.Windows.Forms.Label();
-            this.txtSdesc = new System.Windows.Forms.TextBox();
+            this.labelScontactNum = new System.Windows.Forms.Label();
+            this.txtScontactNum = new System.Windows.Forms.TextBox();
+            this.labelSothers = new System.Windows.Forms.Label();
+            this.txtSothers = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +113,7 @@
             // 
             // txtSid
             // 
+            this.txtSid.Enabled = false;
             this.txtSid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSid.Location = new System.Drawing.Point(196, 105);
             this.txtSid.Name = "txtSid";
@@ -137,7 +142,7 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 11;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -151,10 +156,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(264, 260);
+            this.btnCancel.Location = new System.Drawing.Point(267, 329);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -168,10 +173,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(167, 260);
+            this.btnClear.Location = new System.Drawing.Point(170, 329);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 7;
+            this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -185,10 +190,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(70, 260);
+            this.btnAdd.Location = new System.Drawing.Point(73, 329);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -198,56 +203,98 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // labelSaddress
+            // 
+            this.labelSaddress.AutoSize = true;
+            this.labelSaddress.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaddress.ForeColor = System.Drawing.Color.White;
+            this.labelSaddress.Location = new System.Drawing.Point(51, 177);
+            this.labelSaddress.Name = "labelSaddress";
+            this.labelSaddress.Size = new System.Drawing.Size(120, 19);
+            this.labelSaddress.TabIndex = 171;
+            this.labelSaddress.Text = "Supplier Address:";
+            // 
+            // txtSaddress
+            // 
+            this.txtSaddress.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaddress.Location = new System.Drawing.Point(196, 173);
+            this.txtSaddress.Name = "txtSaddress";
+            this.txtSaddress.Size = new System.Drawing.Size(158, 25);
+            this.txtSaddress.TabIndex = 4;
+            // 
             // labelScontact
             // 
             this.labelScontact.AutoSize = true;
             this.labelScontact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScontact.ForeColor = System.Drawing.Color.White;
-            this.labelScontact.Location = new System.Drawing.Point(51, 177);
+            this.labelScontact.Location = new System.Drawing.Point(51, 210);
             this.labelScontact.Name = "labelScontact";
             this.labelScontact.Size = new System.Drawing.Size(117, 19);
-            this.labelScontact.TabIndex = 171;
+            this.labelScontact.TabIndex = 170;
             this.labelScontact.Text = "Supplier Contact:";
             // 
             // txtScontact
             // 
             this.txtScontact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScontact.Location = new System.Drawing.Point(196, 173);
+            this.txtScontact.Location = new System.Drawing.Point(196, 206);
             this.txtScontact.Name = "txtScontact";
             this.txtScontact.Size = new System.Drawing.Size(158, 25);
-            this.txtScontact.TabIndex = 4;
+            this.txtScontact.TabIndex = 5;
             // 
-            // labelSdesc
+            // labelScontactNum
             // 
-            this.labelSdesc.AutoSize = true;
-            this.labelSdesc.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSdesc.ForeColor = System.Drawing.Color.White;
-            this.labelSdesc.Location = new System.Drawing.Point(51, 210);
-            this.labelSdesc.Name = "labelSdesc";
-            this.labelSdesc.Size = new System.Drawing.Size(137, 19);
-            this.labelSdesc.TabIndex = 170;
-            this.labelSdesc.Text = "Supplier Description:";
+            this.labelScontactNum.AutoSize = true;
+            this.labelScontactNum.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScontactNum.ForeColor = System.Drawing.Color.White;
+            this.labelScontactNum.Location = new System.Drawing.Point(51, 243);
+            this.labelScontactNum.Name = "labelScontactNum";
+            this.labelScontactNum.Size = new System.Drawing.Size(132, 19);
+            this.labelScontactNum.TabIndex = 173;
+            this.labelScontactNum.Text = "Supplier Contact #:";
             // 
-            // txtSdesc
+            // txtScontactNum
             // 
-            this.txtSdesc.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSdesc.Location = new System.Drawing.Point(196, 206);
-            this.txtSdesc.Multiline = true;
-            this.txtSdesc.Name = "txtSdesc";
-            this.txtSdesc.Size = new System.Drawing.Size(158, 39);
-            this.txtSdesc.TabIndex = 5;
+            this.txtScontactNum.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtScontactNum.Location = new System.Drawing.Point(196, 239);
+            this.txtScontactNum.Name = "txtScontactNum";
+            this.txtScontactNum.Size = new System.Drawing.Size(158, 25);
+            this.txtScontactNum.TabIndex = 6;
+            // 
+            // labelSothers
+            // 
+            this.labelSothers.AutoSize = true;
+            this.labelSothers.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSothers.ForeColor = System.Drawing.Color.White;
+            this.labelSothers.Location = new System.Drawing.Point(51, 276);
+            this.labelSothers.Name = "labelSothers";
+            this.labelSothers.Size = new System.Drawing.Size(54, 19);
+            this.labelSothers.TabIndex = 175;
+            this.labelSothers.Text = "Others:";
+            // 
+            // txtSothers
+            // 
+            this.txtSothers.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSothers.Location = new System.Drawing.Point(196, 273);
+            this.txtSothers.Multiline = true;
+            this.txtSothers.Name = "txtSothers";
+            this.txtSothers.Size = new System.Drawing.Size(158, 42);
+            this.txtSothers.TabIndex = 7;
             // 
             // formAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 317);
+            this.ClientSize = new System.Drawing.Size(408, 392);
             this.ControlBox = false;
+            this.Controls.Add(this.labelSothers);
+            this.Controls.Add(this.txtSothers);
+            this.Controls.Add(this.labelScontactNum);
+            this.Controls.Add(this.txtScontactNum);
+            this.Controls.Add(this.labelSaddress);
+            this.Controls.Add(this.txtSaddress);
             this.Controls.Add(this.labelScontact);
             this.Controls.Add(this.txtScontact);
-            this.Controls.Add(this.labelSdesc);
-            this.Controls.Add(this.txtSdesc);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
@@ -285,9 +332,13 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelSaddress;
+        private System.Windows.Forms.TextBox txtSaddress;
         private System.Windows.Forms.Label labelScontact;
         private System.Windows.Forms.TextBox txtScontact;
-        private System.Windows.Forms.Label labelSdesc;
-        private System.Windows.Forms.TextBox txtSdesc;
+        private System.Windows.Forms.Label labelScontactNum;
+        private System.Windows.Forms.TextBox txtScontactNum;
+        private System.Windows.Forms.Label labelSothers;
+        private System.Windows.Forms.TextBox txtSothers;
     }
 }

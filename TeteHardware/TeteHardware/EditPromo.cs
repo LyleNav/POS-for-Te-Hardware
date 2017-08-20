@@ -15,8 +15,11 @@ namespace TeteHardware
     {
         public formPromoManage ReferenceToPromoManage { get; set; } //Reference formPromoManage to this form
         public MySqlConnection conn; //connection
-        public int promID, promValue;
-        public string promName, promType, promStatus;
+        public int promID, promValue, promPercent, promStatus;
+        public string promName, promType;
+        public int oldpValue, oldpPercent, oldStatus, newpValue, newpPercent, newStatus;
+        public string oldName, oldType, newName, newType, myField, oldValues;
+        Test func = new Test();
         public formEditPromo()
         {
             InitializeComponent();
@@ -37,11 +40,11 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtPid.Text = "";
             txtPname.Text = "";
             txtPvalue.Text = "";
             comboPtype.Text = "";
             comboPstatus.Text = "";
+            txtPpercent.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -76,8 +79,14 @@ namespace TeteHardware
             txtPid.Text = promID.ToString();
             txtPname.Text = promName;
             txtPvalue.Text = promValue.ToString();
-            comboPtype.Text = promType.ToString();
+            txtPpercent.Text = promPercent.ToString();
+            comboPtype.Text = promType;
             comboPstatus.Text = promStatus.ToString();
+            oldName = promName;
+            oldpValue = promValue;
+            oldpPercent = promPercent;
+            oldType = promType;
+            oldStatus = promStatus;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -105,9 +114,79 @@ namespace TeteHardware
                 query.ExecuteNonQuery();
                 MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + comboPtype.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + comboPstatus.Text + "' WHERE promoID = '" + promID + "'", conn);
                 query1.ExecuteNonQuery();
+                MySqlCommand query2 = new MySqlCommand("SELECT promoName, promoType, promoPercent, promoValue, promoStatus FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
+                MySqlDataReader reader = query2.ExecuteReader();
+                myField = "";
+                oldValues = "";
+                while (reader.Read())
+                {
+                    newName = Convert.ToString(reader[0]);
+                    newType = Convert.ToString(reader[0]);
+                    newpPercent = int.Parse(Convert.ToString(reader[0]));
+                    newpValue = int.Parse(Convert.ToString(reader[0]));
+                    newStatus = int.Parse(Convert.ToString(reader[0]));
+                }
                 conn.Close();
+                if (oldName != newName)
+                {
+                    myField = myField + "promoName";
+                    oldValues = oldValues + oldName;
+                }
+                if (oldType != newType)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "promoType";
+                        oldValues = oldValues + oldType;
+                    }
+                    else
+                    {
+                        myField = myField + ", promoType";
+                        oldValues = oldValues + ", " + oldType;
+                    }
+                }
+                if (oldpPercent != newpPercent)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "promoPercent";
+                        oldValues = oldValues + oldpPercent;
+                    }
+                    else
+                    {
+                        myField = myField + ", promoPercent";
+                        oldValues = oldValues + ", " + oldpPercent;
+                    }
+                }
+                if (oldpValue != newpValue)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "promoValue";
+                        oldValues = oldValues + oldpValue;
+                    }
+                    else
+                    {
+                        myField = myField + ", promoValue";
+                        oldValues = oldValues + ", " + oldpValue;
+                    }
+                }
+                if (oldStatus != newStatus)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "promoStatus";
+                        oldValues = oldValues + oldStatus;
+                    }
+                    else
+                    {
+                        myField = myField + ", promoPercent";
+                        oldValues = oldValues + ", " + oldStatus;
+                    }
+                }
+                func.ChangeLog("tbl_promo", myField, oldValues);
                 ReferenceToPromoManage.getData();
-
+                ReferenceToPromoManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)

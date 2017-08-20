@@ -51,18 +51,12 @@ namespace TeteHardware
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-            dataGridProduct.ClearSelection();
-            btnAddProduct.Enabled = true;
-            btnEditProduct.Enabled = false;
-            btnDeleteProduct.Enabled = false;
-            btnViewDetails.Enabled = false;
         }
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
             btnAddProduct.Enabled = true;
             btnEditProduct.Enabled = false;
-            btnDeleteProduct.Enabled = false;
             btnViewDetails.Enabled = false;
             dataGridProduct.ClearSelection();
         }
@@ -108,7 +102,6 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditProduct.Enabled = false;
-            btnDeleteProduct.Enabled = false;
             btnViewDetails.Enabled = false;
             dataGridProduct.ClearSelection();
         }
@@ -117,7 +110,6 @@ namespace TeteHardware
         {
             btnAddProduct.Enabled = false;
             btnEditProduct.Enabled = true;
-            btnDeleteProduct.Enabled = true;
             btnViewDetails.Enabled = true;
 
             productID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productID"].Value.ToString());
@@ -179,27 +171,6 @@ namespace TeteHardware
             {
                 MessageBox.Show("Error in getData(): " + x.ToString()); //shows and error if there is one
                 conn.Close(); //closes the connection
-            }
-        }
-
-        private void Delete()
-        {
-            try
-            {
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_product WHERE productID = '" + productID + "'", conn);
-                query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("DELETE FROM tbl_product WHERE productID ='" + productID + "'", conn);
-                query1.ExecuteNonQuery();
-                conn.Close();
-                getData();
-
-                MessageBox.Show("Deleted Successfully!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Error in Delete: " + x.ToString());
-                conn.Close();
             }
         }
     }

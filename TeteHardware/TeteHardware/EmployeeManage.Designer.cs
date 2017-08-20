@@ -37,7 +37,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridEmployee = new System.Windows.Forms.DataGridView();
-            this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.btnClearSelection = new System.Windows.Forms.Button();
             this.btnEditEmployee = new System.Windows.Forms.Button();
             this.btnAddEmployee = new System.Windows.Forms.Button();
@@ -133,23 +132,6 @@
             this.dataGridEmployee.TabIndex = 178;
             this.dataGridEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployee_CellClick);
             // 
-            // btnDeleteEmployee
-            // 
-            this.btnDeleteEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteEmployee.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteEmployee.FlatAppearance.BorderSize = 0;
-            this.btnDeleteEmployee.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteEmployee.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(434, 237);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(160, 53);
-            this.btnDeleteEmployee.TabIndex = 4;
-            this.btnDeleteEmployee.Text = "Delete Employee";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = false;
-            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
-            // 
             // btnClearSelection
             // 
             this.btnClearSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
@@ -159,7 +141,7 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(434, 302);
+            this.btnClearSelection.Location = new System.Drawing.Point(434, 236);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
             this.btnClearSelection.TabIndex = 5;
@@ -232,7 +214,6 @@
             this.ClientSize = new System.Drawing.Size(627, 391);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnDeleteEmployee);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditEmployee);
             this.Controls.Add(this.btnAddEmployee);
@@ -260,7 +241,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridEmployee;
-        private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnClearSelection;
         private System.Windows.Forms.Button btnEditEmployee;
         private System.Windows.Forms.Button btnAddEmployee;

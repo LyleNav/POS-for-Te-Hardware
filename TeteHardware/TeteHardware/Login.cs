@@ -61,18 +61,19 @@ namespace TeteHardware
             {
                 conn.Open(); //opens the connection to the database
 
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_employee WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn); //command to get the inputted username/password
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_employee WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //command to get the inputted username/password
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); //loads data to datatable
                 DataTable dt = new DataTable(); //datatable
                 adp.Fill(dt);
                 if(dt.Rows.Count == 1)
                 {
-                    loginID = dt.Rows[0]["employeeID"].ToString();
-                    MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET eRemarks = 'logged' WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn); //query to set remark to Logged
+                    loginID = dt.Rows[0]["empID"].ToString();
+                    TeteHardware.Properties.Settings.Default.loginID = loginID;
+                    MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET empRemarks = 'logged' WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //query to set remark to Logged
                     com.ExecuteNonQuery();
                     formAfterLogin formAL = new formAfterLogin(); //variaxble reference to formAfterLogin
                     formAL.ReferenceToLogin = this; //sets the reference to this form
-                    formAL.employeeName = dt.Rows[0]["eName"].ToString(); //gets the eName variable from the database and converts it to a string
+                    formAL.employeeName = dt.Rows[0]["empName"].ToString(); //gets the eName variable from the database and converts it to a string
                     formAL.Show(); //shows the referenced form
                     this.Hide(); //hides current form
                 }
@@ -98,7 +99,7 @@ namespace TeteHardware
             try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_employee WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn); //query with username/password parameters
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_employee WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //query with username/password parameters
                 conn.Close(); //closes the connection
             }
             catch(Exception x)

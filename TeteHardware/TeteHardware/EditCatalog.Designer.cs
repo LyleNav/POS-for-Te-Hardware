@@ -152,6 +152,7 @@
             // 
             // txtCid
             // 
+            this.txtCid.Enabled = false;
             this.txtCid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCid.Location = new System.Drawing.Point(196, 105);
             this.txtCid.Name = "txtCid";

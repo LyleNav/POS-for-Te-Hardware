@@ -15,8 +15,9 @@ namespace TeteHardware
     {
         public formEmployeeManage ReferenceToEmpManage { get; set; } //Reference formEmployeeManage to this form
         public MySqlConnection conn; //connection
-        public string empName, empUser, empPass;
-
+        Test func = new Test();
+        public string empName, empUser, empPass, oldName, oldPass, newName, newPass, myField, oldValues;
+        public int empLevel, oldLevel, newLevel;
         public int empID;
         public formEditEmployee()
         {
@@ -54,8 +55,15 @@ namespace TeteHardware
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Edit();
-            this.Close();
+            if (txtEname.Text == "" || txtEuser.Text == "" || txtEpass.Text == "" || comboElevel.Text == "" ) //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                Edit();
+                this.Close();
+            }
         }
 
         private void formEditEmployee_Load(object sender, EventArgs e)
@@ -64,6 +72,11 @@ namespace TeteHardware
             txtEname.Text = empName;
             txtEuser.Text = empUser;
             txtEpass.Text = empPass;
+            comboElevel.SelectedIndex = empLevel;
+            txtEuser.Enabled = false;
+            oldName = empName;
+            oldPass = empPass;
+            oldLevel = empLevel;
         }
 
         private void formEditEmployee_FormClosing(object sender, FormClosingEventArgs e)
@@ -73,10 +86,9 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtEid.Text = "";
             txtEname.Text = "";
-            txtEuser.Text = "";
             txtEpass.Text = "";
+            comboElevel.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -98,13 +110,55 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_employee WHERE employeeID = '" + empID + "'", conn);
+                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_employee WHERE empID = '" + empID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_employee SET eName = '" + txtEname.Text + "', username = '" + txtEuser.Text + "', password = '" + txtEpass.Text + "' WHERE employeeID = '" + empID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_employee SET empName = '" + txtEname.Text + "', empUser = '" + txtEuser.Text + "', empPass = '" + txtEpass.Text + "', empLevel = '" + comboElevel.SelectedIndex + "', empDateEdit = '" + DateTime.Now.ToString() + "' WHERE empID = '" + empID + "'", conn);
                 query1.ExecuteNonQuery();
+                MySqlCommand query2 = new MySqlCommand("SELECT empName, empPass, empLevel FROM tbl_employee WHERE empID = '" + empID + "'", conn);
+                MySqlDataReader reader = query2.ExecuteReader();
+                myField = "";
+                oldValues = "";
+                while (reader.Read())
+                {
+                    newName = Convert.ToString(reader[0]);
+                    newPass = Convert.ToString(reader[1]);
+                    newLevel = int.Parse(Convert.ToString(reader[2]));
+                }
                 conn.Close();
+                if(oldName != newName)
+                {
+                    myField = myField + "empName";
+                    oldValues = oldValues + oldName;
+                }
+                if(oldPass != newPass)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "empPass";
+                        oldValues = oldValues + oldPass;
+                    }
+                    else
+                    {
+                        myField = myField + ", empPass";
+                        oldValues = oldValues + ", " + oldPass;
+                    }
+                }
+                if(oldLevel != newLevel)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "empLevel";
+                        oldValues = oldValues + oldLevel;
+                    }
+                    else
+                    {
+                        myField = myField + ", empLevel";
+                        oldValues = oldValues + ", " + oldLevel;
+                    }
+                }
+                func.ChangeLog("tbl_employee", myField, oldValues);
                 ReferenceToEmpManage.getData();
-
+                ReferenceToEmpManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)

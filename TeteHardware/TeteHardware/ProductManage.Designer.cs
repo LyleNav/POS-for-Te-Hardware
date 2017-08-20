@@ -36,7 +36,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.labelProductManagement = new System.Windows.Forms.Label();
-            this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnClearSelection = new System.Windows.Forms.Button();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
@@ -85,23 +84,6 @@
             this.labelProductManagement.TabIndex = 100;
             this.labelProductManagement.Text = "Product Management";
             // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteProduct.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteProduct.FlatAppearance.BorderSize = 0;
-            this.btnDeleteProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnDeleteProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteProduct.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProduct.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteProduct.Location = new System.Drawing.Point(711, 250);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(160, 53);
-            this.btnDeleteProduct.TabIndex = 4;
-            this.btnDeleteProduct.Text = "Delete Product";
-            this.btnDeleteProduct.UseVisualStyleBackColor = false;
-            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
-            // 
             // btnClearSelection
             // 
             this.btnClearSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
@@ -111,7 +93,7 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(711, 315);
+            this.btnClearSelection.Location = new System.Drawing.Point(711, 249);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
             this.btnClearSelection.TabIndex = 5;
@@ -234,7 +216,7 @@
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetails.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewDetails.Location = new System.Drawing.Point(711, 380);
+            this.btnViewDetails.Location = new System.Drawing.Point(711, 314);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(160, 53);
             this.btnViewDetails.TabIndex = 6;
@@ -250,7 +232,6 @@
             this.ClientSize = new System.Drawing.Size(898, 488);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnAddProduct);
@@ -278,7 +259,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label labelProductManagement;
-        private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnClearSelection;
         private System.Windows.Forms.Button btnEditProduct;
         private System.Windows.Forms.Button btnAddProduct;

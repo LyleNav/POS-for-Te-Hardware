@@ -45,6 +45,8 @@
             this.txtEid = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelLevel = new System.Windows.Forms.Label();
+            this.comboElevel = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,10 +135,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(264, 260);
+            this.btnCancel.Location = new System.Drawing.Point(264, 281);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -150,10 +152,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(167, 260);
+            this.btnClear.Location = new System.Drawing.Point(167, 281);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 7;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -167,10 +169,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(70, 260);
+            this.btnAdd.Location = new System.Drawing.Point(70, 281);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -207,6 +209,7 @@
             // 
             // txtEid
             // 
+            this.txtEid.Enabled = false;
             this.txtEid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEid.Location = new System.Drawing.Point(196, 105);
             this.txtEid.Name = "txtEid";
@@ -227,7 +230,7 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -237,13 +240,41 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLevel.ForeColor = System.Drawing.Color.White;
+            this.labelLevel.Location = new System.Drawing.Point(51, 243);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(45, 19);
+            this.labelLevel.TabIndex = 184;
+            this.labelLevel.Text = "Level:";
+            // 
+            // comboElevel
+            // 
+            this.comboElevel.AllowDrop = true;
+            this.comboElevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboElevel.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboElevel.FormattingEnabled = true;
+            this.comboElevel.Items.AddRange(new object[] {
+            "",
+            "Admin",
+            "Cashier"});
+            this.comboElevel.Location = new System.Drawing.Point(196, 240);
+            this.comboElevel.Name = "comboElevel";
+            this.comboElevel.Size = new System.Drawing.Size(159, 25);
+            this.comboElevel.TabIndex = 6;
+            // 
             // formAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 317);
+            this.ClientSize = new System.Drawing.Size(408, 341);
             this.ControlBox = false;
+            this.Controls.Add(this.comboElevel);
+            this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.labelEuser);
             this.Controls.Add(this.txtEuser);
@@ -290,5 +321,7 @@
         private System.Windows.Forms.TextBox txtEid;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelLevel;
+        private System.Windows.Forms.ComboBox comboElevel;
     }
 }

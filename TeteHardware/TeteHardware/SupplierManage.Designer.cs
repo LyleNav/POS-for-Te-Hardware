@@ -42,7 +42,6 @@
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnClearSelection = new System.Windows.Forms.Button();
-            this.btnDeleteSupplier = new System.Windows.Forms.Button();
             this.btnViewDetails = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSupplier)).BeginInit();
@@ -199,30 +198,13 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(369, 315);
+            this.btnClearSelection.Location = new System.Drawing.Point(369, 248);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
             this.btnClearSelection.TabIndex = 122;
             this.btnClearSelection.Text = "Clear Selection";
             this.btnClearSelection.UseVisualStyleBackColor = false;
             this.btnClearSelection.Click += new System.EventHandler(this.btnClearSelection_Click);
-            // 
-            // btnDeleteSupplier
-            // 
-            this.btnDeleteSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteSupplier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteSupplier.FlatAppearance.BorderSize = 0;
-            this.btnDeleteSupplier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnDeleteSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteSupplier.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteSupplier.Location = new System.Drawing.Point(369, 250);
-            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
-            this.btnDeleteSupplier.Size = new System.Drawing.Size(160, 53);
-            this.btnDeleteSupplier.TabIndex = 123;
-            this.btnDeleteSupplier.Text = "Delete Supplier";
-            this.btnDeleteSupplier.UseVisualStyleBackColor = false;
-            this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
             // 
             // btnViewDetails
             // 
@@ -233,7 +215,7 @@
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetails.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewDetails.Location = new System.Drawing.Point(369, 379);
+            this.btnViewDetails.Location = new System.Drawing.Point(369, 312);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(160, 53);
             this.btnViewDetails.TabIndex = 124;
@@ -248,7 +230,6 @@
             this.ClientSize = new System.Drawing.Size(550, 456);
             this.ControlBox = false;
             this.Controls.Add(this.btnViewDetails);
-            this.Controls.Add(this.btnDeleteSupplier);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditSupplier);
             this.Controls.Add(this.btnAddSupplier);
@@ -282,7 +263,6 @@
         private System.Windows.Forms.Button btnAddSupplier;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnClearSelection;
-        private System.Windows.Forms.Button btnDeleteSupplier;
         private System.Windows.Forms.Button btnViewDetails;
     }
 }

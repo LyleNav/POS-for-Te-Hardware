@@ -15,8 +15,8 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int supplierID;
-        public string supplierName, supplierDesc, supplierContact;
+        public int supID;
+        public string supName, supAddress, supContact, supContactNum, supOthers;
         public formSupplierManage()
         {
             InitializeComponent();
@@ -68,6 +68,8 @@ namespace TeteHardware
             ReferenceToAfterLogin.Show(); //shows the previous form upon exiting the current form
         }
 
+        // boilerplate
+
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
             formAddSupplier formAS = new formAddSupplier(); //variable reference to formAddSupplier
@@ -88,10 +90,12 @@ namespace TeteHardware
 
                 formEditSupplier formES = new formEditSupplier(); //variable reference to formEditSupplier
                 formES.ReferenceToSupManage = this; //sets the reference form to this form
-                formES.supName = supplierName;
-                formES.supDesc = supplierDesc;
-                formES.supContact = supplierContact;
-                formES.supID = supplierID;
+                formES.supID = supID;
+                formES.supName = supName;
+                formES.supAddress = supAddress;
+                formES.supContact = supContact;
+                formES.supContactNum = supContactNum;
+                formES.supOthers = supOthers;
                 formES.Show(); //shows referenced form
                 this.Hide(); //hides current form
                 conn.Close();
@@ -113,10 +117,13 @@ namespace TeteHardware
                 adp.Fill(dt); //adapter fills the data with data table
 
                 dataGridSupplier.DataSource = dt; //sets datasource to datatable
-                dataGridSupplier.Columns["supplierID"].Visible = false; //gets the supplierID and sets it's visibility to false
-                dataGridSupplier.Columns["supplierName"].HeaderText = "Name"; //gets the supplierName and sets it as a header
-                dataGridSupplier.Columns["supplierDesc"].HeaderText = "Description"; //gets the supplierDesc and sets it as a header
-                dataGridSupplier.Columns["supplierContactInfo"].HeaderText = "Contact Info"; //gets the supplierDesc and sets it as a header
+                dataGridSupplier.Columns["autoID"].Visible = false;
+                dataGridSupplier.Columns["supID"].Visible = false; //gets the supplierID and sets it's visibility to false
+                dataGridSupplier.Columns["supName"].HeaderText = "Name"; //gets the supplierName and sets it as a header
+                dataGridSupplier.Columns["supAddress"].HeaderText = "Address"; //gets the supplierDesc and sets it as a header
+                dataGridSupplier.Columns["supContact"].HeaderText = "Contact Person"; //gets the supplierDesc and sets it as a header
+                dataGridSupplier.Columns["supContactNum"].HeaderText = "Contact Number";
+                dataGridSupplier.Columns["supOthers"].HeaderText = "Others";
                 conn.Close(); //closes the connection
             }
             catch (Exception x)
@@ -149,62 +156,38 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditSupplier.Enabled = false;
-            btnDeleteSupplier.Enabled = false;
             btnViewDetails.Enabled = false;
             dataGridSupplier.ClearSelection();
         }
 
         private void btnDeleteSupplier_Click(object sender, EventArgs e)
         {
-            Delete();
-            dataGridSupplier.ClearSelection();
-            btnAddSupplier.Enabled = true;
-            btnEditSupplier.Enabled = false;
-            btnDeleteSupplier.Enabled = false;
-            btnViewDetails.Enabled = false;
         }
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
             btnAddSupplier.Enabled = true;
             btnEditSupplier.Enabled = false;
-            btnDeleteSupplier.Enabled = false;
             btnViewDetails.Enabled = false;
             dataGridSupplier.ClearSelection();
         }
 
         private void dataGridSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnAddSupplier.Enabled = false;
-            btnEditSupplier.Enabled = true;
-            btnDeleteSupplier.Enabled = true;
-            btnViewDetails.Enabled = true;
-
-            supplierName = dataGridSupplier.Rows[e.RowIndex].Cells["supplierName"].Value.ToString();
-            supplierDesc = dataGridSupplier.Rows[e.RowIndex].Cells["supplierDesc"].Value.ToString();
-            supplierContact = dataGridSupplier.Rows[e.RowIndex].Cells["supplierContactInfo"].Value.ToString();
-            supplierID = int.Parse(dataGridSupplier.Rows[e.RowIndex].Cells["supplierID"].Value.ToString());
-        }
-
-        private void Delete()
-        {
             try
             {
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_supplier WHERE supplierID = '" + supplierID + "'", conn);
-                query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("DELETE FROM tbl_supplier WHERE supplierID ='" + supplierID + "'", conn);
-                query1.ExecuteNonQuery();
-                conn.Close();
-                getData();
+                btnAddSupplier.Enabled = false;
+                btnEditSupplier.Enabled = true;
+                btnViewDetails.Enabled = true;
 
-                MessageBox.Show("Deleted Successfully!", "", MessageBoxButtons.OK);
+                supID = int.Parse(dataGridSupplier.Rows[e.RowIndex].Cells["supID"].Value.ToString());
+                supName = dataGridSupplier.Rows[e.RowIndex].Cells["supName"].Value.ToString();
+                supAddress = dataGridSupplier.Rows[e.RowIndex].Cells["supAddress"].Value.ToString();
+                supContact = dataGridSupplier.Rows[e.RowIndex].Cells["supContact"].Value.ToString();
+                supContactNum = dataGridSupplier.Rows[e.RowIndex].Cells["supContactNum"].Value.ToString();
+                supOthers = dataGridSupplier.Rows[e.RowIndex].Cells["supOthers"].Value.ToString();
             }
-            catch (Exception x)
-            {
-                MessageBox.Show("Error in Delete: " + x.ToString());
-                conn.Close();
-            }
+            catch (ArgumentOutOfRangeException) { }
         }
     }
 }

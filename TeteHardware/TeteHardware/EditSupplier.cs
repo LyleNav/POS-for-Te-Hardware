@@ -15,8 +15,13 @@ namespace TeteHardware
     {
         public formSupplierManage ReferenceToSupManage { get; set; } //Reference formSupplierManage to this form
         public MySqlConnection conn; //connection
-        public string supName, supDesc, supContact;
+        public string supName, supAddress, supContact, supContactNum, supOthers;
+        public string oldName, oldAddress, oldContact, oldContactNum, oldOthers;
+        public string newName, newAddress, newContact, newContactNum, newOthers;
+        public string myField, oldValues;
         public int supID;
+        Test func = new Test();
+
         public formEditSupplier()
         {
             InitializeComponent();
@@ -37,9 +42,11 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtSid.Text = "";
             txtSname.Text = "";
-            txtSdesc.Text = "";
+            txtSaddress.Text = "";
+            txtScontact.Text = "";
+            txtScontactNum.Text = "";
+            txtSothers.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -83,27 +90,112 @@ namespace TeteHardware
         {
             txtSid.Text = supID.ToString();
             txtSname.Text = supName;
-            txtSdesc.Text = supDesc;
+            txtSaddress.Text = supAddress;
             txtScontact.Text = supContact;
+            txtScontactNum.Text = supContactNum;
+            txtSothers.Text = supOthers;
+
+            oldName = supName;
+            oldAddress = supAddress;
+            oldContact = supContact;
+            oldContactNum = supContactNum;
+            oldOthers = supOthers;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Edit();
-            this.Close();
+            if (txtSname.Text == "" || txtSaddress.Text == "" || txtScontact.Text == "" || txtScontactNum.Text == "" || txtSothers.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                Edit();
+                this.Close();
+            }
         }
         private void Edit()
         {
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_supplier WHERE supplierID = '" + supID + "'", conn);
+                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_supplier WHERE supID = '" + supID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_supplier SET supplierName = '" + txtSname.Text + "', supplierDesc = '" + txtSdesc.Text + "', supplierContactInfo = '" + txtScontact.Text + "' WHERE supplierID = '" + supID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_supplier SET supName = '" + txtSname.Text + "', supAddress = '" + txtSaddress.Text + "', supContact = '" + txtScontact.Text + "', supContactNum = '" + txtScontactNum.Text + "', supOthers = '" + txtSothers.Text + "' WHERE supID = '" + supID + "'", conn);
                 query1.ExecuteNonQuery();
+                MySqlCommand query2 = new MySqlCommand("SELECT supName, supAddress, supContact, supContactNum, supOthers FROM tbl_supplier WHERE supID = '" + supID + "'", conn);
+                MySqlDataReader reader = query2.ExecuteReader();
+                myField = "";
+                oldValues = "";
+                while (reader.Read())
+                {
+                    newName = Convert.ToString(reader[0]);
+                    newAddress = Convert.ToString(reader[1]);
+                    newContact = Convert.ToString(reader[2]);
+                    newContactNum = Convert.ToString(reader[3]);
+                    newOthers = Convert.ToString(reader[4]);
+                }
                 conn.Close();
+                if (oldName != newName)
+                {
+                    myField = myField + "supName";
+                    oldValues = oldValues + oldName;
+                }
+                if (oldAddress != newAddress)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "supAddress";
+                        oldValues = oldValues + oldAddress;
+                    }
+                    else
+                    {
+                        myField = myField + ", supAddress";
+                        oldValues = oldValues + ", " + oldAddress;
+                    }
+                }
+                if (oldContact != newContact)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "supContact";
+                        oldValues = oldValues + oldContact;
+                    }
+                    else
+                    {
+                        myField = myField + ", supContact";
+                        oldValues = oldValues + ", " + oldContact;
+                    }
+                }
+                if (oldContactNum != newContactNum)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "supContactNum";
+                        oldValues = oldValues + oldContactNum;
+                    }
+                    else
+                    {
+                        myField = myField + ", supContactNum";
+                        oldValues = oldValues + ", " + oldContactNum;
+                    }
+                }
+                if (oldOthers != newOthers)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "oldOthers";
+                        oldValues = oldValues + oldOthers;
+                    }
+                    else
+                    {
+                        myField = myField + ", oldOthers";
+                        oldValues = oldValues + ", " + oldOthers;
+                    }
+                }
+                func.ChangeLog("tbl_supplier", myField, oldValues);
                 ReferenceToSupManage.getData();
-
+                ReferenceToSupManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)

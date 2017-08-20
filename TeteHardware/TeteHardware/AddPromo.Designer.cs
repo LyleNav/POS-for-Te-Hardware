@@ -47,6 +47,8 @@
             this.labelPvalue = new System.Windows.Forms.Label();
             this.labelPtype = new System.Windows.Forms.Label();
             this.comboPtype = new System.Windows.Forms.ComboBox();
+            this.labelPpercent = new System.Windows.Forms.Label();
+            this.txtPpercent = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,17 +61,17 @@
             "",
             "On-going",
             "Paused"});
-            this.comboPstatus.Location = new System.Drawing.Point(197, 241);
+            this.comboPstatus.Location = new System.Drawing.Point(197, 277);
             this.comboPstatus.Name = "comboPstatus";
             this.comboPstatus.Size = new System.Drawing.Size(134, 25);
-            this.comboPstatus.TabIndex = 6;
+            this.comboPstatus.TabIndex = 7;
             // 
             // labelPstatus
             // 
             this.labelPstatus.AutoSize = true;
             this.labelPstatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPstatus.ForeColor = System.Drawing.Color.White;
-            this.labelPstatus.Location = new System.Drawing.Point(52, 247);
+            this.labelPstatus.Location = new System.Drawing.Point(51, 281);
             this.labelPstatus.Name = "labelPstatus";
             this.labelPstatus.Size = new System.Drawing.Size(94, 19);
             this.labelPstatus.TabIndex = 152;
@@ -80,7 +82,7 @@
             this.labelPname.AutoSize = true;
             this.labelPname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPname.ForeColor = System.Drawing.Color.White;
-            this.labelPname.Location = new System.Drawing.Point(52, 144);
+            this.labelPname.Location = new System.Drawing.Point(52, 143);
             this.labelPname.Name = "labelPname";
             this.labelPname.Size = new System.Drawing.Size(96, 19);
             this.labelPname.TabIndex = 149;
@@ -100,13 +102,14 @@
             // txtPname
             // 
             this.txtPname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPname.Location = new System.Drawing.Point(197, 139);
+            this.txtPname.Location = new System.Drawing.Point(197, 138);
             this.txtPname.Name = "txtPname";
             this.txtPname.Size = new System.Drawing.Size(134, 25);
             this.txtPname.TabIndex = 3;
             // 
             // txtPid
             // 
+            this.txtPid.Enabled = false;
             this.txtPid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPid.Location = new System.Drawing.Point(197, 104);
             this.txtPid.Name = "txtPid";
@@ -160,10 +163,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(249, 290);
+            this.btnCancel.Location = new System.Drawing.Point(249, 334);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -177,10 +180,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(152, 290);
+            this.btnClear.Location = new System.Drawing.Point(152, 334);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 8;
+            this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -194,10 +197,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(55, 290);
+            this.btnAdd.Location = new System.Drawing.Point(55, 334);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 7;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -215,7 +218,7 @@
             this.btnClose.Location = new System.Drawing.Point(363, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 10;
+            this.btnClose.TabIndex = 11;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -228,17 +231,17 @@
             // txtPvalue
             // 
             this.txtPvalue.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPvalue.Location = new System.Drawing.Point(197, 206);
+            this.txtPvalue.Location = new System.Drawing.Point(197, 242);
             this.txtPvalue.Name = "txtPvalue";
             this.txtPvalue.Size = new System.Drawing.Size(134, 25);
-            this.txtPvalue.TabIndex = 5;
+            this.txtPvalue.TabIndex = 6;
             // 
             // labelPvalue
             // 
             this.labelPvalue.AutoSize = true;
             this.labelPvalue.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPvalue.ForeColor = System.Drawing.Color.White;
-            this.labelPvalue.Location = new System.Drawing.Point(52, 211);
+            this.labelPvalue.Location = new System.Drawing.Point(51, 245);
             this.labelPvalue.Name = "labelPvalue";
             this.labelPvalue.Size = new System.Drawing.Size(94, 19);
             this.labelPvalue.TabIndex = 153;
@@ -268,14 +271,36 @@
             this.comboPtype.Name = "comboPtype";
             this.comboPtype.Size = new System.Drawing.Size(134, 25);
             this.comboPtype.TabIndex = 4;
+            this.comboPtype.SelectedIndexChanged += new System.EventHandler(this.comboPtype_SelectedIndexChanged);
+            // 
+            // labelPpercent
+            // 
+            this.labelPpercent.AutoSize = true;
+            this.labelPpercent.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPpercent.ForeColor = System.Drawing.Color.White;
+            this.labelPpercent.Location = new System.Drawing.Point(51, 210);
+            this.labelPpercent.Name = "labelPpercent";
+            this.labelPpercent.Size = new System.Drawing.Size(103, 19);
+            this.labelPpercent.TabIndex = 160;
+            this.labelPpercent.Text = "Promo Percent:";
+            // 
+            // txtPpercent
+            // 
+            this.txtPpercent.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPpercent.Location = new System.Drawing.Point(197, 207);
+            this.txtPpercent.Name = "txtPpercent";
+            this.txtPpercent.Size = new System.Drawing.Size(134, 25);
+            this.txtPpercent.TabIndex = 5;
             // 
             // formAddPromo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(404, 357);
+            this.ClientSize = new System.Drawing.Size(404, 394);
             this.ControlBox = false;
+            this.Controls.Add(this.labelPpercent);
+            this.Controls.Add(this.txtPpercent);
             this.Controls.Add(this.comboPtype);
             this.Controls.Add(this.labelPtype);
             this.Controls.Add(this.btnClose);
@@ -296,6 +321,7 @@
             this.Name = "formAddPromo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formAddPromo_FormClosing);
+            this.Load += new System.EventHandler(this.formAddPromo_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formAddPromo_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formAddPromo_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formAddPromo_MouseUp);
@@ -326,5 +352,7 @@
         private System.Windows.Forms.Label labelPvalue;
         private System.Windows.Forms.Label labelPtype;
         private System.Windows.Forms.ComboBox comboPtype;
+        private System.Windows.Forms.Label labelPpercent;
+        private System.Windows.Forms.TextBox txtPpercent;
     }
 }

@@ -15,6 +15,7 @@ namespace TeteHardware
     {
         public formCatalogManage ReferenceToCatManage { get; set; } //Reference formCatalogManage to this form
         public MySqlConnection conn; //connection
+        Test func = new Test();
         public formAddCatalog()
         {
             InitializeComponent();
@@ -68,7 +69,6 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e) //clears all inputted values
         {
-            txtCid.Text = "";
             txtCname.Text = "";
             txtCdesc.Text = "";
         }
@@ -80,18 +80,27 @@ namespace TeteHardware
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Add();
-            this.Close();
+            if (txtCname.Text == "" || txtCdesc.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                Add();
+                this.Close();
+            }
         }
 
         private void Add()
         {
-
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_productcatalog(productCatalogName, productCatalogDesc) VALUES('" + txtCname.Text + "','" + txtCdesc.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_productcatalog(catName, catDesc) VALUES('" + txtCname.Text + "','" + txtCdesc.Text + "')", conn);
                 query.ExecuteNonQuery();
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_productcatalog SET catID = autoID WHERE catName = '" + txtCname.Text + "'", conn);
+                query1.ExecuteNonQuery();
+                func.ChangeLog("tbl_productcatalog", "All", "None");
                 conn.Close();
                 ReferenceToCatManage.getData();
                 ReferenceToCatManage.dataLoad();

@@ -38,7 +38,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridPromo = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnDeletePromo = new System.Windows.Forms.Button();
             this.btnClearSelection = new System.Windows.Forms.Button();
             this.btnEditPromo = new System.Windows.Forms.Button();
             this.btnAddPromo = new System.Windows.Forms.Button();
@@ -151,23 +150,6 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnDeletePromo
-            // 
-            this.btnDeletePromo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeletePromo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeletePromo.FlatAppearance.BorderSize = 0;
-            this.btnDeletePromo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnDeletePromo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletePromo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletePromo.ForeColor = System.Drawing.Color.White;
-            this.btnDeletePromo.Location = new System.Drawing.Point(465, 251);
-            this.btnDeletePromo.Name = "btnDeletePromo";
-            this.btnDeletePromo.Size = new System.Drawing.Size(160, 53);
-            this.btnDeletePromo.TabIndex = 4;
-            this.btnDeletePromo.Text = "Delete Promo";
-            this.btnDeletePromo.UseVisualStyleBackColor = false;
-            this.btnDeletePromo.Click += new System.EventHandler(this.btnDeletePromo_Click);
-            // 
             // btnClearSelection
             // 
             this.btnClearSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
@@ -177,7 +159,7 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(465, 316);
+            this.btnClearSelection.Location = new System.Drawing.Point(465, 248);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
             this.btnClearSelection.TabIndex = 5;
@@ -233,7 +215,7 @@
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetails.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewDetails.Location = new System.Drawing.Point(465, 380);
+            this.btnViewDetails.Location = new System.Drawing.Point(465, 312);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(160, 53);
             this.btnViewDetails.TabIndex = 120;
@@ -248,7 +230,6 @@
             this.ClientSize = new System.Drawing.Size(660, 459);
             this.ControlBox = false;
             this.Controls.Add(this.btnViewDetails);
-            this.Controls.Add(this.btnDeletePromo);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditPromo);
             this.Controls.Add(this.btnAddPromo);
@@ -278,7 +259,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridPromo;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnDeletePromo;
         private System.Windows.Forms.Button btnClearSelection;
         private System.Windows.Forms.Button btnEditPromo;
         private System.Windows.Forms.Button btnAddPromo;

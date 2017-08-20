@@ -113,9 +113,10 @@ namespace TeteHardware
                 adp.Fill(dt); //adapter fills the data with data table
 
                 dataGridCatalog.DataSource = dt; //sets datasource to datatable
-                dataGridCatalog.Columns["productCatalogID"].Visible = false; //gets the productCatalogID and sets it's visibility to false
-                dataGridCatalog.Columns["productCatalogName"].HeaderText = "Name"; //gets the productCatalogName and sets it as a header
-                dataGridCatalog.Columns["productCatalogDesc"].HeaderText = "Description"; //gets the productCatalogDesc and sets it as a header
+                dataGridCatalog.Columns["catID"].Visible = false; //gets the productCatalogID and sets it's visibility to false
+                dataGridCatalog.Columns["autoID"].Visible = false;
+                dataGridCatalog.Columns["catName"].HeaderText = "Name"; //gets the productCatalogName and sets it as a header
+                dataGridCatalog.Columns["catDesc"].HeaderText = "Description"; //gets the productCatalogDesc and sets it as a header
                 conn.Close(); //closes the connection
             }
             catch (Exception x)
@@ -129,40 +130,35 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditCatalog.Enabled = false;
-            btnDeleteCatalog.Enabled = false;
             btnViewDetails.Enabled = false;
             dataGridCatalog.ClearSelection();
         }
 
         private void dataGridCatalog_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnAddCatalog.Enabled = false;
-            btnEditCatalog.Enabled = true;
-            btnDeleteCatalog.Enabled = true;
-            btnViewDetails.Enabled = true;
+            try
+            {
+                btnAddCatalog.Enabled = false;
+                btnEditCatalog.Enabled = true;
+                btnViewDetails.Enabled = true;
 
-            catalogName = dataGridCatalog.Rows[e.RowIndex].Cells["productCatalogName"].Value.ToString();
-            catalogDesc = dataGridCatalog.Rows[e.RowIndex].Cells["productCatalogDesc"].Value.ToString();
-            catalogID = int.Parse(dataGridCatalog.Rows[e.RowIndex].Cells["productCatalogID"].Value.ToString());
+                catalogName = dataGridCatalog.Rows[e.RowIndex].Cells["catName"].Value.ToString();
+                catalogDesc = dataGridCatalog.Rows[e.RowIndex].Cells["catDesc"].Value.ToString();
+                catalogID = int.Parse(dataGridCatalog.Rows[e.RowIndex].Cells["catID"].Value.ToString());
+            }
+            catch (ArgumentOutOfRangeException) { }
         }
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
             btnAddCatalog.Enabled = true;
             btnEditCatalog.Enabled = false;
-            btnDeleteCatalog.Enabled = false;
             btnViewDetails.Enabled = false;
             dataGridCatalog.ClearSelection();
         }
 
         private void btnDeleteCatalog_Click(object sender, EventArgs e)
         {
-            Delete();
-            dataGridCatalog.ClearSelection();
-            btnAddCatalog.Enabled = true;
-            btnEditCatalog.Enabled = false;
-            btnDeleteCatalog.Enabled = false;
-            btnViewDetails.Enabled = false;
         }
 
         public void getData() //gets the data from the database
@@ -181,26 +177,6 @@ namespace TeteHardware
             {
                 MessageBox.Show("Error in getData(): " + x.ToString()); //shows and error if there is one
                 conn.Close(); //closes the connection
-            }
-        }
-        private void Delete()
-        {
-            try
-            {
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_productcatalog WHERE productCatalogID = '" + catalogID + "'", conn);
-                query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("DELETE FROM tbl_productcatalog WHERE productCatalogID ='" + catalogID + "'", conn);
-                query1.ExecuteNonQuery();
-                conn.Close();
-                getData();
-
-                MessageBox.Show("Deleted Successfully!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Error in Delete: " + x.ToString());
-                conn.Close();
             }
         }
     }

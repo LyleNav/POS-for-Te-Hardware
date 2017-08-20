@@ -15,7 +15,8 @@ namespace TeteHardware
     {
         public formCatalogManage ReferenceToCatManage { get; set; } //Reference formCatalogManage to this form
         public MySqlConnection conn; //connection
-        public string catName, catDesc;
+        Test func = new Test();
+        public string catName, catDesc, oldName, oldDesc, newName, newDesc, myField, oldValues;
         public int catID;
         public formEditCatalog()
         {
@@ -42,7 +43,6 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e) //clears all inputted values
         {
-            txtCid.Text = "";
             txtCname.Text = "";
             txtCdesc.Text = "";
         }
@@ -79,12 +79,22 @@ namespace TeteHardware
             txtCid.Text = catID.ToString();
             txtCname.Text = catName;
             txtCdesc.Text = catDesc;
+            txtCid.Enabled = false;
+            oldDesc = catDesc;
+            oldName = catName;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Edit();
-            this.Close();
+            if (txtCname.Text == "" || txtCdesc.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                Edit();
+                this.Close();
+            }
         }
 
         private void formEditCatalog_FormClosing(object sender, FormClosingEventArgs e)
@@ -97,13 +107,41 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_productcatalog WHERE productCatalogID = '" + catID + "'", conn);
+                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_productcatalog WHERE catID = '" + catID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_productcatalog SET productCatalogName = '" + txtCname.Text + "', productCatalogDesc = '" + txtCdesc.Text + "' WHERE productCatalogID = '" + catID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_productcatalog SET catName = '" + txtCname.Text + "', catDesc = '" + txtCdesc.Text + "' WHERE catID = '" + catID + "'", conn);
                 query1.ExecuteNonQuery();
+                MySqlCommand query2 = new MySqlCommand("SELECT catName, catDesc FROM tbl_productcatalog WHERE catID = '" + catID + "'", conn);
+                MySqlDataReader reader = query2.ExecuteReader();
+                myField = "";
+                oldValues = "";
+                while (reader.Read())
+                {
+                    newName = Convert.ToString(reader[0]);
+                    newDesc = Convert.ToString(reader[1]);
+                }
                 conn.Close();
+                if (oldName != newName)
+                {
+                    myField = myField + "catName";
+                    oldValues = oldValues + oldName;
+                }
+                if (oldDesc != newDesc)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "catDesc";
+                        oldValues = oldValues + oldDesc;
+                    }
+                    else
+                    {
+                        myField = myField + ", catDesc";
+                        oldValues = oldValues + ", " + oldDesc;
+                    }
+                }
+                func.ChangeLog("tbl_productcatalog", myField, oldValues);
                 ReferenceToCatManage.getData();
-
+                ReferenceToCatManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)

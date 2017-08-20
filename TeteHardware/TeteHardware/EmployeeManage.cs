@@ -15,8 +15,8 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int employeeID;
-        public string eName, eUser, ePass;
+        public int empID, empLevelz;
+        public string empName, empUser, empPass;
         public formEmployeeManage()
         {
             InitializeComponent();
@@ -77,10 +77,12 @@ namespace TeteHardware
 
                 formEditEmployee formEE = new formEditEmployee(); //variable reference to formEditEmployee
                 formEE.ReferenceToEmpManage = this; //sets the reference form to this form
-                formEE.empName = eName;
-                formEE.empUser = eUser;
-                formEE.empPass = ePass;
-                formEE.empID = employeeID;
+                formEE.empID = empID;
+                formEE.empName = empName;
+                formEE.empUser = empUser;
+                formEE.empPass = empPass;
+                formEE.empLevel = empLevelz;
+                
                 formEE.Show(); //shows referenced form*/
                 this.Hide(); //hides current form
                 conn.Close();
@@ -94,18 +96,12 @@ namespace TeteHardware
 
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-            Delete();
-            dataGridEmployee.ClearSelection();
-            btnEditEmployee.Enabled = false;
-            btnAddEmployee.Enabled = true;
-            btnDeleteEmployee.Enabled = false;
         }
 
         private void btnClearSelection_Click(object sender, EventArgs e)
         {
             btnEditEmployee.Enabled = false;
             btnAddEmployee.Enabled = true;
-            btnDeleteEmployee.Enabled = false;
             dataGridEmployee.ClearSelection();
         }
 
@@ -113,7 +109,6 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditEmployee.Enabled = false;
-            btnDeleteEmployee.Enabled = false;
             dataGridEmployee.ClearSelection();
         }
 
@@ -131,17 +126,20 @@ namespace TeteHardware
             try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_employee", conn); //query to select all entries in tbl_employee
+                MySqlCommand query = new MySqlCommand("SELECT autoID, empID, empName, empUser, empPass, (CASE WHEN empLevel = 0 THEN 'Admin' ELSE 'Cashier' END) as empLevel, empRemarks, empDateEdit FROM tbl_employee", conn); //query to select all entries in tbl_employee
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter
                 adp.Fill(dt); //adapter fills the data with data table
 
                 dataGridEmployee.DataSource = dt; //sets datasource to datatable
-                dataGridEmployee.Columns["employeeID"].Visible = false; //gets the employeeID and sets it's visibility to false
-                dataGridEmployee.Columns["eName"].HeaderText = "Employee Name"; //gets the eName and sets it as a header
-                dataGridEmployee.Columns["username"].HeaderText = "Username"; //gets the username and sets it as a header
-                dataGridEmployee.Columns["password"].Visible = false; //gets the password and sets it as a header
-                dataGridEmployee.Columns["eRemarks"].HeaderText = "Remarks"; //gets the eRemarks and sets it as a header
+                dataGridEmployee.Columns["empID"].Visible = false; //gets the employeeID and sets it's visibility to false
+                dataGridEmployee.Columns["autoID"].Visible = false;
+                dataGridEmployee.Columns["empName"].HeaderText = "Name"; //gets the eName and sets it as a header
+                dataGridEmployee.Columns["empUser"].HeaderText = "Username"; //gets the username and sets it as a header
+                dataGridEmployee.Columns["empPass"].Visible = false; //gets the password and sets it as a header
+                dataGridEmployee.Columns["empLevel"].HeaderText = "Level";
+                dataGridEmployee.Columns["empRemarks"].HeaderText = "Remarks"; //gets the eRemarks and sets it as a header
+                dataGridEmployee.Columns["empDateEdit"].Visible = false;
                 conn.Close(); //closes the connection
             }
             catch (Exception x)
@@ -153,14 +151,21 @@ namespace TeteHardware
 
         private void dataGridEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnAddEmployee.Enabled = false;
-            btnEditEmployee.Enabled = true;
-            btnDeleteEmployee.Enabled = true;
-
-            eName = dataGridEmployee.Rows[e.RowIndex].Cells["eName"].Value.ToString();
-            eUser = dataGridEmployee.Rows[e.RowIndex].Cells["username"].Value.ToString();
-            ePass = dataGridEmployee.Rows[e.RowIndex].Cells["password"].Value.ToString();
-            employeeID = int.Parse(dataGridEmployee.Rows[e.RowIndex].Cells["employeeID"].Value.ToString());
+            try
+            {
+                btnAddEmployee.Enabled = false;
+                btnEditEmployee.Enabled = true;
+                empID = int.Parse(dataGridEmployee.Rows[e.RowIndex].Cells["empID"].Value.ToString());
+                if (dataGridEmployee.Rows[e.RowIndex].Cells["empLevel"].Value.ToString() == "Admin")
+                    empLevelz = 0;
+                else
+                    empLevelz = 1;
+                empName = dataGridEmployee.Rows[e.RowIndex].Cells["empName"].Value.ToString();
+                empUser = dataGridEmployee.Rows[e.RowIndex].Cells["empUser"].Value.ToString();
+                empPass = dataGridEmployee.Rows[e.RowIndex].Cells["empPass"].Value.ToString();
+            }
+            catch(ArgumentOutOfRangeException){}
+            
         }
 
         public void getData() //gets the data from the database
@@ -179,26 +184,6 @@ namespace TeteHardware
             {
                 MessageBox.Show("Error in getData(): " + x.ToString()); //shows and error if there is one
                 conn.Close(); //closes the connection
-            }
-        }
-        private void Delete()
-        {
-            try
-            {
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_employee WHERE employeeID = '" + employeeID + "'", conn);
-                query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("DELETE FROM tbl_employee WHERE employeeID ='" + employeeID + "'", conn);
-                query1.ExecuteNonQuery();
-                conn.Close();
-                getData();
-
-                MessageBox.Show("Deleted Successfully!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Error in Delete: " + x.ToString());
-                conn.Close();
             }
         }
     }

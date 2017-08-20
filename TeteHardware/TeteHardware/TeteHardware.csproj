@@ -77,6 +77,7 @@
     <Compile Include="CatalogManage.Designer.cs">
       <DependentUpon>CatalogManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test.cs" />
     <Compile Include="EditPromo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +208,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SupplierManage.resx">
       <DependentUpon>SupplierManage.cs</DependentUpon>

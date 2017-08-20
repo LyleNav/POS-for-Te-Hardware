@@ -42,7 +42,6 @@
             this.btnEditCatalog = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnClearSelection = new System.Windows.Forms.Button();
-            this.btnDeleteCatalog = new System.Windows.Forms.Button();
             this.btnViewDetails = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCatalog)).BeginInit();
@@ -200,30 +199,13 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(309, 315);
+            this.btnClearSelection.Location = new System.Drawing.Point(309, 248);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
             this.btnClearSelection.TabIndex = 5;
             this.btnClearSelection.Text = "Clear Selection";
             this.btnClearSelection.UseVisualStyleBackColor = false;
             this.btnClearSelection.Click += new System.EventHandler(this.btnClearSelection_Click);
-            // 
-            // btnDeleteCatalog
-            // 
-            this.btnDeleteCatalog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteCatalog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnDeleteCatalog.FlatAppearance.BorderSize = 0;
-            this.btnDeleteCatalog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnDeleteCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteCatalog.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCatalog.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteCatalog.Location = new System.Drawing.Point(309, 250);
-            this.btnDeleteCatalog.Name = "btnDeleteCatalog";
-            this.btnDeleteCatalog.Size = new System.Drawing.Size(160, 53);
-            this.btnDeleteCatalog.TabIndex = 4;
-            this.btnDeleteCatalog.Text = "Delete Catalog";
-            this.btnDeleteCatalog.UseVisualStyleBackColor = false;
-            this.btnDeleteCatalog.Click += new System.EventHandler(this.btnDeleteCatalog_Click);
             // 
             // btnViewDetails
             // 
@@ -234,7 +216,7 @@
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetails.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewDetails.Location = new System.Drawing.Point(309, 379);
+            this.btnViewDetails.Location = new System.Drawing.Point(309, 312);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(160, 53);
             this.btnViewDetails.TabIndex = 6;
@@ -249,7 +231,6 @@
             this.ClientSize = new System.Drawing.Size(498, 456);
             this.ControlBox = false;
             this.Controls.Add(this.btnViewDetails);
-            this.Controls.Add(this.btnDeleteCatalog);
             this.Controls.Add(this.btnClearSelection);
             this.Controls.Add(this.btnEditCatalog);
             this.Controls.Add(this.btnAddCatalog);
@@ -283,7 +264,6 @@
         private System.Windows.Forms.Button btnEditCatalog;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnClearSelection;
-        private System.Windows.Forms.Button btnDeleteCatalog;
         private System.Windows.Forms.Button btnViewDetails;
     }
 }

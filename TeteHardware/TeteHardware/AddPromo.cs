@@ -16,6 +16,7 @@ namespace TeteHardware
         public formPromoManage ReferenceToPromoManage { get; set; } //Reference formPromoManage to this form
         public MySqlConnection conn; //connection
         private int promoType, promoStatus;
+        Test func = new Test();
         public formAddPromo()
         {
             InitializeComponent();
@@ -68,11 +69,11 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtPid.Text = "";
             txtPname.Text = "";
+            txtPpercent.Text = "";
             txtPvalue.Text = "";
-            comboPtype.Text = "";
-            comboPstatus.Text = "";
+            comboPtype.Text = " ";
+            comboPstatus.Text = " ";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -82,8 +83,70 @@ namespace TeteHardware
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Add();
-            this.Close();
+            if (txtPname.Text == "" || comboPtype.Text == "" || txtPpercent.Text == "" || txtPvalue.Text == "" || comboPtype.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else if (!IsNumeric(txtPpercent.Text))
+            {
+                MessageBox.Show("Invalid Percent!", "", MessageBoxButtons.OK);
+            }
+            else if (!IsNumeric(txtPvalue.Text))
+            {
+                MessageBox.Show("Invalid Value!", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (comboPtype.Text == "Percent")
+                    promoType = 0;
+                else if(comboPtype.Text == "Value")
+                    promoType = 1;
+                if (comboPstatus.Text == "On-going")
+                    promoStatus = 0;
+                else if(comboPstatus.Text == "Paused")
+                    promoStatus = 1;
+                Add();
+                this.Close();
+            }
+        }
+
+        public bool IsNumeric(string input)
+        {
+            int test;
+            return int.TryParse(input, out test);
+        }
+
+        private void comboPtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboPtype.Text == "Percent")
+            {
+                txtPpercent.Enabled = true;
+                txtPvalue.Enabled = false;
+                txtPvalue.Text = "0";
+                txtPpercent.Text = "";
+            }
+            else if (comboPtype.Text == "Value")
+            {
+                txtPvalue.Enabled = true;
+                txtPpercent.Enabled = false;
+                txtPpercent.Text = "0";
+                txtPvalue.Text = "";
+            }
+            else
+            {
+                txtPvalue.Enabled = false;
+                txtPpercent.Enabled = false;
+                txtPpercent.Text = "0";
+                txtPvalue.Text = "0";
+            }
+        }
+
+        private void formAddPromo_Load(object sender, EventArgs e)
+        {
+            txtPpercent.Enabled = false;
+            txtPvalue.Enabled = false;
+            txtPpercent.Text = "0";
+            txtPvalue.Text = "0";
         }
 
         private void Add()
@@ -93,8 +156,11 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_promo(promoName, promoType, promoValue, promoStatus) VALUES('" + txtPname.Text + "','" + promoType + "','" + txtPvalue.Text + "','" + promoStatus + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_promo(promoName, promoType, promoPercent, promoValue, promoStatus) VALUES('" + txtPname.Text + "','" + promoType + "','" + txtPpercent.Text + "','" + txtPvalue.Text + "','" + promoStatus + "')", conn);
                 query.ExecuteNonQuery();
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoID = autoID WHERE promoName = '" + txtPname.Text + "'", conn);
+                query1.ExecuteNonQuery();
+                func.ChangeLog("tbl_promo", "All", "None");
                 conn.Close();
                 ReferenceToPromoManage.getData();
                 ReferenceToPromoManage.dataLoad();

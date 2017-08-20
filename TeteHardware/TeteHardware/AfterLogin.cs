@@ -67,7 +67,7 @@ namespace TeteHardware
             {
                 conn.Open(); //opens the connection
 
-                MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET eRemarks = '' WHERE eRemarks = 'logged'", conn); //changes eRemarks value to blank from logged
+                MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET empRemarks = '' WHERE empRemarks = 'logged'", conn); //changes eRemarks value to blank from logged
                 com.ExecuteNonQuery(); //executes query
 
                 conn.Close(); //closes the connection
@@ -87,7 +87,7 @@ namespace TeteHardware
             {
                 conn.Open(); //opens the connection
 
-                MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET eRemarks = '' WHERE eRemarks = 'logged'", conn); //changes eRemarks value to blank from logged
+                MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET empRemarks = '' WHERE empRemarks = 'logged'", conn); //changes eRemarks value to blank from logged
                 com.ExecuteNonQuery(); //executes query
 
                 conn.Close(); //closes the connection
