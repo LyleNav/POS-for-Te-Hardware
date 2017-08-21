@@ -81,7 +81,12 @@ namespace TeteHardware
             txtPvalue.Text = promValue.ToString();
             txtPpercent.Text = promPercent.ToString();
             comboPtype.Text = promType;
-            comboPstatus.Text = promStatus.ToString();
+            MessageBox.Show(promValue.ToString() + " " + promPercent.ToString());
+
+            if (promStatus.ToString() == "0")
+                comboPstatus.Text = "On-going";
+            else if(promStatus.ToString() == "1")
+                comboPstatus.Text = "Paused";
             oldName = promName;
             oldpValue = promValue;
             oldpPercent = promPercent;
@@ -98,6 +103,7 @@ namespace TeteHardware
         private void EditPromo_FormClosing(object sender, FormClosingEventArgs e)
         {
             ReferenceToPromoManage.Show(); //shows the previous form upon exiting the current form
+            ReferenceToPromoManage.dataGridPromo.ClearSelection();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -121,10 +127,10 @@ namespace TeteHardware
                 while (reader.Read())
                 {
                     newName = Convert.ToString(reader[0]);
-                    newType = Convert.ToString(reader[0]);
-                    newpPercent = int.Parse(Convert.ToString(reader[0]));
-                    newpValue = int.Parse(Convert.ToString(reader[0]));
-                    newStatus = int.Parse(Convert.ToString(reader[0]));
+                    newType = Convert.ToString(reader[1]);
+                    newpPercent = int.Parse(Convert.ToString(reader[2]));
+                    newpValue = int.Parse(Convert.ToString(reader[3]));
+                    newStatus = int.Parse(Convert.ToString(reader[4]));
                 }
                 conn.Close();
                 if (oldName != newName)

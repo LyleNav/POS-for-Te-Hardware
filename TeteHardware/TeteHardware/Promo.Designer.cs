@@ -257,12 +257,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridPromo;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClearSelection;
         private System.Windows.Forms.Button btnEditPromo;
         private System.Windows.Forms.Button btnAddPromo;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnViewDetails;
+        public System.Windows.Forms.DataGridView dataGridPromo;
     }
 }

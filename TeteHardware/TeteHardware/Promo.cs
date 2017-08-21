@@ -81,6 +81,7 @@ namespace TeteHardware
                 formEP.promType = promoType;
                 formEP.promValue = promoValue;
                 formEP.promStatus = promoStatus;
+                formEP.promPercent = promoPercent;
                 formEP.promID = promoID;
                 formEP.Show(); //shows referenced form
                 this.Hide(); //hides current form
@@ -135,7 +136,10 @@ namespace TeteHardware
                 promoType = dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString();
                 promoValue = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoValue"].Value.ToString());
                 promoPercent = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoPercent"].Value.ToString());
-                promoStatus = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoStatus"].Value.ToString());
+                if (dataGridPromo.Rows[e.RowIndex].Cells["promoStatus"].Value.ToString() == "On-going")
+                    promoStatus = 0;
+                else if (dataGridPromo.Rows[e.RowIndex].Cells["promoStatus"].Value.ToString() == "Paused")
+                    promoStatus = 1;
                 promoID = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoID"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }

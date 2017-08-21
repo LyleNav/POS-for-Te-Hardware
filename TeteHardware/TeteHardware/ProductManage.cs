@@ -15,9 +15,9 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int productID, categoryID, supplierID, promoID, productStock, productStatus;
-        public string prodName, prodDesc, prodUnit;
-        public float prodPrice;
+        public int productID, employeeID, prodStock;
+        public string prodName, prodDesc, prodUnit, prodStatus;
+        public float prodUPrice;
         public formProductManage()
         {
             InitializeComponent();
