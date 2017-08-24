@@ -15,8 +15,8 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int promoID, promoValue, promoPercent, promoStatus;
-        public string promoName, promoType;
+        public int promoID, promoValue, promoPercent, promoStatus, promoType;
+        public string promoName;
         public formPromoManage()
         {
             InitializeComponent();
@@ -133,7 +133,10 @@ namespace TeteHardware
                 btnViewDetails.Enabled = true;
 
                 promoName = dataGridPromo.Rows[e.RowIndex].Cells["promoName"].Value.ToString();
-                promoType = dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString();
+                if (dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString() == "Percent")
+                    promoType = 0;
+                else if (dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString() == "Value")
+                    promoType = 1;
                 promoValue = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoValue"].Value.ToString());
                 promoPercent = int.Parse(dataGridPromo.Rows[e.RowIndex].Cells["promoPercent"].Value.ToString());
                 if (dataGridPromo.Rows[e.RowIndex].Cells["promoStatus"].Value.ToString() == "On-going")

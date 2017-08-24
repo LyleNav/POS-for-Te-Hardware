@@ -15,8 +15,8 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int productID, employeeID, prodStock;
-        public string prodName, prodDesc, prodUnit, prodStatus;
+        public int employeeID, prodStock, prodMOQ;
+        public string productID, prodName, prodDesc, prodUnit, prodStatus;
         public float prodUPrice;
         public formProductManage()
         {
@@ -112,16 +112,15 @@ namespace TeteHardware
             btnEditProduct.Enabled = true;
             btnViewDetails.Enabled = true;
 
-            productID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productID"].Value.ToString());
-            categoryID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["pCatalogID"].Value.ToString());
-            supplierID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["pSupplierID"].Value.ToString());
-            promoID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["pPromoID"].Value.ToString());
-            prodName = dataGridProduct.Rows[e.RowIndex].Cells["productName"].Value.ToString();
-            prodDesc = dataGridProduct.Rows[e.RowIndex].Cells["productDesc"].Value.ToString();
-            prodUnit = dataGridProduct.Rows[e.RowIndex].Cells["productUnit"].Value.ToString();
-            prodPrice = float.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productPrice"].Value.ToString());
-            productStock = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productStock"].Value.ToString());
-            productStatus = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["productUnit"].Value.ToString());
+            productID = dataGridProduct.Rows[e.RowIndex].Cells["prodID"].Value.ToString();
+            employeeID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["empID"].Value.ToString());
+            prodName = dataGridProduct.Rows[e.RowIndex].Cells["prodName"].Value.ToString();
+            prodMOQ = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["prodMOQ"].Value.ToString());
+            prodDesc = dataGridProduct.Rows[e.RowIndex].Cells["prodDesc"].Value.ToString();
+            prodStock = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["prodStock"].Value.ToString());
+            prodUPrice = float.Parse(dataGridProduct.Rows[e.RowIndex].Cells["prodUPrice"].Value.ToString());
+            prodUnit = dataGridProduct.Rows[e.RowIndex].Cells["prodUnit"].Value.ToString();
+            prodStatus = dataGridProduct.Rows[e.RowIndex].Cells["prodStatus"].Value.ToString();
             
         }
         public void dataLoad() //loads the data from the database
@@ -135,16 +134,15 @@ namespace TeteHardware
                 adp.Fill(dt); //adapter fills the data with data table
 
                 dataGridProduct.DataSource = dt; //sets datasource to datatable
-                dataGridProduct.Columns["productID"].Visible = false; //gets the productID and sets it's visibility to false
-                dataGridProduct.Columns["productName"].HeaderText = "Name"; //gets the productName and sets it as a header
-                dataGridProduct.Columns["productDesc"].HeaderText = "Description"; //gets the productDesc and sets it as a header
-                dataGridProduct.Columns["pCatalogID"].HeaderText = "Category"; //gets the pCatalogID and sets it as a header
-                dataGridProduct.Columns["pSupplierID"].HeaderText = "Supplier"; //gets the pSupplierID and sets it as a header
-                dataGridProduct.Columns["pPromoID"].HeaderText = "Promo"; //gets the pPromoID and sets it as a header
-                dataGridProduct.Columns["productStock"].HeaderText = "Stock"; //gets the productStock and sets it as a header
-                dataGridProduct.Columns["productPrice"].HeaderText = "Price"; //gets the productPrice and sets it as a header
-                dataGridProduct.Columns["productUnit"].HeaderText = "Unit"; //gets the productUnit and sets it as a header
-                dataGridProduct.Columns["productStatus"].HeaderText = "Status"; //gets the productStatus and sets it as a header
+                dataGridProduct.Columns["prodID"].Visible = false; //gets the productID and sets it's visibility to false
+                dataGridProduct.Columns["empID"].Visible = false;
+                dataGridProduct.Columns["prodName"].HeaderText = "Name"; //gets the productName and sets it as a header
+                dataGridProduct.Columns["prodDesc"].HeaderText = "Description"; //gets the pCatalogID and sets it as a header
+                dataGridProduct.Columns["prodStock"].HeaderText = "Stock"; //gets the pSupplierID and sets it as a header
+                dataGridProduct.Columns["prodMIL"].HeaderText = "Minimum Inventory Level"; //gets the productDesc and sets it as a header
+                dataGridProduct.Columns["prodUnit"].HeaderText = "Unit"; //gets the pPromoID and sets it as a header
+                dataGridProduct.Columns["prodUPrice"].HeaderText = "Unit Price"; //gets the productStock and sets it as a header
+                dataGridProduct.Columns["prodStatus"].HeaderText = "Status"; //gets the productPrice and sets it as a header
 
                 conn.Close(); //closes the connection
             }

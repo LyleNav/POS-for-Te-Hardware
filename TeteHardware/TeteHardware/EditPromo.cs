@@ -15,10 +15,10 @@ namespace TeteHardware
     {
         public formPromoManage ReferenceToPromoManage { get; set; } //Reference formPromoManage to this form
         public MySqlConnection conn; //connection
-        public int promID, promValue, promPercent, promStatus;
-        public string promName, promType;
-        public int oldpValue, oldpPercent, oldStatus, newpValue, newpPercent, newStatus;
-        public string oldName, oldType, newName, newType, myField, oldValues;
+        public int promID, promValue, promPercent, promStatus, promType;
+        public string promName;
+        public int oldpValue, oldpPercent, oldStatus, oldType, newpValue, newpPercent, newStatus, newType;
+        public string oldName, newName, myField, oldValues;
         Test func = new Test();
         public formEditPromo()
         {
@@ -78,15 +78,40 @@ namespace TeteHardware
         {
             txtPid.Text = promID.ToString();
             txtPname.Text = promName;
-            txtPvalue.Text = promValue.ToString();
-            txtPpercent.Text = promPercent.ToString();
-            comboPtype.Text = promType;
-            MessageBox.Show(promValue.ToString() + " " + promPercent.ToString());
+
+            if (promType.ToString() == "0")
+                comboPtype.Text = "Percent";
+            else if (promType.ToString() == "1")
+                comboPtype.Text = "Value";
+
+            if (comboPtype.Text == "Percent")
+            {
+                txtPpercent.Enabled = true;
+                txtPvalue.Enabled = false;
+                txtPvalue.Text = "0";
+                txtPpercent.Text = promPercent.ToString();
+            }
+            else if (comboPtype.Text == "Value")
+            {
+                txtPvalue.Enabled = true;
+                txtPpercent.Enabled = false;
+                txtPpercent.Text = "0";
+                txtPvalue.Text = promValue.ToString();
+            }
+            else
+            {
+                txtPvalue.Enabled = false;
+                txtPpercent.Enabled = false;
+                txtPpercent.Text = "0";
+                txtPvalue.Text = "0";
+            }
 
             if (promStatus.ToString() == "0")
                 comboPstatus.Text = "On-going";
             else if(promStatus.ToString() == "1")
                 comboPstatus.Text = "Paused";
+
+
             oldName = promName;
             oldpValue = promValue;
             oldpPercent = promPercent;
@@ -118,7 +143,7 @@ namespace TeteHardware
                 conn.Open();
                 MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + comboPtype.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + comboPstatus.Text + "' WHERE promoID = '" + promID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'", conn);
                 query1.ExecuteNonQuery();
                 MySqlCommand query2 = new MySqlCommand("SELECT promoName, promoType, promoPercent, promoValue, promoStatus FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 MySqlDataReader reader = query2.ExecuteReader();
@@ -127,7 +152,7 @@ namespace TeteHardware
                 while (reader.Read())
                 {
                     newName = Convert.ToString(reader[0]);
-                    newType = Convert.ToString(reader[1]);
+                    newType = int.Parse(Convert.ToString(reader[1]));
                     newpPercent = int.Parse(Convert.ToString(reader[2]));
                     newpValue = int.Parse(Convert.ToString(reader[3]));
                     newStatus = int.Parse(Convert.ToString(reader[4]));

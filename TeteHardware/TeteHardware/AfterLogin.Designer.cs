@@ -215,6 +215,7 @@
             this.btnCustOrder.TabIndex = 6;
             this.btnCustOrder.Text = "Customer Order";
             this.btnCustOrder.UseVisualStyleBackColor = false;
+            this.btnCustOrder.Click += new System.EventHandler(this.btnCustOrder_Click);
             // 
             // btnPromos
             // 
