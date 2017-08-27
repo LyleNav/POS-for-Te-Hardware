@@ -378,6 +378,7 @@
             this.Controls.Add(this.txtPprice);
             this.Controls.Add(this.txtPname);
             this.Controls.Add(this.txtPid);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formEditProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -145,5 +145,23 @@ namespace TeteHardware
             formPM.Show();
             this.Hide();
         }
+
+        private void btnArr_Click(object sender, EventArgs e)
+        {
+            formArrival formA = new formArrival();
+            formA.ReferenceToAfterLogin = this;
+            formA.txtTable.Text = "tbl_arr";
+            formA.Show();
+            this.Hide();
+        }
+
+        private void btnArrDef_Click(object sender, EventArgs e)
+        {
+            formArrival formA = new formArrival();
+            formA.ReferenceToAfterLogin = this;
+            formA.txtTable.Text = "tbl_arrdef";
+            formA.Show();
+            this.Hide();
+        }
     }
 }

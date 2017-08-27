@@ -44,6 +44,8 @@
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnCustReturn = new System.Windows.Forms.Button();
             this.btnEmpManage = new System.Windows.Forms.Button();
+            this.btnArr = new System.Windows.Forms.Button();
+            this.btnArrDef = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -108,7 +110,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(664, 12);
+            this.btnClose.Location = new System.Drawing.Point(884, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 11;
@@ -127,10 +129,12 @@
             this.flowLayoutPanel1.Controls.Add(this.btnReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnCustReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnEmpManage);
+            this.flowLayoutPanel1.Controls.Add(this.btnArr);
+            this.flowLayoutPanel1.Controls.Add(this.btnArrDef);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(60, 113);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 546);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(796, 546);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
             // btnCatManage
@@ -193,7 +197,7 @@
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplier.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnSupplier.Location = new System.Drawing.Point(13, 188);
+            this.btnSupplier.Location = new System.Drawing.Point(586, 13);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(185, 169);
             this.btnSupplier.TabIndex = 5;
@@ -210,7 +214,7 @@
             this.btnCustOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustOrder.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustOrder.ForeColor = System.Drawing.Color.White;
-            this.btnCustOrder.Location = new System.Drawing.Point(204, 188);
+            this.btnCustOrder.Location = new System.Drawing.Point(13, 188);
             this.btnCustOrder.Name = "btnCustOrder";
             this.btnCustOrder.Size = new System.Drawing.Size(185, 169);
             this.btnCustOrder.TabIndex = 6;
@@ -228,7 +232,7 @@
             this.btnPromos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPromos.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPromos.ForeColor = System.Drawing.Color.White;
-            this.btnPromos.Location = new System.Drawing.Point(395, 188);
+            this.btnPromos.Location = new System.Drawing.Point(204, 188);
             this.btnPromos.Name = "btnPromos";
             this.btnPromos.Size = new System.Drawing.Size(185, 169);
             this.btnPromos.TabIndex = 7;
@@ -245,7 +249,7 @@
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(13, 363);
+            this.btnReturn.Location = new System.Drawing.Point(395, 188);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(185, 169);
             this.btnReturn.TabIndex = 8;
@@ -261,7 +265,7 @@
             this.btnCustReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustReturn.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustReturn.ForeColor = System.Drawing.Color.White;
-            this.btnCustReturn.Location = new System.Drawing.Point(204, 363);
+            this.btnCustReturn.Location = new System.Drawing.Point(586, 188);
             this.btnCustReturn.Name = "btnCustReturn";
             this.btnCustReturn.Size = new System.Drawing.Size(185, 169);
             this.btnCustReturn.TabIndex = 9;
@@ -277,13 +281,47 @@
             this.btnEmpManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpManage.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpManage.ForeColor = System.Drawing.Color.White;
-            this.btnEmpManage.Location = new System.Drawing.Point(395, 363);
+            this.btnEmpManage.Location = new System.Drawing.Point(13, 363);
             this.btnEmpManage.Name = "btnEmpManage";
             this.btnEmpManage.Size = new System.Drawing.Size(185, 169);
             this.btnEmpManage.TabIndex = 10;
             this.btnEmpManage.Text = "Employee Management";
             this.btnEmpManage.UseVisualStyleBackColor = false;
             this.btnEmpManage.Click += new System.EventHandler(this.btnEmpManage_Click);
+            // 
+            // btnArr
+            // 
+            this.btnArr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnArr.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnArr.FlatAppearance.BorderSize = 0;
+            this.btnArr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnArr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArr.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArr.ForeColor = System.Drawing.Color.White;
+            this.btnArr.Location = new System.Drawing.Point(204, 363);
+            this.btnArr.Name = "btnArr";
+            this.btnArr.Size = new System.Drawing.Size(185, 169);
+            this.btnArr.TabIndex = 11;
+            this.btnArr.Text = "Arrival";
+            this.btnArr.UseVisualStyleBackColor = false;
+            this.btnArr.Click += new System.EventHandler(this.btnArr_Click);
+            // 
+            // btnArrDef
+            // 
+            this.btnArrDef.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnArrDef.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnArrDef.FlatAppearance.BorderSize = 0;
+            this.btnArrDef.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnArrDef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArrDef.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArrDef.ForeColor = System.Drawing.Color.White;
+            this.btnArrDef.Location = new System.Drawing.Point(395, 363);
+            this.btnArrDef.Name = "btnArrDef";
+            this.btnArrDef.Size = new System.Drawing.Size(185, 169);
+            this.btnArrDef.TabIndex = 12;
+            this.btnArrDef.Text = "Arrival Defective";
+            this.btnArrDef.UseVisualStyleBackColor = false;
+            this.btnArrDef.Click += new System.EventHandler(this.btnArrDef_Click);
             // 
             // timer1
             // 
@@ -295,7 +333,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(705, 716);
+            this.ClientSize = new System.Drawing.Size(925, 716);
             this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnClose);
@@ -334,5 +372,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button btnEmpManage;
+        private System.Windows.Forms.Button btnArr;
+        private System.Windows.Forms.Button btnArrDef;
     }
 }

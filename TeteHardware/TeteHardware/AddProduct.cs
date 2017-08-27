@@ -184,7 +184,7 @@ namespace TeteHardware
 
         private void txtMOQ_Leave(object sender, EventArgs e)
         {
-            if (!func.IsNumeric(txtMOQ.Text))
+            if (!func.IsFloat(txtMOQ.Text))
             {
                 MessageBox.Show("Invalid MOQ", "", MessageBoxButtons.OK);
             }

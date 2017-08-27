@@ -17,11 +17,11 @@ namespace TeteHardware
         public MySqlConnection conn; //connection
         Test func = new Test();
         public string prodID, prodName, prodDesc, prodUnit, prodStatus, myField, oldValues;
-        public int empID, prodMOQ, prodStock;
-        public float prodPrice;
+        public int empID;
+        public float prodPrice, prodStock, prodMOQ;
         public string oldDesc, oldStatus, newDesc, newStatus;
-        public int oldMOQ, newMOQ, oldEmpID, newEmpID;
-        public float oldPrice, newPrice;
+        public int oldEmpID, newEmpID;
+        public float oldPrice, newPrice, oldMOQ, newMOQ;
         public formEditProduct()
         {
             InitializeComponent();
@@ -151,7 +151,7 @@ namespace TeteHardware
                 {
                     newEmpID = int.Parse(reader[0].ToString());
                     newDesc = Convert.ToString(reader[1]);
-                    newMOQ = int.Parse(reader[2].ToString());
+                    newMOQ = float.Parse(reader[2].ToString());
                     newPrice = float.Parse(reader[3].ToString());
                     newStatus = Convert.ToString(reader[4]);
                 }
