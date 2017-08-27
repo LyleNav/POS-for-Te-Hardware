@@ -13,11 +13,15 @@ namespace TeteHardware
 {
     public partial class formEditProduct : Form
     {
-        public formProductManage ReferenceToProdManage { get; set; } //Reference formPromoManage to this form
+        public formProductManage ReferenceToProdManage { get; set; } //Reference formCatalogManage to this form
         public MySqlConnection conn; //connection
-        public int prodID, catID, supID, promID, prodStock, prodStatus;
-        public string prodName, prodDesc, prodUnit;
+        Test func = new Test();
+        public string prodID, prodName, prodDesc, prodUnit, prodStatus, myField, oldValues;
+        public int empID, prodMOQ, prodStock;
         public float prodPrice;
+        public string oldDesc, oldStatus, newDesc, newStatus;
+        public int oldMOQ, newMOQ, oldEmpID, newEmpID;
+        public float oldPrice, newPrice;
         public formEditProduct()
         {
             InitializeComponent();
@@ -36,28 +40,38 @@ namespace TeteHardware
             this.Close(); //closes current form
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void formEditProduct_Load(object sender, EventArgs e)
         {
+            try
+            {
+                conn.Open();
+                MySqlCommand query = new MySqlCommand("SELECT catName FROM tbl_productcatalog WHERE catID = LEFT('" + prodID + "', 2)", conn);
+                MySqlDataReader reader = query.ExecuteReader();
+                while(reader.Read())
+                {
+                    txtPcat.Text = Convert.ToString(reader[0]);
+                }
 
-        }
+                conn.Close();
+            }
+            catch(Exception x)
+            {
+                MessageBox.Show("Error in Load:" + x.ToString());
+                conn.Close();
+            }
+            txtPid.Text = prodID;
+            txtPname.Text = prodName;
+            txtPdesc.Text = prodDesc;
+            txtMOQ.Text = prodMOQ.ToString();
+            txtPstock.Text = prodStock.ToString();
+            txtPprice.Text = prodPrice.ToString();
+            txtPunit.Text = prodUnit;
+            txtPstatus.Text = prodStatus;
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtPid.Text = "";
-            txtPname.Text = "";
-            txtPdesc.Text = "";
-            comboPcat.Text = "";
-            comboPsupplier.Text = "";
-            comboPpromo.Text = "";
-            txtPstock.Text = "";
-            txtPprice.Text = "";
-            txtPunit.Text = "";
-            comboPstatus.Text = "";
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close(); //closes current form
+            oldDesc = prodDesc;
+            oldMOQ = prodMOQ;
+            oldPrice = prodPrice;
+            oldStatus = prodStatus;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -65,21 +79,35 @@ namespace TeteHardware
             this.Opacity += 0.1; //form transition using timer
         }
 
-        bool mouseDown; //boolean for mousedown
-        Point lastLocation; //variable for the last location of the mouse
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtPdesc.Text = "";
+            txtMOQ.Text = "";
+            txtPprice.Text = "";
+            txtPstatus.Text = "";
+        }
 
-        private void formEditProduct_MouseDown(object sender, MouseEventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close(); //closes current form
+        }
+
+        bool mouseDown; //boolean for mousedown
+
+
+        Point lastLocation; //variable for the last location of the mouse
+        private void EditProduct_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true; //sets mousedown to true
             lastLocation = e.Location; //gets the location of the form and sets it to lastlocation
         }
 
-        private void formEditProduct_MouseUp(object sender, MouseEventArgs e)
+        private void EditProduct_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false; //sets mousedown to false
         }
 
-        private void formEditProduct_MouseMove(object sender, MouseEventArgs e)
+        private void EditProduct_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown) //if mouseDown is true, point to the last location of the mouse
             {
@@ -88,36 +116,93 @@ namespace TeteHardware
             }
         }
 
-        private void formEditProduct_Load(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            txtPid.Text = prodID.ToString();
-            txtPname.Text = prodName;
-            txtPdesc.Text = prodDesc;
-            comboPcat.Text = catID.ToString();
-            comboPsupplier.Text = supID.ToString();
-            comboPpromo.Text = promID.ToString();
-            txtPstock.Text = prodStock.ToString();
-            txtPprice.Text = prodPrice.ToString();
-            txtPunit.Text = prodUnit;
-            comboPstatus.Text = prodStatus.ToString();
+            if (txtPcat.Text == "" || txtPname.Text == "" || txtPdesc.Text == "" || txtMOQ.Text == "" || txtPstock.Text == "" || txtPprice.Text == "" || txtPunit.Text == "" || txtPstatus.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                Edit();
+                this.Close();
+            }
         }
 
-        private void formEditProduct_FormClosing(object sender, FormClosingEventArgs e)
+        private void EditProduct_FormClosing(object sender, FormClosingEventArgs e)
         {
             ReferenceToProdManage.Show(); //shows the previous form upon exiting the current form
         }
-       /* private void Edit()
+
+        private void Edit()
         {
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
+                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_product WHERE prodID = '" + prodID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + comboPtype.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + comboPstatus.Text + "' WHERE promoID = '" + promID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_product SET empID = '" + TeteHardware.Properties.Settings.Default.loginID + "', prodDesc = '" + txtPdesc.Text + "', prodMOQ = '" + txtMOQ.Text + "', prodUPrice = '" + txtPprice.Text + "', prodStatus = '" + txtPstatus.Text + "' WHERE prodID = '" + prodID + "'", conn);
                 query1.ExecuteNonQuery();
+                MySqlCommand query2 = new MySqlCommand("SELECT empID, prodDesc, prodMOQ, prodUPrice, prodStatus FROM tbl_product WHERE prodID = '" + prodID + "'", conn);
+                MySqlDataReader reader = query2.ExecuteReader();
+                myField = "";
+                oldValues = "";
+                while (reader.Read())
+                {
+                    newEmpID = int.Parse(reader[0].ToString());
+                    newDesc = Convert.ToString(reader[1]);
+                    newMOQ = int.Parse(reader[2].ToString());
+                    newPrice = float.Parse(reader[3].ToString());
+                    newStatus = Convert.ToString(reader[4]);
+                }
                 conn.Close();
-                ReferenceToPromoManage.getData();
-
+                if (oldDesc != newDesc)
+                {
+                    myField = myField + "prodDesc";
+                    oldValues = oldValues + oldDesc;
+                }
+                if (oldMOQ != newMOQ)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "prodMOQ";
+                        oldValues = oldValues + oldMOQ;
+                    }
+                    else
+                    {
+                        myField = myField + ", prodMOQ";
+                        oldValues = oldValues + ", " + oldMOQ;
+                    }
+                }
+                if (oldPrice!= newPrice)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "prodPrice";
+                        oldValues = oldValues + oldPrice;
+                    }
+                    else
+                    {
+                        myField = myField + ", prodPrice";
+                        oldValues = oldValues + ", " + oldPrice;
+                    }
+                }
+                if (oldStatus != newStatus)
+                {
+                    if (myField == "")
+                    {
+                        myField = myField + "prodStatus";
+                        oldValues = oldValues + oldStatus;
+                    }
+                    else
+                    {
+                        myField = myField + ", prodStatus";
+                        oldValues = oldValues + ", " + oldStatus;
+                    }
+                }
+                func.ChangeLog("tbl_product", myField, oldValues);
+                ReferenceToProdManage.getData();
+                ReferenceToProdManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)
@@ -125,6 +210,6 @@ namespace TeteHardware
                 MessageBox.Show("Error in Edit: " + x.ToString());
                 conn.Close();
             }
-        }*/
+        }
     }
 }

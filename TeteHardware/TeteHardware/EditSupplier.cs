@@ -184,12 +184,12 @@ namespace TeteHardware
                 {
                     if (myField == "")
                     {
-                        myField = myField + "oldOthers";
+                        myField = myField + "supOthers";
                         oldValues = oldValues + oldOthers;
                     }
                     else
                     {
-                        myField = myField + ", oldOthers";
+                        myField = myField + ", supOthers";
                         oldValues = oldValues + ", " + oldOthers;
                     }
                 }

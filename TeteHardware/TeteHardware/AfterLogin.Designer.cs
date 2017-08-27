@@ -166,6 +166,7 @@
             this.btnProdManage.TabIndex = 3;
             this.btnProdManage.Text = "Product Management";
             this.btnProdManage.UseVisualStyleBackColor = false;
+            this.btnProdManage.Click += new System.EventHandler(this.btnProdManage_Click);
             // 
             // btnOrderSupplier
             // 

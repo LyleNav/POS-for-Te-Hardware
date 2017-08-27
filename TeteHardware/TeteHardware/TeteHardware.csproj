@@ -77,6 +77,12 @@
     <Compile Include="CatalogManage.Designer.cs">
       <DependentUpon>CatalogManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProduct.Designer.cs">
+      <DependentUpon>EditProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs" />
     <Compile Include="EditPromo.cs">
       <SubType>Form</SubType>
@@ -113,12 +119,6 @@
     </Compile>
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditProduct.Designer.cs">
-      <DependentUpon>EditProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="EditSupplier.cs">
       <SubType>Form</SubType>
@@ -167,6 +167,9 @@
     <EmbeddedResource Include="CatalogManage.resx">
       <DependentUpon>CatalogManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditProduct.resx">
+      <DependentUpon>EditProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditPromo.resx">
       <DependentUpon>EditPromo.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditProduct.resx">
-      <DependentUpon>EditProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditSupplier.resx">
       <DependentUpon>EditSupplier.cs</DependentUpon>

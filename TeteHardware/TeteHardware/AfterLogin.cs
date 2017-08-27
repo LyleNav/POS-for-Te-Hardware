@@ -137,5 +137,13 @@ namespace TeteHardware
         {
 
         }
+
+        private void btnProdManage_Click(object sender, EventArgs e)
+        {
+            formProductManage formPM = new formProductManage();
+            formPM.ReferenceToAfterLogin = this;
+            formPM.Show();
+            this.Hide();
+        }
     }
 }

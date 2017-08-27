@@ -26,5 +26,17 @@ namespace TeteHardware
                 conn.Close();
             }
         }
+
+        public bool IsFloat(string input)
+        {
+            float test;
+            return float.TryParse(input, out test);
+        }
+
+        public bool IsNumeric(string input)
+        {
+            int test;
+            return int.TryParse(input, out test);
+        }
     }
 }

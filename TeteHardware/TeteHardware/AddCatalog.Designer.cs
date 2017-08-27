@@ -240,6 +240,7 @@
             this.Name = "formAddCatalog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formAddCatalog_FormClosing);
+            this.Load += new System.EventHandler(this.formAddCatalog_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formAddCatalog_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formAddCatalog_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formAddCatalog_MouseUp);

@@ -39,7 +39,6 @@ C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formAddCatalog.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditCatalog.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditEmployee.resources
-C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditProduct.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditSupplier.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEmployeeManage.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formLogin.resources
@@ -50,3 +49,4 @@ C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.csproj.CoreCompileInputs.cache
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.exe
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.pdb
+C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditProduct.resources

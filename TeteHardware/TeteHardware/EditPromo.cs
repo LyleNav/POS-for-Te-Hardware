@@ -128,7 +128,6 @@ namespace TeteHardware
         private void EditPromo_FormClosing(object sender, FormClosingEventArgs e)
         {
             ReferenceToPromoManage.Show(); //shows the previous form upon exiting the current form
-            ReferenceToPromoManage.dataGridPromo.ClearSelection();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -98,7 +98,7 @@ namespace TeteHardware
                 conn.Open();
                 MySqlCommand query = new MySqlCommand("INSERT INTO tbl_productcatalog(catName, catDesc) VALUES('" + txtCname.Text + "','" + txtCdesc.Text + "')", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_productcatalog SET catID = autoID WHERE catName = '" + txtCname.Text + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_productcatalog SET catID = RIGHT(autoID + 100, 2) WHERE catName = '" + txtCname.Text + "'", conn);
                 query1.ExecuteNonQuery();
                 func.ChangeLog("tbl_productcatalog", "All", "None");
                 conn.Close();
@@ -110,6 +110,29 @@ namespace TeteHardware
             catch (Exception x)
             {
                 MessageBox.Show("Error in Add() :" + x.ToString());
+                conn.Close();
+            }
+        }
+
+        private void formAddCatalog_Load(object sender, EventArgs e)
+        {
+            int mycounter = 0;
+            try
+            {
+                conn.Open();
+                MySqlCommand query = new MySqlCommand("SELECT MAX(autoID) AS myautoID FROM tbl_productcatalog", conn);
+                MySqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    mycounter = int.Parse(reader[0].ToString());
+                }
+                conn.Close();
+                mycounter++;
+                txtCid.Text = mycounter.ToString();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Error in Load:" + x.ToString());
                 conn.Close();
             }
         }
