@@ -39,7 +39,7 @@
             this.btnProdManage = new System.Windows.Forms.Button();
             this.btnOrderSupplier = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
-            this.btnCustOrder = new System.Windows.Forms.Button();
+            this.btnTransaction = new System.Windows.Forms.Button();
             this.btnPromos = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnCustReturn = new System.Windows.Forms.Button();
@@ -124,7 +124,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnProdManage);
             this.flowLayoutPanel1.Controls.Add(this.btnOrderSupplier);
             this.flowLayoutPanel1.Controls.Add(this.btnSupplier);
-            this.flowLayoutPanel1.Controls.Add(this.btnCustOrder);
+            this.flowLayoutPanel1.Controls.Add(this.btnTransaction);
             this.flowLayoutPanel1.Controls.Add(this.btnPromos);
             this.flowLayoutPanel1.Controls.Add(this.btnReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnCustReturn);
@@ -205,22 +205,22 @@
             this.btnSupplier.UseVisualStyleBackColor = false;
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
-            // btnCustOrder
+            // btnTransaction
             // 
-            this.btnCustOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.btnCustOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
-            this.btnCustOrder.FlatAppearance.BorderSize = 0;
-            this.btnCustOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.btnCustOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustOrder.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustOrder.ForeColor = System.Drawing.Color.White;
-            this.btnCustOrder.Location = new System.Drawing.Point(13, 188);
-            this.btnCustOrder.Name = "btnCustOrder";
-            this.btnCustOrder.Size = new System.Drawing.Size(185, 169);
-            this.btnCustOrder.TabIndex = 6;
-            this.btnCustOrder.Text = "Customer Order";
-            this.btnCustOrder.UseVisualStyleBackColor = false;
-            this.btnCustOrder.Click += new System.EventHandler(this.btnCustOrder_Click);
+            this.btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnTransaction.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnTransaction.FlatAppearance.BorderSize = 0;
+            this.btnTransaction.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransaction.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransaction.ForeColor = System.Drawing.Color.White;
+            this.btnTransaction.Location = new System.Drawing.Point(13, 188);
+            this.btnTransaction.Name = "btnTransaction";
+            this.btnTransaction.Size = new System.Drawing.Size(185, 169);
+            this.btnTransaction.TabIndex = 6;
+            this.btnTransaction.Text = "Transaction";
+            this.btnTransaction.UseVisualStyleBackColor = false;
+            this.btnTransaction.Click += new System.EventHandler(this.btnCustOrder_Click);
             // 
             // btnPromos
             // 
@@ -365,7 +365,7 @@
         private System.Windows.Forms.Button btnProdManage;
         private System.Windows.Forms.Button btnOrderSupplier;
         private System.Windows.Forms.Button btnSupplier;
-        private System.Windows.Forms.Button btnCustOrder;
+        private System.Windows.Forms.Button btnTransaction;
         private System.Windows.Forms.Button btnPromos;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnCustReturn;

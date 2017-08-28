@@ -68,8 +68,12 @@ namespace TeteHardware
 
         private void dataGridProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtItemName.Text = dataGridProduct.Rows[e.RowIndex].Cells["Product Name"].Value.ToString();
-            txtItemID.Text = dataGridProduct.Rows[e.RowIndex].Cells["Product ID"].Value.ToString();
+            try
+            {
+                txtItemName.Text = dataGridProduct.Rows[e.RowIndex].Cells["Product Name"].Value.ToString();
+                txtItemID.Text = dataGridProduct.Rows[e.RowIndex].Cells["Product ID"].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException) { }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -99,6 +103,7 @@ namespace TeteHardware
         {
             try
             {
+                //for tbl_arr or tbl_arrdef
                 conn.Open();
                 MySqlCommand query = new MySqlCommand("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status) VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString() + "', '" + txtdateArrival.Text + "', '" + txtStatus.Text + "')", conn);
                 query.ExecuteNonQuery();
@@ -110,29 +115,33 @@ namespace TeteHardware
                 MessageBox.Show("Error in Add() :" + x.ToString());
                 conn.Close();
             }
-            string myStock;
-            try
+            if (txtTable.Text == "tbl_arr")
             {
-                conn.Open();
-                myStock = "";
-                MySqlCommand query1 = new MySqlCommand("SELECT prodStock FROM tbl_product WHERE prodID = '" + txtItemID.Text + "'", conn);
-                MySqlDataReader reader = query1.ExecuteReader();
-                while(reader.Read())
+                //update tbl_products if items arrived are in good condition ("tbl_arr")
+                string myStock;
+                try
                 {
-                     myStock = Convert.ToString(reader[0]);
+                    conn.Open();
+                    myStock = "";
+                    MySqlCommand query1 = new MySqlCommand("SELECT prodStock FROM tbl_product WHERE prodID = '" + txtItemID.Text + "'", conn);
+                    MySqlDataReader reader = query1.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        myStock = Convert.ToString(reader[0]);
+                    }
+                    conn.Close();
+                    conn.Open();
+                    MySqlCommand query = new MySqlCommand("UPDATE tbl_product SET prodStock = prodStock + '" + txtQty.Text + "' WHERE prodID = '" + txtItemID.Text + "'", conn);
+                    query.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                    func.ChangeLog("tbl_product", "prodStock", myStock);
                 }
-                conn.Close();
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("UPDATE tbl_product SET prodStock = prodStock + '" + txtQty.Text + "' WHERE prodID = '" + txtItemID.Text + "'", conn);
-                query.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
-                func.ChangeLog("tbl_product", "prodStock", myStock);
-            }
-            catch(Exception x)
-            {
-                MessageBox.Show("Error in Add() :" + x.ToString());
-                conn.Close();
+                catch (Exception x)
+                {
+                    MessageBox.Show("Error in Add() :" + x.ToString());
+                    conn.Close();
+                }
             }
         }
         private void clearFormArrival()
@@ -168,6 +177,45 @@ namespace TeteHardware
         {
             ReferenceToAfterLogin.Show();
             this.Dispose();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearchID.Text = "";
+            txtSearchName.Text = "";
+            txtItemID.Text = "";
+            txtItemName.Text = "";
+            txtQty.Text = "0";
+            txtdateArrival.Text = "";
+            txtStatus.Text = "";
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ReferenceToAfterLogin.Show();
+            this.Dispose();
+        }
+
+        bool mouseDown; //boolean for mousedown
+        Point lastLocation; //variable for the last location of the mouse
+        private void formArrival_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true; //sets mousedown to true
+            lastLocation = e.Location; //gets the location of the form and sets it to lastlocation
+        }
+
+        private void formArrival_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false; //sets mousedown to false
+        }
+
+        private void formArrival_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown) //if mouseDown is true, point to the last location of the mouse
+            {
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y); //gets the coordinates of the location of the mouse
+                this.Update(); //updates the location of the mouse
+            }
         }
     }
 }

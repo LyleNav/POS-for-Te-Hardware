@@ -181,7 +181,6 @@ namespace TeteHardware
                 conn.Close();
             }
         }
-
         private void txtMOQ_Leave(object sender, EventArgs e)
         {
             if (!func.IsFloat(txtMOQ.Text))

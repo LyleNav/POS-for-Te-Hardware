@@ -135,7 +135,10 @@ namespace TeteHardware
 
         private void btnCustOrder_Click(object sender, EventArgs e)
         {
-
+            formTranscation formT = new formTranscation();
+            formT.ReferenceToAfterLogin = this;
+            formT.Show();
+            this.Hide();
         }
 
         private void btnProdManage_Click(object sender, EventArgs e)

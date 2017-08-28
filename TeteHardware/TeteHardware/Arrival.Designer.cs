@@ -56,6 +56,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtdateArrival = new System.Windows.Forms.TextBox();
             this.calArrival = new System.Windows.Forms.MonthCalendar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -76,7 +78,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(366, 12);
+            this.btnClose.Location = new System.Drawing.Point(389, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 193;
@@ -92,7 +94,7 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(262, 17);
+            this.btnBack.Location = new System.Drawing.Point(272, 17);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(63, 27);
             this.btnBack.TabIndex = 1;
@@ -118,29 +120,32 @@
             this.panel1.Controls.Add(this.labelAddEmployee);
             this.panel1.Location = new System.Drawing.Point(0, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(340, 58);
+            this.panel1.Size = new System.Drawing.Size(351, 58);
             this.panel1.TabIndex = 194;
             // 
             // txtTable
             // 
-            this.txtTable.Location = new System.Drawing.Point(98, 88);
+            this.txtTable.Location = new System.Drawing.Point(357, 82);
             this.txtTable.Name = "txtTable";
             this.txtTable.Size = new System.Drawing.Size(191, 20);
             this.txtTable.TabIndex = 195;
+            this.txtTable.Visible = false;
             // 
             // txtSearchID
             // 
-            this.txtSearchID.Location = new System.Drawing.Point(34, 142);
+            this.txtSearchID.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchID.Location = new System.Drawing.Point(34, 97);
             this.txtSearchID.Name = "txtSearchID";
-            this.txtSearchID.Size = new System.Drawing.Size(77, 20);
+            this.txtSearchID.Size = new System.Drawing.Size(77, 25);
             this.txtSearchID.TabIndex = 197;
             this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged);
             // 
             // txtSearchName
             // 
-            this.txtSearchName.Location = new System.Drawing.Point(150, 142);
+            this.txtSearchName.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchName.Location = new System.Drawing.Point(203, 97);
             this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(122, 20);
+            this.txtSearchName.Size = new System.Drawing.Size(122, 25);
             this.txtSearchName.TabIndex = 199;
             this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
@@ -172,7 +177,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridProduct.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridProduct.EnableHeadersVisualStyles = false;
-            this.dataGridProduct.Location = new System.Drawing.Point(30, 180);
+            this.dataGridProduct.Location = new System.Drawing.Point(30, 135);
             this.dataGridProduct.MultiSelect = false;
             this.dataGridProduct.Name = "dataGridProduct";
             this.dataGridProduct.ReadOnly = true;
@@ -189,24 +194,26 @@
             this.dataGridProduct.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridProduct.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dataGridProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProduct.Size = new System.Drawing.Size(349, 155);
+            this.dataGridProduct.Size = new System.Drawing.Size(357, 155);
             this.dataGridProduct.TabIndex = 200;
             this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             // 
             // txtItemName
             // 
             this.txtItemName.Enabled = false;
-            this.txtItemName.Location = new System.Drawing.Point(98, 350);
+            this.txtItemName.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Location = new System.Drawing.Point(98, 305);
             this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(281, 20);
+            this.txtItemName.Size = new System.Drawing.Size(289, 25);
             this.txtItemName.TabIndex = 201;
             // 
             // lblItemName
             // 
             this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(31, 353);
+            this.lblItemName.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemName.Location = new System.Drawing.Point(26, 306);
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(30, 13);
+            this.lblItemName.Size = new System.Drawing.Size(40, 19);
             this.lblItemName.TabIndex = 202;
             this.lblItemName.Text = "Item:";
             // 
@@ -221,34 +228,38 @@
             // lblQty
             // 
             this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(31, 379);
+            this.lblQty.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQty.Location = new System.Drawing.Point(26, 333);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(52, 13);
+            this.lblQty.Size = new System.Drawing.Size(71, 19);
             this.lblQty.TabIndex = 205;
             this.lblQty.Text = "Quantity: ";
             // 
             // txtQty
             // 
-            this.txtQty.Location = new System.Drawing.Point(98, 376);
+            this.txtQty.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty.Location = new System.Drawing.Point(98, 334);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(79, 20);
+            this.txtQty.Size = new System.Drawing.Size(79, 25);
             this.txtQty.TabIndex = 204;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(31, 406);
+            this.lblStatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(26, 364);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblStatus.Size = new System.Drawing.Size(50, 19);
             this.lblStatus.TabIndex = 207;
             this.lblStatus.Text = "Status:";
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(98, 403);
+            this.txtStatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(98, 364);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(281, 40);
+            this.txtStatus.Size = new System.Drawing.Size(289, 40);
             this.txtStatus.TabIndex = 206;
             // 
             // btnCancel
@@ -260,12 +271,13 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(269, 483);
+            this.btnCancel.Location = new System.Drawing.Point(269, 438);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
             this.btnCancel.TabIndex = 210;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -276,12 +288,13 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(172, 483);
+            this.btnClear.Location = new System.Drawing.Point(172, 438);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
             this.btnClear.TabIndex = 209;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
@@ -292,7 +305,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(75, 483);
+            this.btnAdd.Location = new System.Drawing.Point(75, 438);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
             this.btnAdd.TabIndex = 208;
@@ -303,38 +316,62 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 379);
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(178, 335);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 212;
             this.label1.Text = "Date Arrival:";
             // 
             // txtdateArrival
             // 
-            this.txtdateArrival.Location = new System.Drawing.Point(262, 376);
+            this.txtdateArrival.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdateArrival.Location = new System.Drawing.Point(269, 334);
             this.txtdateArrival.Name = "txtdateArrival";
-            this.txtdateArrival.Size = new System.Drawing.Size(117, 20);
+            this.txtdateArrival.Size = new System.Drawing.Size(118, 25);
             this.txtdateArrival.TabIndex = 211;
             this.txtdateArrival.Enter += new System.EventHandler(this.txtdateArrival_Enter);
             // 
             // calArrival
             // 
-            this.calArrival.Location = new System.Drawing.Point(150, 379);
+            this.calArrival.Location = new System.Drawing.Point(160, 333);
             this.calArrival.Name = "calArrival";
             this.calArrival.TabIndex = 213;
             this.calArrival.Visible = false;
             this.calArrival.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calArrival_DateSelected);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(31, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 15);
+            this.label2.TabIndex = 214;
+            this.label2.Text = "Search by ID:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(200, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 15);
+            this.label3.TabIndex = 215;
+            this.label3.Text = "Search by Name:";
             // 
             // formArrival
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(407, 564);
+            this.ClientSize = new System.Drawing.Size(430, 512);
             this.ControlBox = false;
-            this.Controls.Add(this.calArrival);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtdateArrival);
+            this.Controls.Add(this.calArrival);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
@@ -356,6 +393,9 @@
             this.Name = "formArrival";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.formArrival_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formArrival_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formArrival_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formArrival_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).EndInit();
@@ -389,5 +429,7 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtdateArrival;
         private System.Windows.Forms.MonthCalendar calArrival;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
