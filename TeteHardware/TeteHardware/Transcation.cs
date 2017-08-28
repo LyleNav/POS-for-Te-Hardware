@@ -100,12 +100,15 @@ namespace TeteHardware
         }
         public void clearForm()
         {
+            //reset comboboxes
             comboDiscID.SelectedIndex = 0;
             comboDiscName.SelectedIndex = 0;
             comboDiscType.SelectedIndex = 0;
             comboDiscValue.SelectedIndex = 0;
             comboDiscPercent.SelectedIndex = 0;
+            //set date
             txtdateTransact.Text = DateTime.Now.ToString();
+            //clear text boxes
             txtItemID.Text = "";
             txtItemName.Text = "";
             txtSearchID.Text = "";
@@ -184,7 +187,9 @@ namespace TeteHardware
             {
                 txtDiscAmt.Text = Convert.ToString(comboDiscValue.Text);
             }
-            txtTotPrice.Text = Convert.ToString(decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text));
+            txtDiscAmt.Text = txtDiscAmt.Text + "000";
+            txtTotPrice.Text = Convert.ToString(decimal.Round((decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text)), 2));
+
         }
 
         private void dataGridProduct_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -195,6 +200,7 @@ namespace TeteHardware
                 txtItemName.Text = dataGridProduct.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 txtItemID.Text = dataGridProduct.Rows[e.RowIndex].Cells["ID"].Value.ToString();
                 txtPrice.Text = dataGridProduct.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"),2));
             }
             catch (ArgumentOutOfRangeException) { }
         }
@@ -208,11 +214,13 @@ namespace TeteHardware
             else
             {
                 txtSubTotPrice.Text = Convert.ToString(decimal.Parse(txtPrice.Text) * decimal.Parse(txtQty.Text));
+                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + "000"),2));
                 if (txtDiscAmt.Text == "")
                 {
-                    txtDiscAmt.Text = "0";
+                    txtDiscAmt.Text = "0.00";
                 }
-                txtTotPrice.Text = Convert.ToString(decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text));
+                txtDiscAmt.Text = txtDiscAmt.Text + "000";
+                txtTotPrice.Text = Convert.ToString(decimal.Round((decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text)),2));
             }
         }
 
@@ -220,6 +228,9 @@ namespace TeteHardware
         {
             //Clear the form
             clearForm();
+            //clear datagridOrdered
+            dataGridOrdered.Rows.Clear();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -239,7 +250,14 @@ namespace TeteHardware
 
         private void txtTotPrice_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtTotPrice.Text.Contains("."))
+            {
+                txtTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtTotPrice.Text + "000"), 2));
+            }
+            else
+            {
+                txtTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtTotPrice.Text + ".000"), 2));
+            }
         }
         private void initializeOrderedGrid()
         {
@@ -297,7 +315,6 @@ namespace TeteHardware
                 myTransNum7Int = myTransNum7Int + 10000001;
                 myTransNum7 = myTransNum7Int.ToString().Substring(myTransNum7Int.ToString().Length - 7);
                 myTransNum = myTransNum4 + myTransNum7;
-                MessageBox.Show(myTransNum, " ", MessageBoxButtons.OK);
             }
             catch (Exception x)
             {
@@ -324,7 +341,6 @@ namespace TeteHardware
                     MySqlCommand query = new MySqlCommand("INSERT INTO tbl_transact(prodID, promoID, empID, transNum, transDate, transQty, transTotPrice, transDiscount) VALUES('" + myProdID + "','" + myPromoID + "','" + TeteHardware.Properties.Settings.Default.loginID + "', '" + myTransNum + "', '" + myTransDate + "', '" + myTransQty + "','" + myTransTotPrice + "','" + mytransDiscount + "')", conn);
                     query.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show(query.ToString(), "", MessageBoxButtons.OK);
                 }
                 catch (Exception x)
                 {
@@ -350,7 +366,10 @@ namespace TeteHardware
                     MySqlCommand query = new MySqlCommand("UPDATE tbl_product SET prodStock = prodStock - '" + myTransQty + "' WHERE prodID = '" + myProdID + "'", conn);
                     query.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                    if (myRow == dataGridOrdered.Rows.Count-1)
+                    {
+                        MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                    }
                     func.ChangeLog("tbl_product", "prodStock", myStock);
                 }
                 catch (Exception x)
@@ -360,16 +379,64 @@ namespace TeteHardware
                 }
 
             }
-
             //Update changelog
             func.ChangeLog("tbl_transact", "All", "None");
-
-
-        
+            clearForm();
+            //clear datagridOrdered
+            dataGridOrdered.Rows.Clear();
         }
 
         private void calTrans_DateChanged(object sender, DateRangeEventArgs e)
         {
+
+        }
+        public string str2Dec(string myString, int myType)
+        {
+            string myValueStr = "";
+
+            return myValueStr;
+        }
+
+        private void dataGridProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPrice.Text.Contains("."))
+            {
+                txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"), 2));
+            }
+            else
+            {
+                txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + ".000"), 2));
+            }
+        }
+
+        private void txtSubTotPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSubTotPrice.Text.Contains("."))
+            {
+                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + "000"), 2));
+            }
+            else
+            {
+                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + ".000"), 2));
+            }
+
+        }
+
+        private void txtDiscAmt_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDiscAmt.Text.Contains("."))
+            {
+                txtDiscAmt.Text = Convert.ToString(decimal.Round(decimal.Parse(txtDiscAmt.Text + "000"), 2));
+            }
+            else
+            {
+                txtDiscAmt.Text = Convert.ToString(decimal.Round(decimal.Parse(txtDiscAmt.Text + ".000"), 2));
+            }
 
         }
     }
