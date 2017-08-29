@@ -16,6 +16,7 @@ namespace TeteHardware
         public formAfterLogin ReferenceToAfterLogin { get; set; } //Reference formEmployeeManage to this form
         public MySqlConnection conn; //connection
         Test func = new Test();
+
         public formTranscation()
         {
             InitializeComponent();
@@ -247,17 +248,6 @@ namespace TeteHardware
             clearForm();
         }
 
-        private void txtTotPrice_TextChanged(object sender, EventArgs e)
-        {
-            if (txtTotPrice.Text.Contains("."))
-            {
-                txtTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtTotPrice.Text + "000"), 2));
-            }
-            else
-            {
-                txtTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtTotPrice.Text + ".000"), 2));
-            }
-        }
         private void initializeOrderedGrid()
         {
             dataGridOrdered.ColumnCount = 8;
@@ -282,6 +272,7 @@ namespace TeteHardware
             string myTransQty = "";
             string myTransTotPrice = "";
             string mytransDiscount = "";
+            //compute for the total amount
             //Transfer items in the datagridOrder to tbl_Transact
             //insert newe row to tbl_transact - prodID, promoID, empID, transNum,transDate,transQty,transTotPrice, transDiscount
             //empID for the actual ebcode
@@ -350,6 +341,7 @@ namespace TeteHardware
 
                 //Update stock on tbl_Product
                 string myStock;
+                string myMOQ;
                 try
                 {
                     conn.Open();
@@ -361,11 +353,13 @@ namespace TeteHardware
                         myStock = Convert.ToString(reader[0]);
                     }
                     conn.Close();
+
                     conn.Open();
+                    //update stock volume
                     MySqlCommand query = new MySqlCommand("UPDATE tbl_product SET prodStock = prodStock - '" + myTransQty + "' WHERE prodID = '" + myProdID + "'", conn);
                     query.ExecuteNonQuery();
                     conn.Close();
-                    if (myRow == dataGridOrdered.Rows.Count-1)
+                    if (myRow == dataGridOrdered.Rows.Count - 1)
                     {
                         MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
                     }
@@ -376,6 +370,34 @@ namespace TeteHardware
                     MessageBox.Show("Error in Updating Product - Stock :" + x.ToString());
                     conn.Close();
                 }
+                //check if MOQ is breached
+                try
+                { 
+                    myMOQ = "";
+                    myStock = "";
+                    conn.Open();
+                    MySqlCommand query2 = new MySqlCommand("SELECT prodStock, prodMOQ FROM tbl_product WHERE prodID = '" + myProdID + "'", conn);
+                    MySqlDataReader reader1 = query2.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        myStock = Convert.ToString(reader1[0]);
+                        myMOQ = Convert.ToString(reader1[1]);
+                    }
+                    conn.Close();
+                    if (decimal.Parse(myStock)<decimal.Parse(myMOQ))
+                    {
+                        conn.Open();
+                        MySqlCommand query3 = new MySqlCommand("UPDATE tbl_product SET prodStatus = 'Stock is depleted, please make an order' WHERE prodID = '" + myProdID + "'", conn);
+                        query3.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("Error in Updating Product - Status :" + x.ToString());
+                    conn.Close();
+                }
+
 
             }
             //Update changelog
@@ -394,40 +416,22 @@ namespace TeteHardware
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
-            if (txtPrice.Text.Contains("."))
-            {
-                txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"), 2));
-            }
-            else
-            {
-                txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + ".000"), 2));
-            }
+            Strto2DecPlaces(txtPrice);
         }
 
         private void txtSubTotPrice_TextChanged(object sender, EventArgs e)
         {
-            if (txtSubTotPrice.Text.Contains("."))
-            {
-                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + "000"), 2));
-            }
-            else
-            {
-                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + ".000"), 2));
-            }
-
+            Strto2DecPlaces(txtSubTotPrice);
         }
 
         private void txtDiscAmt_TextChanged(object sender, EventArgs e)
         {
-            if (txtDiscAmt.Text.Contains("."))
-            {
-                txtDiscAmt.Text = Convert.ToString(decimal.Round(decimal.Parse(txtDiscAmt.Text + "000"), 2));
-            }
-            else
-            {
-                txtDiscAmt.Text = Convert.ToString(decimal.Round(decimal.Parse(txtDiscAmt.Text + ".000"), 2));
-            }
+            Strto2DecPlaces(txtDiscAmt);
+        }
 
+        private void txtTotPrice_TextChanged(object sender, EventArgs e)
+        {
+            Strto2DecPlaces(txtTotPrice);
         }
 
         private void txtQty_TextChanged(object sender, EventArgs e)
@@ -447,6 +451,24 @@ namespace TeteHardware
                 txtDiscAmt.Text = txtDiscAmt.Text + "000";
                 txtTotPrice.Text = Convert.ToString(decimal.Round((decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text)), 2));
             }
+        }
+
+        private void Strto2DecPlaces(TextBox myTextbox)
+        {
+            if (myTextbox.Text.Contains("."))
+            {
+                myTextbox.Text = Convert.ToString(decimal.Round(decimal.Parse(myTextbox.Text + "000"), 2));
+            }
+            else
+            {
+                myTextbox.Text = Convert.ToString(decimal.Round(decimal.Parse(myTextbox.Text + ".000"), 2));
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ReferenceToAfterLogin.Show();
+            this.Dispose();
         }
     }
 }

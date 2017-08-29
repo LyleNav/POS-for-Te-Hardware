@@ -396,30 +396,30 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPstatus;
         private System.Windows.Forms.Label labelPcat;
         private System.Windows.Forms.Label labelUnit;
         private System.Windows.Forms.TextBox txtPunit;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label labelAddProduct;
-        private System.Windows.Forms.TextBox txtMOQ;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label labelPstock;
         private System.Windows.Forms.TextBox txtPstock;
         private System.Windows.Forms.Label labelPdesc;
-        private System.Windows.Forms.TextBox txtPdesc;
         private System.Windows.Forms.Label labelPstatus;
         private System.Windows.Forms.Label labelPprice;
         private System.Windows.Forms.Label labelPname;
         private System.Windows.Forms.Label labelPid;
-        private System.Windows.Forms.TextBox txtPprice;
         private System.Windows.Forms.TextBox txtPname;
         private System.Windows.Forms.TextBox txtPid;
         private System.Windows.Forms.TextBox txtPcat;
+        public System.Windows.Forms.TextBox txtPstatus;
+        public System.Windows.Forms.TextBox txtMOQ;
+        public System.Windows.Forms.TextBox txtPdesc;
+        public System.Windows.Forms.TextBox txtPprice;
+        public System.Windows.Forms.Label labelAddProduct;
+        public System.Windows.Forms.Button btnClear;
+        public System.Windows.Forms.Button btnEdit;
+        public System.Windows.Forms.Button btnCancel;
     }
 }

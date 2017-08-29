@@ -154,6 +154,7 @@ namespace TeteHardware
             formArrival formA = new formArrival();
             formA.ReferenceToAfterLogin = this;
             formA.txtTable.Text = "tbl_arr";
+            formA.lblArrival.Text = "Arrival - Good Items";
             formA.Show();
             this.Hide();
         }
@@ -163,7 +164,16 @@ namespace TeteHardware
             formArrival formA = new formArrival();
             formA.ReferenceToAfterLogin = this;
             formA.txtTable.Text = "tbl_arrdef";
+            formA.lblArrival.Text = "Arrival - Bad Items";
             formA.Show();
+            this.Hide();
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            formPOS formP = new formPOS();
+            formP.ReferenceToAfterLogin = this;
+            formP.Show();
             this.Hide();
         }
     }

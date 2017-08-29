@@ -413,12 +413,10 @@
         private System.Windows.Forms.Label labelPstock;
         private System.Windows.Forms.TextBox txtPstock;
         private System.Windows.Forms.Label labelPdesc;
-        private System.Windows.Forms.TextBox txtPdesc;
         private System.Windows.Forms.Label labelPstatus;
         private System.Windows.Forms.Label labelPprice;
         private System.Windows.Forms.Label labelPname;
         private System.Windows.Forms.Label labelPid;
-        private System.Windows.Forms.TextBox txtPprice;
         private System.Windows.Forms.TextBox txtPname;
         private System.Windows.Forms.TextBox txtPid;
         private System.Windows.Forms.Button btnCancel;
@@ -433,9 +431,11 @@
         private System.Windows.Forms.TextBox txtPunit;
         private System.Windows.Forms.Label labelPcat;
         private System.Windows.Forms.ComboBox comboPcat;
-        private System.Windows.Forms.TextBox txtPstatus;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMOQ;
         private System.Windows.Forms.ComboBox comboCatID;
+        public System.Windows.Forms.TextBox txtPdesc;
+        public System.Windows.Forms.TextBox txtPprice;
+        public System.Windows.Forms.TextBox txtPstatus;
+        public System.Windows.Forms.TextBox txtMOQ;
     }
 }

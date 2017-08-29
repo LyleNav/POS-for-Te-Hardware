@@ -91,6 +91,47 @@ namespace TeteHardware
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
+            //Use the Edit Product form with all text boxes set to enabled=false
+            //and the buttons edit and clear set to visible=false
+            //and the button cancel, prperty text is changed to CLose
+
+            try
+            {
+                conn.Open(); //opens the connection
+                MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_product", conn); //query to select all entries in tbl_supplier
+                MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
+                DataTable dt = new DataTable(); //datatable for adapter
+                adp.Fill(dt); //adapter fills the data with data table
+
+                formEditProduct formEP = new formEditProduct(); //variable reference to formEditSupplier
+                formEP.ReferenceToProdManage = this; //sets the reference form to this form
+                formEP.prodID = productID;
+                formEP.empID = employeeID;
+                formEP.prodName = prodName;
+                formEP.prodMOQ = prodMOQ;
+                formEP.prodDesc = prodDesc;
+                formEP.prodStock = prodStock;
+                formEP.prodPrice = prodPrice;
+                formEP.prodUnit = prodUnit;
+                formEP.prodStatus = prodStatus;
+                formEP.labelAddProduct.Text = "Product Details";
+                formEP.txtMOQ.Enabled = false;
+                formEP.txtPdesc.Enabled = false;
+                formEP.txtPprice.Enabled = false;
+                formEP.txtPstatus.Enabled = false;
+                formEP.btnClear.Visible = false;
+                formEP.btnEdit.Visible = false;
+                formEP.btnCancel.Text = "Close";
+
+                formEP.Show(); //shows referenced form
+                this.Hide(); //hides current form
+                conn.Close();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Error in showing the Edit Product Form : " + x.ToString());
+                conn.Close();
+            }
 
         }
 

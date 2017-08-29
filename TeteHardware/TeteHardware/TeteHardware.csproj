@@ -89,6 +89,12 @@
     <Compile Include="EditProduct.Designer.cs">
       <DependentUpon>EditProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="POS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs" />
     <Compile Include="EditPromo.cs">
       <SubType>Form</SubType>
@@ -188,6 +194,9 @@
     <EmbeddedResource Include="EditPromo.resx">
       <DependentUpon>EditPromo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POS.resx">
+      <DependentUpon>POS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductManage.resx">
       <DependentUpon>ProductManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +252,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

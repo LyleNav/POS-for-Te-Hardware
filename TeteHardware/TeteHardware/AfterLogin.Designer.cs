@@ -47,6 +47,7 @@
             this.btnArr = new System.Windows.Forms.Button();
             this.btnArrDef = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnPOS = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -131,6 +132,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEmpManage);
             this.flowLayoutPanel1.Controls.Add(this.btnArr);
             this.flowLayoutPanel1.Controls.Add(this.btnArrDef);
+            this.flowLayoutPanel1.Controls.Add(this.btnPOS);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(60, 113);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
@@ -328,6 +330,23 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnPOS
+            // 
+            this.btnPOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnPOS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnPOS.FlatAppearance.BorderSize = 0;
+            this.btnPOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPOS.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPOS.ForeColor = System.Drawing.Color.White;
+            this.btnPOS.Location = new System.Drawing.Point(586, 363);
+            this.btnPOS.Name = "btnPOS";
+            this.btnPOS.Size = new System.Drawing.Size(185, 86);
+            this.btnPOS.TabIndex = 13;
+            this.btnPOS.Text = "Point Of Sale";
+            this.btnPOS.UseVisualStyleBackColor = false;
+            this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
+            // 
             // formAfterLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,5 +393,6 @@
         private System.Windows.Forms.Button btnEmpManage;
         private System.Windows.Forms.Button btnArr;
         private System.Windows.Forms.Button btnArrDef;
+        private System.Windows.Forms.Button btnPOS;
     }
 }
