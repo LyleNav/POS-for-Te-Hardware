@@ -367,9 +367,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(430, 512);
             this.ControlBox = false;
+            this.Controls.Add(this.calArrival);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtdateArrival);
-            this.Controls.Add(this.calArrival);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);

@@ -52,3 +52,5 @@ C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formEditProduct.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formArrival.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formTranscation.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formArrival.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formTranscation.resources

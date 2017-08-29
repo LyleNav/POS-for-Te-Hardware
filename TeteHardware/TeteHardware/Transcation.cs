@@ -80,6 +80,29 @@ namespace TeteHardware
             txtTransDate2.Text = calTrans.SelectionRange.Start.ToShortDateString();
             calTrans.Visible = false;
         }
+        public void refreshTable()
+        {
+            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product");
+            txtdateTransact.Text = DateTime.Now.ToString();
+            txtTransDate2.Text = DateTime.Now.ToString();
+            //reset comboboxes
+            comboDiscID.SelectedIndex = 0;
+            comboDiscName.SelectedIndex = 0;
+            comboDiscType.SelectedIndex = 0;
+            comboDiscValue.SelectedIndex = 0;
+            comboDiscPercent.SelectedIndex = 0;
+            //clear text boxes
+            txtItemID.Text = "";
+            txtItemName.Text = "";
+            txtSearchID.Text = "";
+            txtSearchName.Text = "";
+            txtPrice.Text = "0";
+            txtQty.Text = "0";
+            txtSubTotPrice.Text = "0";
+            txtDiscAmt.Text = "0";
+            txtTotPrice.Text = "0";
+            txtStatus.Text = "";
+        }
         public void clearFormTransact()
         {
             gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product");
@@ -96,6 +119,7 @@ namespace TeteHardware
             txtDiscAmt.Text = "0";
             txtTotPrice.Text = "0";
             txtStatus.Text = "";
+            dataGridProduct.ClearSelection();
 
         }
         public void clearForm()
@@ -205,32 +229,12 @@ namespace TeteHardware
             catch (ArgumentOutOfRangeException) { }
         }
 
-        private void txtQty_TextChanged(object sender, EventArgs e)
-        {
-            if(!func.IsFloat(txtQty.Text))
-            {
-                MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
-            }
-            else
-            {
-                txtSubTotPrice.Text = Convert.ToString(decimal.Parse(txtPrice.Text) * decimal.Parse(txtQty.Text));
-                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + "000"),2));
-                if (txtDiscAmt.Text == "")
-                {
-                    txtDiscAmt.Text = "0.00";
-                }
-                txtDiscAmt.Text = txtDiscAmt.Text + "000";
-                txtTotPrice.Text = Convert.ToString(decimal.Round((decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text)),2));
-            }
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             //Clear the form
             clearForm();
             //clear datagridOrdered
             dataGridOrdered.Rows.Clear();
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -241,11 +245,6 @@ namespace TeteHardware
             dataGridOrdered.Rows.Add(myData);
             //clear the form
             clearForm();
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtTotPrice_TextChanged(object sender, EventArgs e)
@@ -384,22 +383,13 @@ namespace TeteHardware
             clearForm();
             //clear datagridOrdered
             dataGridOrdered.Rows.Clear();
-        }
-
-        private void calTrans_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
+            refreshTable();
         }
         public string str2Dec(string myString, int myType)
         {
             string myValueStr = "";
 
             return myValueStr;
-        }
-
-        private void dataGridProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
@@ -438,6 +428,25 @@ namespace TeteHardware
                 txtDiscAmt.Text = Convert.ToString(decimal.Round(decimal.Parse(txtDiscAmt.Text + ".000"), 2));
             }
 
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+            if (!func.IsFloat(txtQty.Text))
+            {
+                MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                txtSubTotPrice.Text = Convert.ToString(decimal.Parse(txtPrice.Text) * decimal.Parse(txtQty.Text));
+                txtSubTotPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtSubTotPrice.Text + "000"), 2));
+                if (txtDiscAmt.Text == "")
+                {
+                    txtDiscAmt.Text = "0.00";
+                }
+                txtDiscAmt.Text = txtDiscAmt.Text + "000";
+                txtTotPrice.Text = Convert.ToString(decimal.Round((decimal.Parse(txtSubTotPrice.Text) - decimal.Parse(txtDiscAmt.Text)), 2));
+            }
         }
     }
 }
