@@ -43,6 +43,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,7 +112,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(264, 260);
+            this.btnCancel.Location = new System.Drawing.Point(264, 226);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
             this.btnCancel.TabIndex = 7;
@@ -123,7 +125,7 @@
             this.labelCdesc.AutoSize = true;
             this.labelCdesc.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCdesc.ForeColor = System.Drawing.Color.White;
-            this.labelCdesc.Location = new System.Drawing.Point(51, 181);
+            this.labelCdesc.Location = new System.Drawing.Point(51, 147);
             this.labelCdesc.Name = "labelCdesc";
             this.labelCdesc.Size = new System.Drawing.Size(137, 19);
             this.labelCdesc.TabIndex = 139;
@@ -134,7 +136,7 @@
             this.labelCname.AutoSize = true;
             this.labelCname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCname.ForeColor = System.Drawing.Color.White;
-            this.labelCname.Location = new System.Drawing.Point(51, 145);
+            this.labelCname.Location = new System.Drawing.Point(51, 111);
             this.labelCname.Name = "labelCname";
             this.labelCname.Size = new System.Drawing.Size(108, 19);
             this.labelCname.TabIndex = 140;
@@ -150,11 +152,12 @@
             this.labelCid.Size = new System.Drawing.Size(83, 19);
             this.labelCid.TabIndex = 141;
             this.labelCid.Text = "Catalog ID:";
+            this.labelCid.Visible = false;
             // 
             // txtCdesc
             // 
             this.txtCdesc.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCdesc.Location = new System.Drawing.Point(196, 175);
+            this.txtCdesc.Location = new System.Drawing.Point(200, 140);
             this.txtCdesc.Multiline = true;
             this.txtCdesc.Name = "txtCdesc";
             this.txtCdesc.Size = new System.Drawing.Size(158, 61);
@@ -163,7 +166,7 @@
             // txtCname
             // 
             this.txtCname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCname.Location = new System.Drawing.Point(196, 140);
+            this.txtCname.Location = new System.Drawing.Point(200, 105);
             this.txtCname.Name = "txtCname";
             this.txtCname.Size = new System.Drawing.Size(158, 25);
             this.txtCname.TabIndex = 3;
@@ -172,11 +175,12 @@
             // 
             this.txtCid.Enabled = false;
             this.txtCid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCid.Location = new System.Drawing.Point(196, 105);
+            this.txtCid.Location = new System.Drawing.Point(200, 105);
             this.txtCid.Name = "txtCid";
             this.txtCid.ReadOnly = true;
             this.txtCid.Size = new System.Drawing.Size(158, 25);
             this.txtCid.TabIndex = 2;
+            this.txtCid.Visible = false;
             // 
             // btnAdd
             // 
@@ -187,7 +191,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(70, 260);
+            this.btnAdd.Location = new System.Drawing.Point(70, 226);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
             this.btnAdd.TabIndex = 5;
@@ -204,7 +208,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(167, 260);
+            this.btnClear.Location = new System.Drawing.Point(167, 226);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
             this.btnClear.TabIndex = 6;
@@ -217,13 +221,37 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(153, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 14);
+            this.label1.TabIndex = 154;
+            this.label1.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(182, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 14);
+            this.label2.TabIndex = 155;
+            this.label2.Text = "*";
+            // 
             // formAddCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 317);
+            this.ClientSize = new System.Drawing.Size(408, 288);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.labelCdesc);
             this.Controls.Add(this.labelCname);
@@ -267,5 +295,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

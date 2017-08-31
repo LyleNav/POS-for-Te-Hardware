@@ -15,8 +15,7 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
-        public int catalogID;
-        public string catalogName, catalogDesc;
+        public string catalogID, catalogName, catalogDesc;
         public formCatalogManage()
         {
             InitializeComponent();
@@ -144,7 +143,7 @@ namespace TeteHardware
 
                 catalogName = dataGridCatalog.Rows[e.RowIndex].Cells["catName"].Value.ToString();
                 catalogDesc = dataGridCatalog.Rows[e.RowIndex].Cells["catDesc"].Value.ToString();
-                catalogID = int.Parse(dataGridCatalog.Rows[e.RowIndex].Cells["catID"].Value.ToString());
+                catalogID = dataGridCatalog.Rows[e.RowIndex].Cells["catID"].Value.ToString();
             }
             catch (ArgumentOutOfRangeException) { }
         }

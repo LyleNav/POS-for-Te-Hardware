@@ -16,8 +16,7 @@ namespace TeteHardware
         public formCatalogManage ReferenceToCatManage { get; set; } //Reference formCatalogManage to this form
         public MySqlConnection conn; //connection
         Test func = new Test();
-        public string catName, catDesc, oldName, oldDesc, newName, newDesc, myField, oldValues;
-        public int catID;
+        public string catID, catName, catDesc, oldName, oldDesc, newName, newDesc, myField, oldValues;
         public formEditCatalog()
         {
             InitializeComponent();
