@@ -33,25 +33,37 @@ namespace TeteHardware
 
         private void initializeForm()
         {
-            dataGridOrdered.Location = new Point(this.Width-1070, 20);
+            dataGridOrdered.Location = new Point(this.Width-1050, 0);
             dataGridOrdered.Size = new Size(1050, this.Height / 2);
-            pnlDisplay.Location = new Point(this.Width - 535, dataGridOrdered.Height + 40);
-            pnlDisplay.Size = new Size(500, (this.Height - dataGridOrdered.Height)/2 - 40);
-            pnlButtons.Location = new Point(this.Width - 535, dataGridOrdered.Height + pnlDisplay.Height + 60);
-            pnlButtons.Size = new Size(500, (this.Height - dataGridOrdered.Height) / 2 - 60);
-            pnlCalcu.Location = new Point(this.Width - 1050, dataGridOrdered.Height + 40);
-            pnlCalcu.Size = new Size(500, pnlDisplay.Height + pnlButtons.Height + 20);
-            btnClose.BringToFront();
+            pnlDisplay.Location = new Point(this.Width - 1050 + 525, dataGridOrdered.Height);
+            pnlDisplay.Size = new Size(dataGridOrdered.Width / 2, dataGridOrdered.Height / 2-25);
+            pnlButtons.Location = new Point(this.Width - 1050 + 525, dataGridOrdered.Height + pnlDisplay.Height);
+            pnlButtons.Size = new Size(dataGridOrdered.Width / 2, dataGridOrdered.Height / 2-25);
+            pnlCalcu.Location = new Point(this.Width - 1050, dataGridOrdered.Height);
+            pnlCalcu.Size = new Size(dataGridOrdered.Width / 2, this.Height / 2-50);
             btnClose.Size = new Size(pnlButtons.Width / 5, pnlButtons.Height / 2);
-            btnClose.Location = new Point(pnlButtons.Location.X + pnlButtons.Width / 5 * 4, pnlButtons.Location.Y + pnlButtons.Height / 2);
-            lblSubTot.Location = new Point(pnlDisplay.Location.X + 10, pnlDisplay.Location.Y + 10);
-            txtSubTot.Location = new Point(pnlDisplay.Location.X + lblSubTot.Width + 20, pnlDisplay.Location.Y + 10);
-            lblTotDisc.Location = new Point(pnlDisplay.Location.X + 10, pnlDisplay.Location.Y + 10 + 30);
-            txtTotDisc.Location = new Point(pnlDisplay.Location.X + lblTotDisc.Width + 20, pnlDisplay.Location.Y + 10 + 30);
+            btnItemSearch.Size = btnClose.Size;
+            btnEditLine.Size = btnClose.Size;
+            btnEditTrans.Size = btnClose.Size;
+            btnDiscount.Size = btnClose.Size;
+            btnClose.Location = new Point(420, pnlButtons.Height / 2);
+            btnItemSearch.Location = new Point(0, pnlButtons.Height / 2);
+            btnEditLine.Location = new Point(105, pnlButtons.Height / 2);
+            btnEditTrans.Location = new Point(210, pnlButtons.Height / 2);
+            btnDiscount.Location = new Point(315, pnlButtons.Height / 2);
+            btnClose.BringToFront();
+
         }
 
         private void initializeOrderedGrid()
         {
+            //Get Screen size type: A=800X600; B=1024 and 1280; C=1400 to 1600; D=1680 and above
+            //set positions for datagrid, display and buttons panels
+            //set widths of datagrid columns
+            //set positions for labels and texboxes in display panel
+            //set positions for buttons in buttons panel
+
+
             dataGridOrdered.ColumnCount = 8;
             dataGridOrdered.Columns[0].Name = "Item ID";
             dataGridOrdered.Columns[1].Name = "Item";
@@ -76,10 +88,15 @@ namespace TeteHardware
             this.Opacity += 0.1; //form transition using timer
         }
 
-        private void btnClose_Click_1(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             ReferenceToAfterLogin.Show();
             this.Dispose();
+        }
+
+        private void txtNoItems_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
