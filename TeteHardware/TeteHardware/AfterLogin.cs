@@ -135,7 +135,7 @@ namespace TeteHardware
 
         private void btnCustOrder_Click(object sender, EventArgs e)
         {
-            formTranscation formT = new formTranscation();
+            formPOS formT = new formPOS();
             formT.ReferenceToAfterLogin = this;
             formT.Show();
             this.Hide();
@@ -171,9 +171,9 @@ namespace TeteHardware
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            formPOS formP = new formPOS();
-            formP.ReferenceToAfterLogin = this;
-            formP.Show();
+            formPOS formTrans = new formPOS();
+            formTrans.ReferenceToAfterLogin = this;
+            formTrans.Show();
             this.Hide();
         }
     }

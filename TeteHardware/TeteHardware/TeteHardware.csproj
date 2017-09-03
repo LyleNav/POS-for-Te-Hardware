@@ -95,12 +95,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="POS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POS.Designer.cs">
-      <DependentUpon>POS.cs</DependentUpon>
-    </Compile>
     <Compile Include="Test.cs" />
     <Compile Include="EditPromo.cs">
       <SubType>Form</SubType>
@@ -170,6 +164,12 @@
     <Compile Include="SupplierManage.Designer.cs">
       <DependentUpon>SupplierManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="POS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transcation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +202,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POS.resx">
-      <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductManage.resx">
       <DependentUpon>ProductManage.cs</DependentUpon>
@@ -245,6 +242,9 @@
     </Compile>
     <EmbeddedResource Include="SupplierManage.resx">
       <DependentUpon>SupplierManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS.resx">
+      <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transcation.resx">
       <DependentUpon>Transcation.cs</DependentUpon>

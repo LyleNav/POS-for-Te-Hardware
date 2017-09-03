@@ -86,7 +86,7 @@ namespace TeteHardware
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (comboPcat.Text == "" || txtPname.Text == "" || txtPdesc.Text == "" || txtMOQ.Text == "" || txtPstock.Text == "" || txtPprice.Text == "" || txtPunit.Text == "" || txtPstatus.Text == "") //DATA VALIDATION
+            if (comboPcat.Text == "" || txtPname.Text == "" || txtPdesc.Text == "" || txtMOQ.Text == "" || txtPstock.Text == "" || txtPprice.Text == "" || txtPunit.Text == "") //DATA VALIDATION
             {
                 MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
             }
@@ -168,7 +168,7 @@ namespace TeteHardware
                 {
                     mycounter1 = int.Parse(mycounter);
                 }
-                MessageBox.Show(mycounter1.ToString());
+                //MessageBox.Show(mycounter1.ToString());
                 mycounter1 = mycounter1 + 1;
                 mycounter1 = mycounter1 + 1000;
                 string mycounter2 = mycounter1.ToString().Substring(mycounter1.ToString().Length - 3);
