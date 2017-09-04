@@ -278,6 +278,7 @@ namespace TeteHardware
         {
             //clearForm();
             getItemData();
+            searchVisibility(false);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -576,8 +577,7 @@ namespace TeteHardware
             if(e.KeyCode==Keys.Enter)
             {
                 getItemData();
-                dataGridProduct.Visible = false;
-
+                searchVisibility(false);
             }
         }
 
@@ -586,7 +586,7 @@ namespace TeteHardware
             if(e.KeyCode==Keys.Enter)
             {
                 computeSubTot();
-                txtGrandTot.Text = Convert.ToString(decimal.Round((decimal.Parse(txtGrandTot.Text) + decimal.Parse(txtSubTotPrice.Text)), 2));
+                txtGrandTot.Text = Convert.ToString(decimal.Round((decimal.Parse(txtGrandTot.Text) + decimal.Parse(txtTotPrice.Text)), 2));
                 addToOrdered();
             }
         }
@@ -612,6 +612,15 @@ namespace TeteHardware
             txtQty.Focus();
             txtQty.SelectAll();
             myboolEdit = false;
+        }
+
+        private void searchVisibility(Boolean myVisible)
+        {
+            dataGridProduct.Visible = myVisible;
+            lblSearchID.Visible = myVisible;
+            lblSearchName.Visible = myVisible;
+            txtSearchID.Visible = myVisible;
+            txtSearchName.Visible = myVisible;
         }
 
         //Hot Keys Handling
@@ -641,22 +650,22 @@ namespace TeteHardware
             }
             else if (keyData == Keys.F8)   //Select datagridProduct
             {
-                dataGridProduct.Visible = true;
+                searchVisibility(true);
                 dataGridProduct.Focus();
                 dataGridProduct.Rows[0].Selected = true;
                 dataGridProduct.CurrentCell.Selected = false;
             }
             else if (keyData == Keys.F7)   //Search Item ID
             {
+                searchVisibility(true);
                 txtSearchID.Text = "";
                 txtSearchName.Focus();
-                dataGridProduct.Visible = true;
             }
             else if (keyData == Keys.F6)   //Search Item Name
             {
+                searchVisibility(true);
                 txtSearchName.Text = "";
                 txtSearchID.Focus();
-                dataGridProduct.Visible = true;
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
