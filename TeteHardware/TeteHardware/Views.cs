@@ -58,7 +58,7 @@ namespace TeteHardware
             mouseDown = false; //sets mousedown to false
         }
 
-        //Hot Keys Handling
+        //Hot Keys Handling - put any special keys with special functions here
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.F1)
@@ -75,6 +75,14 @@ namespace TeteHardware
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        //Buttons Handling - put all codes for any buttons here
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            ReferenceToAfterLogin.Show();
+            this.Dispose();
+        }
+
+
         private void formViews_Load(object sender, EventArgs e)
         {
             //set Dates
@@ -83,6 +91,7 @@ namespace TeteHardware
             populateComboParent();
         }
 
+        //Date Handling - put all dates here
         private void txtDateFrom_Enter(object sender, EventArgs e)
         {
             monCalFrom.Location = txtDateFrom.Location;
@@ -116,6 +125,8 @@ namespace TeteHardware
             comboParent.Items.Add("Promo");
             comboParent.SelectedIndex = 0;
         }
+
+        //Set datagridParents tbl here
         private void comboParent_SelectedIndexChanged(object sender, EventArgs e)
         {
             myParent = comboParent.Text;
@@ -189,7 +200,10 @@ namespace TeteHardware
             {
                 comboChild.Items.Add("Sales");
             }
+            comboChild.SelectedIndex = 0;
         }
+
+        //set datagridChild tbl here
         private void comboChild_SelectedIndexChanged(object sender, EventArgs e)
         {
             myChild = comboChild.Text;
@@ -229,6 +243,7 @@ namespace TeteHardware
             datagridTableChild.DataSource = null;      //remove datasource link for datagridProduct
             try
             {
+                MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
                 conn.Open(); //opens the connection
                 MySqlCommand query = new MySqlCommand(selectCommand, conn); //query to select all entries in tbl_productcatalog
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
@@ -248,11 +263,6 @@ namespace TeteHardware
 
         private void datagridTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*            comboParent.Items.Add("Category");
-                        comboParent.Items.Add("Supplier");
-                        comboParent.Items.Add("Product");
-                        comboParent.Items.Add("Promo");
-                        */
             int myRowIndex = datagridTable.CurrentRow.Index;
             string myselComm = "";
 
@@ -260,43 +270,19 @@ namespace TeteHardware
             {
                 string myCatID = "";
                 myCatID = datagridTable.Rows[myRowIndex].Cells["catID"].Value.ToString();
-                if (myChild == "Products")
-                {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
-                }
-/*                else if (myChild == "Sales")
-                {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
-                }
-                else if (myChild == "Deliveries")
-                {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
-                }*/
+                myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
             }
             else if (myParent=="Supplier")
             {
                 string mySupID = "";
                 mySupID = datagridTable.Rows[myRowIndex].Cells["supID"].Value.ToString();
-                if (myChild=="Products")
-                {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(supID,2) = '" + mySupID + "'";
-                }
-/*                else if (myChild == "Good Deliveries")
-                {
-
-                }
-                else if (myChild == "Bad Deliveries")
-                {
-
-                }
-                else if (myChild == "Returned")
-                {
-
-                }*/
+                myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(supID,2) = '" + mySupID + "'";
             }
             else if (myParent == "Product")
             {
-
+                string myProdID = "";
+                myProdID = datagridTable.Rows[myRowIndex].Cells["prodID"].Value.ToString();
+                myselComm = "SELECT * FROM " + myChildTable + " WHERE prodID = '" + myProdID + "'";
             }
             else if (myParent == "Promo")
             {
@@ -305,5 +291,6 @@ namespace TeteHardware
             populatedatagridChild(myselComm);
 
         }
+
     }
 }
