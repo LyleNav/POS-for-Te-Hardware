@@ -57,3 +57,4 @@ C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardw
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formPOS.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formPOS.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.Form1.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.Form1.resources

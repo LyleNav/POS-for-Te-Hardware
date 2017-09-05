@@ -53,6 +53,7 @@ namespace TeteHardware
 
         private void formArrival_Load(object sender, EventArgs e)
         {
+            this.calArrival.Location = new Point(172, 334);
             clearFormArrival();
         }
 

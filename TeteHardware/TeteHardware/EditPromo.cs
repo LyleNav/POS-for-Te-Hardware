@@ -28,6 +28,38 @@ namespace TeteHardware
             timer1.Start(); //form transition using timer
         }
 
+        private void comboPtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboPtype.Text == "Percent")
+            {
+                txtPpercent.Enabled = true;
+                txtPvalue.Enabled = false;
+                txtPvalue.Text = "0";
+                txtPpercent.Text = "";
+                labelpercentR.Visible = true;
+                labelvalueR.Visible = false;
+            }
+            else if (comboPtype.Text == "Value")
+            {
+                txtPvalue.Enabled = true;
+                txtPpercent.Enabled = false;
+                txtPpercent.Text = "0";
+                txtPvalue.Text = "";
+                labelpercentR.Visible = false;
+                labelvalueR.Visible = true;
+            }
+            else
+            {
+                txtPvalue.Enabled = false;
+                txtPpercent.Enabled = false;
+                txtPpercent.Text = "0";
+                txtPvalue.Text = "0";
+                labelpercentR.Visible = false;
+                labelvalueR.Visible = false;
+            }
+            promType = comboPtype.SelectedIndex - 1 ;
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close(); //closes current form
@@ -142,10 +174,11 @@ namespace TeteHardware
                 conn.Open();
                 MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'", conn);
                 query1.ExecuteNonQuery();
                 MySqlCommand query2 = new MySqlCommand("SELECT promoName, promoType, promoPercent, promoValue, promoStatus FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 MySqlDataReader reader = query2.ExecuteReader();
+                MessageBox.Show("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'");
                 myField = "";
                 oldValues = "";
                 while (reader.Read())

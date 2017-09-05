@@ -37,7 +37,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labelSothers = new System.Windows.Forms.Label();
+            this.labelSremarks = new System.Windows.Forms.Label();
             this.txtSothers = new System.Windows.Forms.TextBox();
             this.labelScontactNum = new System.Windows.Forms.Label();
             this.txtScontactNum = new System.Windows.Forms.TextBox();
@@ -49,6 +49,11 @@
             this.labelSid = new System.Windows.Forms.Label();
             this.txtSname = new System.Windows.Forms.TextBox();
             this.txtSid = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +103,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(268, 329);
+            this.btnCancel.Location = new System.Drawing.Point(267, 294);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
             this.btnCancel.TabIndex = 10;
@@ -115,7 +120,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(171, 329);
+            this.btnClear.Location = new System.Drawing.Point(170, 294);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
             this.btnClear.TabIndex = 9;
@@ -132,7 +137,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(74, 329);
+            this.btnEdit.Location = new System.Drawing.Point(73, 294);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(91, 40);
             this.btnEdit.TabIndex = 8;
@@ -163,21 +168,21 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // labelSothers
+            // labelSremarks
             // 
-            this.labelSothers.AutoSize = true;
-            this.labelSothers.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSothers.ForeColor = System.Drawing.Color.White;
-            this.labelSothers.Location = new System.Drawing.Point(51, 276);
-            this.labelSothers.Name = "labelSothers";
-            this.labelSothers.Size = new System.Drawing.Size(54, 19);
-            this.labelSothers.TabIndex = 187;
-            this.labelSothers.Text = "Others:";
+            this.labelSremarks.AutoSize = true;
+            this.labelSremarks.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSremarks.ForeColor = System.Drawing.Color.White;
+            this.labelSremarks.Location = new System.Drawing.Point(51, 241);
+            this.labelSremarks.Name = "labelSremarks";
+            this.labelSremarks.Size = new System.Drawing.Size(66, 19);
+            this.labelSremarks.TabIndex = 187;
+            this.labelSremarks.Text = "Remarks:";
             // 
             // txtSothers
             // 
             this.txtSothers.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSothers.Location = new System.Drawing.Point(196, 273);
+            this.txtSothers.Location = new System.Drawing.Point(196, 238);
             this.txtSothers.Multiline = true;
             this.txtSothers.Name = "txtSothers";
             this.txtSothers.Size = new System.Drawing.Size(158, 42);
@@ -188,7 +193,7 @@
             this.labelScontactNum.AutoSize = true;
             this.labelScontactNum.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScontactNum.ForeColor = System.Drawing.Color.White;
-            this.labelScontactNum.Location = new System.Drawing.Point(51, 243);
+            this.labelScontactNum.Location = new System.Drawing.Point(51, 208);
             this.labelScontactNum.Name = "labelScontactNum";
             this.labelScontactNum.Size = new System.Drawing.Size(132, 19);
             this.labelScontactNum.TabIndex = 186;
@@ -197,7 +202,7 @@
             // txtScontactNum
             // 
             this.txtScontactNum.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScontactNum.Location = new System.Drawing.Point(196, 239);
+            this.txtScontactNum.Location = new System.Drawing.Point(196, 204);
             this.txtScontactNum.Name = "txtScontactNum";
             this.txtScontactNum.Size = new System.Drawing.Size(158, 25);
             this.txtScontactNum.TabIndex = 6;
@@ -207,7 +212,7 @@
             this.labelSaddress.AutoSize = true;
             this.labelSaddress.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSaddress.ForeColor = System.Drawing.Color.White;
-            this.labelSaddress.Location = new System.Drawing.Point(51, 177);
+            this.labelSaddress.Location = new System.Drawing.Point(51, 142);
             this.labelSaddress.Name = "labelSaddress";
             this.labelSaddress.Size = new System.Drawing.Size(120, 19);
             this.labelSaddress.TabIndex = 185;
@@ -216,7 +221,7 @@
             // txtSaddress
             // 
             this.txtSaddress.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaddress.Location = new System.Drawing.Point(196, 173);
+            this.txtSaddress.Location = new System.Drawing.Point(196, 138);
             this.txtSaddress.Name = "txtSaddress";
             this.txtSaddress.Size = new System.Drawing.Size(158, 25);
             this.txtSaddress.TabIndex = 4;
@@ -226,7 +231,7 @@
             this.labelScontact.AutoSize = true;
             this.labelScontact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScontact.ForeColor = System.Drawing.Color.White;
-            this.labelScontact.Location = new System.Drawing.Point(51, 210);
+            this.labelScontact.Location = new System.Drawing.Point(51, 175);
             this.labelScontact.Name = "labelScontact";
             this.labelScontact.Size = new System.Drawing.Size(117, 19);
             this.labelScontact.TabIndex = 184;
@@ -235,7 +240,7 @@
             // txtScontact
             // 
             this.txtScontact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScontact.Location = new System.Drawing.Point(196, 206);
+            this.txtScontact.Location = new System.Drawing.Point(196, 171);
             this.txtScontact.Name = "txtScontact";
             this.txtScontact.Size = new System.Drawing.Size(158, 25);
             this.txtScontact.TabIndex = 5;
@@ -245,7 +250,7 @@
             this.labelSname.AutoSize = true;
             this.labelSname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSname.ForeColor = System.Drawing.Color.White;
-            this.labelSname.Location = new System.Drawing.Point(51, 145);
+            this.labelSname.Location = new System.Drawing.Point(51, 110);
             this.labelSname.Name = "labelSname";
             this.labelSname.Size = new System.Drawing.Size(108, 19);
             this.labelSname.TabIndex = 182;
@@ -265,7 +270,7 @@
             // txtSname
             // 
             this.txtSname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSname.Location = new System.Drawing.Point(196, 140);
+            this.txtSname.Location = new System.Drawing.Point(196, 105);
             this.txtSname.Name = "txtSname";
             this.txtSname.Size = new System.Drawing.Size(158, 25);
             this.txtSname.TabIndex = 3;
@@ -280,14 +285,74 @@
             this.txtSid.Size = new System.Drawing.Size(158, 25);
             this.txtSid.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(154, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 14);
+            this.label2.TabIndex = 212;
+            this.label2.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(166, 144);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 14);
+            this.label1.TabIndex = 213;
+            this.label1.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(163, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 14);
+            this.label3.TabIndex = 214;
+            this.label3.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(178, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 14);
+            this.label4.TabIndex = 215;
+            this.label4.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(112, 243);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(12, 14);
+            this.label5.TabIndex = 216;
+            this.label5.Text = "*";
+            // 
             // formEditSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 392);
+            this.ClientSize = new System.Drawing.Size(408, 358);
             this.ControlBox = false;
-            this.Controls.Add(this.labelSothers);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelSremarks);
             this.Controls.Add(this.txtSothers);
             this.Controls.Add(this.labelScontactNum);
             this.Controls.Add(this.txtScontactNum);
@@ -330,7 +395,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label labelSothers;
+        private System.Windows.Forms.Label labelSremarks;
         private System.Windows.Forms.TextBox txtSothers;
         private System.Windows.Forms.Label labelScontactNum;
         private System.Windows.Forms.TextBox txtScontactNum;
@@ -342,5 +407,10 @@
         private System.Windows.Forms.Label labelSid;
         private System.Windows.Forms.TextBox txtSname;
         private System.Windows.Forms.TextBox txtSid;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

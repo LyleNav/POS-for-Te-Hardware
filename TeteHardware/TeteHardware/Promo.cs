@@ -79,9 +79,9 @@ namespace TeteHardware
                 formEP.ReferenceToPromoManage = this; //sets the reference form to this form
                 formEP.promName = promoName;
                 formEP.promType = promoType;
+                formEP.promPercent = promoPercent;
                 formEP.promValue = promoValue;
                 formEP.promStatus = promoStatus;
-                formEP.promPercent = promoPercent;
                 formEP.promID = promoID;
                 formEP.Show(); //shows referenced form
                 this.Hide(); //hides current form

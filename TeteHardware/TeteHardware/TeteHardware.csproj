@@ -71,11 +71,11 @@
     <Compile Include="AddSupplier.Designer.cs">
       <DependentUpon>AddSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Arrival.cs">
+    <Compile Include="StockIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Arrival.Designer.cs">
-      <DependentUpon>Arrival.cs</DependentUpon>
+    <Compile Include="StockIn.Designer.cs">
+      <DependentUpon>StockIn.cs</DependentUpon>
     </Compile>
     <Compile Include="CatalogManage.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="AddSupplier.resx">
       <DependentUpon>AddSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Arrival.resx">
-      <DependentUpon>Arrival.cs</DependentUpon>
+    <EmbeddedResource Include="StockIn.resx">
+      <DependentUpon>StockIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatalogManage.resx">
       <DependentUpon>CatalogManage.cs</DependentUpon>

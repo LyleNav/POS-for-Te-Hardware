@@ -124,6 +124,8 @@ namespace TeteHardware
                 txtPvalue.Enabled = false;
                 txtPvalue.Text = "0";
                 txtPpercent.Text = "";
+                labelpercentR.Visible = true;
+                labelvalueR.Visible = false;
             }
             else if (comboPtype.Text == "Value")
             {
@@ -131,6 +133,8 @@ namespace TeteHardware
                 txtPpercent.Enabled = false;
                 txtPpercent.Text = "0";
                 txtPvalue.Text = "";
+                labelpercentR.Visible = false;
+                labelvalueR.Visible = true;
             }
             else
             {
@@ -138,6 +142,8 @@ namespace TeteHardware
                 txtPpercent.Enabled = false;
                 txtPpercent.Text = "0";
                 txtPvalue.Text = "0";
+                labelpercentR.Visible = false;
+                labelvalueR.Visible = false;
             }
         }
 
@@ -147,6 +153,8 @@ namespace TeteHardware
             txtPvalue.Enabled = false;
             txtPpercent.Text = "0";
             txtPvalue.Text = "0";
+            comboPstatus.SelectedIndex = 0;
+            comboPstatus.Enabled = false;
         }
 
         private void Add()

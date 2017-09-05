@@ -47,6 +47,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelLevel = new System.Windows.Forms.Label();
             this.comboElevel = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +96,7 @@
             this.labelEuser.AutoSize = true;
             this.labelEuser.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEuser.ForeColor = System.Drawing.Color.White;
-            this.labelEuser.Location = new System.Drawing.Point(51, 177);
+            this.labelEuser.Location = new System.Drawing.Point(51, 142);
             this.labelEuser.Name = "labelEuser";
             this.labelEuser.Size = new System.Drawing.Size(76, 19);
             this.labelEuser.TabIndex = 182;
@@ -101,7 +105,7 @@
             // txtEuser
             // 
             this.txtEuser.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEuser.Location = new System.Drawing.Point(196, 174);
+            this.txtEuser.Location = new System.Drawing.Point(196, 139);
             this.txtEuser.Name = "txtEuser";
             this.txtEuser.Size = new System.Drawing.Size(158, 25);
             this.txtEuser.TabIndex = 4;
@@ -111,7 +115,7 @@
             this.labelEpass.AutoSize = true;
             this.labelEpass.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEpass.ForeColor = System.Drawing.Color.White;
-            this.labelEpass.Location = new System.Drawing.Point(51, 210);
+            this.labelEpass.Location = new System.Drawing.Point(51, 175);
             this.labelEpass.Name = "labelEpass";
             this.labelEpass.Size = new System.Drawing.Size(73, 19);
             this.labelEpass.TabIndex = 181;
@@ -120,7 +124,7 @@
             // txtEpass
             // 
             this.txtEpass.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEpass.Location = new System.Drawing.Point(196, 207);
+            this.txtEpass.Location = new System.Drawing.Point(196, 172);
             this.txtEpass.Name = "txtEpass";
             this.txtEpass.PasswordChar = '*';
             this.txtEpass.Size = new System.Drawing.Size(158, 25);
@@ -135,7 +139,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(264, 281);
+            this.btnCancel.Location = new System.Drawing.Point(264, 246);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
             this.btnCancel.TabIndex = 9;
@@ -152,7 +156,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(167, 281);
+            this.btnClear.Location = new System.Drawing.Point(167, 246);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
             this.btnClear.TabIndex = 8;
@@ -169,7 +173,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(70, 281);
+            this.btnAdd.Location = new System.Drawing.Point(70, 246);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
             this.btnAdd.TabIndex = 7;
@@ -182,7 +186,7 @@
             this.labelEname.AutoSize = true;
             this.labelEname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEname.ForeColor = System.Drawing.Color.White;
-            this.labelEname.Location = new System.Drawing.Point(51, 145);
+            this.labelEname.Location = new System.Drawing.Point(51, 110);
             this.labelEname.Name = "labelEname";
             this.labelEname.Size = new System.Drawing.Size(118, 19);
             this.labelEname.TabIndex = 179;
@@ -202,7 +206,7 @@
             // txtEname
             // 
             this.txtEname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEname.Location = new System.Drawing.Point(196, 140);
+            this.txtEname.Location = new System.Drawing.Point(196, 105);
             this.txtEname.Name = "txtEname";
             this.txtEname.Size = new System.Drawing.Size(158, 25);
             this.txtEname.TabIndex = 3;
@@ -245,7 +249,7 @@
             this.labelLevel.AutoSize = true;
             this.labelLevel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLevel.ForeColor = System.Drawing.Color.White;
-            this.labelLevel.Location = new System.Drawing.Point(51, 243);
+            this.labelLevel.Location = new System.Drawing.Point(51, 208);
             this.labelLevel.Name = "labelLevel";
             this.labelLevel.Size = new System.Drawing.Size(45, 19);
             this.labelLevel.TabIndex = 184;
@@ -261,18 +265,66 @@
             "",
             "Admin",
             "Cashier"});
-            this.comboElevel.Location = new System.Drawing.Point(196, 240);
+            this.comboElevel.Location = new System.Drawing.Point(196, 205);
             this.comboElevel.Name = "comboElevel";
             this.comboElevel.Size = new System.Drawing.Size(159, 25);
             this.comboElevel.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(164, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 14);
+            this.label1.TabIndex = 185;
+            this.label1.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(122, 144);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 14);
+            this.label2.TabIndex = 186;
+            this.label2.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(119, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 14);
+            this.label3.TabIndex = 187;
+            this.label3.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(91, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 14);
+            this.label4.TabIndex = 188;
+            this.label4.Text = "*";
             // 
             // formAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 341);
+            this.ClientSize = new System.Drawing.Size(408, 308);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboElevel);
             this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.btnClose);
@@ -323,5 +375,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelLevel;
         private System.Windows.Forms.ComboBox comboElevel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

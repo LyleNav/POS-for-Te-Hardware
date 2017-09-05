@@ -76,7 +76,7 @@ namespace TeteHardware
             txtPstock.Text = "";
             txtPprice.Text = "";
             txtPunit.Text = "";
-            txtPstatus.Text = "";
+            txtPremarks.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_product(empID, prodID, prodName, prodMOQ, prodDesc, prodStock, prodUPrice, prodUnit, prodStatus) VALUES('" + TeteHardware.Properties.Settings.Default.loginID  + "', '" + txtPid.Text + "', '" + txtPname.Text + "', '" + txtMOQ.Text + "','" + txtPdesc.Text + "','" + txtPstock.Text + "','" + txtPprice.Text + "','" + txtPunit.Text + "','" + txtPstatus.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_product(empID, prodID, prodName, prodMOQ, prodDesc, prodStock, prodUPrice, prodUnit, prodStatus) VALUES('" + TeteHardware.Properties.Settings.Default.loginID  + "', '" + txtPid.Text + "', '" + txtPname.Text + "', '" + txtMOQ.Text + "','" + txtPdesc.Text + "','" + txtPstock.Text + "','" + txtPprice.Text + "','" + txtPunit.Text + "','" + txtPremarks.Text + "')", conn);
                 query.ExecuteNonQuery();
                 func.ChangeLog("tbl_product", "All", "None");
                 conn.Close();
