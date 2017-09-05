@@ -374,6 +374,7 @@
             this.Name = "formAddSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formAddSupplier_FormClosing);
+            this.Load += new System.EventHandler(this.formAddSupplier_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formAddSupplier_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formAddSupplier_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formAddSupplier_MouseUp);

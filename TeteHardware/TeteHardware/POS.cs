@@ -26,47 +26,43 @@ namespace TeteHardware
 
             //MessageBox.Show(myScreenWidth.ToString(), "", MessageBoxButtons.OK);
 
-            if(myScreenWidth<900)
+            if(myScreenWidth<1300)
             {
+                MessageBox.Show("Please select at least 1400 X 900 Scree Resolution");
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            pnlTransact.Location = new Point((myScreenWidth - 1000 - pnlTransact.Width) / 2, 0);
+            dataGridProduct.Location = new Point(pnlTransact.Location.X, dataGridProduct.Location.Y);
+            pnlButtons2.Location = new Point(pnlTransact.Location.X, myScreenHeight - pnlButtons2.Height);
+            pnlButtons.Location = new Point(pnlTransact.Location.X, myScreenHeight - pnlButtons2.Height - pnlButtons.Height);
 
-            }
-            else if (myScreenWidth<1030)
-            {
-
-            }
-            else if(myScreenWidth<1300)
-            {
-
-            }
-            else if(myScreenWidth<1450)
-            {
-                dataGridOrdered.Size = new Size(1000, myScreenHeight - 20);
-                lblgridOrdered.Location = new Point(myScreenWidth - 1000, 0);
-                dataGridOrdered.Location = new Point(myScreenWidth - 1000, 20);
-
-            }
-            else if (myScreenWidth<1690)
-            {
-                dataGridOrdered.Size = new Size(1000, myScreenHeight - 20);
-                lblgridOrdered.Location = new Point(myScreenWidth - 1000, 0);
-                dataGridOrdered.Location = new Point(myScreenWidth - 1000, 20);
-
-            }
-            else if(myScreenWidth<1930)
-            {
-                dataGridOrdered.Size = new Size(1000, myScreenHeight - 20);
-                lblgridOrdered.Location = new Point(myScreenWidth - 1000, 0);
-                dataGridOrdered.Location = new Point(myScreenWidth - 1000, 20);
-            }
-            btnAdd.Location = new Point(10, myScreenHeight - 125);
-            btnCheckout.Location = new Point(110, myScreenHeight - 125);
-            btnClear.Location = new Point(210, myScreenHeight - 125);
-            btnCancel.Location = new Point(310, myScreenHeight - 125);
+            pnlgridProduct.Size = new Size(610, 600);
+            pnlgridProduct.Controls.Add(dataGridProduct);
+            pnlgridProduct.Controls.Add(lblSearchID);
+            pnlgridProduct.Controls.Add(lblSearchName);
+            pnlgridProduct.Controls.Add(txtSearchID);
+            pnlgridProduct.Controls.Add(txtSearchName);
+            lblSearchID.Location = new Point(5, 5);
+            lblSearchName.Location = new Point(200, 5);
+            txtSearchID.Location = new Point(5, 35);
+            txtSearchName.Location = new Point(200, 35);
+            dataGridProduct.Size = new Size(600, 500);
+            dataGridProduct.Location = new Point(5,75);
+            pnlgridProduct.Visible = false;
 
             txtGrandTot.Text = "0.00";
             dataGridProduct.ClearSelection();
             dataGridOrdered.ClearSelection();
             myboolEdit = false;
+            lblHardware1.SendToBack();
+            lblHardware2.SendToBack();
+            pnlPay.Size = new Size(632, 379);
+            pnlPay.Location = new Point((myScreenWidth - pnlPay.Width) / 2, (myScreenHeight - pnlPay.Height) / 2);
+            pnlPay.Visible = false;
+            btnClosePay.Location = new Point((myScreenWidth - btnClosePay.Width) / 2, (myScreenHeight - btnClosePay.Height - pnlPay.Height) / 2);
+            btnClosePay.Visible = false;
+            btnClosePay.BringToFront();
         }
         public formPOS()
         {
@@ -75,11 +71,12 @@ namespace TeteHardware
             conn = new MySqlConnection("Server=localhost;Database=tetehardware;Uid=root;Pwd=root"); //connection
             this.Opacity = 0; //form transition using timer
             timer1.Start(); //form transition using timer
+            searchVisibility(false);
         }
 
         private void formPOS_Load(object sender, EventArgs e)
         {
-            this.calTrans.Location = new Point(159, 380);
+            this.calTrans.Location = new Point(157, 351);
             clearFormTransact();
             initializeOrderedGrid();
         }
@@ -89,12 +86,12 @@ namespace TeteHardware
             ReferenceToAfterLogin.Show();
             this.Dispose();
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             ReferenceToAfterLogin.Show();
             this.Dispose();
         }
+
         bool mouseDown; //boolean for mousedown
         Point lastLocation; //variable for the last location of the mouse
         private void Transcation_MouseDown(object sender, MouseEventArgs e)
@@ -202,6 +199,7 @@ namespace TeteHardware
         {
             try
             {
+                dataGridProduct.DataSource = null;      //remove datasource link for datagridProduct
                 conn.Open(); //opens the connection
                 MySqlCommand query = new MySqlCommand(selectCommand, conn); //query to select all entries in tbl_productcatalog
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
@@ -212,6 +210,11 @@ namespace TeteHardware
                 bs.DataSource = dt;
                 dataGridProduct.DataSource = bs;
                 conn.Close();
+                dataGridProduct.Columns[0].Width = 100;
+                dataGridProduct.Columns[1].Width = 350;
+                dataGridProduct.Columns[2].Width = 75;
+                dataGridProduct.Columns[3].Width = 75;
+
             }
             catch (Exception x)
             {
@@ -244,6 +247,7 @@ namespace TeteHardware
                     comboDiscPercent.Items.Add(reader[4]);
                 }
                 conn.Close();
+                comboDiscName.SelectedIndex = 0;
             }
             catch (Exception x)
             {
@@ -488,12 +492,6 @@ namespace TeteHardware
             dataGridOrdered.Rows.Clear();
             refreshTable();
         }
-        public string str2Dec(string myString, int myType)
-        {
-            string myValueStr = "";
-
-            return myValueStr;
-        }
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
@@ -616,6 +614,7 @@ namespace TeteHardware
 
         private void searchVisibility(Boolean myVisible)
         {
+            pnlgridProduct.Visible = myVisible;
             dataGridProduct.Visible = myVisible;
             lblSearchID.Visible = myVisible;
             lblSearchName.Visible = myVisible;
@@ -623,6 +622,8 @@ namespace TeteHardware
             txtSearchName.Visible = myVisible;
         }
 
+
+        
         //Hot Keys Handling
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -646,11 +647,17 @@ namespace TeteHardware
             }
             else if (keyData == Keys.F9)   //Pay
             {
-
+                pnlPay.Visible = true;
+                txtPayCharge.Text = txtGrandTot.Text;
+                txtPayCash.Text = "0.00";
+                txtPayChange.Text = "0.00";
+                txtPayCash.Focus();
+                txtPayCash.SelectAll();
             }
             else if (keyData == Keys.F8)   //Select datagridProduct
             {
                 searchVisibility(true);
+                gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product");
                 dataGridProduct.Focus();
                 dataGridProduct.Rows[0].Selected = true;
                 dataGridProduct.CurrentCell.Selected = false;
@@ -667,9 +674,16 @@ namespace TeteHardware
                 txtSearchName.Text = "";
                 txtSearchID.Focus();
             }
+            else if(keyData==Keys.Escape)     //Close Window
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+
 
         private void dataGridOrdered_KeyDown(object sender, KeyEventArgs e)
         {
@@ -686,23 +700,9 @@ namespace TeteHardware
         private void transferData()
         {
             clearForm();
-
             myRowIndex = dataGridOrdered.CurrentRow.Index;
-
             try
             {
-                /*
-                dataGridOrdered.Columns[0].Name = "Item ID";
-                dataGridOrdered.Columns[1].Name = "Item";
-                dataGridOrdered.Columns[2].Name = "Qty";
-                dataGridOrdered.Columns[3].Name = "U Price";
-                dataGridOrdered.Columns[4].Name = "SubTotal";
-                dataGridOrdered.Columns[5].Name = "Promo ID";
-                dataGridOrdered.Columns[6].Name = "Discount";
-                dataGridOrdered.Columns[7].Name = "Total Price";
-                */
-
-
                 txtItemName.Text = dataGridOrdered.Rows[myRowIndex].Cells["Item"].Value.ToString();
                 txtItemID.Text = dataGridOrdered.Rows[myRowIndex].Cells["Item ID"].Value.ToString();
                 txtPrice.Text = dataGridOrdered.Rows[myRowIndex].Cells["U Price"].Value.ToString();
@@ -710,22 +710,27 @@ namespace TeteHardware
                 txtQty.Text = dataGridOrdered.Rows[myRowIndex].Cells["Qty"].Value.ToString();
             }
             catch (ArgumentOutOfRangeException) { }
-
             txtQty.Enabled = true;
-
         }
 
         private void txtSearchID_TextChanged(object sender, EventArgs e)
         {
             gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product where prodID like '%" + txtSearchID.Text + "%'");
-            dataGridProduct.Focus();
+        }
+        private void txtSearchID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+            {
+                dataGridProduct.Focus();
+                dataGridProduct.Rows[0].Selected = true;
+            }
+
         }
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
             gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product where prodName like '%" + txtSearchName.Text + "%'");
         }
-
         private void txtSearchName_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode==Keys.Enter || e.KeyCode==Keys.Up || e.KeyCode==Keys.Down)
@@ -734,14 +739,60 @@ namespace TeteHardware
             }
         }
 
-        private void txtSearchID_KeyDown(object sender, KeyEventArgs e)
+        private void txtPayCharge_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
-            {
-                dataGridProduct.Focus();
-            }
-
+            Strto2DecPlaces(txtPayCharge);
         }
+        private void txtPayCharge_Enter(object sender, EventArgs e)
+        {
+            txtPayCash.Focus();
+        }
+
+        private void txtPayCash_TextChanged(object sender, EventArgs e)
+        {
+            if (!func.IsFloat(txtQty.Text))
+            {
+                //MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
+                txtQty.Text = "0";
+                txtQty.SelectAll();
+            }
+        }
+        private void txtPayCash_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPayChange.Text = Convert.ToString(decimal.Round((decimal.Parse(txtPayCash.Text) - decimal.Parse(txtPayCharge.Text)), 2));
+                if ((decimal.Parse(txtPayChange.Text) < 0))
+                {
+                    MessageBox.Show("Payment is less than the Charge Amount!!", "", MessageBoxButtons.OK);
+                    txtPayCash.Focus();
+                    txtPayCash.SelectAll();
+                }
+                else
+                {
+                    Strto2DecPlaces(txtPayCash);
+                    btnClosePay.Visible = true;
+                    btnClosePay.Focus();
+                }
+            }
+        }
+
+        private void txtPayChange_TextChanged(object sender, EventArgs e)
+        {
+            Strto2DecPlaces(txtPayChange);
+        }
+        private void txtPayChange_Enter(object sender, EventArgs e)
+        {
+            txtPayCash.Focus();
+        }
+
+        private void btnClosePay_Click(object sender, EventArgs e)
+        {
+            pnlPay.Visible = false;
+            btnClosePay.Visible = false;
+            btnCheckout_Click(sender, e);
+        }
+
 
     }
 }

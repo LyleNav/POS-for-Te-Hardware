@@ -176,5 +176,13 @@ namespace TeteHardware
             formTrans.Show();
             this.Hide();
         }
+
+        private void btnViews_Click(object sender, EventArgs e)
+        {
+            formViews formV = new formViews();
+            formV.ReferenceToAfterLogin = this;
+            formV.Show();
+            this.Hide();
+        }
     }
 }

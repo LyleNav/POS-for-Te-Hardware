@@ -115,5 +115,10 @@ namespace TeteHardware
                 conn.Close();
             }
         }
+
+        private void formAddSupplier_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

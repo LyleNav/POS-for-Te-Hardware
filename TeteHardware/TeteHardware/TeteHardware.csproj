@@ -89,11 +89,11 @@
     <Compile Include="EditProduct.Designer.cs">
       <DependentUpon>EditProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Views.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views.Designer.cs">
+      <DependentUpon>Views.cs</DependentUpon>
     </Compile>
     <Compile Include="Test.cs" />
     <Compile Include="EditPromo.cs">
@@ -200,8 +200,8 @@
     <EmbeddedResource Include="EditPromo.resx">
       <DependentUpon>EditPromo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Views.resx">
+      <DependentUpon>Views.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductManage.resx">
       <DependentUpon>ProductManage.cs</DependentUpon>

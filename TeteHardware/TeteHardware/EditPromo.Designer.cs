@@ -54,6 +54,7 @@
             this.labelpercentR = new System.Windows.Forms.Label();
             this.labelvalueR = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -295,6 +296,7 @@
             this.txtPpercent.Name = "txtPpercent";
             this.txtPpercent.Size = new System.Drawing.Size(134, 25);
             this.txtPpercent.TabIndex = 174;
+            this.txtPpercent.TextChanged += new System.EventHandler(this.txtPpercent_TextChanged);
             // 
             // label2
             // 
@@ -353,6 +355,17 @@
             this.label5.TabIndex = 239;
             this.label5.Text = "*";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(306, 175);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 20);
+            this.label3.TabIndex = 240;
+            this.label3.Text = "%";
+            // 
             // formEditPromo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +373,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(404, 363);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelvalueR);
             this.Controls.Add(this.labelpercentR);
@@ -425,5 +439,6 @@
         private System.Windows.Forms.Label labelpercentR;
         private System.Windows.Forms.Label labelvalueR;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
     }
 }

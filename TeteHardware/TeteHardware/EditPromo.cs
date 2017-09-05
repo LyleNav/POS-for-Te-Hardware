@@ -60,6 +60,14 @@ namespace TeteHardware
             promType = comboPtype.SelectedIndex - 1 ;
         }
 
+        private void txtPpercent_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPpercent.Text.Contains("%"))
+            {
+                MessageBox.Show("No % please!!", "", MessageBoxButtons.OK);
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close(); //closes current form
@@ -178,7 +186,7 @@ namespace TeteHardware
                 query1.ExecuteNonQuery();
                 MySqlCommand query2 = new MySqlCommand("SELECT promoName, promoType, promoPercent, promoValue, promoStatus FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 MySqlDataReader reader = query2.ExecuteReader();
-                MessageBox.Show("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'");
+                //MessageBox.Show("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'");
                 myField = "";
                 oldValues = "";
                 while (reader.Read())
