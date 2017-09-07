@@ -55,6 +55,30 @@ namespace TeteHardware
         {
             this.calArrival.Location = new Point(172, 334);
             clearFormArrival();
+            populateSupCombos();
+        }
+
+        private void populateSupCombos()
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand query = new MySqlCommand("Select supName, supID from tbl_supplier", conn);
+                MySqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboSupName.Items.Add(reader[0]);
+                    comboSupID.Items.Add(reader[1]);
+                }
+                conn.Close();
+                comboSupName.SelectedIndex = 0;
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Error in populating Supplier Choices: " + x.ToString());
+                conn.Close();
+            }
+
         }
 
         private void txtSearchID_TextChanged(object sender, EventArgs e)
@@ -106,7 +130,7 @@ namespace TeteHardware
             {
                 //for tbl_arr or tbl_arrdef
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status) VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString() + "', '" + txtdateArrival.Text + "', '" + txtStatus.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID) VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString() + "', '" + txtdateArrival.Text + "', '" + txtStatus.Text + "','" + comboSupID.Text + "')", conn);
                 query.ExecuteNonQuery();
                 func.ChangeLog(txtTable.Text, "All", "None");
                 conn.Close();
@@ -144,6 +168,11 @@ namespace TeteHardware
                     conn.Close();
                 }
             }
+            else if (txtTable.Text == "tbl_arrdef")
+            {
+                MessageBox.Show("Added Successfully to defective database!", "", MessageBoxButtons.OK);
+            }
+
         }
         private void clearFormArrival()
         {
@@ -217,6 +246,11 @@ namespace TeteHardware
                 this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y); //gets the coordinates of the location of the mouse
                 this.Update(); //updates the location of the mouse
             }
+        }
+
+        private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboSupID.SelectedIndex = comboSupName.SelectedIndex;
         }
     }
 }

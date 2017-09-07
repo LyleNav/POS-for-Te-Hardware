@@ -22,6 +22,7 @@ namespace TeteHardware
         string myChild = "";
         string myParentTable = "";
         string myChildTable = "";
+        string myDateSQL = "";
 
         public formViews()
         {
@@ -172,6 +173,7 @@ namespace TeteHardware
             catch (Exception x)
             {
                 MessageBox.Show("Error in populating datagridTable : " + x.ToString());
+                conn.Close();
             }
         }
 
@@ -186,7 +188,6 @@ namespace TeteHardware
             }
             else if (myParent=="Supplier")
             {
-                comboChild.Items.Add("Products");
                 comboChild.Items.Add("Good Deliveries");
                 comboChild.Items.Add("Bad Deliveries");
                 comboChild.Items.Add("Returned");
@@ -210,22 +211,27 @@ namespace TeteHardware
             if (myChild == "Products") 
             {
                 myChildTable = "tbl_product";
+                myDateSQL = "";
             }
             else if (myChild == "Sales") 
             {
                 myChildTable = "tbl_transact";
+                myDateSQL = " WHERE transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
             }
             else if (myChild == "Deliveries") 
             {
                 myChildTable = "tbl_arr";
+                myDateSQL = " WHERE dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
             }
             else if (myChild == "Good Deliveries") 
             {
                 myChildTable = "tbl_arr";
+                myDateSQL = " WHERE dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
             }
             else if (myChild == "Bad Deliveries")
             {
                 myChildTable = "tbl_arrdef";
+                myDateSQL = " WHERE dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
             }
             else if (myChild == "Returned")
             {
@@ -243,7 +249,6 @@ namespace TeteHardware
             datagridTableChild.DataSource = null;      //remove datasource link for datagridProduct
             try
             {
-                MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
                 conn.Open(); //opens the connection
                 MySqlCommand query = new MySqlCommand(selectCommand, conn); //query to select all entries in tbl_productcatalog
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
@@ -258,6 +263,7 @@ namespace TeteHardware
             catch (Exception x)
             {
                 MessageBox.Show("Error in populating datagridTableChild : " + x.ToString());
+                conn.Close();
             }
         }
 
@@ -276,7 +282,7 @@ namespace TeteHardware
             {
                 string mySupID = "";
                 mySupID = datagridTable.Rows[myRowIndex].Cells["supID"].Value.ToString();
-                myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(supID,2) = '" + mySupID + "'";
+                myselComm = "SELECT * FROM " + myChildTable + " WHERE supID = '" + mySupID + "'";
             }
             else if (myParent == "Product")
             {

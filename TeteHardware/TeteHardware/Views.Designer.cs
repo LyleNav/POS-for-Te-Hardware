@@ -65,6 +65,7 @@
             // 
             // comboParent
             // 
+            this.comboParent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboParent.FormattingEnabled = true;
             this.comboParent.Location = new System.Drawing.Point(37, 99);
             this.comboParent.Name = "comboParent";
@@ -74,6 +75,7 @@
             // 
             // comboChild
             // 
+            this.comboChild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboChild.FormattingEnabled = true;
             this.comboChild.Location = new System.Drawing.Point(284, 99);
             this.comboChild.Name = "comboChild";
@@ -93,6 +95,8 @@
             // 
             // datagridTable
             // 
+            this.datagridTable.AllowUserToAddRows = false;
+            this.datagridTable.AllowUserToDeleteRows = false;
             this.datagridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridTable.Location = new System.Drawing.Point(34, 129);
             this.datagridTable.Name = "datagridTable";
@@ -156,6 +160,8 @@
             // 
             // datagridTableChild
             // 
+            this.datagridTableChild.AllowUserToAddRows = false;
+            this.datagridTableChild.AllowUserToDeleteRows = false;
             this.datagridTableChild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridTableChild.Location = new System.Drawing.Point(542, 46);
             this.datagridTableChild.Name = "datagridTableChild";

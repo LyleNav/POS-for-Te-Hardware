@@ -50,7 +50,8 @@ namespace TeteHardware
             dataGridProduct.Size = new Size(600, 500);
             dataGridProduct.Location = new Point(5,75);
             pnlgridProduct.Visible = false;
-
+            dataGridOrdered.Size = new Size(1000, myScreenHeight-100);
+            dataGridOrdered.Location = new Point(myScreenWidth - 1000, 50);
             txtGrandTot.Text = "0.00";
             dataGridProduct.ClearSelection();
             dataGridOrdered.ClearSelection();
@@ -491,6 +492,7 @@ namespace TeteHardware
             //clear datagridOrdered
             dataGridOrdered.Rows.Clear();
             refreshTable();
+            txtGrandTot.Text = "0";
         }
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
@@ -542,6 +544,7 @@ namespace TeteHardware
                 txtGrandTot.Text = "0";
             }
             Strto2DecPlaces(txtGrandTot);
+            lbltxtGrandTot.Text = txtGrandTot.Text;
         }
 
         private void Strto2DecPlaces(TextBox myTextbox)
@@ -586,6 +589,8 @@ namespace TeteHardware
                 computeSubTot();
                 txtGrandTot.Text = Convert.ToString(decimal.Round((decimal.Parse(txtGrandTot.Text) + decimal.Parse(txtTotPrice.Text)), 2));
                 addToOrdered();
+                comboDiscName.Font = new Font("Tw Cen MT", 12);
+                comboDiscName.ForeColor = Color.Black;
             }
         }
 
@@ -793,6 +798,11 @@ namespace TeteHardware
             btnCheckout_Click(sender, e);
         }
 
+        private void comboDiscName_Enter(object sender, EventArgs e)
+        {
+            comboDiscName.Font = new Font("Tw Cen MT", 20);
+            comboDiscName.ForeColor = Color.Maroon;
+        }
 
     }
 }
