@@ -47,8 +47,8 @@
             this.btnCustReturn = new System.Windows.Forms.Button();
             this.btnEmpManage = new System.Windows.Forms.Button();
             this.btnPOS = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnViews = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -238,7 +238,7 @@
             this.btnStockIn.ForeColor = System.Drawing.Color.White;
             this.btnStockIn.Location = new System.Drawing.Point(204, 188);
             this.btnStockIn.Name = "btnStockIn";
-            this.btnStockIn.Size = new System.Drawing.Size(185, 169);
+            this.btnStockIn.Size = new System.Drawing.Size(92, 169);
             this.btnStockIn.TabIndex = 11;
             this.btnStockIn.Text = "Stock In";
             this.btnStockIn.UseVisualStyleBackColor = false;
@@ -253,9 +253,9 @@
             this.btnStockInDef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockInDef.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStockInDef.ForeColor = System.Drawing.Color.White;
-            this.btnStockInDef.Location = new System.Drawing.Point(395, 188);
+            this.btnStockInDef.Location = new System.Drawing.Point(302, 188);
             this.btnStockInDef.Name = "btnStockInDef";
-            this.btnStockInDef.Size = new System.Drawing.Size(185, 169);
+            this.btnStockInDef.Size = new System.Drawing.Size(87, 169);
             this.btnStockInDef.TabIndex = 12;
             this.btnStockInDef.Text = "Stock In (Defective)";
             this.btnStockInDef.UseVisualStyleBackColor = false;
@@ -270,7 +270,7 @@
             this.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransaction.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransaction.ForeColor = System.Drawing.Color.White;
-            this.btnTransaction.Location = new System.Drawing.Point(586, 188);
+            this.btnTransaction.Location = new System.Drawing.Point(395, 188);
             this.btnTransaction.Name = "btnTransaction";
             this.btnTransaction.Size = new System.Drawing.Size(185, 169);
             this.btnTransaction.TabIndex = 6;
@@ -287,12 +287,13 @@
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(13, 363);
+            this.btnReturn.Location = new System.Drawing.Point(586, 188);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(185, 169);
             this.btnReturn.TabIndex = 8;
             this.btnReturn.Text = "Returns";
             this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // btnCustReturn
             // 
@@ -303,12 +304,13 @@
             this.btnCustReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustReturn.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustReturn.ForeColor = System.Drawing.Color.White;
-            this.btnCustReturn.Location = new System.Drawing.Point(204, 363);
+            this.btnCustReturn.Location = new System.Drawing.Point(13, 363);
             this.btnCustReturn.Name = "btnCustReturn";
             this.btnCustReturn.Size = new System.Drawing.Size(185, 169);
             this.btnCustReturn.TabIndex = 9;
             this.btnCustReturn.Text = "Customer Returned";
             this.btnCustReturn.UseVisualStyleBackColor = false;
+            this.btnCustReturn.Click += new System.EventHandler(this.btnCustReturn_Click);
             // 
             // btnEmpManage
             // 
@@ -319,7 +321,7 @@
             this.btnEmpManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpManage.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpManage.ForeColor = System.Drawing.Color.White;
-            this.btnEmpManage.Location = new System.Drawing.Point(395, 363);
+            this.btnEmpManage.Location = new System.Drawing.Point(204, 363);
             this.btnEmpManage.Name = "btnEmpManage";
             this.btnEmpManage.Size = new System.Drawing.Size(185, 169);
             this.btnEmpManage.TabIndex = 10;
@@ -336,18 +338,13 @@
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPOS.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.ForeColor = System.Drawing.Color.White;
-            this.btnPOS.Location = new System.Drawing.Point(586, 363);
+            this.btnPOS.Location = new System.Drawing.Point(395, 363);
             this.btnPOS.Name = "btnPOS";
-            this.btnPOS.Size = new System.Drawing.Size(87, 86);
+            this.btnPOS.Size = new System.Drawing.Size(87, 169);
             this.btnPOS.TabIndex = 13;
             this.btnPOS.Text = "Point Of Sale";
             this.btnPOS.UseVisualStyleBackColor = false;
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnViews
             // 
@@ -358,13 +355,18 @@
             this.btnViews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViews.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViews.ForeColor = System.Drawing.Color.White;
-            this.btnViews.Location = new System.Drawing.Point(679, 363);
+            this.btnViews.Location = new System.Drawing.Point(488, 363);
             this.btnViews.Name = "btnViews";
-            this.btnViews.Size = new System.Drawing.Size(92, 86);
+            this.btnViews.Size = new System.Drawing.Size(92, 169);
             this.btnViews.TabIndex = 14;
             this.btnViews.Text = "Views";
             this.btnViews.UseVisualStyleBackColor = false;
             this.btnViews.Click += new System.EventHandler(this.btnViews_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // formAfterLogin
             // 

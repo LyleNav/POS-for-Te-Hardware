@@ -71,6 +71,12 @@
     <Compile Include="AddSupplier.Designer.cs">
       <DependentUpon>AddSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageReturns.Designer.cs">
+      <DependentUpon>ManageReturns.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSupplier.resx">
       <DependentUpon>AddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageReturns.resx">
+      <DependentUpon>ManageReturns.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockIn.resx">
       <DependentUpon>StockIn.cs</DependentUpon>

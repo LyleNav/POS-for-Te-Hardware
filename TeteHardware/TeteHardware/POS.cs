@@ -366,11 +366,12 @@ namespace TeteHardware
             //set TransNum - first 4 char = year, next 7 char = transactions (can be up to 10,000,000 transactions)
             //get Year (4digit)
             myTransNum4 = Convert.ToString(DateTime.Parse(txtdateTransact.Text).Year);
+            MessageBox.Show(myTransNum4, "", MessageBoxButtons.OK);
             //check highest number for the year
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT RIGHT(transNum, 7) AS myTranNum FROM tbl_transact WHERE LEFT(prodID, 4) = '" + myTransNum4 + "' ORDER BY transNum", conn);
+                MySqlCommand query = new MySqlCommand("SELECT RIGHT(transNum, 7) AS myTransNum FROM tbl_transact WHERE LEFT(transNum, 4) = '" + myTransNum4 + "' ORDER BY myTransNum", conn);
                 MySqlDataReader reader = query.ExecuteReader();
                 string myTransNum7 = "";
                 int myTransNum7Int = 0;
@@ -391,6 +392,10 @@ namespace TeteHardware
                 myTransNum7Int = myTransNum7Int + 10000001;
                 myTransNum7 = myTransNum7Int.ToString().Substring(myTransNum7Int.ToString().Length - 7);
                 myTransNum = myTransNum4 + myTransNum7;
+                MessageBox.Show(myTransNum7Int.ToString(), "", MessageBoxButtons.OK);
+                MessageBox.Show(myTransNum4, "", MessageBoxButtons.OK);
+                MessageBox.Show(myTransNum7, "", MessageBoxButtons.OK);
+                MessageBox.Show(myTransNum, "", MessageBoxButtons.OK);
             }
             catch (Exception x)
             {

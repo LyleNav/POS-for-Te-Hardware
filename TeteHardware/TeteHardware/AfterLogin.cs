@@ -184,5 +184,24 @@ namespace TeteHardware
             formV.Show();
             this.Hide();
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            formReturns formRet = new formReturns();
+            formRet.ReferenceToAfterLogin = this;
+            formRet.myReturnType = "ReturnTo";
+            formRet.Show();
+            this.Hide();
+        }
+
+        private void btnCustReturn_Click(object sender, EventArgs e)
+        {
+            formReturns formRet = new formReturns();
+            formRet.ReferenceToAfterLogin = this;
+            formRet.myReturnType = "ReturnFrom";
+            formRet.Show();
+            this.Hide();
+
+        }
     }
 }
