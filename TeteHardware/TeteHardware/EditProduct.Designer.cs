@@ -58,7 +58,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,16 +68,17 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(53, 302);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.Size = new System.Drawing.Size(100, 19);
             this.label1.TabIndex = 232;
-            this.label1.Text = "MOQ:";
+            this.label1.Text = "Reorder Level:";
             // 
             // txtPstatus
             // 
             this.txtPstatus.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPstatus.Location = new System.Drawing.Point(198, 433);
+            this.txtPstatus.Multiline = true;
             this.txtPstatus.Name = "txtPstatus";
-            this.txtPstatus.Size = new System.Drawing.Size(192, 25);
+            this.txtPstatus.Size = new System.Drawing.Size(192, 43);
             this.txtPstatus.TabIndex = 10;
             // 
             // labelPcat
@@ -368,7 +368,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(97, 304);
+            this.label3.Location = new System.Drawing.Point(148, 304);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(12, 14);
             this.label3.TabIndex = 234;
@@ -385,17 +385,6 @@
             this.label4.TabIndex = 235;
             this.label4.Text = "*";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(114, 436);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(12, 14);
-            this.label5.TabIndex = 236;
-            this.label5.Text = "*";
-            // 
             // formEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,7 +392,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(462, 563);
             this.ControlBox = false;
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -476,6 +464,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }

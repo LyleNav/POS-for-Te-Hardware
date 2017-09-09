@@ -87,7 +87,6 @@ namespace TeteHardware
             else
             {
                 Add();
-                this.Close();
             }
         }
 
@@ -104,12 +103,24 @@ namespace TeteHardware
                 conn.Close();
                 ReferenceToCatManage.getData();
                 ReferenceToCatManage.dataLoad();
-
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                txtCname.Text = "";
+                txtCid.Text = "";
+                txtCdesc.Text = "";
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Add() :" + x.ToString());
+                if(x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Category already exists!");
+                    txtCname.Focus();
+                    txtCname.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Add() :" + x.ToString());
+                    
+                }
                 conn.Close();
             }
         }

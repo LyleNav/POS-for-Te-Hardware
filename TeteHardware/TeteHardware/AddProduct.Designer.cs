@@ -60,7 +60,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtPstock = new System.Windows.Forms.TextBox();
             this.labelPstock = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -315,8 +314,9 @@
             // 
             this.txtPremarks.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPremarks.Location = new System.Drawing.Point(198, 400);
+            this.txtPremarks.Multiline = true;
             this.txtPremarks.Name = "txtPremarks";
-            this.txtPremarks.Size = new System.Drawing.Size(192, 25);
+            this.txtPremarks.Size = new System.Drawing.Size(192, 43);
             this.txtPremarks.TabIndex = 10;
             // 
             // label1
@@ -326,9 +326,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(53, 302);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.Size = new System.Drawing.Size(100, 19);
             this.label1.TabIndex = 208;
-            this.label1.Text = "MOQ:";
+            this.label1.Text = "Reorder Level:";
             // 
             // txtMOQ
             // 
@@ -389,7 +389,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(97, 304);
+            this.label5.Location = new System.Drawing.Point(148, 304);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(12, 14);
             this.label5.TabIndex = 213;
@@ -416,17 +416,6 @@
             this.label8.Size = new System.Drawing.Size(12, 14);
             this.label8.TabIndex = 216;
             this.label8.Text = "*";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(114, 404);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(12, 14);
-            this.label9.TabIndex = 217;
-            this.label9.Text = "*";
             // 
             // txtPstock
             // 
@@ -468,7 +457,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(462, 533);
             this.ControlBox = false;
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPremarks);
@@ -548,7 +536,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPstock;
         private System.Windows.Forms.Label labelPstock;
         private System.Windows.Forms.Label label6;

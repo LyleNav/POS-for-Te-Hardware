@@ -234,7 +234,14 @@ namespace TeteHardware
             else if (myChild == "Sales") 
             {
                 myChildTable = "tbl_transact";
-                myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                if (myParent=="Transaction")
+                {
+                    myDateSQL = "";
+                }
+                else
+                {
+                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                }
             }
             else if (myChild == "Deliveries") 
             {
@@ -261,6 +268,7 @@ namespace TeteHardware
 
                 myDateSQL = "";
             }
+
 
             if(myDateSQL=="")
             {
@@ -332,12 +340,12 @@ namespace TeteHardware
                 }
                 else if(myChild == "Good Deliveries")
                 {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE supID = '" + mySupID + "'";
+                    myselComm = "SELECT b.prodID, a.prodName, b.Quantity, b.Reference, b.DateArrival FROM tbl_product a, " + myChildTable + " b WHERE b.supID = '" + mySupID + "' AND a.prodID = b.prodID";
                     myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 }
                 else if (myChild == "Bad Deliveries")
                 {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE supID = '" + mySupID + "'";
+                    myselComm = "SELECT b.prodID, a.prodName, b.Quantity, b.Reference, b.DateArrival FROM tbl_product a, " + myChildTable + " b WHERE b.supID = '" + mySupID + "' AND a.prodID = b.prodID";
                     myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 }
                 else if (myChild == "Returns")
@@ -372,7 +380,7 @@ namespace TeteHardware
                 string myTransNum = "";
                 myTransNum = datagridTable.Rows[myRowIndex].Cells["transNum"].Value.ToString();
                 myselComm = "SELECT * FROM " + myChildTable + " Where transNum = '" + myTransNum + "'";
-                myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                myDateSQL = "";
             }
 
             if (myDateSQL=="")
@@ -386,5 +394,19 @@ namespace TeteHardware
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            copyAlltoClipboard();
+        }
+
+        private void copyAlltoClipboard()
+        {
+            datagridTableChild.SelectAll();
+            DataObject dataObj = datagridTableChild.GetClipboardContent();
+            if (dataObj != null)
+            {
+                Clipboard.SetDataObject(dataObj);
+            }
+        }
     }
 }

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace TeteHardware
 {
-    public partial class formReturns : Form
+    public partial class ManageCustReturns : Form
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //Reference formEmployeeManage to this form
         public MySqlConnection conn; //connection
 
         Test func = new Test();
-
-        public formReturns()
+        public ManageCustReturns()
         {
             InitializeComponent();
             conn = new MySqlConnection("Server=localhost;Database=tetehardware;Uid=root;Pwd=root"); //connection
@@ -26,9 +26,8 @@ namespace TeteHardware
             timer1.Start();
         }
 
-        private void formReturns_Load(object sender, EventArgs e)
+        private void ManageCustReturns_Load(object sender, EventArgs e)
         {
-            populatecomboSupplier();
             txtCalReturn.Text = DateTime.Now.ToString();
             calReturned.Location = txtCalReturn.Location;
         }
@@ -40,13 +39,13 @@ namespace TeteHardware
         bool mouseDown; //boolean for mousedown
         Point lastLocation; //variable for the last location of the mouse
 
-        private void formReturns_MouseDown(object sender, MouseEventArgs e)
+        private void ManageCustReturns_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true; //sets mousedown to true
             lastLocation = e.Location; //gets the location of the form and sets it to lastlocation
         }
 
-        private void formReturns_MouseMove(object sender, MouseEventArgs e)
+        private void ManageCustReturns_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown) //if mouseDown is true, point to the last location of the mouse
             {
@@ -55,26 +54,9 @@ namespace TeteHardware
             }
         }
 
-        private void formReturns_MouseUp(object sender, MouseEventArgs e)
+        private void ManageCustReturns_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false; //sets mousedown to false
-        }
-
-        //Hot Keys Handling - put any special keys with special functions here
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.F1)
-            {
-                MessageBox.Show("You pressed the F1 key");
-                return true;    // indicate that you handled this keystroke
-            }
-            else if (keyData == Keys.Escape)     //Close Window
-            {
-                ReferenceToAfterLogin.Show();
-                this.Dispose();
-            }
-            // Call the base class
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         //Buttons Handling - put all codes for any buttons here
@@ -114,50 +96,20 @@ namespace TeteHardware
         private void txtQty_Leave(object sender, EventArgs e)
         {
             int myRowIndex = dataGridProduct.CurrentRow.Index;
-            if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString()))
+            if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["transQty"].Value.ToString()))
             {
                 MessageBox.Show("Quantity returned is greater than the defective quantity!");
                 txtQty.Focus();
                 txtQty.SelectAll();
             }
         }
-
-        //combo handling
-        private void comboSupplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            combosupID.SelectedIndex = comboSupplier.SelectedIndex;
-            populateDataGridProducts();
-        }
-
-        private void populatecomboSupplier()
-        {
-            comboSupplier.Items.Clear();
-            try
-            {
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT supID, supName FROM tbl_supplier", conn);
-                MySqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    combosupID.Items.Add(Convert.ToString(reader[0]));
-                    comboSupplier.Items.Add(Convert.ToString(reader[1]));
-                }
-                conn.Close();
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Error in populating comboSupplier: " + x.ToString());
-                conn.Close();
-            }
-        }
-
         private void populateDataGridProducts()
         {
             dataGridProduct.DataSource = null;      //remove datasource link for datagridProduct
             try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand query = new MySqlCommand("SELECT a.prodID, b.prodName, a.Quantity, a.DateArrival, a.Status FROM tbl_arrdef a, tbl_product b WHERE a.supID = '" + combosupID.Text + "' AND a.prodID = b.prodID", conn); //query to select all entries in tbl_productcatalog
+                MySqlCommand query = new MySqlCommand("SELECT a.transDate, a.prodID, b.prodName, a.transQty FROM tbl_transact a, tbl_product b WHERE a.transNum = '" + txtTrans.Text + "' AND a.prodID = b.prodID", conn); 
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter
                 BindingSource bs = new BindingSource();
@@ -174,17 +126,17 @@ namespace TeteHardware
                 conn.Close();
             }
         }
-       
+
         private void saveToDatabase()
         {
-            //insert to tbl_returnto
+            //insert to tbl_returnfrom
             int myRowIndex = dataGridProduct.CurrentRow.Index;
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnto(retRef, prodID, supID, retQty, retDate, retDefect) VALUES('" + txtReference.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + combosupID.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "')", conn);
                 query.ExecuteNonQuery();
-                func.ChangeLog("tbl_returnto", "All", "None");
+                func.ChangeLog("tbl_returnfrom", "All", "None");
                 conn.Close();
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
@@ -194,27 +146,12 @@ namespace TeteHardware
                 MessageBox.Show("Error in Add() :" + x.ToString());
                 conn.Close();
             }
-            //update tbl_arrdef
-            int newQuantity = int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString()) - int.Parse(txtQty.Text);
-            try
-            {
-                conn.Open();
-                MySqlCommand query = new MySqlCommand("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "' WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'", conn);
-                query.ExecuteNonQuery();
-                func.ChangeLog("tbl_arrdef", "Quantity", dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString());
-                conn.Close();
-            }
-            catch(Exception x)
-            {
-                MessageBox.Show("Error in saveToDatabase: " + x.ToString());
-                conn.Close();
-            }
             //refresh dataGridProduct
             populateDataGridProducts();
             txtCalReturn.Text = "";
             txtRemarks.Text = "";
             txtQty.Text = "0";
-            
+
         }
 
         private void Strto2DecPlaces(TextBox myTextbox)
@@ -229,5 +166,9 @@ namespace TeteHardware
             }
         }
 
+        private void txtTrans_Leave(object sender, EventArgs e)
+        {
+            populateDataGridProducts();
+        }
     }
 }

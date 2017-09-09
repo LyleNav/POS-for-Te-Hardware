@@ -488,8 +488,6 @@ namespace TeteHardware
                     MessageBox.Show("Error in Updating Product - Status :" + x.ToString());
                     conn.Close();
                 }
-
-
             }
             //Update changelog
             func.ChangeLog("tbl_transact", "All", "None");
