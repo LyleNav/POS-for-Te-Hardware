@@ -47,8 +47,9 @@
             this.btnCustReturn = new System.Windows.Forms.Button();
             this.btnViews = new System.Windows.Forms.Button();
             this.btnPOS = new System.Windows.Forms.Button();
+            this.btnInstoreDam = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -133,8 +134,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btnReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnCustReturn);
             this.flowLayoutPanel1.Controls.Add(this.btnViews);
+            this.flowLayoutPanel1.Controls.Add(this.btnReport);
             this.flowLayoutPanel1.Controls.Add(this.btnPOS);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.btnInstoreDam);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(60, 113);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
@@ -324,7 +326,7 @@
             this.btnViews.ForeColor = System.Drawing.Color.White;
             this.btnViews.Location = new System.Drawing.Point(395, 363);
             this.btnViews.Name = "btnViews";
-            this.btnViews.Size = new System.Drawing.Size(185, 169);
+            this.btnViews.Size = new System.Drawing.Size(89, 169);
             this.btnViews.TabIndex = 14;
             this.btnViews.Text = "Views";
             this.btnViews.UseVisualStyleBackColor = false;
@@ -339,7 +341,7 @@
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPOS.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.ForeColor = System.Drawing.Color.White;
-            this.btnPOS.Location = new System.Drawing.Point(586, 363);
+            this.btnPOS.Location = new System.Drawing.Point(585, 363);
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Size = new System.Drawing.Size(90, 169);
             this.btnPOS.TabIndex = 13;
@@ -347,27 +349,44 @@
             this.btnPOS.UseVisualStyleBackColor = false;
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
+            // btnInstoreDam
+            // 
+            this.btnInstoreDam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnInstoreDam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnInstoreDam.FlatAppearance.BorderSize = 0;
+            this.btnInstoreDam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnInstoreDam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstoreDam.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstoreDam.ForeColor = System.Drawing.Color.White;
+            this.btnInstoreDam.Location = new System.Drawing.Point(681, 363);
+            this.btnInstoreDam.Name = "btnInstoreDam";
+            this.btnInstoreDam.Size = new System.Drawing.Size(90, 169);
+            this.btnInstoreDam.TabIndex = 15;
+            this.btnInstoreDam.Text = "InStore Damages";
+            this.btnInstoreDam.UseVisualStyleBackColor = false;
+            this.btnInstoreDam.Click += new System.EventHandler(this.btnInstoreDam_Click);
+            // 
             // timer1
             // 
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
+            // btnReport
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(682, 363);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 169);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "InStore Damages";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(181)))), ((int)(((byte)(116)))));
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(490, 363);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(89, 169);
+            this.btnReport.TabIndex = 16;
+            this.btnReport.Text = "Reports";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // formAfterLogin
             // 
@@ -416,6 +435,7 @@
         private System.Windows.Forms.Button btnStockInDef;
         private System.Windows.Forms.Button btnPOS;
         private System.Windows.Forms.Button btnViews;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInstoreDam;
+        private System.Windows.Forms.Button btnReport;
     }
 }

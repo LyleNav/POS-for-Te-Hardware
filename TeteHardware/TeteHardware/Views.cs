@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using System.Collections;
+using System.Drawing.Printing;
 
 
 namespace TeteHardware
@@ -17,6 +18,7 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //Reference formEmployeeManage to this form
         public MySqlConnection conn; //connection
+        public string myType;
         Test func = new Test();
         string myParent = "";
         string myChild = "";
@@ -67,6 +69,15 @@ namespace TeteHardware
                 MessageBox.Show("You pressed the F1 key");
                 return true;    // indicate that you handled this keystroke
             }
+            if (keyData == Keys.F5)   // To print report
+            {
+                if(myType == "Report")
+                {
+                    ClsPrint ClsPrint = new ClsPrint(datagridTableChild, "Yoyo");
+                    ClsPrint.PrintForm();
+                }
+                return true;    // indicate that you handled this keystroke
+            }
             else if (keyData == Keys.Escape)     //Close Window
             {
                 ReferenceToAfterLogin.Show();
@@ -82,6 +93,11 @@ namespace TeteHardware
             ReferenceToAfterLogin.Show();
             this.Dispose();
         }
+        private void btnPrintRep_Click(object sender, EventArgs e)
+        {
+            ClsPrint ClsPrint = new ClsPrint(datagridTableChild, "Yoyo");
+            ClsPrint.PrintForm();
+        }
 
 
         private void formViews_Load(object sender, EventArgs e)
@@ -90,6 +106,17 @@ namespace TeteHardware
             txtDateFrom.Text=DateTime.Now.ToString();
             txtDateTo.Text= DateTime.Now.ToString();
             populateComboParent();
+            if (myType=="Report")
+            {
+                int myScreenWidth = Screen.PrimaryScreen.Bounds.Width;
+                int myScreenHeight = Screen.PrimaryScreen.Bounds.Height;
+                this.Size = new Size(530, 300);
+                this.Location = new Point((myScreenWidth - this.Width) / 2, (myScreenHeight - this.Height) / 2);
+                btnPrintRep.Location = new Point((this.Width - btnPrintRep.Width) / 2, 225);
+                btnPrintRep.Visible = true;
+                datagridTable.Visible = false;
+                datagridTableChild.Visible = false;
+            }
         }
 
         //Date Handling - put all dates here
@@ -284,7 +311,7 @@ namespace TeteHardware
         private void populatedatagridChild(string selectCommand)
         {
             datagridTableChild.DataSource = null;      //remove datasource link for datagridProduct
-            MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
+            //MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
             try
             {
                 conn.Open(); //opens the connection
@@ -392,21 +419,6 @@ namespace TeteHardware
                 populatedatagridChild(myselComm + " AND " + myDateSQL);
             }
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            copyAlltoClipboard();
-        }
-
-        private void copyAlltoClipboard()
-        {
-            datagridTableChild.SelectAll();
-            DataObject dataObj = datagridTableChild.GetClipboardContent();
-            if (dataObj != null)
-            {
-                Clipboard.SetDataObject(dataObj);
-            }
         }
     }
 }
