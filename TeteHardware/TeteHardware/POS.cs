@@ -392,10 +392,10 @@ namespace TeteHardware
                 myTransNum7Int = myTransNum7Int + 10000001;
                 myTransNum7 = myTransNum7Int.ToString().Substring(myTransNum7Int.ToString().Length - 7);
                 myTransNum = myTransNum4 + myTransNum7;
-                MessageBox.Show(myTransNum7Int.ToString(), "", MessageBoxButtons.OK);
+              /*  MessageBox.Show(myTransNum7Int.ToString(), "", MessageBoxButtons.OK);
                 MessageBox.Show(myTransNum4, "", MessageBoxButtons.OK);
                 MessageBox.Show(myTransNum7, "", MessageBoxButtons.OK);
-                MessageBox.Show(myTransNum, "", MessageBoxButtons.OK);
+                MessageBox.Show(myTransNum, "", MessageBoxButtons.OK);*/
             }
             catch (Exception x)
             {

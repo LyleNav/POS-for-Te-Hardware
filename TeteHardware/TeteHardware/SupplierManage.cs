@@ -156,7 +156,6 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditSupplier.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridSupplier.ClearSelection();
         }
 
@@ -168,7 +167,6 @@ namespace TeteHardware
         {
             btnAddSupplier.Enabled = true;
             btnEditSupplier.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridSupplier.ClearSelection();
         }
 
@@ -178,7 +176,6 @@ namespace TeteHardware
             {
                 btnAddSupplier.Enabled = false;
                 btnEditSupplier.Enabled = true;
-                btnViewDetails.Enabled = true;
 
                 supID = int.Parse(dataGridSupplier.Rows[e.RowIndex].Cells["supID"].Value.ToString());
                 supName = dataGridSupplier.Rows[e.RowIndex].Cells["supName"].Value.ToString();

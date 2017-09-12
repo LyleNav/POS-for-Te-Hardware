@@ -102,7 +102,6 @@ namespace TeteHardware
         {
             btnAddPromo.Enabled = true;
             btnEditPromo.Enabled = false;  
-            btnViewDetails.Enabled = false;
             dataGridPromo.ClearSelection();
         }
 
@@ -120,7 +119,6 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditPromo.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridPromo.ClearSelection();
         }
 
@@ -130,7 +128,6 @@ namespace TeteHardware
             {
                 btnAddPromo.Enabled = false;
                 btnEditPromo.Enabled = true;
-                btnViewDetails.Enabled = true;
 
                 promoName = dataGridPromo.Rows[e.RowIndex].Cells["promoName"].Value.ToString();
                 if (dataGridPromo.Rows[e.RowIndex].Cells["promoType"].Value.ToString() == "Percent")

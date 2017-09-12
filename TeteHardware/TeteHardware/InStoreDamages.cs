@@ -233,8 +233,7 @@ namespace TeteHardware
                 MessageBox.Show("Error in saving : " + x.Message);
                 conn.Close();
             }
-
-
+            
         }
     }
 }

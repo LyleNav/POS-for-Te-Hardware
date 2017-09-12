@@ -129,7 +129,6 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditCatalog.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridCatalog.ClearSelection();
         }
 
@@ -139,7 +138,6 @@ namespace TeteHardware
             {
                 btnAddCatalog.Enabled = false;
                 btnEditCatalog.Enabled = true;
-                btnViewDetails.Enabled = true;
 
                 catalogName = dataGridCatalog.Rows[e.RowIndex].Cells["catName"].Value.ToString();
                 catalogDesc = dataGridCatalog.Rows[e.RowIndex].Cells["catDesc"].Value.ToString();
@@ -152,7 +150,6 @@ namespace TeteHardware
         {
             btnAddCatalog.Enabled = true;
             btnEditCatalog.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridCatalog.ClearSelection();
         }
 
