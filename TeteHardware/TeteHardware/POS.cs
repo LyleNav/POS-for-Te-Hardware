@@ -358,6 +358,7 @@ namespace TeteHardware
             string myTransQty = "";
             string myTransTotPrice = "";
             string mytransDiscount = "";
+
             //compute for the total amount
             //Transfer items in the datagridOrder to tbl_Transact
             //insert newe row to tbl_transact - prodID, promoID, empID, transNum,transDate,transQty,transTotPrice, transDiscount
@@ -365,8 +366,8 @@ namespace TeteHardware
 
             //set TransNum - first 4 char = year, next 7 char = transactions (can be up to 10,000,000 transactions)
             //get Year (4digit)
+
             myTransNum4 = Convert.ToString(DateTime.Parse(txtdateTransact.Text).Year);
-            MessageBox.Show(myTransNum4, "", MessageBoxButtons.OK);
             //check highest number for the year
             try
             {
@@ -392,10 +393,6 @@ namespace TeteHardware
                 myTransNum7Int = myTransNum7Int + 10000001;
                 myTransNum7 = myTransNum7Int.ToString().Substring(myTransNum7Int.ToString().Length - 7);
                 myTransNum = myTransNum4 + myTransNum7;
-                MessageBox.Show(myTransNum7Int.ToString(), "", MessageBoxButtons.OK);
-                MessageBox.Show(myTransNum4, "", MessageBoxButtons.OK);
-                MessageBox.Show(myTransNum7, "", MessageBoxButtons.OK);
-                MessageBox.Show(myTransNum, "", MessageBoxButtons.OK);
             }
             catch (Exception x)
             {
@@ -475,6 +472,7 @@ namespace TeteHardware
                         myMOQ = Convert.ToString(reader1[1]);
                     }
                     conn.Close();
+
                     if (decimal.Parse(myStock)<decimal.Parse(myMOQ))
                     {
                         conn.Open();
@@ -500,22 +498,22 @@ namespace TeteHardware
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
-            Strto2DecPlaces(txtPrice);
+            Txtboxto2DecPlaces(txtPrice);
         }
 
         private void txtSubTotPrice_TextChanged(object sender, EventArgs e)
         {
-            Strto2DecPlaces(txtSubTotPrice);
+            Txtboxto2DecPlaces(txtSubTotPrice);
         }
 
         private void txtDiscAmt_TextChanged(object sender, EventArgs e)
         {
-            Strto2DecPlaces(txtDiscAmt);
+            Txtboxto2DecPlaces(txtDiscAmt);
         }
 
         private void txtTotPrice_TextChanged(object sender, EventArgs e)
         {
-            Strto2DecPlaces(txtTotPrice);
+            Txtboxto2DecPlaces(txtTotPrice);
         }
 
         private void txtQty_TextChanged(object sender, EventArgs e)
@@ -539,18 +537,17 @@ namespace TeteHardware
         }
 
 
-
         private void txtGrandTot_TextChanged(object sender, EventArgs e)
         {
             if(txtGrandTot.Text == "")
             {
                 txtGrandTot.Text = "0";
             }
-            Strto2DecPlaces(txtGrandTot);
+            Txtboxto2DecPlaces(txtGrandTot);
             lbltxtGrandTot.Text = txtGrandTot.Text;
         }
 
-        private void Strto2DecPlaces(TextBox myTextbox)
+        private void Txtboxto2DecPlaces(TextBox myTextbox)
         {
             if (myTextbox.Text.Contains("."))
             {
@@ -749,7 +746,7 @@ namespace TeteHardware
 
         private void txtPayCharge_TextChanged(object sender, EventArgs e)
         {
-            Strto2DecPlaces(txtPayCharge);
+            Txtboxto2DecPlaces(txtPayCharge);
         }
         private void txtPayCharge_Enter(object sender, EventArgs e)
         {
@@ -778,7 +775,7 @@ namespace TeteHardware
                 }
                 else
                 {
-                    Strto2DecPlaces(txtPayCash);
+                    Txtboxto2DecPlaces(txtPayCash);
                     btnClosePay.Visible = true;
                     btnClosePay.Focus();
                 }
@@ -787,7 +784,7 @@ namespace TeteHardware
 
         private void txtPayChange_TextChanged(object sender, EventArgs e)
         {
-            Strto2DecPlaces(txtPayChange);
+            Txtboxto2DecPlaces(txtPayChange);
         }
         private void txtPayChange_Enter(object sender, EventArgs e)
         {

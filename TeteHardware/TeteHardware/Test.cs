@@ -42,6 +42,29 @@ namespace TeteHardware
             int test;
             return int.TryParse(input, out test);
         }
+
+        public string stringToDecimal(string _myString, int _decPlaces)
+        {
+            string _myReturn = "";
+            if (_decPlaces > 6)
+            {
+                MessageBox.Show("Decimal places up to 6 only!", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (_myString.Contains("."))
+                {
+                    _myReturn = Convert.ToString(decimal.Round(decimal.Parse(_myString + "000000"), _decPlaces));
+                }
+                else
+                {
+                    _myReturn = Convert.ToString(decimal.Round(decimal.Parse(_myString + ".000000"), _decPlaces));
+                }
+            }
+
+            return _myReturn;
+        }
+
     }
 
 
@@ -88,6 +111,7 @@ namespace TeteHardware
 
             //Open the print preview dialog
             PrintPreviewDialog objPPdialog = new PrintPreviewDialog();
+            _printDocument.DefaultPageSettings.Landscape = true;
             objPPdialog.Document = _printDocument;
             objPPdialog.ShowDialog();
         }
@@ -242,8 +266,8 @@ namespace TeteHardware
             try
             {
                 strFormat = new StringFormat();
-                strFormat.Alignment = StringAlignment.Center;
-                strFormat.LineAlignment = StringAlignment.Center;
+                strFormat.Alignment = StringAlignment.Near;
+                strFormat.LineAlignment = StringAlignment.Near;
                 strFormat.Trimming = StringTrimming.EllipsisCharacter;
 
                 arrColumnLefts.Clear();

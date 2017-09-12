@@ -53,7 +53,8 @@ namespace TeteHardware
 
         private void formArrival_Load(object sender, EventArgs e)
         {
-            this.calArrival.Location = new Point(172, 334);
+            this.calArrival.Location = txtdateArrival.Location;
+            txtdateArrival.Text = DateTime.Now.ToString();
             clearFormArrival();
             populateSupCombos();
         }
@@ -182,7 +183,7 @@ namespace TeteHardware
             txtItemID.Text = "";
             txtItemName.Text = "";
             txtQty.Text = "0";
-            txtdateArrival.Text = "";
+            txtdateArrival.Text = DateTime.Now.ToString();
             txtStatus.Text = "";
             dataGridProduct.ClearSelection();
         }
@@ -216,7 +217,7 @@ namespace TeteHardware
             txtItemID.Text = "";
             txtItemName.Text = "";
             txtQty.Text = "0";
-            txtdateArrival.Text = "";
+            txtdateArrival.Text = DateTime.Now.ToString();
             txtStatus.Text = "";
         }
 

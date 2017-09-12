@@ -182,29 +182,33 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnto(retRef, prodID, supID, retQty, retDate, retDefect) VALUES('" + txtReference.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + combosupID.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnto(retRef, prodID, supID, retQty, retDate, retDefect, empID) VALUES('" + txtReference.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + combosupID.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
                 query.ExecuteNonQuery();
-                func.ChangeLog("tbl_returnto", "All", "None");
                 conn.Close();
+                func.ChangeLog("tbl_returnto", "All", "None");
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)
             {
-                MessageBox.Show("Error in Add() :" + x.ToString());
+                MessageBox.Show("Error in Adding to ReturnTo table :" + x.ToString());
                 conn.Close();
             }
+
             //update tbl_arrdef
             int newQuantity = int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString()) - int.Parse(txtQty.Text);
+
+            MessageBox.Show("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "', retDate = '" + txtCalReturn.Text + "' WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'");
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "' WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'", conn);
+                MySqlCommand query = new MySqlCommand("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "', retDate = '" + txtCalReturn.Text + "', retQty = " + txtQty.Text + " WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'", conn);
                 query.ExecuteNonQuery();
-                func.ChangeLog("tbl_arrdef", "Quantity", dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString());
                 conn.Close();
+                func.ChangeLog("tbl_arrdef", "Quantity", dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString());
+
             }
-            catch(Exception x)
+            catch (Exception x)
             {
                 MessageBox.Show("Error in saveToDatabase: " + x.ToString());
                 conn.Close();

@@ -131,14 +131,14 @@ namespace TeteHardware
         {
             //insert to tbl_returnfrom
             int myRowIndex = dataGridProduct.CurrentRow.Index;
+            MessageBox.Show("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")");
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
                 query.ExecuteNonQuery();
-                func.ChangeLog("tbl_returnfrom", "All", "None");
                 conn.Close();
-
+                func.ChangeLog("tbl_returnfrom", "All", "None");
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception x)

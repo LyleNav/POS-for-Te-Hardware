@@ -25,6 +25,8 @@ namespace TeteHardware
         string myParentTable = "";
         string myChildTable = "";
         string myDateSQL = "";
+        bool mouseDown; //boolean for mousedown
+        Point lastLocation; //variable for the last location of the mouse
 
         public formViews()
         {
@@ -34,13 +36,20 @@ namespace TeteHardware
             timer1.Start(); //form transition using timer
         }
 
+        private void formViews_Load(object sender, EventArgs e)
+        {
+            //set Dates
+            txtDateFrom.Text = DateTime.Now.ToString();
+            txtDateTo.Text = DateTime.Now.ToString();
+            populateComboParent();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Opacity += 0.1; //form transition using timer
         }
 
-        bool mouseDown; //boolean for mousedown
-        Point lastLocation; //variable for the last location of the mouse
+        //mouse handling
         private void formViews_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true; //sets mousedown to true
@@ -99,26 +108,6 @@ namespace TeteHardware
             ClsPrint.PrintForm();
         }
 
-
-        private void formViews_Load(object sender, EventArgs e)
-        {
-            //set Dates
-            txtDateFrom.Text=DateTime.Now.ToString();
-            txtDateTo.Text= DateTime.Now.ToString();
-            populateComboParent();
-            if (myType=="Report")
-            {
-                int myScreenWidth = Screen.PrimaryScreen.Bounds.Width;
-                int myScreenHeight = Screen.PrimaryScreen.Bounds.Height;
-                this.Size = new Size(530, 300);
-                this.Location = new Point((myScreenWidth - this.Width) / 2, (myScreenHeight - this.Height) / 2);
-                btnPrintRep.Location = new Point((this.Width - btnPrintRep.Width) / 2, 225);
-                btnPrintRep.Visible = true;
-                datagridTable.Visible = false;
-                datagridTableChild.Visible = false;
-            }
-        }
-
         //Date Handling - put all dates here
         private void txtDateFrom_Enter(object sender, EventArgs e)
         {
@@ -142,17 +131,6 @@ namespace TeteHardware
         {
             txtDateTo.Text = monCalTo.SelectionRange.Start.ToShortDateString();
             monCalTo.Visible = false;
-        }
-
-        private void populateComboParent()
-        {
-            comboParent.Items.Clear();
-            comboParent.Items.Add("Category");
-            comboParent.Items.Add("Supplier");
-            comboParent.Items.Add("Product");
-            comboParent.Items.Add("Promo");
-            comboParent.Items.Add("Transaction");
-            comboParent.SelectedIndex = 0;
         }
 
         //Set datagridParents tbl here
@@ -215,6 +193,17 @@ namespace TeteHardware
                 MessageBox.Show("Error in populating datagridTable : " + x.ToString());
                 conn.Close();
             }
+        }
+
+        private void populateComboParent()
+        {
+            comboParent.Items.Clear();
+            comboParent.Items.Add("Category");
+            comboParent.Items.Add("Supplier");
+            comboParent.Items.Add("Product");
+            comboParent.Items.Add("Promo");
+            comboParent.Items.Add("Transaction");
+            comboParent.SelectedIndex = 0;
         }
 
         private void populateComboChild(string myParent)
@@ -335,6 +324,19 @@ namespace TeteHardware
 
         private void datagridTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            setupforDatagridChild();
+        }
+
+        private void datagridTable_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                setupforDatagridChild();
+            }
+        }
+
+        private void setupforDatagridChild()
+        {
             int myRowIndex = datagridTable.CurrentRow.Index;
             string myselComm = "";
 
@@ -343,7 +345,7 @@ namespace TeteHardware
                 string myCatID = "";
                 myCatID = datagridTable.Rows[myRowIndex].Cells["catID"].Value.ToString();
                 myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
-                if(myChild == "Products")
+                if (myChild == "Products")
                 {
                     myDateSQL = "";
                 }
@@ -356,16 +358,16 @@ namespace TeteHardware
                     myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 }
             }
-            else if (myParent=="Supplier")
+            else if (myParent == "Supplier")
             {
                 string mySupID = "";
                 mySupID = datagridTable.Rows[myRowIndex].Cells["supID"].Value.ToString();
-                if (myChild=="Products")
+                if (myChild == "Products")
                 {
                     myselComm = "SELECT DISTINCT a.prodID, b.prodName, a.supID FROM tbl_arr a, tbl_product b WHERE a.supID = '" + mySupID + "' and b.prodID = a.prodID";
                     myDateSQL = "";
                 }
-                else if(myChild == "Good Deliveries")
+                else if (myChild == "Good Deliveries")
                 {
                     myselComm = "SELECT b.prodID, a.prodName, b.Quantity, b.Reference, b.DateArrival FROM tbl_product a, " + myChildTable + " b WHERE b.supID = '" + mySupID + "' AND a.prodID = b.prodID";
                     myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
@@ -410,7 +412,7 @@ namespace TeteHardware
                 myDateSQL = "";
             }
 
-            if (myDateSQL=="")
+            if (myDateSQL == "")
             {
                 populatedatagridChild(myselComm);
             }
