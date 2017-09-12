@@ -338,7 +338,6 @@
         private System.Windows.Forms.Button btnPrintRep;
         private System.Windows.Forms.Panel pnlReports;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblReports;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView datagridTableChild;
@@ -354,5 +353,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox comboReports;
         private System.Windows.Forms.Label lblRep;
+        public System.Windows.Forms.Label lblReports;
     }
 }

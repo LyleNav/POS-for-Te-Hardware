@@ -64,3 +64,4 @@ C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardw
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.ManageCustReturns.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formReturns.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formViews.resources
+C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formReports.resources

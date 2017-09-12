@@ -182,7 +182,7 @@ namespace TeteHardware
             formViews formV = new formViews();
             formV.ReferenceToAfterLogin = this;
             formV.myType = "View";
-            formV.labelName.Text = "Views";
+            formV.lblViews.Text = "Views";
             formV.Show();
             this.Hide();
         }
@@ -214,11 +214,11 @@ namespace TeteHardware
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            formViews formReport = new formViews();
-            formReport.ReferenceToAfterLogin = this;
-            formReport.myType = "Report";
-            formReport.labelName.Text = "Reports";
-            formReport.Show();
+            formReports formRep = new formReports();
+            formRep.ReferenceToAfterLogin = this;
+            formRep.myType = "Report";
+            formRep.lblReports.Text = "Reports";
+            formRep.Show();
             this.Hide();
                 
         }

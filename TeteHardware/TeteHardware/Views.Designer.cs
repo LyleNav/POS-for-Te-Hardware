@@ -327,7 +327,7 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblViews;
         private System.Windows.Forms.Button btnPrintRep;
+        public System.Windows.Forms.Label lblViews;
     }
 }
