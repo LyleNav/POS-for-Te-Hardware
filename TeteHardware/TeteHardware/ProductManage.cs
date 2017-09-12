@@ -85,7 +85,6 @@ namespace TeteHardware
         {
             btnAddProduct.Enabled = true;
             btnEditProduct.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridProduct.ClearSelection();
         }
 
@@ -171,7 +170,6 @@ namespace TeteHardware
         {
             dataLoad();
             btnEditProduct.Enabled = false;
-            btnViewDetails.Enabled = false;
             dataGridProduct.ClearSelection();
         }
 
@@ -181,7 +179,6 @@ namespace TeteHardware
             {
                 btnAddProduct.Enabled = false;
                 btnEditProduct.Enabled = true;
-                btnViewDetails.Enabled = true;
 
                 productID = dataGridProduct.Rows[e.RowIndex].Cells["prodID"].Value.ToString();
                 employeeID = int.Parse(dataGridProduct.Rows[e.RowIndex].Cells["empID"].Value.ToString());

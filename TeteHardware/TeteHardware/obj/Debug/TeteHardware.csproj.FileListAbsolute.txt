@@ -56,9 +56,11 @@ C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardw
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formTranscation.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formPOS.resources
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formPOS.resources
-C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.Form1.resources
+C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formViews.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formReturns.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.ManageCustReturns.resources
 C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formInStoreDamages.resources
-C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formViews.resources
-C:\Users\Reagan\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formReports.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formInStoreDamages.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.ManageCustReturns.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formReturns.resources
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.formViews.resources
