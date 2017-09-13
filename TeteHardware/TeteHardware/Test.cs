@@ -78,13 +78,16 @@ namespace TeteHardware
         bool bFirstPage = false; //Used to check whether we are printing first page
         bool bNewPage = false;// Used to check whether we are printing a new page
         int iHeaderHeight = 0; //Used for the header height
-        StringFormat strFormat; //Used to format the grid rows.
+        StringFormat strFormatRight; //Used to format the grid rows.
+        StringFormat strFormatLeft;
+        StringFormat strFormatCenter;
+        StringFormat mystrFormat;
         ArrayList arrColumnLefts = new ArrayList();//Used to save left coordinates of columns
         ArrayList arrColumnWidths = new ArrayList();//Used to save column widths
         private PrintDocument _printDocument = new PrintDocument();
         private DataGridView gw = new DataGridView();
         private string _ReportHeader;
-
+        Test myTest = new Test();
         #endregion
 
         public ClsPrint(DataGridView gridview, string ReportHeader)
@@ -196,9 +199,17 @@ namespace TeteHardware
                             _GridCol[colcount++] = GridCol;
                         }
                         for (int i = 0; i< _GridCol.Count(); i++)
-//                        for (int i = (_GridCol.Count() - 1); i >= 0; i--)
-                            {
-                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                            //                        for (int i = (_GridCol.Count() - 1); i >= 0; i--)
+                        {
+                            if (i < 2)
+                                mystrFormat = strFormatLeft;
+                            else if (i < 4)
+                                mystrFormat = strFormatCenter;
+                            else
+                                mystrFormat = strFormatRight;
+
+
+                            e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
                                 (int)arrColumnWidths[iCount], iHeaderHeight));
 
@@ -210,7 +221,7 @@ namespace TeteHardware
                                 _GridCol[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCol[i].InheritedStyle.ForeColor),
                                 new RectangleF((int)arrColumnLefts[iCount], iTopMargin,
-                                (int)arrColumnWidths[iCount], iHeaderHeight), strFormat);
+                                (int)arrColumnWidths[iCount], iHeaderHeight), mystrFormat);
                             iCount++;
                         }
                         bNewPage = false;
@@ -230,13 +241,28 @@ namespace TeteHardware
                         {
                             if (_GridCell[i].Value != null)
                         {
+                            /*
+                                                        if (i < 2)
+                                                            mystrFormat = strFormatLeft;
+                                                        else if (i < 4)
+                                                            mystrFormat = strFormatCenter;
+                                                        else
+                                                            mystrFormat = strFormatRight;
+                            */
+                            if (myTest.IsNumeric(_GridCell[i].FormattedValue.ToString()))
+                                mystrFormat = strFormatCenter;
+                            else if (myTest.IsFloat(_GridCell[i].FormattedValue.ToString()))
+                                mystrFormat = strFormatRight;
+                            else
+                                mystrFormat = strFormatLeft;
+
                             e.Graphics.DrawString(_GridCell[i].FormattedValue.ToString(),
                                 _GridCell[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCell[i].InheritedStyle.ForeColor),
                                 new RectangleF((int)arrColumnLefts[iCount],
                                 (float)iTopMargin,
                                 (int)arrColumnWidths[iCount], (float)iCellHeight),
-                                strFormat);
+                                mystrFormat);
                         }
                         //Drawing Cells Borders 
                         e.Graphics.DrawRectangle(Pens.Black,
@@ -265,10 +291,19 @@ namespace TeteHardware
         {
             try
             {
-                strFormat = new StringFormat();
-                strFormat.Alignment = StringAlignment.Near;
-                strFormat.LineAlignment = StringAlignment.Near;
-                strFormat.Trimming = StringTrimming.EllipsisCharacter;
+                strFormatRight = new StringFormat();
+                strFormatRight.Alignment = StringAlignment.Far;
+                strFormatRight.LineAlignment = StringAlignment.Near;
+                strFormatRight.Trimming = StringTrimming.EllipsisCharacter;
+
+                strFormatLeft = new StringFormat();
+                strFormatLeft.Alignment = StringAlignment.Near;
+                strFormatLeft.LineAlignment = StringAlignment.Near;
+
+                strFormatCenter = new StringFormat();
+                strFormatCenter.Alignment = StringAlignment.Center;
+                strFormatCenter.LineAlignment = StringAlignment.Near;
+
 
                 arrColumnLefts.Clear();
                 arrColumnWidths.Clear();

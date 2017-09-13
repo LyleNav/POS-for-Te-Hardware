@@ -47,8 +47,6 @@
             this.lblDateTo = new System.Windows.Forms.Label();
             this.lblDateFrom = new System.Windows.Forms.Label();
             this.datagridTableParent = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblParent = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboReports = new System.Windows.Forms.ComboBox();
             this.lblRep = new System.Windows.Forms.Label();
@@ -143,8 +141,7 @@
             // 
             this.datagridTableChild.AllowUserToAddRows = false;
             this.datagridTableChild.AllowUserToDeleteRows = false;
-            this.datagridTableChild.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.datagridTableChild.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.datagridTableChild.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,26 +243,6 @@
             this.datagridTableParent.Size = new System.Drawing.Size(485, 259);
             this.datagridTableParent.TabIndex = 164;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(264, 207);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 19);
-            this.label1.TabIndex = 162;
-            this.label1.Text = "Child Table";
-            // 
-            // lblParent
-            // 
-            this.lblParent.AutoSize = true;
-            this.lblParent.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblParent.Location = new System.Drawing.Point(17, 207);
-            this.lblParent.Name = "lblParent";
-            this.lblParent.Size = new System.Drawing.Size(90, 19);
-            this.lblParent.TabIndex = 160;
-            this.lblParent.Text = "Parent Table";
-            // 
             // timer1
             // 
             this.timer1.Interval = 1;
@@ -312,8 +289,6 @@
             this.Controls.Add(this.lblDateTo);
             this.Controls.Add(this.lblDateFrom);
             this.Controls.Add(this.datagridTableParent);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblParent);
             this.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -348,8 +323,6 @@
         private System.Windows.Forms.Label lblDateTo;
         private System.Windows.Forms.Label lblDateFrom;
         private System.Windows.Forms.DataGridView datagridTableParent;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblParent;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox comboReports;
         private System.Windows.Forms.Label lblRep;
