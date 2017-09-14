@@ -104,10 +104,12 @@
             // 
             this.datagridTable.AllowUserToAddRows = false;
             this.datagridTable.AllowUserToDeleteRows = false;
+            this.datagridTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.datagridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridTable.Location = new System.Drawing.Point(21, 208);
             this.datagridTable.Name = "datagridTable";
             this.datagridTable.ReadOnly = true;
+            this.datagridTable.RowHeadersVisible = false;
             this.datagridTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridTable.Size = new System.Drawing.Size(485, 388);
             this.datagridTable.TabIndex = 4;
@@ -170,10 +172,12 @@
             // 
             this.datagridTableChild.AllowUserToAddRows = false;
             this.datagridTableChild.AllowUserToDeleteRows = false;
+            this.datagridTableChild.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.datagridTableChild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridTableChild.Location = new System.Drawing.Point(529, 125);
             this.datagridTableChild.Name = "datagridTableChild";
             this.datagridTableChild.ReadOnly = true;
+            this.datagridTableChild.RowHeadersVisible = false;
             this.datagridTableChild.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridTableChild.Size = new System.Drawing.Size(743, 471);
             this.datagridTableChild.TabIndex = 12;

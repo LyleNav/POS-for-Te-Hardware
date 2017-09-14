@@ -735,6 +735,7 @@ namespace TeteHardware
                 conn.Close();
                 datagridTableParent.AutoResizeColumns();
                 datagridTableParent.AutoResizeRows();
+                datagridTableParent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {
@@ -758,6 +759,7 @@ namespace TeteHardware
                     datagridTableChild.Rows.Add();
                 }
                 conn.Close();
+                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {

@@ -167,6 +167,7 @@ namespace TeteHardware
                 dataGridProduct.DataSource = bs;
                 conn.Close();
                 dataGridProduct.AutoResizeColumns();
+                dataGridProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {

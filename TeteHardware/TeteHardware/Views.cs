@@ -187,6 +187,7 @@ namespace TeteHardware
                 datagridTable.DataSource = bs;
                 conn.Close();
                 datagridTable.AutoResizeColumns();
+                datagridTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {
@@ -314,6 +315,7 @@ namespace TeteHardware
                 datagridTableChild.DataSource = bs1;
                 conn.Close();
                 datagridTableChild.AutoResizeColumns();
+                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {
@@ -364,7 +366,7 @@ namespace TeteHardware
                 mySupID = datagridTable.Rows[myRowIndex].Cells["supID"].Value.ToString();
                 if (myChild == "Products")
                 {
-                    myselComm = "SELECT DISTINCT a.prodID, b.prodName, a.supID FROM tbl_arr a, tbl_product b WHERE a.supID = '" + mySupID + "' and b.prodID = a.prodID";
+                    myselComm = "SELECT DISTINCT a.prodID, b.prodName AS 'Product Name', a.supID FROM tbl_arr a, tbl_product b WHERE a.supID = '" + mySupID + "' and b.prodID = a.prodID";
                     myDateSQL = "";
                 }
                 else if (myChild == "Good Deliveries")

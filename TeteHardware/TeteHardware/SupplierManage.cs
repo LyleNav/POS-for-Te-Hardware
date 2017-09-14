@@ -123,8 +123,9 @@ namespace TeteHardware
                 dataGridSupplier.Columns["supAddress"].HeaderText = "Address"; //gets the supplierDesc and sets it as a header
                 dataGridSupplier.Columns["supContact"].HeaderText = "Contact Person"; //gets the supplierDesc and sets it as a header
                 dataGridSupplier.Columns["supContactNum"].HeaderText = "Contact Number";
-                dataGridSupplier.Columns["supOthers"].HeaderText = "Others";
+                dataGridSupplier.Columns["supOthers"].HeaderText = "Remarks";
                 conn.Close(); //closes the connection
+                dataGridSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {

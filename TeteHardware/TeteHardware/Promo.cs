@@ -164,6 +164,7 @@ namespace TeteHardware
                 dataGridPromo.Columns["promoValue"].HeaderText = "Value"; //gets the promoValue and sets it as a header
                 dataGridPromo.Columns["promoStatus"].HeaderText = "Status"; //gets the promoStatus and sets it as a header
                 conn.Close(); //closes the connection
+                dataGridPromo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {

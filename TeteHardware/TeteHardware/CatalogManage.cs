@@ -117,6 +117,7 @@ namespace TeteHardware
                 dataGridCatalog.Columns["catName"].HeaderText = "Name"; //gets the productCatalogName and sets it as a header
                 dataGridCatalog.Columns["catDesc"].HeaderText = "Description"; //gets the productCatalogDesc and sets it as a header
                 conn.Close(); //closes the connection
+                dataGridCatalog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {

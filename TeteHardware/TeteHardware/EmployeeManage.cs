@@ -141,6 +141,7 @@ namespace TeteHardware
                 dataGridEmployee.Columns["empRemarks"].HeaderText = "Remarks"; //gets the eRemarks and sets it as a header
                 dataGridEmployee.Columns["empDateEdit"].Visible = false;
                 conn.Close(); //closes the connection
+                dataGridEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {

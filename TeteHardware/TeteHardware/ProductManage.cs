@@ -206,14 +206,15 @@ namespace TeteHardware
                 dataGridProduct.DataSource = dt; //sets datasource to datatable
                 dataGridProduct.Columns["prodID"].HeaderText = "Product ID"; //gets the productID and sets it's visibility to false
                 dataGridProduct.Columns["autoID"].Visible = false;
+                dataGridProduct.Columns["empID"].Visible = false;
                 dataGridProduct.Columns["prodName"].HeaderText = "Name"; //gets the productName and sets it as a header
                 dataGridProduct.Columns["prodDesc"].HeaderText = "Description"; //gets the pCatalogID and sets it as a header
                 dataGridProduct.Columns["prodStock"].HeaderText = "Stock"; //gets the pSupplierID and sets it as a header
                 dataGridProduct.Columns["prodUnit"].HeaderText = "Unit"; //gets the pPromoID and sets it as a header
                 dataGridProduct.Columns["prodUPrice"].HeaderText = "Unit Price"; //gets the productStock and sets it as a header
                 dataGridProduct.Columns["prodMOQ"].HeaderText = "MOQ"; //gets the productDesc and sets it as a header
-                dataGridProduct.Columns["prodStatus"].HeaderText = "Status"; //gets the productPrice and sets it as a header
-                dataGridProduct.Columns["empID"].HeaderText = "Emp ID";
+                dataGridProduct.Columns["prodStatus"].HeaderText = "Remarks"; //gets the productPrice and sets it as a header
+                dataGridProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
                 conn.Close(); //closes the connection
             }

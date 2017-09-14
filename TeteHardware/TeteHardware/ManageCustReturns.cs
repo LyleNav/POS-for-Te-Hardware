@@ -109,7 +109,7 @@ namespace TeteHardware
             try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand query = new MySqlCommand("SELECT a.transDate, a.prodID, b.prodName, a.transQty FROM tbl_transact a, tbl_product b WHERE a.transNum = '" + txtTrans.Text + "' AND a.prodID = b.prodID", conn); 
+                MySqlCommand query = new MySqlCommand("SELECT a.transDate AS 'Transaction Date', a.prodID AS 'Product ID', b.prodName AS 'Product Name', a.transQty AS 'Quantity' FROM tbl_transact a, tbl_product b WHERE a.transNum = '" + txtTrans.Text + "' AND a.prodID = b.prodID", conn); 
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter
                 BindingSource bs = new BindingSource();
@@ -119,6 +119,8 @@ namespace TeteHardware
                 dataGridProduct.DataSource = bs;
                 conn.Close();
                 dataGridProduct.AutoResizeColumns();
+                dataGridProduct.ClearSelection();
+                dataGridProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {
