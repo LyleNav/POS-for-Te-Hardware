@@ -141,33 +141,27 @@ namespace TeteHardware
             if(myParent=="Category")
             {
                 myParentTable = "tbl_Productcatalog";
+                populatedatagridTable("SELECT catID as 'Catalog ID', catName as 'Catalog Name' FROM tbl_ProductCatalog");
             }
             else  if (myParent == "Supplier")
-
             {
                 myParentTable = "tbl_Supplier";
+                populatedatagridTable("SELECT supID as 'Supplier ID', supName as 'Supplier Name' FROM tbl_Supplier");
             }
             else if (myParent == "Product")
-
             {
                 myParentTable = "tbl_Product";
+                populatedatagridTable("SELECT prodID as 'Product ID', prodName as 'Product Name', prodDesc FROM tbl_Product");
             }
             else if (myParent == "Promo")
-
             {
                 myParentTable = "tbl_Promo";
+                populatedatagridTable("SELECT promoID as 'Promo ID', promoName as 'Promo Name', prodDesc FROM tbl_Promo");
             }
             else if (myParent == "Transaction")
             {
                 myParentTable = "tbl_transact";
-            }
-            if (myParent == "Transaction")
-            {
-                populatedatagridTable("SELECT DISTINCT transNum FROM " + myParentTable);
-            }
-            else
-            {
-                populatedatagridTable("SELECT * FROM " + myParentTable);
+                populatedatagridTable("SELECT transDate as 'Date Sold', transNum as 'Transaction Number' FROM tbl_Transact");
             }
             datagridTable.ClearSelection();
         }
@@ -177,6 +171,7 @@ namespace TeteHardware
             try
             {
                 conn.Open(); //opens the connection
+                //MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
                 MySqlCommand query = new MySqlCommand(selectCommand, conn); //query to select all entries in tbl_productcatalog
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter

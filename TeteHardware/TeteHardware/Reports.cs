@@ -99,8 +99,9 @@ namespace TeteHardware
             {
                 if (myType == "Report")
                 {
-                    ClsPrint ClsPrint = new ClsPrint(datagridTableChild, comboReports.Text);
-                    ClsPrint.PrintForm();
+                    string myStore = "Tete Hardware" + Environment.NewLine + "Matina, Davao City" + Environment.NewLine + Environment.NewLine;
+                    ClsPrint printIt = new ClsPrint(datagridTableChild, myStore + comboReports.Text);
+                    printIt.PrintForm();
 
                 }
                 return true;    // indicate that you handled this keystroke
@@ -122,8 +123,9 @@ namespace TeteHardware
         }
         private void btnPrintRep_Click(object sender, EventArgs e)
         {
-            ClsPrint ClsPrint = new ClsPrint(datagridTableChild, comboReports.Text);
-            ClsPrint.PrintForm();
+            string myStore = "Tete Hardware" + Environment.NewLine + "Matina, Davao City" + Environment.NewLine + Environment.NewLine;
+            ClsPrint printIT = new ClsPrint(datagridTableChild, myStore + comboReports.Text);
+            printIT.PrintForm();
         }
 
         //Date Handling - put all dates here
@@ -185,21 +187,19 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Product/Item";
+                        datagridTableChild.Columns[0].Name = "Product/Item             ";
                         datagridTableChild.Columns[1].Name = "Date Sold";
                         datagridTableChild.Columns[2].Name = "Quantity";
                         datagridTableChild.Columns[3].Name = "Unit";
                         datagridTableChild.Columns[4].Name = "Sales";
                         datagridTableChild.Columns[5].Name = "Discount";
-
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
-
                         myTotSales = 0;
                         myTotDiscount = 0;
-
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
                             myGroupSales = 0;
@@ -216,6 +216,8 @@ namespace TeteHardware
                                 if (reader.HasRows)
                                 {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
                                 while (reader.Read())
                                 {
@@ -224,6 +226,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], func.stringToDecimal(reader[4].ToString(), 2), func.stringToDecimal(reader[5].ToString(), 2));
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount-1, DataGridViewAutoSizeRowMode.AllCells);
+
                                         myTotSales = myTotSales + float.Parse(reader[4].ToString());
                                         myTotDiscount = myTotDiscount + float.Parse(reader[5].ToString());
                                         myGroupSales = myGroupSales + float.Parse(reader[4].ToString());
@@ -234,6 +237,9 @@ namespace TeteHardware
                                 if(myGroupSales > 0)
                                 {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                    datagridTableChild.Rows.Add("","","","","","","");
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                 }
                             }
@@ -246,6 +252,7 @@ namespace TeteHardware
                         }
                         datagridTableChild.Rows.Add("Grand Total", "", "", "", myTotSales.ToString("#,#.00#"),myTotDiscount.ToString("#,#.00#"));
                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                        datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                         break;
                     }
 
@@ -258,12 +265,13 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Category";
+                        datagridTableChild.Columns[0].Name = "Category                 ";
                         datagridTableChild.Columns[1].Name = "Product";
                         datagridTableChild.Columns[2].Name = "Date Sold";
                         datagridTableChild.Columns[3].Name = "Quantity";
                         datagridTableChild.Columns[4].Name = "Sales";
                         datagridTableChild.Columns[5].Name = "Discount";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i=0; i<datagridTableChild.ColumnCount; i++)
                         {
@@ -287,7 +295,11 @@ namespace TeteHardware
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
                                 if(reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["catName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -297,6 +309,7 @@ namespace TeteHardware
                                         {
                                             myCounter++;
                                             datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], func.stringToDecimal(reader[4].ToString(), 2), func.stringToDecimal(reader[4].ToString(), 2));
+                                            datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                             myTotSales = myTotSales + float.Parse(reader[4].ToString());
                                             myTotDiscount = myTotDiscount + float.Parse(reader[5].ToString());
                                             myGroupSales = myGroupSales + float.Parse(reader[4].ToString());
@@ -308,6 +321,10 @@ namespace TeteHardware
                                 if (myGroupSales > 0)
                                 {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["catName"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "", "");
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                 }
                             }
                             catch (Exception x)
@@ -318,6 +335,8 @@ namespace TeteHardware
                             }
                         }
                         datagridTableChild.Rows.Add("Grand Total", "", "", "", myTotSales.ToString("#,#.00#"), myTotDiscount.ToString("#,#.00#"));
+                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                        datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                         break;
                     }
                 case 2:
@@ -333,31 +352,45 @@ namespace TeteHardware
                         datagridTableChild.ColumnHeadersVisible = true;
                         datagridTableChild.Columns[0].Name = "Product";
                         datagridTableChild.Columns[1].Name = "Description";
-                        datagridTableChild.Columns[2].Name = "Quantity";
+                        datagridTableChild.Columns[2].Name = "Stock";
                         datagridTableChild.Columns[3].Name = "Unit";
                         datagridTableChild.Columns[4].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[1].Width = 250;
+                        datagridTableChild.Columns[4].Width = 400;
 
-                        try
+                        for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
-                            conn.Open();
-                            MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
-                            MySqlDataReader reader = query.ExecuteReader();
-                            while (reader.Read())
+                            datagridTableParent.Rows[i].Selected = true;
+                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            //MessageBox.Show("SELECT prodName, prodDesc, prodStock, prodUnit, prodStatus from tbl_product WHERE prodID ='" + myID + "'", "", MessageBoxButtons.OK);
+                            mySelectSQLChild = "SELECT prodName, prodDesc, prodStock, prodUnit, prodStatus from tbl_product WHERE prodID ='" + myID + "'";
+                            try
                             {
-                                datagridTableChild.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                                conn.Open();
+                                MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
+                                MySqlDataReader reader = query.ExecuteReader();
+                                myCounter = 0;
+                                while (reader.Read())
+                                {
+                                    myCounter++;
+                                    datagridTableChild.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+                                }
+                                conn.Close();
                             }
-                            conn.Close();
-                        }
-                        catch (Exception x)
+                            catch (Exception x)
 
-                        {
-                            MessageBox.Show("Error in Load:" + x.ToString());
-                            conn.Close();
+                            {
+                                MessageBox.Show("Error in Load:" + x.ToString());
+                                conn.Close();
+                            }
                         }
                         break;
                     }
@@ -370,17 +403,21 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Category";
+                        datagridTableChild.Columns[0].Name = "Category                 ";
                         datagridTableChild.Columns[1].Name = "Product";
                         datagridTableChild.Columns[2].Name = "Description";
                         datagridTableChild.Columns[3].Name = "Stock";
                         datagridTableChild.Columns[4].Name = "Unit";
                         datagridTableChild.Columns[5].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[2].Width = 200;
+                        datagridTableChild.Columns[5].Width = 300;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -395,11 +432,25 @@ namespace TeteHardware
                                 conn.Open();
                                 MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
                                 MySqlDataReader reader = query.ExecuteReader();
+                                myCounter = 0;
+                                if(reader.HasRows)
+                                {
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["catName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
                                 while (reader.Read())
                                 {
-                                    datagridTableChild.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                    myCounter++;
+                                    datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                 }
                                 conn.Close();
+                                if(myCounter>0)
+                                {
+                                    datagridTableChild.Rows.Add("","","","","","");
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                }
                             }
                             catch (Exception x)
 
@@ -414,22 +465,25 @@ namespace TeteHardware
                     {
                         myParent = "Supplier";
                         myChild = "Product";
-                        populatedatagridParent("SELECT supID as' Supplier ID', supName as 'Supplier Name' from tbl_supplier ORDER by supName");
+                        populatedatagridParent("SELECT supID, supName from tbl_supplier ORDER by supName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Item";
+                        datagridTableChild.Columns[0].Name = "Item                     ";
                         datagridTableChild.Columns[1].Name = "Product";
                         datagridTableChild.Columns[2].Name = "Description";
                         datagridTableChild.Columns[3].Name = "Stock";
                         datagridTableChild.Columns[4].Name = "Unit";
                         datagridTableChild.Columns[5].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[5].Width = 400;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -446,7 +500,11 @@ namespace TeteHardware
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
                                 if(reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["supName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -454,6 +512,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -476,17 +535,20 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Item";
+                        datagridTableChild.Columns[0].Name = "Item                     ";
                         datagridTableChild.Columns[1].Name = "Date Arrival";
                         datagridTableChild.Columns[2].Name = "Product";
                         datagridTableChild.Columns[3].Name = "Quantity";
                         datagridTableChild.Columns[4].Name = "Unit";
                         datagridTableChild.Columns[5].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[5].Width = 400;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -503,7 +565,11 @@ namespace TeteHardware
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
                                 if(reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["supName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -511,6 +577,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -533,17 +600,20 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Item";
+                        datagridTableChild.Columns[0].Name = "Item                     ";
                         datagridTableChild.Columns[1].Name = "Date Arrival";
                         datagridTableChild.Columns[2].Name = "Product";
                         datagridTableChild.Columns[3].Name = "Quantity";
                         datagridTableChild.Columns[4].Name = "Unit";
                         datagridTableChild.Columns[5].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[5].Width = 400;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -559,15 +629,19 @@ namespace TeteHardware
                                 MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
-                                if(reader.HasRows)
+                                if (reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["supName"].Value.ToString());
-
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
                                 while (reader.Read())
                                 {
                                     if (reader[0] != null)
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -590,16 +664,19 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 5;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Product/Item";
+                        datagridTableChild.Columns[0].Name = "Product/Item             ";
                         datagridTableChild.Columns[1].Name = "Date Arrived";
                         datagridTableChild.Columns[2].Name = "Quantity";
                         datagridTableChild.Columns[3].Name = "Unit";
                         datagridTableChild.Columns[4].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[4].Width = 400;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -615,8 +692,12 @@ namespace TeteHardware
                                 MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
-                                if(reader.HasRows)
+                                if (reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -624,6 +705,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -646,16 +728,19 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 5;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Product/Item";
+                        datagridTableChild.Columns[0].Name = "Product/Item             ";
                         datagridTableChild.Columns[1].Name = "Date Arrived";
                         datagridTableChild.Columns[2].Name = "Quantity";
                         datagridTableChild.Columns[3].Name = "Unit";
                         datagridTableChild.Columns[4].Name = "Status";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[4].Width = 400;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -671,8 +756,12 @@ namespace TeteHardware
                                 MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
-                                if(reader.HasRows)
+                                if (reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -680,6 +769,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -702,17 +792,20 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Product";
+                        datagridTableChild.Columns[0].Name = "Product                  ";
                         datagridTableChild.Columns[1].Name = "Description";
                         datagridTableChild.Columns[2].Name = "Quantity";
                         datagridTableChild.Columns[3].Name = "Unit";
                         datagridTableChild.Columns[4].Name = "Date Returned";
                         datagridTableChild.Columns[5].Name = "Defect";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[1].Width = 250;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -728,8 +821,12 @@ namespace TeteHardware
                                 MySqlCommand query = new MySqlCommand(mySelectSQLChild, conn);
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
-                                if(reader.HasRows)
+                                if (reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -737,6 +834,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -765,18 +863,21 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 7;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Product";
+                        datagridTableChild.Columns[0].Name = "Product                  ";
                         datagridTableChild.Columns[1].Name = "Customer";
                         datagridTableChild.Columns[2].Name = "Transaction No";
                         datagridTableChild.Columns[3].Name = "Quantity";
                         datagridTableChild.Columns[4].Name = "Unit";
                         datagridTableChild.Columns[5].Name = "Date Returned";
                         datagridTableChild.Columns[6].Name = "Defect";
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[1].Width = 200;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -784,7 +885,7 @@ namespace TeteHardware
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
                             myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
-                            MessageBox.Show("SELECT a.prodName, b.custName, b.transNum, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnfrom b WHERE b.prodID = a.prodID AND a.prodID = '" + myID + "'", "", MessageBoxButtons.OK);
+                            //MessageBox.Show("SELECT a.prodName, b.custName, b.transNum, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnfrom b WHERE b.prodID = a.prodID AND a.prodID = '" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, b.custName, b.transNum, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnfrom b WHERE b.prodID = a.prodID AND a.prodID = '" + myID + "'";
                             try
                             {
@@ -793,7 +894,11 @@ namespace TeteHardware
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
                                 if (reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -801,6 +906,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5], reader[6]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -823,18 +929,22 @@ namespace TeteHardware
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
                         datagridTableChild.ColumnHeadersVisible = true;
-                        datagridTableChild.Columns[0].Name = "Product";
+                        datagridTableChild.Columns[0].Name = "Product                  ";
                         datagridTableChild.Columns[1].Name = "Date Damaged";
                         datagridTableChild.Columns[2].Name = "Damaged By";
                         datagridTableChild.Columns[3].Name = "Quantity";
                         datagridTableChild.Columns[4].Name = "Unit";
                         datagridTableChild.Columns[5].Name = "Details";
                         datagridTableChild.Columns[0].Width = 10;
+                        datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
                             setDatagridChildAlignment(i);
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                        datagridTableChild.Columns[2].Width = 200;
+                        datagridTableChild.Columns[5].Width = 400;
 
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
@@ -851,7 +961,11 @@ namespace TeteHardware
                                 MySqlDataReader reader = query.ExecuteReader();
                                 myCounter = 0;
                                 if (reader.HasRows)
+                                {
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                }
 
                                 while (reader.Read())
                                 {
@@ -859,6 +973,7 @@ namespace TeteHardware
                                     {
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                        datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
                                 conn.Close();
@@ -911,9 +1026,7 @@ namespace TeteHardware
                 bs.DataSource = dt;
                 datagridTableParent.DataSource = bs;
                 conn.Close();
-                datagridTableParent.AutoResizeColumns();
                 datagridTableParent.AutoResizeRows();
-                datagridTableParent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {
@@ -937,9 +1050,7 @@ namespace TeteHardware
                     datagridTableChild.Rows.Add();
                 }
                 conn.Close();
-                datagridTableChild.AutoResizeColumns();
-                datagridTableChild.AutoResizeRows();
-                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //datagridTableChild.AutoResizeRows();
             }
             catch (Exception x)
             {
@@ -965,7 +1076,7 @@ namespace TeteHardware
                 datagridTableChild.Columns[mycolNum].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopLeft;
                 datagridTableChild.Columns[mycolNum].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
             }
-            datagridTableChild.Columns[mycolNum].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            datagridTableChild.AutoResizeColumns();
         }
 
 

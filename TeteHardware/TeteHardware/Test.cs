@@ -200,6 +200,7 @@ namespace TeteHardware
                         }
                         for (int i = 0; i< _GridCol.Count(); i++)
                         {
+                            //Format Alignment based on type of value
                             if (_GridCol[i].HeaderText.Contains("Q"))
                                 mystrFormat = strFormatCenter;
                             else if (_GridCol[i].HeaderText.Contains("Sales") || _GridCol[i].HeaderText.Contains("Discount"))
@@ -207,7 +208,7 @@ namespace TeteHardware
                             else
                                 mystrFormat = strFormatLeft;
 
-                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                e.Graphics.FillRectangle(new SolidBrush(Color.Black),
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
                                 (int)arrColumnWidths[iCount], iHeaderHeight));
 
@@ -218,6 +219,7 @@ namespace TeteHardware
                             e.Graphics.DrawString(_GridCol[i].HeaderText,
                                 _GridCol[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCol[i].InheritedStyle.ForeColor),
+//                                new SolidBrush(_GridCol[i].InheritedStyle.ForeColor),
                                 new RectangleF((int)arrColumnLefts[iCount], iTopMargin,
                                 (int)arrColumnWidths[iCount], iHeaderHeight), mystrFormat);
                             iCount++;
@@ -239,6 +241,7 @@ namespace TeteHardware
                         {
                             if (_GridCell[i].Value != null)
                         {
+                            //Format Alignment based on type of value
                             if (myTest.IsNumeric(_GridCell[i].FormattedValue.ToString()))
                                 mystrFormat = strFormatCenter;
                             else if (myTest.IsFloat(_GridCell[i].FormattedValue.ToString()))

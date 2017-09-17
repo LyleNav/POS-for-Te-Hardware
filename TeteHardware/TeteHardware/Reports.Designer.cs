@@ -141,7 +141,6 @@
             // 
             this.datagridTableChild.AllowUserToAddRows = false;
             this.datagridTableChild.AllowUserToDeleteRows = false;
-            this.datagridTableChild.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.datagridTableChild.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
