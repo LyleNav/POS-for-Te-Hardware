@@ -28,7 +28,7 @@ namespace TeteHardware
 
         private void ManageCustReturns_Load(object sender, EventArgs e)
         {
-            txtCalReturn.Text = DateTime.Now.ToString();
+            txtCalReturn.Text = DateTime.Now.ToShortDateString();
             calReturned.Location = txtCalReturn.Location;
         }
 
@@ -96,12 +96,17 @@ namespace TeteHardware
         private void txtQty_Leave(object sender, EventArgs e)
         {
             int myRowIndex = dataGridProduct.CurrentRow.Index;
-            if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["transQty"].Value.ToString()))
+            try
             {
-                MessageBox.Show("Quantity returned is greater than the defective quantity!");
-                txtQty.Focus();
-                txtQty.SelectAll();
+
+                if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["transQty"].Value.ToString()))
+                {
+                    MessageBox.Show("Quantity returned is greater than the defective quantity!");
+                    txtQty.Focus();
+                    txtQty.SelectAll();
+                }
             }
+            catch (Exception x) { }
         }
         private void populateDataGridProducts()
         {
@@ -133,11 +138,11 @@ namespace TeteHardware
         {
             //insert to tbl_returnfrom
             int myRowIndex = dataGridProduct.CurrentRow.Index;
-            MessageBox.Show("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")");
+            MessageBox.Show("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", "", MessageBoxButtons.OK);
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 func.ChangeLog("tbl_returnfrom", "All", "None");

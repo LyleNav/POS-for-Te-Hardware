@@ -166,7 +166,7 @@
             // txtCname
             // 
             this.txtCname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCname.Location = new System.Drawing.Point(200, 105);
+            this.txtCname.Location = new System.Drawing.Point(200, 106);
             this.txtCname.Name = "txtCname";
             this.txtCname.Size = new System.Drawing.Size(158, 25);
             this.txtCname.TabIndex = 3;
@@ -175,7 +175,7 @@
             // 
             this.txtCid.Enabled = false;
             this.txtCid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCid.Location = new System.Drawing.Point(200, 105);
+            this.txtCid.Location = new System.Drawing.Point(200, 75);
             this.txtCid.Name = "txtCid";
             this.txtCid.ReadOnly = true;
             this.txtCid.Size = new System.Drawing.Size(158, 25);
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 288);
+            this.ClientSize = new System.Drawing.Size(409, 290);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

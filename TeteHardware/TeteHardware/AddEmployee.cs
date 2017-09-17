@@ -102,7 +102,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_employee(empName, empUser, empPass, empLevel, empDateEdit) VALUES('" + txtEname.Text + "','" + txtEuser.Text + "','" + txtEpass.Text + "','" + empLevel + "', '" + DateTime.Now.ToString() + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_employee(empName, empUser, empPass, empLevel, empDateEdit) VALUES('" + txtEname.Text + "','" + txtEuser.Text + "','" + txtEpass.Text + "','" + empLevel + "', '" + DateTime.Now.ToString("d") + "')", conn);
                 query.ExecuteNonQuery();
                 MySqlCommand query1 = new MySqlCommand("UPDATE tbl_employee SET empID = autoID WHERE empUser = '" + txtEuser.Text + "'", conn);
                 query1.ExecuteNonQuery();

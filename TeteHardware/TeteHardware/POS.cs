@@ -17,6 +17,7 @@ namespace TeteHardware
         public MySqlConnection conn; //connection
         Test func = new Test();
         bool myboolEdit = false;
+        float myStock = 0;
 
         private void InitializeFormPOS()
         {
@@ -416,7 +417,7 @@ namespace TeteHardware
                 try
                 {
                     conn.Open();
-                    MySqlCommand query = new MySqlCommand("INSERT INTO tbl_transact(prodID, promoID, empID, transNum, transDate, transQty, transTotPrice, transDiscount) VALUES('" + myProdID + "','" + myPromoID + "','" + TeteHardware.Properties.Settings.Default.loginID + "', '" + myTransNum + "', '" + myTransDate + "', '" + myTransQty + "','" + myTransTotPrice + "','" + mytransDiscount + "')", conn);
+                    MySqlCommand query = new MySqlCommand("INSERT INTO tbl_transact(prodID, promoID, empID, transNum, transDate, transQty, transTotPrice, transDiscount) VALUES('" + myProdID + "','" + myPromoID + "','" + TeteHardware.Properties.Settings.Default.loginID + "', '" + myTransNum + "', '" + Convert.ToDateTime(myTransDate).ToShortDateString() + "', '" + myTransQty + "','" + myTransTotPrice + "','" + mytransDiscount + "')", conn);
                     query.ExecuteNonQuery();
                     conn.Close();
                 }
@@ -606,6 +607,7 @@ namespace TeteHardware
                 txtItemID.Text = dataGridProduct.Rows[myRowIndex].Cells["ID"].Value.ToString();
                 txtPrice.Text = dataGridProduct.Rows[myRowIndex].Cells["Price"].Value.ToString();
                 txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"), 2));
+                myStock = int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Stock"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }
 
@@ -688,7 +690,17 @@ namespace TeteHardware
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
+        private void txtQty_Leave(object sender, EventArgs e)
+        {
+            //compare quantity with stock
+            if (int.Parse(txtQty.Text) > myStock)
+            {
+                MessageBox.Show("Ordered quantity is more than stock.", "", MessageBoxButtons.OK);
+                txtQty.Text = "0";
+                txtQty.Focus();
+                txtQty.SelectAll();
+            }
+        }
 
         private void dataGridOrdered_KeyDown(object sender, KeyEventArgs e)
         {
@@ -713,6 +725,7 @@ namespace TeteHardware
                 txtPrice.Text = dataGridOrdered.Rows[myRowIndex].Cells["U Price"].Value.ToString();
                 txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"), 2));
                 txtQty.Text = dataGridOrdered.Rows[myRowIndex].Cells["Qty"].Value.ToString();
+                myStock = int.Parse(dataGridOrdered.Rows[myRowIndex].Cells["Stock"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }
             txtQty.Enabled = true;

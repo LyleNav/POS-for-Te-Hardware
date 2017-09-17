@@ -29,7 +29,7 @@ namespace TeteHardware
         private void formReturns_Load(object sender, EventArgs e)
         {
             populatecomboSupplier();
-            txtCalReturn.Text = DateTime.Now.ToString();
+            txtCalReturn.Text = DateTime.Now.ToString("d");
             calReturned.Location = txtCalReturn.Location;
         }
 

@@ -16,6 +16,9 @@ namespace TeteHardware
         public formAfterLogin ReferenceToAfterLogin { get; set; } //reference formAfterLogin to this form
         public MySqlConnection conn; //connection
         Test func = new Test();
+        string myID = "";
+        string myRef = "";
+
         public formArrival()
         {   
             conn = new MySqlConnection("Server=localhost;Database=tetehardware;Uid=root;Pwd=root"); //connection
@@ -55,7 +58,7 @@ namespace TeteHardware
         private void formArrival_Load(object sender, EventArgs e)
         {
             this.calArrival.Location = txtdateArrival.Location;
-            txtdateArrival.Text = DateTime.Now.Date.ToString("MM/dd/yyyy");
+            txtdateArrival.Text = DateTime.Now.Date.ToShortDateString();
             clearFormArrival();
             populateSupCombos();
         }
@@ -117,6 +120,7 @@ namespace TeteHardware
                 }
                 else
                 {
+                    getTheID();
                     Add();
                     clearFormArrival();
                 }
@@ -132,7 +136,8 @@ namespace TeteHardware
             {
                 //for tbl_arr or tbl_arrdef
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID) VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString() + "', '" + txtdateArrival.Text + "', '" + txtStatus.Text + "','" + comboSupID.Text + "')", conn);
+                //MessageBox.Show("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID, " + myID + ", " + myRef + ") VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString("d") + "', '" + Convert.ToDateTime(txtdateArrival.Text).ToString("d") + "', '" + txtStatus.Text + "','" + comboSupID.Text + "','" + txtTheID.Text + "', '" + txtRef.Text + "')", "", MessageBoxButtons.OK);
+                MySqlCommand query = new MySqlCommand("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID, " + myID + ", " + myRef + ") VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString("d") + "', '" + Convert.ToDateTime(txtdateArrival.Text).ToString("d") + "', '" + txtStatus.Text + "','" + comboSupID.Text + "','" + txtTheID.Text + "', '" + txtRef.Text + "')", conn);
                 query.ExecuteNonQuery();
                 func.ChangeLog(txtTable.Text, "All", "None");
                 conn.Close();
@@ -176,6 +181,40 @@ namespace TeteHardware
             }
 
         }
+
+        private void getTheID()
+        {
+            try
+            {
+                conn.Open();
+                if (txtTable.Text == "tbl_arr")
+                {
+                    myID = "arrID";
+                    myRef = "arrRef";
+                }
+                else
+                {
+                    myID = "arrdefID";
+                    myRef = "arrdefRef";
+                }
+                MySqlCommand Query1 = new MySqlCommand("SELECT " + myID + " FROM " + txtTable.Text, conn);
+                MySqlDataReader reader = Query1.ExecuteReader();
+                txtTheID.Text = "0";
+                while (reader.Read())
+                {
+                    txtTheID.Text = Convert.ToString(reader[0]);
+                }
+                conn.Close();
+                txtTheID.Text = (Int32.Parse(txtTheID.Text) + 1).ToString("D6");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Error in formulating ID :" + x.ToString());
+                conn.Close();
+            }
+        }
+
+
         private void clearFormArrival()
         {
             gridProductLoad("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product");
@@ -184,7 +223,7 @@ namespace TeteHardware
             txtItemID.Text = "";
             txtItemName.Text = "";
             txtQty.Text = "0";
-            txtdateArrival.Text = DateTime.Now.ToString();
+            txtdateArrival.Text = DateTime.Now.ToShortDateString();
             txtStatus.Text = "";
             dataGridProduct.ClearSelection();
         }
@@ -218,7 +257,7 @@ namespace TeteHardware
             txtItemID.Text = "";
             txtItemName.Text = "";
             txtQty.Text = "0";
-            txtdateArrival.Text = DateTime.Now.ToString();
+            txtdateArrival.Text = DateTime.Now.ToShortDateString();
             txtStatus.Text = "";
         }
 

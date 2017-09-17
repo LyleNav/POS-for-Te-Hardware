@@ -128,11 +128,13 @@ namespace TeteHardware
         private void formAddCatalog_Load(object sender, EventArgs e)
         {
             int mycounter = 0;
+/*
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT MAX(autoID) AS myautoID FROM tbl_productcatalog", conn);
+                MySqlCommand query = new MySqlCommand("SELECT max(autoID) FROM tbl_productcatalog", conn);
                 MySqlDataReader reader = query.ExecuteReader();
+//                mycounter = 0;
                 while (reader.Read())
                 {
                     mycounter = int.Parse(reader[0].ToString());
@@ -146,6 +148,7 @@ namespace TeteHardware
                 MessageBox.Show("Error in Load:" + x.ToString());
                 conn.Close();
             }
+            */
         }
     }
 }

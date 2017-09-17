@@ -20,7 +20,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_changelog(empID, changeDate, changeTable, changeField, oldVal) VALUES('" + TeteHardware.Properties.Settings.Default.loginID + "','" + DateTime.Now.ToString() + "','" + table + "', '" + field + "', '" + oldVal + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_changelog(empID, changeDate, changeTable, changeField, oldVal) VALUES('" + TeteHardware.Properties.Settings.Default.loginID + "','" + DateTime.Now.ToString("d") + "','" + table + "', '" + field + "', '" + oldVal + "')", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
             }
@@ -199,17 +199,15 @@ namespace TeteHardware
                             _GridCol[colcount++] = GridCol;
                         }
                         for (int i = 0; i< _GridCol.Count(); i++)
-                            //                        for (int i = (_GridCol.Count() - 1); i >= 0; i--)
                         {
-                            if (i < 2)
-                                mystrFormat = strFormatLeft;
-                            else if (i < 4)
+                            if (_GridCol[i].HeaderText.Contains("Q"))
                                 mystrFormat = strFormatCenter;
-                            else
+                            else if (_GridCol[i].HeaderText.Contains("Sales") || _GridCol[i].HeaderText.Contains("Discount"))
                                 mystrFormat = strFormatRight;
+                            else
+                                mystrFormat = strFormatLeft;
 
-
-                            e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
                                 (int)arrColumnWidths[iCount], iHeaderHeight));
 
@@ -241,14 +239,6 @@ namespace TeteHardware
                         {
                             if (_GridCell[i].Value != null)
                         {
-                            /*
-                                                        if (i < 2)
-                                                            mystrFormat = strFormatLeft;
-                                                        else if (i < 4)
-                                                            mystrFormat = strFormatCenter;
-                                                        else
-                                                            mystrFormat = strFormatRight;
-                            */
                             if (myTest.IsNumeric(_GridCell[i].FormattedValue.ToString()))
                                 mystrFormat = strFormatCenter;
                             else if (myTest.IsFloat(_GridCell[i].FormattedValue.ToString()))

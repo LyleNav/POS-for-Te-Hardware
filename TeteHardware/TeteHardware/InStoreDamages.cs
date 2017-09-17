@@ -15,6 +15,7 @@ namespace TeteHardware
     {
         public formAfterLogin ReferenceToAfterLogin { get; set; } //Reference formEmployeeManage to this form
         public MySqlConnection conn; //connection
+        float myStock = 0;
 
         Test func = new Test();
 
@@ -109,13 +110,14 @@ namespace TeteHardware
             else
             {
                 saveData();
+                updateTableProduct();
                 clearForm();
             }
         }
         private void txtProdName_Enter(object sender, EventArgs e)
         {
             dataGridProduct.Visible = true;
-            gridProductLoad("SELECT prodName, prodID FROM tbl_product");
+            gridProductLoad("SELECT prodName, prodID, prodStock FROM tbl_product WHERE prodStock > 0");
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -195,6 +197,7 @@ namespace TeteHardware
             {
                 txtProdName.Text = dataGridProduct.Rows[myRowIndex].Cells["prodName"].Value.ToString();
                 txtProdID.Text = dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString();
+                myStock = float.Parse(dataGridProduct.Rows[myRowIndex].Cells["prodStock"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }
 
@@ -222,7 +225,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_damage(dateDamaged, Name, prodID, Qty, Remarks) VALUES('" + txtDate.Text + "', '" + txtName.Text + "', '" + txtProdID.Text + "', '" + txtQty.Text + "', '" + txtRem.Text + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_damage(damDate, damBy, prodID, damQty, damRemarks, empID) VALUES('" + Convert.ToDateTime(txtDate.Text).ToString("d") + "', '" + txtName.Text + "', '" + txtProdID.Text + "', '" + txtQty.Text + "', '" + txtRem.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "')", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 func.ChangeLog("tbl_damage", "All", "None");
@@ -234,6 +237,16 @@ namespace TeteHardware
                 conn.Close();
             }
             
+        }
+
+        private void updateTableProduct()
+        {
+            //MessageBox.Show("UPDATE tbl_product SET prodStock = VALUE(prodStock) - " + int.Parse(txtQty.Text) + " WHERE prodID = '" + txtProdID.Text + "'", "", MessageBoxButtons.OK);
+            conn.Open();
+            MySqlCommand query = new MySqlCommand("UPDATE tbl_product SET prodStock = '" + (myStock - float.Parse(txtQty.Text)) + "' WHERE prodID = '" + txtProdID.Text + "'", conn);
+            query.ExecuteNonQuery();
+            conn.Close();
+            func.ChangeLog("tbl_product", "prodStock", myStock.ToString());
         }
     }
 }
