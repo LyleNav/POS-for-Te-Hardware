@@ -409,8 +409,8 @@ namespace TeteHardware
                 myProdID = dataGridOrdered.Rows[myRow].Cells[0].Value.ToString();
                 myPromoID = dataGridOrdered.Rows[myRow].Cells[5].Value.ToString();
                 myTransQty = dataGridOrdered.Rows[myRow].Cells[2].Value.ToString();
-                myTransTotPrice = dataGridOrdered.Rows[myRow].Cells[7].Value.ToString();
-                mytransDiscount = dataGridOrdered.Rows[myRow].Cells[6].Value.ToString();
+                myTransTotPrice = decimal.Parse(dataGridOrdered.Rows[myRow].Cells[7].Value.ToString()).ToString();
+                mytransDiscount = decimal.Parse(dataGridOrdered.Rows[myRow].Cells[6].Value.ToString()).ToString();
 
                 //Save the Data to the table tbl_Transact - prodID, promoID, empID, transNum,transDate,transQty,transTotPrice, transDiscount
 

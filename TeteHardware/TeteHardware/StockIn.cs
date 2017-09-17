@@ -218,14 +218,8 @@ namespace TeteHardware
         private void clearFormArrival()
         {
             gridProductLoad("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product");
-            txtSearchID.Text = "";
-            txtSearchName.Text = "";
-            txtItemID.Text = "";
-            txtItemName.Text = "";
-            txtQty.Text = "0";
-            txtdateArrival.Text = DateTime.Now.ToShortDateString();
-            txtStatus.Text = "";
             dataGridProduct.ClearSelection();
+            clearTxtBoxes();
         }
         private void txtdateArrival_Enter(object sender, EventArgs e)
         {
@@ -252,12 +246,18 @@ namespace TeteHardware
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            clearTxtBoxes();
+        }
+
+        private void clearTxtBoxes()
+        {
             txtSearchID.Text = "";
             txtSearchName.Text = "";
             txtItemID.Text = "";
             txtItemName.Text = "";
             txtQty.Text = "0";
             txtdateArrival.Text = DateTime.Now.ToShortDateString();
+            txtRef.Text = "";
             txtStatus.Text = "";
         }
 

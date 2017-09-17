@@ -34,7 +34,7 @@
             this.comboParent = new System.Windows.Forms.ComboBox();
             this.comboChild = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.datagridTable = new System.Windows.Forms.DataGridView();
+            this.datagridTableParent = new System.Windows.Forms.DataGridView();
             this.lblDateTo = new System.Windows.Forms.Label();
             this.lblDateFrom = new System.Windows.Forms.Label();
             this.txtDateFrom = new System.Windows.Forms.TextBox();
@@ -50,7 +50,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.lblViews = new System.Windows.Forms.Label();
             this.btnPrintRep = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridTableParent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridTableChild)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -100,21 +100,21 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Child Table";
             // 
-            // datagridTable
+            // datagridTableParent
             // 
-            this.datagridTable.AllowUserToAddRows = false;
-            this.datagridTable.AllowUserToDeleteRows = false;
-            this.datagridTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.datagridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridTable.Location = new System.Drawing.Point(21, 208);
-            this.datagridTable.Name = "datagridTable";
-            this.datagridTable.ReadOnly = true;
-            this.datagridTable.RowHeadersVisible = false;
-            this.datagridTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridTable.Size = new System.Drawing.Size(485, 388);
-            this.datagridTable.TabIndex = 4;
-            this.datagridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridTable_CellClick);
-            this.datagridTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.datagridTable_KeyDown);
+            this.datagridTableParent.AllowUserToAddRows = false;
+            this.datagridTableParent.AllowUserToDeleteRows = false;
+            this.datagridTableParent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.datagridTableParent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridTableParent.Location = new System.Drawing.Point(21, 208);
+            this.datagridTableParent.Name = "datagridTableParent";
+            this.datagridTableParent.ReadOnly = true;
+            this.datagridTableParent.RowHeadersVisible = false;
+            this.datagridTableParent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridTableParent.Size = new System.Drawing.Size(485, 388);
+            this.datagridTableParent.TabIndex = 4;
+            this.datagridTableParent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridTable_CellClick);
+            this.datagridTableParent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.datagridTable_KeyDown);
             // 
             // lblDateTo
             // 
@@ -287,7 +287,7 @@
             this.Controls.Add(this.txtDateFrom);
             this.Controls.Add(this.lblDateTo);
             this.Controls.Add(this.lblDateFrom);
-            this.Controls.Add(this.datagridTable);
+            this.Controls.Add(this.datagridTableParent);
             this.Controls.Add(this.comboChild);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboParent);
@@ -301,7 +301,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formViews_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formViews_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.formViews_MouseUp);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridTableParent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridTableChild)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -317,7 +317,7 @@
         private System.Windows.Forms.ComboBox comboParent;
         private System.Windows.Forms.ComboBox comboChild;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView datagridTable;
+        private System.Windows.Forms.DataGridView datagridTableParent;
         private System.Windows.Forms.Label lblDateTo;
         private System.Windows.Forms.Label lblDateFrom;
         private System.Windows.Forms.TextBox txtDateFrom;

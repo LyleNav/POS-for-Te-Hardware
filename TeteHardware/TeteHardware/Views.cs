@@ -133,64 +133,6 @@ namespace TeteHardware
             monCalTo.Visible = false;
         }
 
-        //Set datagridParents tbl here
-        private void comboParent_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            myParent = comboParent.Text;
-            populateComboChild(myParent);
-            if(myParent=="Category")
-            {
-                myParentTable = "tbl_Productcatalog";
-                populatedatagridTable("SELECT catID as 'Catalog ID', catName as 'Catalog Name' FROM tbl_ProductCatalog");
-            }
-            else  if (myParent == "Supplier")
-            {
-                myParentTable = "tbl_Supplier";
-                populatedatagridTable("SELECT supID as 'Supplier ID', supName as 'Supplier Name' FROM tbl_Supplier");
-            }
-            else if (myParent == "Product")
-            {
-                myParentTable = "tbl_Product";
-                populatedatagridTable("SELECT prodID as 'Product ID', prodName as 'Product Name', prodDesc FROM tbl_Product");
-            }
-            else if (myParent == "Promo")
-            {
-                myParentTable = "tbl_Promo";
-                populatedatagridTable("SELECT promoID as 'Promo ID', promoName as 'Promo Name', prodDesc FROM tbl_Promo");
-            }
-            else if (myParent == "Transaction")
-            {
-                myParentTable = "tbl_transact";
-                populatedatagridTable("SELECT transDate as 'Date Sold', transNum as 'Transaction Number' FROM tbl_Transact");
-            }
-            datagridTable.ClearSelection();
-        }
-        private void populatedatagridTable(string selectCommand)
-        {
-            datagridTable.DataSource = null;      //remove datasource link for datagridProduct
-            try
-            {
-                conn.Open(); //opens the connection
-                //MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
-                MySqlCommand query = new MySqlCommand(selectCommand, conn); //query to select all entries in tbl_productcatalog
-                MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
-                DataTable dt = new DataTable(); //datatable for adapter
-                BindingSource bs = new BindingSource();
-                dt.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                adp.Fill(dt);
-                bs.DataSource = dt;
-                datagridTable.DataSource = bs;
-                conn.Close();
-                datagridTable.AutoResizeColumns();
-                datagridTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Error in populating datagridTable : " + x.ToString());
-                conn.Close();
-            }
-        }
-
         private void populateComboParent()
         {
             comboParent.Items.Clear();
@@ -205,23 +147,27 @@ namespace TeteHardware
         private void populateComboChild(string myParent)
         {
             comboChild.Items.Clear();
-            if (myParent=="Category")
+            if (myParent == "Category")
             {
                 comboChild.Items.Add("Products");
                 comboChild.Items.Add("Sales");
-                comboChild.Items.Add("Deliveries");
+                comboChild.Items.Add("Good Deliveries");
+                comboChild.Items.Add("Defective Deliveries");
+                comboChild.Items.Add("In-store Damage");
             }
-            else if (myParent=="Supplier")
+            else if (myParent == "Supplier")
             {
                 comboChild.Items.Add("Products");
                 comboChild.Items.Add("Good Deliveries");
-                comboChild.Items.Add("Bad Deliveries");
-                comboChild.Items.Add("Returned");
+                comboChild.Items.Add("Defective Deliveries");
+                comboChild.Items.Add("Returned To Supplier");
             }
             else if (myParent == "Product")
             {
                 comboChild.Items.Add("Sales");
-                comboChild.Items.Add("Returns");
+                comboChild.Items.Add("Returned To Supplier");
+                comboChild.Items.Add("Returns from Customer");
+                comboChild.Items.Add("In-store Damage");
             }
             else if (myParent == "Promo")
             {
@@ -234,6 +180,64 @@ namespace TeteHardware
             comboChild.SelectedIndex = 0;
         }
 
+        //Set datagridParents tbl here
+        private void comboParent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            myParent = comboParent.Text;
+            populateComboChild(myParent);
+            if(myParent=="Category")
+            {
+                myParentTable = "tbl_Productcatalog";
+                populatedatagridTableParent("SELECT catID as 'Catalog ID', catName as 'Catalog Name' FROM tbl_ProductCatalog");
+            }
+            else  if (myParent == "Supplier")
+            {
+                myParentTable = "tbl_Supplier";
+                populatedatagridTableParent("SELECT supID as 'Supplier ID', supName as 'Supplier Name' FROM tbl_Supplier");
+            }
+            else if (myParent == "Product")
+            {
+                myParentTable = "tbl_Product";
+                populatedatagridTableParent("SELECT prodID as 'Product ID', prodName as 'Product Name', prodDesc FROM tbl_Product");
+            }
+            else if (myParent == "Promo")
+            {
+                myParentTable = "tbl_Promo";
+                populatedatagridTableParent("SELECT promoID as 'Promo ID', promoName as 'Promo Name' FROM tbl_Promo");
+            }
+            else if (myParent == "Transaction")
+            {
+                myParentTable = "tbl_transact";
+                populatedatagridTableParent("SELECT DISTINCT transNum as 'Transaction Number', transDate as 'Date Sold' FROM tbl_Transact");
+            }
+            datagridTableParent.ClearSelection();
+        }
+        private void populatedatagridTableParent(string selectCommand)
+        {
+            datagridTableParent.DataSource = null;      //remove datasource link for datagridProduct
+            try
+            {
+                conn.Open(); //opens the connection
+                //MessageBox.Show(selectCommand, "", MessageBoxButtons.OK);
+                MySqlCommand query = new MySqlCommand(selectCommand, conn); //query to select all entries in tbl_productcatalog
+                MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
+                DataTable dt = new DataTable(); //datatable for adapter
+                BindingSource bs = new BindingSource();
+                dt.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adp.Fill(dt);
+                bs.DataSource = dt;
+                datagridTableParent.DataSource = bs;
+                conn.Close();
+                datagridTableParent.AutoResizeColumns();
+                datagridTableParent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Error in populating datagridTable : " + x.ToString());
+                conn.Close();
+            }
+        }
+
         //set datagridChild tbl here
         private void comboChild_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -242,55 +246,76 @@ namespace TeteHardware
             {
                 myChildTable = "tbl_product";
                 myDateSQL = "";
+                populatedatagridChild("SELECT prodName as 'Name', prodDesc as 'Description', prodStock as 'Stocks', prodUnit as 'unit', prodMOQ as 'Ordering Level', prodStatus as 'Details' FROM tbl_Product");
             }
             else if (myChild == "Sales") 
             {
-                myChildTable = "tbl_transact";
-                if (myParent=="Transaction")
+                if (myParent == "Promo")
                 {
-                    myDateSQL = "";
+                    myChildTable = "tbl_transact";
+                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                    populatedatagridChild("SELECT c.promoName as 'Promo', b.prodName as 'Product', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount+'000', 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID");
+                }
+                else if (myParent == "Transaction")
+                {
+                    myChildTable = "tbl_transact";
+                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                    populatedatagridChild("SELECT a.transNum as 'Transaction', a.transDate as 'Date Sold', b.prodName as 'Product', transQty as 'Qty', b.prodUnit as 'unit', ROUND(transTotPrice + '000', 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(transDiscount, 2) as 'Discount' FROM tbl_transact a, tbl_product b, tbl_promo c WHERE b.prodID = a.prodID and c.promoID = a.promoID");
                 }
                 else
                 {
+                    myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                    populatedatagridChild("SELECT b.prodName as 'Name', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount, 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID");
                 }
             }
             else if (myChild == "Deliveries") 
             {
                 myChildTable = "tbl_arr";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                populatedatagridChild("SELECT ");
             }
             else if (myChild == "Good Deliveries") 
             {
                 myChildTable = "tbl_arr";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                populatedatagridChild("SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arr a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID");
             }
-            else if (myChild == "Bad Deliveries")
+            else if (myChild == "Defective Deliveries")
             {
                 myChildTable = "tbl_arrdef";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                populatedatagridChild("SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arrdef a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID");
             }
-            else if (myChild == "Returned")
+            else if (myChild == "Returned To Supplier")
             {
-
+                myChildTable = "tbl_returnto";
                 myDateSQL = "";
+                populatedatagridChild("SELECT b.supName as 'Supplier', c.prodName as 'Product', a.retQty as 'Qty', a.retDate as 'Date Returned', a.retDefect as 'Defect', a.retRef as 'Reference' from tbl_returnto a, tbl_supplier b, tbl_product c WHERE b.supID = a.supID AND c.prodID =  a.prodID");
             }
-            else if (myChild == "Returns")
+            else if (myChild == "Returns from Customer")
             {
-
+                myChildTable = "tbl_returnfrom";
                 myDateSQL = "";
+                populatedatagridChild("SELECT b.prodName as 'Product', a.custName as 'Customer', a.retQty as 'Qty', a.retDate as 'Date Returned', a.retDefect as 'Defect', a.retRef as 'Reference' from tbl_returnto a, tbl_product b WHERE b.prodID =  a.prodID");
+            }
+            else if (myChild == "In-store Damage")
+            {
+                myChildTable = "tbl_damage";
+                myDateSQL = "";
+                populatedatagridChild("SELECT b.prodName as 'Product', a.damBy as 'Damaged By', damQty as 'Qty', damDate as 'Date Damaged', damDetails as 'Details' from tbl_damage a, tbl_product b WHERE b.prodID = a.prodID");
             }
 
 
-            if(myDateSQL=="")
+            if (myDateSQL=="")
             {
-                populatedatagridChild("SELECT * FROM " + myChildTable);
+                //populatedatagridChild("SELECT * FROM " + myChildTable);
             }
             else
             {
-                populatedatagridChild("SELECT * FROM " + myChildTable + " WHERE " + myDateSQL);
+                //populatedatagridChild("SELECT * FROM " + myChildTable + " WHERE " + myDateSQL);
             }
-            datagridTable.ClearSelection();
+            datagridTableParent.ClearSelection();
         }
 
         private void populatedatagridChild(string selectCommand)
@@ -309,8 +334,14 @@ namespace TeteHardware
                 bs1.DataSource = dt;
                 datagridTableChild.DataSource = bs1;
                 conn.Close();
-                datagridTableChild.AutoResizeColumns();
-                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                
+                //Align datagridview
+                for (int i = 0; i < datagridTableChild.ColumnCount; i++)
+                {
+                    setDatagridChildAlignment(i);
+                }
+//                datagridTableChild.AutoResizeColumns();
+//                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception x)
             {
@@ -334,13 +365,13 @@ namespace TeteHardware
 
         private void setupforDatagridChild()
         {
-            int myRowIndex = datagridTable.CurrentRow.Index;
+            int myRowIndex = datagridTableParent.CurrentRow.Index;
             string myselComm = "";
 
             if (myParent == "Category")
             {
                 string myCatID = "";
-                myCatID = datagridTable.Rows[myRowIndex].Cells["catID"].Value.ToString();
+                myCatID = datagridTableParent.Rows[myRowIndex].Cells["catID"].Value.ToString();
                 myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
                 if (myChild == "Products")
                 {
@@ -358,7 +389,7 @@ namespace TeteHardware
             else if (myParent == "Supplier")
             {
                 string mySupID = "";
-                mySupID = datagridTable.Rows[myRowIndex].Cells["supID"].Value.ToString();
+                mySupID = datagridTableParent.Rows[myRowIndex].Cells["supID"].Value.ToString();
                 if (myChild == "Products")
                 {
                     myselComm = "SELECT DISTINCT a.prodID, b.prodName AS 'Product Name', a.supID FROM tbl_arr a, tbl_product b WHERE a.supID = '" + mySupID + "' and b.prodID = a.prodID";
@@ -383,7 +414,7 @@ namespace TeteHardware
             else if (myParent == "Product")
             {
                 string myProdID = "";
-                myProdID = datagridTable.Rows[myRowIndex].Cells["prodID"].Value.ToString();
+                myProdID = datagridTableParent.Rows[myRowIndex].Cells["prodID"].Value.ToString();
                 myselComm = "SELECT * FROM " + myChildTable + " WHERE prodID = '" + myProdID + "'";
                 if (myChild == "Sales")
                 {
@@ -397,14 +428,14 @@ namespace TeteHardware
             else if (myParent == "Promo")
             {
                 string myPromoID = "";
-                myPromoID = datagridTable.Rows[myRowIndex].Cells["promoID"].Value.ToString();
+                myPromoID = datagridTableParent.Rows[myRowIndex].Cells["promoID"].Value.ToString();
                 myselComm = "SELECT * FROM " + myChildTable + " WHERE promoID='" + myPromoID + "'";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
             }
             else if (myParent == "Transaction")
             {
                 string myTransNum = "";
-                myTransNum = datagridTable.Rows[myRowIndex].Cells["transNum"].Value.ToString();
+                myTransNum = datagridTableParent.Rows[myRowIndex].Cells["transNum"].Value.ToString();
                 myselComm = "SELECT * FROM " + myChildTable + " Where transNum = '" + myTransNum + "'";
                 myDateSQL = "";
             }
@@ -419,5 +450,27 @@ namespace TeteHardware
             }
 
         }
+
+        private void setDatagridChildAlignment(int mycolNum)
+        {
+            if (datagridTableChild.Columns[mycolNum].Name == "Total Sales" || datagridTableChild.Columns[mycolNum].Name == "Discount")
+            {
+                datagridTableChild.Columns[mycolNum].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+                datagridTableChild.Columns[mycolNum].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopRight;
+                datagridTableChild.Columns[mycolNum].DefaultCellStyle.Format = "0.00##";
+            }
+            else if (datagridTableChild.Columns[mycolNum].Name == "Qty" || datagridTableChild.Columns[mycolNum].Name == "Stocks" || datagridTableChild.Columns[mycolNum].Name == "Ordering Level")
+            {
+                datagridTableChild.Columns[mycolNum].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
+                datagridTableChild.Columns[mycolNum].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopCenter;
+            }
+            else
+            {
+                datagridTableChild.Columns[mycolNum].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopLeft;
+                datagridTableChild.Columns[mycolNum].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
+            }
+            datagridTableChild.AutoResizeColumns();
+        }
+
     }
 }
