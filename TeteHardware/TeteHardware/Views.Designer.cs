@@ -42,7 +42,7 @@
             this.monCalFrom = new System.Windows.Forms.MonthCalendar();
             this.monCalTo = new System.Windows.Forms.MonthCalendar();
             this.datagridTableChild = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDetails = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
@@ -50,6 +50,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.lblViews = new System.Windows.Forms.Label();
             this.btnPrintRep = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridTableParent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridTableChild)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +65,7 @@
             // 
             this.lblParent.AutoSize = true;
             this.lblParent.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblParent.Location = new System.Drawing.Point(17, 152);
+            this.lblParent.Location = new System.Drawing.Point(14, 149);
             this.lblParent.Name = "lblParent";
             this.lblParent.Size = new System.Drawing.Size(90, 19);
             this.lblParent.TabIndex = 0;
@@ -74,7 +75,7 @@
             // 
             this.comboParent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboParent.FormattingEnabled = true;
-            this.comboParent.Location = new System.Drawing.Point(24, 178);
+            this.comboParent.Location = new System.Drawing.Point(21, 175);
             this.comboParent.Name = "comboParent";
             this.comboParent.Size = new System.Drawing.Size(228, 27);
             this.comboParent.TabIndex = 1;
@@ -84,7 +85,7 @@
             // 
             this.comboChild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboChild.FormattingEnabled = true;
-            this.comboChild.Location = new System.Drawing.Point(271, 178);
+            this.comboChild.Location = new System.Drawing.Point(529, 38);
             this.comboChild.Name = "comboChild";
             this.comboChild.Size = new System.Drawing.Size(235, 27);
             this.comboChild.TabIndex = 3;
@@ -94,7 +95,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(264, 152);
+            this.label1.Location = new System.Drawing.Point(522, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 19);
             this.label1.TabIndex = 2;
@@ -111,7 +112,7 @@
             this.datagridTableParent.ReadOnly = true;
             this.datagridTableParent.RowHeadersVisible = false;
             this.datagridTableParent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridTableParent.Size = new System.Drawing.Size(485, 388);
+            this.datagridTableParent.Size = new System.Drawing.Size(392, 388);
             this.datagridTableParent.TabIndex = 4;
             this.datagridTableParent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridTable_CellClick);
             this.datagridTableParent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.datagridTable_KeyDown);
@@ -120,7 +121,7 @@
             // 
             this.lblDateTo.AutoSize = true;
             this.lblDateTo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDateTo.Location = new System.Drawing.Point(264, 85);
+            this.lblDateTo.Location = new System.Drawing.Point(263, 85);
             this.lblDateTo.Name = "lblDateTo";
             this.lblDateTo.Size = new System.Drawing.Size(63, 19);
             this.lblDateTo.TabIndex = 7;
@@ -138,23 +139,23 @@
             // 
             // txtDateFrom
             // 
-            this.txtDateFrom.Location = new System.Drawing.Point(25, 110);
+            this.txtDateFrom.Location = new System.Drawing.Point(21, 110);
             this.txtDateFrom.Name = "txtDateFrom";
-            this.txtDateFrom.Size = new System.Drawing.Size(199, 25);
-            this.txtDateFrom.TabIndex = 8;
+            this.txtDateFrom.Size = new System.Drawing.Size(166, 25);
+            this.txtDateFrom.TabIndex = 0;
             this.txtDateFrom.Enter += new System.EventHandler(this.txtDateFrom_Enter);
             // 
             // txtDateTo
             // 
-            this.txtDateTo.Location = new System.Drawing.Point(271, 110);
+            this.txtDateTo.Location = new System.Drawing.Point(267, 110);
             this.txtDateTo.Name = "txtDateTo";
-            this.txtDateTo.Size = new System.Drawing.Size(199, 25);
+            this.txtDateTo.Size = new System.Drawing.Size(166, 25);
             this.txtDateTo.TabIndex = 9;
             this.txtDateTo.Enter += new System.EventHandler(this.txtDateTo_Enter);
             // 
             // monCalFrom
             // 
-            this.monCalFrom.Location = new System.Drawing.Point(529, 533);
+            this.monCalFrom.Location = new System.Drawing.Point(220, 591);
             this.monCalFrom.Name = "monCalFrom";
             this.monCalFrom.TabIndex = 10;
             this.monCalFrom.Visible = false;
@@ -182,15 +183,15 @@
             this.datagridTableChild.Size = new System.Drawing.Size(743, 471);
             this.datagridTableChild.TabIndex = 12;
             // 
-            // label2
+            // lblDetails
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(525, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 19);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Details :";
+            this.lblDetails.AutoSize = true;
+            this.lblDetails.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDetails.Location = new System.Drawing.Point(525, 88);
+            this.lblDetails.Name = "lblDetails";
+            this.lblDetails.Size = new System.Drawing.Size(59, 19);
+            this.lblDetails.TabIndex = 13;
+            this.lblDetails.Text = "Details :";
             // 
             // btnClose
             // 
@@ -260,26 +261,43 @@
             this.btnPrintRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintRep.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintRep.ForeColor = System.Drawing.Color.White;
-            this.btnPrintRep.Location = new System.Drawing.Point(62, 602);
+            this.btnPrintRep.Location = new System.Drawing.Point(419, 265);
             this.btnPrintRep.Name = "btnPrintRep";
             this.btnPrintRep.Size = new System.Drawing.Size(104, 53);
             this.btnPrintRep.TabIndex = 159;
-            this.btnPrintRep.Text = "Print [F5]";
+            this.btnPrintRep.Text = "Reports [F5]";
             this.btnPrintRep.UseVisualStyleBackColor = false;
-            this.btnPrintRep.Visible = false;
             this.btnPrintRep.Click += new System.EventHandler(this.btnPrintRep_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(419, 350);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(104, 53);
+            this.btnExit.TabIndex = 160;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // formViews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1297, 632);
+            this.ClientSize = new System.Drawing.Size(1297, 611);
             this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPrintRep);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDetails);
             this.Controls.Add(this.datagridTableChild);
             this.Controls.Add(this.monCalTo);
             this.Controls.Add(this.monCalFrom);
@@ -325,7 +343,7 @@
         private System.Windows.Forms.MonthCalendar monCalFrom;
         private System.Windows.Forms.MonthCalendar monCalTo;
         private System.Windows.Forms.DataGridView datagridTableChild;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.Button btnClose;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
@@ -333,5 +351,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnPrintRep;
         public System.Windows.Forms.Label lblViews;
+        private System.Windows.Forms.Button btnExit;
     }
 }

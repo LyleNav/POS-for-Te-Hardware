@@ -212,7 +212,7 @@ namespace TeteHardware
             this.Hide();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
+        public void btnReport_Click(object sender, EventArgs e)
         {
             formReports formRep = new formReports();
             formRep.ReferenceToAfterLogin = this;

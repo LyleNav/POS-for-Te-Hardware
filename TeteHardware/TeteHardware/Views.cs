@@ -25,6 +25,10 @@ namespace TeteHardware
         string myParentTable = "";
         string myChildTable = "";
         string myDateSQL = "";
+        string myIDfordatagridtableChild = "";
+        string myParentselectCommand = "";
+        string myChildselectCommand = "";
+        string myOrderSQL = "";
         bool mouseDown; //boolean for mousedown
         Point lastLocation; //variable for the last location of the mouse
 
@@ -104,8 +108,8 @@ namespace TeteHardware
         }
         private void btnPrintRep_Click(object sender, EventArgs e)
         {
-            ClsPrint ClsPrint = new ClsPrint(datagridTableChild, "Yoyo");
-            ClsPrint.PrintForm();
+            ReferenceToAfterLogin.btnReport_Click(sender, e);
+            this.Dispose();
         }
 
         //Date Handling - put all dates here
@@ -126,6 +130,7 @@ namespace TeteHardware
             txtDateFrom.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
             txtDateTo.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
             monCalFrom.Visible = false;
+            txtDateTo.Focus();
         }
         private void monCalTo_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -180,36 +185,124 @@ namespace TeteHardware
             comboChild.SelectedIndex = 0;
         }
 
-        //Set datagridParents tbl here
-        private void comboParent_SelectedIndexChanged(object sender, EventArgs e)
+        //Setup for datagridTableChild
+        private void setupforDatagridChild()
+        {
+            //re-run general setupfor datagridchild to get the original selectCommand
+            genSetupfordatagridChild();
+            int myRowIndex = datagridTableParent.CurrentRow.Index;
+            lblDetails.Text = "Details for " + comboParent.Text + " by " + comboChild.Text + ": " + datagridTableParent.Rows[myRowIndex].Cells[1].Value.ToString();
+            switch (myParent)
+            {
+                case "Category":
+                    {
+                        myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
+                        switch (myChild)
+                        {
+                            case "Products":
+                                {
+                                    myChildselectCommand = myChildselectCommand + " WHERE LEFT(prodID,2) = '" + myIDfordatagridtableChild + "'";
+                                    populatedatagridChild(myChildselectCommand);
+                                    break;
+                                }
+                            default:
+                                {
+                                    myChildselectCommand = myChildselectCommand + " AND LEFT(b.prodID,2) = '" + myIDfordatagridtableChild + "'";
+                                    populatedatagridChild(myChildselectCommand);
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "Supplier":
+                    {
+                        myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
+                        switch (myChild)
+                        {
+                            case "Products":
+                                {
+                                    myChildselectCommand = myChildselectCommand + " AND a.supID = '" + myIDfordatagridtableChild + "'";
+                                    populatedatagridChild(myChildselectCommand);
+                                    break;
+                                }
+                            default:
+                                {
+                                    myChildselectCommand = myChildselectCommand + " AND a.supID = '" + myIDfordatagridtableChild + "'";
+                                    populatedatagridChild(myChildselectCommand);
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "Product":
+                    {
+                        myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
+                        switch(myChild)
+                        {
+                            case "Returns from Customer":
+                                {
+                                    myChildselectCommand = myChildselectCommand + " AND b.prodID = '" + myIDfordatagridtableChild + "'";
+                                    populatedatagridChild(myChildselectCommand);
+                                    break;
+                                }
+                            default:
+                                {
+                                    myChildselectCommand = myChildselectCommand + " AND b.prodID = '" + myIDfordatagridtableChild + "'";
+                                    populatedatagridChild(myChildselectCommand);
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "Promo":
+                    {
+                        myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
+                        myChildselectCommand = myChildselectCommand + " AND c.promoID = '" + myIDfordatagridtableChild + "'";
+                        populatedatagridChild(myChildselectCommand);
+                        break;
+                    }
+                case "Transaction":
+                    {
+                        myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
+                        myChildselectCommand = myChildselectCommand + " AND a.transNum = '" + myIDfordatagridtableChild + "'";
+                        populatedatagridChild(myChildselectCommand);
+                        break;
+                    }
+            }
+        }
+
+
+            //Set datagridParents tbl here
+            private void comboParent_SelectedIndexChanged(object sender, EventArgs e)
         {
             myParent = comboParent.Text;
             populateComboChild(myParent);
             if(myParent=="Category")
             {
                 myParentTable = "tbl_Productcatalog";
-                populatedatagridTableParent("SELECT catID as 'Catalog ID', catName as 'Catalog Name' FROM tbl_ProductCatalog");
+                myParentselectCommand = "SELECT catID as 'Catalog ID', catName as 'Catalog Name' FROM tbl_ProductCatalog";
             }
             else  if (myParent == "Supplier")
             {
                 myParentTable = "tbl_Supplier";
-                populatedatagridTableParent("SELECT supID as 'Supplier ID', supName as 'Supplier Name' FROM tbl_Supplier");
+                myParentselectCommand = "SELECT supID as 'Supplier ID', supName as 'Supplier Name' FROM tbl_Supplier";
             }
             else if (myParent == "Product")
             {
                 myParentTable = "tbl_Product";
-                populatedatagridTableParent("SELECT prodID as 'Product ID', prodName as 'Product Name', prodDesc FROM tbl_Product");
+                myParentselectCommand = "SELECT prodID as 'Product ID', prodName as 'Product Name', prodDesc FROM tbl_Product";
             }
             else if (myParent == "Promo")
             {
                 myParentTable = "tbl_Promo";
-                populatedatagridTableParent("SELECT promoID as 'Promo ID', promoName as 'Promo Name' FROM tbl_Promo");
+                myParentselectCommand = "SELECT promoID as 'Promo ID', promoName as 'Promo Name' FROM tbl_Promo";
             }
             else if (myParent == "Transaction")
             {
                 myParentTable = "tbl_transact";
-                populatedatagridTableParent("SELECT DISTINCT transNum as 'Transaction Number', transDate as 'Date Sold' FROM tbl_Transact");
+                myParentselectCommand = "SELECT DISTINCT transNum as 'Transaction Number', transDate as 'Date Sold' FROM tbl_Transact";
             }
+            populatedatagridTableParent(myParentselectCommand);
             datagridTableParent.ClearSelection();
         }
         private void populatedatagridTableParent(string selectCommand)
@@ -241,83 +334,93 @@ namespace TeteHardware
         //set datagridChild tbl here
         private void comboChild_SelectedIndexChanged(object sender, EventArgs e)
         {
+            genSetupfordatagridChild();
+            populatedatagridChild(myChildselectCommand + myOrderSQL);
+            datagridTableParent.ClearSelection();
+        }
+
+        private void genSetupfordatagridChild()
+        {
             myChild = comboChild.Text;
-            if (myChild == "Products") 
+            if (myChild == "Products")
             {
-                myChildTable = "tbl_product";
-                myDateSQL = "";
-                populatedatagridChild("SELECT prodName as 'Name', prodDesc as 'Description', prodStock as 'Stocks', prodUnit as 'unit', prodMOQ as 'Ordering Level', prodStatus as 'Details' FROM tbl_Product");
+                if (myParent == "Category")
+                {
+                    myChildTable = "tbl_product";
+                    myDateSQL = "";
+                    myOrderSQL = " ORDER BY prodName";
+                    myChildselectCommand = "SELECT prodName as 'Item', prodDesc as 'Description', prodStock as 'Stocks', prodUnit as 'unit', prodMOQ as 'Ordering Level', prodStatus as 'Details' FROM tbl_Product";
+                }
+                else if (myParent == "Supplier")
+                {
+                    myChildTable = "tbl_product";
+                    myDateSQL = "";
+                    myOrderSQL = " ORDER BY prodName";
+                    myChildselectCommand = "SELECT b.prodName as 'Item', b.prodDesc as 'Description', b.prodStock as 'Stocks', b.prodUnit as 'unit', b.prodStatus as'Details' FROM tbl_supplier a, tbl_product b, tbl_arr c WHERE c.supID = a.supID AND b.prodID = c.prodID";
+                }
+
             }
-            else if (myChild == "Sales") 
+            else if (myChild == "Sales")
             {
                 if (myParent == "Promo")
                 {
                     myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                    populatedatagridChild("SELECT c.promoName as 'Promo', b.prodName as 'Product', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount+'000', 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID");
+                    myOrderSQL = " ORDER BY promoName";
+                    myChildselectCommand = "SELECT c.promoName as 'Promo', b.prodName as 'Product', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount+'000', 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID";
                 }
                 else if (myParent == "Transaction")
                 {
                     myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                    populatedatagridChild("SELECT a.transNum as 'Transaction', a.transDate as 'Date Sold', b.prodName as 'Product', transQty as 'Qty', b.prodUnit as 'unit', ROUND(transTotPrice + '000', 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(transDiscount, 2) as 'Discount' FROM tbl_transact a, tbl_product b, tbl_promo c WHERE b.prodID = a.prodID and c.promoID = a.promoID");
+                    myOrderSQL = " ORDER BY transNum";
+                    myChildselectCommand = "SELECT a.transNum as 'Transaction', a.transDate as 'Date Sold', b.prodName as 'Product', transQty as 'Qty', b.prodUnit as 'unit', ROUND(transTotPrice + '000', 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(transDiscount, 2) as 'Discount' FROM tbl_transact a, tbl_product b, tbl_promo c WHERE b.prodID = a.prodID and c.promoID = a.promoID";
                 }
                 else
                 {
                     myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                    populatedatagridChild("SELECT b.prodName as 'Name', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount, 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID");
+                    myOrderSQL = " ORDER BY prodName";
+                    myChildselectCommand = "SELECT b.prodName as 'Name', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount, 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID";
                 }
             }
-            else if (myChild == "Deliveries") 
+            else if (myChild == "Good Deliveries")
             {
                 myChildTable = "tbl_arr";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                populatedatagridChild("SELECT ");
-            }
-            else if (myChild == "Good Deliveries") 
-            {
-                myChildTable = "tbl_arr";
-                myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                populatedatagridChild("SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arr a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID");
+                myOrderSQL = " ORDER BY prodName";
+                myChildselectCommand = "SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arr a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID";
             }
             else if (myChild == "Defective Deliveries")
             {
                 myChildTable = "tbl_arrdef";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                populatedatagridChild("SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arrdef a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID");
+                myOrderSQL = " ORDER BY prodName";
+                myChildselectCommand = "SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arrdef a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID";
             }
             else if (myChild == "Returned To Supplier")
             {
                 myChildTable = "tbl_returnto";
                 myDateSQL = "";
-                populatedatagridChild("SELECT b.supName as 'Supplier', c.prodName as 'Product', a.retQty as 'Qty', a.retDate as 'Date Returned', a.retDefect as 'Defect', a.retRef as 'Reference' from tbl_returnto a, tbl_supplier b, tbl_product c WHERE b.supID = a.supID AND c.prodID =  a.prodID");
+                myOrderSQL = " ORDER BY supName";
+                myChildselectCommand = "SELECT b.supName as 'Supplier', c.prodName as 'Product', a.retQty as 'Qty', a.retDate as 'Date Returned', a.retDefect as 'Defect', a.retRef as 'Reference' from tbl_returnto a, tbl_supplier b, tbl_product c WHERE b.supID = a.supID AND c.prodID =  a.prodID";
             }
             else if (myChild == "Returns from Customer")
             {
                 myChildTable = "tbl_returnfrom";
                 myDateSQL = "";
-                populatedatagridChild("SELECT b.prodName as 'Product', a.custName as 'Customer', a.retQty as 'Qty', a.retDate as 'Date Returned', a.retDefect as 'Defect', a.retRef as 'Reference' from tbl_returnto a, tbl_product b WHERE b.prodID =  a.prodID");
+                myOrderSQL = " ORDER BY retDate";
+                myChildselectCommand = "SELECT  a.custName as 'Customer', b.prodName as 'Item', a.retQty as 'Qty', a.retDate as 'Date Returned', a.transNum as 'Transaction No', a.retDefect as 'Defect' FROM tbl_returnfrom a, tbl_product b WHERE b.prodID = a.prodID";
             }
             else if (myChild == "In-store Damage")
             {
                 myChildTable = "tbl_damage";
                 myDateSQL = "";
-                populatedatagridChild("SELECT b.prodName as 'Product', a.damBy as 'Damaged By', damQty as 'Qty', damDate as 'Date Damaged', damDetails as 'Details' from tbl_damage a, tbl_product b WHERE b.prodID = a.prodID");
+                myOrderSQL = " ORDER BY prodName";
+                myChildselectCommand = "SELECT b.prodName as 'Product', a.damBy as 'Damaged By', damQty as 'Qty', damDate as 'Date Damaged', damDetails as 'Details' from tbl_damage a, tbl_product b WHERE b.prodID = a.prodID";
             }
 
-
-            if (myDateSQL=="")
-            {
-                //populatedatagridChild("SELECT * FROM " + myChildTable);
-            }
-            else
-            {
-                //populatedatagridChild("SELECT * FROM " + myChildTable + " WHERE " + myDateSQL);
-            }
-            datagridTableParent.ClearSelection();
         }
-
         private void populatedatagridChild(string selectCommand)
         {
             datagridTableChild.DataSource = null;      //remove datasource link for datagridProduct
@@ -340,8 +443,13 @@ namespace TeteHardware
                 {
                     setDatagridChildAlignment(i);
                 }
-//                datagridTableChild.AutoResizeColumns();
-//                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //                datagridTableChild.AutoResizeColumns();
+                //                datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (!(myChild == "Sales"))
+                {
+                    datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                    datagridTableChild.Columns[datagridTableChild.ColumnCount - 1].Width = 400;
+                }
             }
             catch (Exception x)
             {
@@ -361,94 +469,6 @@ namespace TeteHardware
             {
                 setupforDatagridChild();
             }
-        }
-
-        private void setupforDatagridChild()
-        {
-            int myRowIndex = datagridTableParent.CurrentRow.Index;
-            string myselComm = "";
-
-            if (myParent == "Category")
-            {
-                string myCatID = "";
-                myCatID = datagridTableParent.Rows[myRowIndex].Cells["catID"].Value.ToString();
-                myselComm = "SELECT * FROM " + myChildTable + " WHERE LEFT(prodID,2) = '" + myCatID + "'";
-                if (myChild == "Products")
-                {
-                    myDateSQL = "";
-                }
-                else if (myChild == "Sales")
-                {
-                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-                else if (myChild == "Deliveries")
-                {
-                    myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-            }
-            else if (myParent == "Supplier")
-            {
-                string mySupID = "";
-                mySupID = datagridTableParent.Rows[myRowIndex].Cells["supID"].Value.ToString();
-                if (myChild == "Products")
-                {
-                    myselComm = "SELECT DISTINCT a.prodID, b.prodName AS 'Product Name', a.supID FROM tbl_arr a, tbl_product b WHERE a.supID = '" + mySupID + "' and b.prodID = a.prodID";
-                    myDateSQL = "";
-                }
-                else if (myChild == "Good Deliveries")
-                {
-                    myselComm = "SELECT b.prodID, a.prodName, b.Quantity, b.Reference, b.DateArrival FROM tbl_product a, " + myChildTable + " b WHERE b.supID = '" + mySupID + "' AND a.prodID = b.prodID";
-                    myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-                else if (myChild == "Bad Deliveries")
-                {
-                    myselComm = "SELECT b.prodID, a.prodName, b.Quantity, b.Reference, b.DateArrival FROM tbl_product a, " + myChildTable + " b WHERE b.supID = '" + mySupID + "' AND a.prodID = b.prodID";
-                    myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-                else if (myChild == "Returns")
-                {
-                    myselComm = "SELECT * FROM " + myChildTable + " WHERE supID = '" + mySupID + "'";
-                    myDateSQL = "retDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-            }
-            else if (myParent == "Product")
-            {
-                string myProdID = "";
-                myProdID = datagridTableParent.Rows[myRowIndex].Cells["prodID"].Value.ToString();
-                myselComm = "SELECT * FROM " + myChildTable + " WHERE prodID = '" + myProdID + "'";
-                if (myChild == "Sales")
-                {
-                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-                else if (myChild == "Returns")
-                {
-                    myDateSQL = "retDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                }
-            }
-            else if (myParent == "Promo")
-            {
-                string myPromoID = "";
-                myPromoID = datagridTableParent.Rows[myRowIndex].Cells["promoID"].Value.ToString();
-                myselComm = "SELECT * FROM " + myChildTable + " WHERE promoID='" + myPromoID + "'";
-                myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-            }
-            else if (myParent == "Transaction")
-            {
-                string myTransNum = "";
-                myTransNum = datagridTableParent.Rows[myRowIndex].Cells["transNum"].Value.ToString();
-                myselComm = "SELECT * FROM " + myChildTable + " Where transNum = '" + myTransNum + "'";
-                myDateSQL = "";
-            }
-
-            if (myDateSQL == "")
-            {
-                populatedatagridChild(myselComm);
-            }
-            else
-            {
-                populatedatagridChild(myselComm + " AND " + myDateSQL);
-            }
-
         }
 
         private void setDatagridChildAlignment(int mycolNum)
@@ -471,6 +491,5 @@ namespace TeteHardware
             }
             datagridTableChild.AutoResizeColumns();
         }
-
     }
 }

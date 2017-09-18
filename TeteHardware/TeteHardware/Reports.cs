@@ -47,8 +47,10 @@ namespace TeteHardware
             int myScreenWidth = Screen.PrimaryScreen.Bounds.Width;
             int myScreenHeight = Screen.PrimaryScreen.Bounds.Height;
 /*
+            //Change size and location of the form
             this.Size = new Size(530, 300);
             this.Location = new Point((myScreenWidth - this.Width) / 2, (myScreenHeight - this.Height) / 2);
+            //Put Print button in the lowermiddle portion of the form
             btnPrintRep.Location = new Point((this.Width - btnPrintRep.Width) / 2, 225);
             btnPrintRep.Visible = true;
             datagridTableParent.Visible = false;
@@ -59,6 +61,7 @@ namespace TeteHardware
             txtDateFrom.Text = DateTime.Now.ToString();
             txtDateTo.Text = DateTime.Now.ToString();
             populateComboReport();
+            comboReports.Focus();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -99,10 +102,7 @@ namespace TeteHardware
             {
                 if (myType == "Report")
                 {
-                    string myStore = "Tete Hardware" + Environment.NewLine + "Matina, Davao City" + Environment.NewLine + Environment.NewLine;
-                    ClsPrint printIt = new ClsPrint(datagridTableChild, myStore + comboReports.Text);
-                    printIt.PrintForm();
-
+                    goPrint();
                 }
                 return true;    // indicate that you handled this keystroke
             }
@@ -123,9 +123,7 @@ namespace TeteHardware
         }
         private void btnPrintRep_Click(object sender, EventArgs e)
         {
-            string myStore = "Tete Hardware" + Environment.NewLine + "Matina, Davao City" + Environment.NewLine + Environment.NewLine;
-            ClsPrint printIT = new ClsPrint(datagridTableChild, myStore + comboReports.Text);
-            printIT.PrintForm();
+            goPrint();
         }
 
         //Date Handling - put all dates here
@@ -146,6 +144,7 @@ namespace TeteHardware
             txtDateFrom.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
             txtDateTo.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
             monCalFrom.Visible = false;
+            txtDateTo.Focus();
         }
         private void monCalTo_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -239,8 +238,8 @@ namespace TeteHardware
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
-                                    datagridTableChild.Rows.Add("","","","","","","");
-                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows.Add("admin","","","","","","");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                             }
                             catch (Exception x)
@@ -324,7 +323,7 @@ namespace TeteHardware
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                     datagridTableChild.Rows.Add("", "", "", "", "", "", "");
-                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                             }
                             catch (Exception x)
@@ -449,7 +448,7 @@ namespace TeteHardware
                                 if(myCounter>0)
                                 {
                                     datagridTableChild.Rows.Add("","","","","","");
-                                    datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                             }
                             catch (Exception x)
@@ -516,6 +515,11 @@ namespace TeteHardware
                                     }
                                 }
                                 conn.Close();
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
                             }
                             catch (Exception x)
 
@@ -581,6 +585,11 @@ namespace TeteHardware
                                     }
                                 }
                                 conn.Close();
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
                             }
                             catch (Exception x)
 
@@ -645,6 +654,11 @@ namespace TeteHardware
                                     }
                                 }
                                 conn.Close();
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
                             }
                             catch (Exception x)
 
@@ -709,6 +723,11 @@ namespace TeteHardware
                                     }
                                 }
                                 conn.Close();
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
                             }
                             catch (Exception x)
 
@@ -773,6 +792,12 @@ namespace TeteHardware
                                     }
                                 }
                                 conn.Close();
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
+
                             }
                             catch (Exception x)
 
@@ -838,6 +863,11 @@ namespace TeteHardware
                                     }
                                 }
                                 conn.Close();
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
                             }
                             catch (Exception x)
 
@@ -909,6 +939,11 @@ namespace TeteHardware
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
                                 }
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
+                                }
                                 conn.Close();
                             }
                             catch (Exception x)
@@ -975,6 +1010,11 @@ namespace TeteHardware
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     }
+                                }
+                                if (!(myCounter == 0))
+                                {
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "");
+                                    datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                                 conn.Close();
                             }
@@ -1079,6 +1119,14 @@ namespace TeteHardware
             datagridTableChild.AutoResizeColumns();
         }
 
-
+        private void goPrint()
+        {
+            if (!(comboReports.Text == ""))
+            {
+                string myStore = "Tete Hardware" + Environment.NewLine + "Matina, Davao City" + Environment.NewLine + Environment.NewLine;
+                ClsPrint printIT = new ClsPrint(datagridTableChild, myStore + comboReports.Text);
+                printIT.PrintForm();
+            }
+        }
     }
 }

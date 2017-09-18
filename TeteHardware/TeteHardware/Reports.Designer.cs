@@ -50,6 +50,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboReports = new System.Windows.Forms.ComboBox();
             this.lblRep = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.pnlReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridTableChild)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridTableParent)).BeginInit();
@@ -64,13 +65,13 @@
             this.btnPrintRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintRep.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintRep.ForeColor = System.Drawing.Color.White;
-            this.btnPrintRep.Location = new System.Drawing.Point(59, 533);
+            this.btnPrintRep.Location = new System.Drawing.Point(329, 263);
             this.btnPrintRep.Name = "btnPrintRep";
             this.btnPrintRep.Size = new System.Drawing.Size(104, 53);
             this.btnPrintRep.TabIndex = 175;
             this.btnPrintRep.Text = "Print [F5]";
             this.btnPrintRep.UseVisualStyleBackColor = false;
-            this.btnPrintRep.Visible = false;
+            this.btnPrintRep.Click += new System.EventHandler(this.btnPrintRep_Click);
             // 
             // pnlReports
             // 
@@ -119,7 +120,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(477, 12);
+            this.btnClose.Location = new System.Drawing.Point(1194, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 173;
@@ -131,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(525, 98);
+            this.label2.Location = new System.Drawing.Point(459, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 172;
@@ -159,7 +160,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.datagridTableChild.DefaultCellStyle = dataGridViewCellStyle2;
-            this.datagridTableChild.Location = new System.Drawing.Point(529, 135);
+            this.datagridTableChild.Location = new System.Drawing.Point(463, 64);
             this.datagridTableChild.Name = "datagridTableChild";
             this.datagridTableChild.ReadOnly = true;
             this.datagridTableChild.RowHeadersVisible = false;
@@ -171,12 +172,12 @@
             this.datagridTableChild.RowTemplate.Height = 60;
             this.datagridTableChild.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.datagridTableChild.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridTableChild.Size = new System.Drawing.Size(736, 265);
+            this.datagridTableChild.Size = new System.Drawing.Size(760, 403);
             this.datagridTableChild.TabIndex = 171;
             // 
             // monCalTo
             // 
-            this.monCalTo.Location = new System.Drawing.Point(758, 476);
+            this.monCalTo.Location = new System.Drawing.Point(393, 548);
             this.monCalTo.Name = "monCalTo";
             this.monCalTo.TabIndex = 170;
             this.monCalTo.Visible = false;
@@ -184,7 +185,7 @@
             // 
             // monCalFrom
             // 
-            this.monCalFrom.Location = new System.Drawing.Point(529, 476);
+            this.monCalFrom.Location = new System.Drawing.Point(164, 548);
             this.monCalFrom.Name = "monCalFrom";
             this.monCalFrom.TabIndex = 169;
             this.monCalFrom.Visible = false;
@@ -192,17 +193,17 @@
             // 
             // txtDateTo
             // 
-            this.txtDateTo.Location = new System.Drawing.Point(271, 120);
+            this.txtDateTo.Location = new System.Drawing.Point(264, 117);
             this.txtDateTo.Name = "txtDateTo";
-            this.txtDateTo.Size = new System.Drawing.Size(199, 25);
+            this.txtDateTo.Size = new System.Drawing.Size(169, 25);
             this.txtDateTo.TabIndex = 168;
             this.txtDateTo.Enter += new System.EventHandler(this.txtDateTo_Enter);
             // 
             // txtDateFrom
             // 
-            this.txtDateFrom.Location = new System.Drawing.Point(25, 120);
+            this.txtDateFrom.Location = new System.Drawing.Point(21, 117);
             this.txtDateFrom.Name = "txtDateFrom";
-            this.txtDateFrom.Size = new System.Drawing.Size(199, 25);
+            this.txtDateFrom.Size = new System.Drawing.Size(169, 25);
             this.txtDateFrom.TabIndex = 167;
             this.txtDateFrom.Enter += new System.EventHandler(this.txtDateFrom_Enter);
             // 
@@ -210,7 +211,7 @@
             // 
             this.lblDateTo.AutoSize = true;
             this.lblDateTo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDateTo.Location = new System.Drawing.Point(264, 95);
+            this.lblDateTo.Location = new System.Drawing.Point(260, 92);
             this.lblDateTo.Name = "lblDateTo";
             this.lblDateTo.Size = new System.Drawing.Size(63, 19);
             this.lblDateTo.TabIndex = 166;
@@ -233,7 +234,7 @@
             this.datagridTableParent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.datagridTableParent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.datagridTableParent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridTableParent.Location = new System.Drawing.Point(21, 263);
+            this.datagridTableParent.Location = new System.Drawing.Point(21, 208);
             this.datagridTableParent.Name = "datagridTableParent";
             this.datagridTableParent.ReadOnly = true;
             this.datagridTableParent.RowHeadersVisible = false;
@@ -243,7 +244,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.datagridTableParent.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.datagridTableParent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridTableParent.Size = new System.Drawing.Size(485, 259);
+            this.datagridTableParent.Size = new System.Drawing.Size(289, 259);
             this.datagridTableParent.TabIndex = 164;
             // 
             // timer1
@@ -257,7 +258,7 @@
             this.comboReports.FormattingEnabled = true;
             this.comboReports.Location = new System.Drawing.Point(78, 161);
             this.comboReports.Name = "comboReports";
-            this.comboReports.Size = new System.Drawing.Size(277, 27);
+            this.comboReports.Size = new System.Drawing.Size(355, 27);
             this.comboReports.TabIndex = 176;
             this.comboReports.SelectedIndexChanged += new System.EventHandler(this.comboReports_SelectedIndexChanged);
             // 
@@ -271,13 +272,33 @@
             this.lblRep.TabIndex = 177;
             this.lblRep.Text = "Report:";
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(329, 335);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(104, 53);
+            this.btnExit.TabIndex = 178;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // formReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1295, 567);
+            this.ClientSize = new System.Drawing.Size(1252, 492);
             this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.monCalFrom);
+            this.Controls.Add(this.monCalTo);
             this.Controls.Add(this.lblRep);
             this.Controls.Add(this.comboReports);
             this.Controls.Add(this.btnPrintRep);
@@ -285,8 +306,6 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.datagridTableChild);
-            this.Controls.Add(this.monCalTo);
-            this.Controls.Add(this.monCalFrom);
             this.Controls.Add(this.txtDateTo);
             this.Controls.Add(this.txtDateFrom);
             this.Controls.Add(this.lblDateTo);
@@ -330,5 +349,6 @@
         private System.Windows.Forms.ComboBox comboReports;
         private System.Windows.Forms.Label lblRep;
         public System.Windows.Forms.Label lblReports;
+        private System.Windows.Forms.Button btnExit;
     }
 }
