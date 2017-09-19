@@ -175,7 +175,7 @@
             this.dataGridProduct.AllowUserToResizeColumns = false;
             this.dataGridProduct.AllowUserToResizeRows = false;
             this.dataGridProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridProduct.BackgroundColor = System.Drawing.Color.Black;
+            this.dataGridProduct.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dataGridProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -321,7 +321,7 @@
             // 
             this.lblSearchName.AutoSize = true;
             this.lblSearchName.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchName.ForeColor = System.Drawing.Color.Black;
+            this.lblSearchName.ForeColor = System.Drawing.Color.White;
             this.lblSearchName.Location = new System.Drawing.Point(412, 481);
             this.lblSearchName.Name = "lblSearchName";
             this.lblSearchName.Size = new System.Drawing.Size(120, 19);
@@ -332,7 +332,7 @@
             // 
             this.lblSearchID.AutoSize = true;
             this.lblSearchID.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchID.ForeColor = System.Drawing.Color.Black;
+            this.lblSearchID.ForeColor = System.Drawing.Color.White;
             this.lblSearchID.Location = new System.Drawing.Point(410, 423);
             this.lblSearchID.Name = "lblSearchID";
             this.lblSearchID.Size = new System.Drawing.Size(95, 19);
@@ -948,7 +948,7 @@
             // 
             // pnlgridProduct
             // 
-            this.pnlgridProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pnlgridProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
             this.pnlgridProduct.Location = new System.Drawing.Point(427, 148);
             this.pnlgridProduct.Name = "pnlgridProduct";
             this.pnlgridProduct.Size = new System.Drawing.Size(75, 74);
