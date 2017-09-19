@@ -51,7 +51,7 @@ namespace TeteHardware
             dataGridProduct.Size = new Size(600, 500);
             dataGridProduct.Location = new Point(5,75);
             pnlgridProduct.Visible = false;
-            dataGridOrdered.Size = new Size(1000, myScreenHeight-100);
+            dataGridOrdered.Size = new Size(800, myScreenHeight-100);
             dataGridOrdered.Location = new Point(myScreenWidth - 1000, 50);
             txtGrandTot.Text = "0.00";
             dataGridProduct.ClearSelection();
@@ -630,10 +630,14 @@ namespace TeteHardware
         }
 
 
-        
-        //Hot Keys Handling
+
+        //Hot Keys Handling5
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.Tab || keyData == (Keys.Shift | Keys.Tab))
+            {
+                return true;
+            }
             if (keyData == Keys.F1)
             {
                 MessageBox.Show("You pressed the F1 key");
@@ -646,6 +650,8 @@ namespace TeteHardware
             else if (keyData == Keys.F11)   //Clear
             {
                 clearForm();
+                dataGridOrdered.Rows.Clear();
+                dataGridOrdered.Refresh();
             }
             else if (keyData == Keys.F10)   //Select datagridOrdered
             {
@@ -683,8 +689,13 @@ namespace TeteHardware
             }
             else if(keyData==Keys.Escape)     //Close Window
             {
-                ReferenceToAfterLogin.Show();
-                this.Dispose();
+
+                if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ReferenceToAfterLogin.Show();
+                    this.Dispose();
+                }
+                else { }
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);

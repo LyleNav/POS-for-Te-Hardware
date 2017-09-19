@@ -138,6 +138,8 @@
             this.txtPprice.Name = "txtPprice";
             this.txtPprice.Size = new System.Drawing.Size(192, 25);
             this.txtPprice.TabIndex = 8;
+            this.txtPprice.TextChanged += new System.EventHandler(this.txtPprice_TextChanged);
+            this.txtPprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPprice_KeyPress);
             this.txtPprice.Leave += new System.EventHandler(this.txtPprice_Leave);
             // 
             // txtPname
@@ -339,6 +341,8 @@
             this.txtMOQ.Name = "txtMOQ";
             this.txtMOQ.Size = new System.Drawing.Size(192, 25);
             this.txtMOQ.TabIndex = 6;
+            this.txtMOQ.TextChanged += new System.EventHandler(this.txtMOQ_TextChanged);
+            this.txtMOQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMOQ_KeyPress);
             this.txtMOQ.Leave += new System.EventHandler(this.txtMOQ_Leave);
             // 
             // comboCatID
