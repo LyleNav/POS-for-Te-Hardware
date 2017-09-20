@@ -941,7 +941,7 @@
             this.pnlButtons2.Controls.Add(this.btnCheckout);
             this.pnlButtons2.Controls.Add(this.btnCancel);
             this.pnlButtons2.Controls.Add(this.btnClear);
-            this.pnlButtons2.Location = new System.Drawing.Point(787, 744);
+            this.pnlButtons2.Location = new System.Drawing.Point(735, 712);
             this.pnlButtons2.Name = "pnlButtons2";
             this.pnlButtons2.Size = new System.Drawing.Size(399, 114);
             this.pnlButtons2.TabIndex = 257;

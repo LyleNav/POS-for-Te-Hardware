@@ -22,8 +22,6 @@ namespace TeteHardware
         Test func = new Test();
         string myParent = "";
         string myChild = "";
-        string myParentTable = "";
-        string myChildTable = "";
         string myDateSQL = "";
         string myIDfordatagridtableChild = "";
         string myParentselectCommand = "";
@@ -202,13 +200,11 @@ namespace TeteHardware
                             case "Products":
                                 {
                                     myChildselectCommand = myChildselectCommand + " WHERE LEFT(prodID,2) = '" + myIDfordatagridtableChild + "'";
-                                    populatedatagridChild(myChildselectCommand);
                                     break;
                                 }
                             default:
                                 {
                                     myChildselectCommand = myChildselectCommand + " AND LEFT(b.prodID,2) = '" + myIDfordatagridtableChild + "'";
-                                    populatedatagridChild(myChildselectCommand);
                                     break;
                                 }
                         }
@@ -222,13 +218,11 @@ namespace TeteHardware
                             case "Products":
                                 {
                                     myChildselectCommand = myChildselectCommand + " AND a.supID = '" + myIDfordatagridtableChild + "'";
-                                    populatedatagridChild(myChildselectCommand);
                                     break;
                                 }
                             default:
                                 {
                                     myChildselectCommand = myChildselectCommand + " AND a.supID = '" + myIDfordatagridtableChild + "'";
-                                    populatedatagridChild(myChildselectCommand);
                                     break;
                                 }
                         }
@@ -242,13 +236,11 @@ namespace TeteHardware
                             case "Returns from Customer":
                                 {
                                     myChildselectCommand = myChildselectCommand + " AND b.prodID = '" + myIDfordatagridtableChild + "'";
-                                    populatedatagridChild(myChildselectCommand);
                                     break;
                                 }
                             default:
                                 {
                                     myChildselectCommand = myChildselectCommand + " AND b.prodID = '" + myIDfordatagridtableChild + "'";
-                                    populatedatagridChild(myChildselectCommand);
                                     break;
                                 }
                         }
@@ -258,16 +250,23 @@ namespace TeteHardware
                     {
                         myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
                         myChildselectCommand = myChildselectCommand + " AND c.promoID = '" + myIDfordatagridtableChild + "'";
-                        populatedatagridChild(myChildselectCommand);
                         break;
                     }
                 case "Transaction":
                     {
                         myIDfordatagridtableChild = datagridTableParent.Rows[myRowIndex].Cells[0].Value.ToString();
                         myChildselectCommand = myChildselectCommand + " AND a.transNum = '" + myIDfordatagridtableChild + "'";
-                        populatedatagridChild(myChildselectCommand);
+
                         break;
                     }
+            }
+            if (myDateSQL == "")
+            {
+                populatedatagridChild(myChildselectCommand);
+            }
+            else
+            {
+                populatedatagridChild(myChildselectCommand + " AND " + myDateSQL);
             }
         }
 
@@ -279,27 +278,22 @@ namespace TeteHardware
             populateComboChild(myParent);
             if(myParent=="Category")
             {
-                myParentTable = "tbl_Productcatalog";
                 myParentselectCommand = "SELECT catID as 'Catalog ID', catName as 'Catalog Name' FROM tbl_ProductCatalog";
             }
             else  if (myParent == "Supplier")
             {
-                myParentTable = "tbl_Supplier";
                 myParentselectCommand = "SELECT supID as 'Supplier ID', supName as 'Supplier Name' FROM tbl_Supplier";
             }
             else if (myParent == "Product")
             {
-                myParentTable = "tbl_Product";
                 myParentselectCommand = "SELECT prodID as 'Product ID', prodName as 'Product Name', prodDesc FROM tbl_Product";
             }
             else if (myParent == "Promo")
             {
-                myParentTable = "tbl_Promo";
                 myParentselectCommand = "SELECT promoID as 'Promo ID', promoName as 'Promo Name' FROM tbl_Promo";
             }
             else if (myParent == "Transaction")
             {
-                myParentTable = "tbl_transact";
                 myParentselectCommand = "SELECT DISTINCT transNum as 'Transaction Number', transDate as 'Date Sold' FROM tbl_Transact";
             }
             populatedatagridTableParent(myParentselectCommand);
@@ -335,7 +329,14 @@ namespace TeteHardware
         private void comboChild_SelectedIndexChanged(object sender, EventArgs e)
         {
             genSetupfordatagridChild();
-            populatedatagridChild(myChildselectCommand + myOrderSQL);
+            if (myDateSQL == "")
+            {
+                populatedatagridChild(myChildselectCommand + myOrderSQL);
+            }
+            else
+            {
+                populatedatagridChild(myChildselectCommand + " AND " + myDateSQL + myOrderSQL);
+            }
             datagridTableParent.ClearSelection();
         }
 
@@ -346,17 +347,15 @@ namespace TeteHardware
             {
                 if (myParent == "Category")
                 {
-                    myChildTable = "tbl_product";
                     myDateSQL = "";
                     myOrderSQL = " ORDER BY prodName";
                     myChildselectCommand = "SELECT prodName as 'Item', prodDesc as 'Description', prodStock as 'Stocks', prodUnit as 'unit', prodMOQ as 'Ordering Level', prodStatus as 'Details' FROM tbl_Product";
                 }
                 else if (myParent == "Supplier")
                 {
-                    myChildTable = "tbl_product";
                     myDateSQL = "";
                     myOrderSQL = " ORDER BY prodName";
-                    myChildselectCommand = "SELECT b.prodName as 'Item', b.prodDesc as 'Description', b.prodStock as 'Stocks', b.prodUnit as 'unit', b.prodStatus as'Details' FROM tbl_supplier a, tbl_product b, tbl_arr c WHERE c.supID = a.supID AND b.prodID = c.prodID";
+                    myChildselectCommand = "SELECT c.arrRef as 'Reference', b.prodName as 'Item', b.prodDesc as 'Description', b.prodStock as 'Stocks', b.prodUnit as 'unit', b.prodStatus as'Details' FROM tbl_supplier a, tbl_product b, tbl_arr c WHERE c.supID = a.supID AND b.prodID = c.prodID";
                 }
 
             }
@@ -364,21 +363,18 @@ namespace TeteHardware
             {
                 if (myParent == "Promo")
                 {
-                    myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                     myOrderSQL = " ORDER BY promoName";
                     myChildselectCommand = "SELECT c.promoName as 'Promo', b.prodName as 'Product', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount+'000', 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID";
                 }
                 else if (myParent == "Transaction")
                 {
-                    myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                     myOrderSQL = " ORDER BY transNum";
                     myChildselectCommand = "SELECT a.transNum as 'Transaction', a.transDate as 'Date Sold', b.prodName as 'Product', transQty as 'Qty', b.prodUnit as 'unit', ROUND(transTotPrice + '000', 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(transDiscount, 2) as 'Discount' FROM tbl_transact a, tbl_product b, tbl_promo c WHERE b.prodID = a.prodID and c.promoID = a.promoID";
                 }
                 else
                 {
-                    myChildTable = "tbl_transact";
                     myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                     myOrderSQL = " ORDER BY prodName";
                     myChildselectCommand = "SELECT b.prodName as 'Name', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount, 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID";
@@ -386,41 +382,37 @@ namespace TeteHardware
             }
             else if (myChild == "Good Deliveries")
             {
-                myChildTable = "tbl_arr";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 myOrderSQL = " ORDER BY prodName";
                 myChildselectCommand = "SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arr a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID";
             }
             else if (myChild == "Defective Deliveries")
             {
-                myChildTable = "tbl_arrdef";
                 myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 myOrderSQL = " ORDER BY prodName";
                 myChildselectCommand = "SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arrdef a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID";
             }
             else if (myChild == "Returned To Supplier")
             {
-                myChildTable = "tbl_returnto";
                 myDateSQL = "";
                 myOrderSQL = " ORDER BY supName";
                 myChildselectCommand = "SELECT b.supName as 'Supplier', c.prodName as 'Product', a.retQty as 'Qty', a.retDate as 'Date Returned', a.retDefect as 'Defect', a.retRef as 'Reference' from tbl_returnto a, tbl_supplier b, tbl_product c WHERE b.supID = a.supID AND c.prodID =  a.prodID";
             }
             else if (myChild == "Returns from Customer")
             {
-                myChildTable = "tbl_returnfrom";
                 myDateSQL = "";
                 myOrderSQL = " ORDER BY retDate";
                 myChildselectCommand = "SELECT  a.custName as 'Customer', b.prodName as 'Item', a.retQty as 'Qty', a.retDate as 'Date Returned', a.transNum as 'Transaction No', a.retDefect as 'Defect' FROM tbl_returnfrom a, tbl_product b WHERE b.prodID = a.prodID";
             }
             else if (myChild == "In-store Damage")
             {
-                myChildTable = "tbl_damage";
                 myDateSQL = "";
                 myOrderSQL = " ORDER BY prodName";
                 myChildselectCommand = "SELECT b.prodName as 'Product', a.damBy as 'Damaged By', damQty as 'Qty', damDate as 'Date Damaged', damDetails as 'Details' from tbl_damage a, tbl_product b WHERE b.prodID = a.prodID";
             }
 
         }
+
         private void populatedatagridChild(string selectCommand)
         {
             datagridTableChild.DataSource = null;      //remove datasource link for datagridProduct

@@ -29,7 +29,7 @@ namespace TeteHardware
 
             if(myScreenWidth<1300)
             {
-                MessageBox.Show("Please select at least 1400 X 900 Scree Resolution");
+                MessageBox.Show("Please select at least 1400 X 900 Screen Resolution");
                 ReferenceToAfterLogin.Show();
                 this.Dispose();
             }
@@ -85,17 +85,11 @@ namespace TeteHardware
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            ReferenceToAfterLogin.Show();
-            this.Dispose();
+            getOut();
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                ReferenceToAfterLogin.Show();
-                this.Dispose();
-            }
-            else { }
+            getOut();
         }
 
         bool mouseDown; //boolean for mousedown
@@ -567,12 +561,7 @@ namespace TeteHardware
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                ReferenceToAfterLogin.Show();
-                this.Dispose();
-            }
-            else { }
+            getOut();
         }
 
         private void txtQty_KeyDown(object sender, KeyEventArgs e)
@@ -698,16 +687,20 @@ namespace TeteHardware
             }
             else if(keyData==Keys.Escape)     //Close Window
             {
-
-                if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    ReferenceToAfterLogin.Show();
-                    this.Dispose();
-                }
-                else { }
+                getOut();
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void getOut()
+        {
+            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+
         }
 
         private void txtQty_Leave(object sender, EventArgs e)

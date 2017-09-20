@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPrintRep = new System.Windows.Forms.Button();
             this.pnlReports = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
@@ -144,32 +144,32 @@
             this.datagridTableChild.AllowUserToAddRows = false;
             this.datagridTableChild.AllowUserToDeleteRows = false;
             this.datagridTableChild.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridTableChild.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridTableChild.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.datagridTableChild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridTableChild.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridTableChild.DefaultCellStyle = dataGridViewCellStyle10;
             this.datagridTableChild.Location = new System.Drawing.Point(463, 64);
             this.datagridTableChild.Name = "datagridTableChild";
             this.datagridTableChild.ReadOnly = true;
             this.datagridTableChild.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.datagridTableChild.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.datagridTableChild.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.datagridTableChild.RowTemplate.Height = 60;
             this.datagridTableChild.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.datagridTableChild.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -178,7 +178,7 @@
             // 
             // monCalTo
             // 
-            this.monCalTo.Location = new System.Drawing.Point(393, 548);
+            this.monCalTo.Location = new System.Drawing.Point(393, 467);
             this.monCalTo.Name = "monCalTo";
             this.monCalTo.TabIndex = 170;
             this.monCalTo.Visible = false;
@@ -186,7 +186,7 @@
             // 
             // monCalFrom
             // 
-            this.monCalFrom.Location = new System.Drawing.Point(164, 548);
+            this.monCalFrom.Location = new System.Drawing.Point(164, 467);
             this.monCalFrom.Name = "monCalFrom";
             this.monCalFrom.TabIndex = 169;
             this.monCalFrom.Visible = false;
@@ -199,6 +199,7 @@
             this.txtDateTo.Size = new System.Drawing.Size(169, 25);
             this.txtDateTo.TabIndex = 168;
             this.txtDateTo.Enter += new System.EventHandler(this.txtDateTo_Enter);
+            this.txtDateTo.Leave += new System.EventHandler(this.txtDateTo_Leave);
             // 
             // txtDateFrom
             // 
@@ -207,6 +208,7 @@
             this.txtDateFrom.Size = new System.Drawing.Size(169, 25);
             this.txtDateFrom.TabIndex = 167;
             this.txtDateFrom.Enter += new System.EventHandler(this.txtDateFrom_Enter);
+            this.txtDateFrom.Leave += new System.EventHandler(this.txtDateFrom_Leave);
             // 
             // lblDateTo
             // 
@@ -239,11 +241,11 @@
             this.datagridTableParent.Name = "datagridTableParent";
             this.datagridTableParent.ReadOnly = true;
             this.datagridTableParent.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.datagridTableParent.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.datagridTableParent.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.datagridTableParent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridTableParent.Size = new System.Drawing.Size(289, 259);
             this.datagridTableParent.TabIndex = 164;
@@ -262,6 +264,8 @@
             this.comboReports.Size = new System.Drawing.Size(355, 27);
             this.comboReports.TabIndex = 176;
             this.comboReports.SelectedIndexChanged += new System.EventHandler(this.comboReports_SelectedIndexChanged);
+            this.comboReports.Leave += new System.EventHandler(this.comboReports_Leave);
+            this.comboReports.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboReports_MouseClick);
             // 
             // lblRep
             // 
