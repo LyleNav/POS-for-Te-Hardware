@@ -55,6 +55,10 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dataGridProduct = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
             this.SuspendLayout();
@@ -144,7 +148,7 @@
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(148, 102);
+            this.txtDate.Location = new System.Drawing.Point(154, 102);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(151, 25);
             this.txtDate.TabIndex = 167;
@@ -152,14 +156,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(148, 140);
+            this.txtName.Location = new System.Drawing.Point(154, 140);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(307, 25);
             this.txtName.TabIndex = 168;
             // 
             // txtProdName
             // 
-            this.txtProdName.Location = new System.Drawing.Point(148, 176);
+            this.txtProdName.Location = new System.Drawing.Point(154, 176);
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(307, 25);
             this.txtProdName.TabIndex = 169;
@@ -167,15 +171,16 @@
             // 
             // txtQty
             // 
-            this.txtQty.Location = new System.Drawing.Point(148, 215);
+            this.txtQty.Location = new System.Drawing.Point(154, 215);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(151, 25);
             this.txtQty.TabIndex = 170;
             this.txtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // txtRem
             // 
-            this.txtRem.Location = new System.Drawing.Point(148, 254);
+            this.txtRem.Location = new System.Drawing.Point(154, 254);
             this.txtRem.Multiline = true;
             this.txtRem.Name = "txtRem";
             this.txtRem.Size = new System.Drawing.Size(307, 49);
@@ -190,7 +195,7 @@
             // 
             // txtProdID
             // 
-            this.txtProdID.Location = new System.Drawing.Point(333, 215);
+            this.txtProdID.Location = new System.Drawing.Point(339, 215);
             this.txtProdID.Name = "txtProdID";
             this.txtProdID.Size = new System.Drawing.Size(122, 25);
             this.txtProdID.TabIndex = 173;
@@ -338,6 +343,50 @@
             this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             this.dataGridProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridProduct_KeyDown);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(75, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(12, 14);
+            this.label5.TabIndex = 239;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(83, 144);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 14);
+            this.label6.TabIndex = 240;
+            this.label6.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(139, 181);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(12, 14);
+            this.label7.TabIndex = 241;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(98, 219);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(12, 14);
+            this.label8.TabIndex = 242;
+            this.label8.Text = "*";
+            // 
             // formInStoreDamages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -345,6 +394,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(521, 414);
             this.ControlBox = false;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridProduct);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnExit);
@@ -406,5 +459,9 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dataGridProduct;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -62,9 +62,33 @@ namespace TeteHardware
 
         private void txtPpercent_TextChanged(object sender, EventArgs e)
         {
-            if (txtPpercent.Text.Contains("%"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPpercent.Text, "  ^ [0-9]")) //textbox only accepts numbers
             {
-                MessageBox.Show("No % please!!", "", MessageBoxButtons.OK);
+                txtPpercent.Text = "";
+            }
+        }
+
+        private void txtPvalue_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPvalue.Text, "  ^ [0-9]")) //textbox only accepts numbers
+            {
+                txtPvalue.Text = "";
+            }
+        }
+
+        private void txtPvalue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPpercent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
             }
         }
 

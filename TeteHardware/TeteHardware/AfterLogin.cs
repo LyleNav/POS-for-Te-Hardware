@@ -54,6 +54,7 @@ namespace TeteHardware
         private void formAfterLogin_Load(object sender, EventArgs e)
         {
             labelName.Text = employeeName + "!"; //sets the value of labelName to employeeName
+            btnPOS.Image = TeteHardware.Properties.Resources.TransactionIcon;
         }
 
         private void formAfterLogin_FormClosing(object sender, FormClosingEventArgs e)

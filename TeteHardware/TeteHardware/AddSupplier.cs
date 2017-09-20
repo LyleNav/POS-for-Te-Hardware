@@ -82,7 +82,7 @@ namespace TeteHardware
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtSname.Text == "" || txtSaddress.Text == "" || txtScontact.Text == "" || txtScontactNum.Text == "" || txtSothers.Text == "") //DATA VALIDATION
+            if (txtSname.Text == "" || txtSaddress.Text == "" || txtScontact.Text == "" || txtScontactNum.Text == "") //DATA VALIDATION
             {
                 MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
             }

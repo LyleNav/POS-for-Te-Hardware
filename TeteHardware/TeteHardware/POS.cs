@@ -90,8 +90,12 @@ namespace TeteHardware
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            ReferenceToAfterLogin.Show();
-            this.Dispose();
+            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            else { }
         }
 
         bool mouseDown; //boolean for mousedown
@@ -157,8 +161,8 @@ namespace TeteHardware
         }
         public void clearFormTransact()
         {
-            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product");
-            comboPromoLoad("SELECT promoName, promoID, promoType, promoValue, promoPercent FROM tbl_promo");
+            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodStock > 0");
+            comboPromoLoad("SELECT promoName, promoID, promoType, promoValue, promoPercent FROM tbl_promo WHERE promoStatus = 0");
             txtdateTransact.Text = DateTime.Now.ToString();
             txtTransDate2.Text= DateTime.Now.ToString();
             txtItemID.Text = "";
@@ -481,6 +485,7 @@ namespace TeteHardware
                         query3.ExecuteNonQuery();
                         conn.Close();
                     }
+                    else{}
                 }
                 catch (Exception x)
                 {
@@ -562,8 +567,12 @@ namespace TeteHardware
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ReferenceToAfterLogin.Show();
-            this.Dispose();
+            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            else { }
         }
 
         private void txtQty_KeyDown(object sender, KeyEventArgs e)

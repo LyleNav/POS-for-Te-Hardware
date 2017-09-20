@@ -29,7 +29,7 @@ namespace TeteHardware
         private void ManageCustReturns_Load(object sender, EventArgs e)
         {
             txtCalReturn.Text = DateTime.Now.ToShortDateString();
-            calReturned.Location = txtCalReturn.Location;
+            calReturned.Location = new Point(342, 137);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -68,7 +68,15 @@ namespace TeteHardware
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveToDatabase();
+            if (txtTrans.Text == "" || txtCust.Text == "" || txtCalReturn.Text == "" || txtQty.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                saveToDatabase();
+            }
+            
         }
 
         private void txtCalReturn_Click(object sender, EventArgs e)
@@ -79,14 +87,18 @@ namespace TeteHardware
         //textbox handling
         private void txtQty_TextChanged(object sender, EventArgs e)
         {
-            if (!func.IsFloat(txtQty.Text))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtQty.Text, "  ^ [0-9]")) //textbox only accepts numbers
             {
-                //MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
-                txtQty.Text = "0";
-                txtQty.SelectAll();
+                txtQty.Text = "";
             }
         }
-
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
         private void calReturned_DateSelected(object sender, DateRangeEventArgs e)
         {
             txtCalReturn.Text = calReturned.SelectionRange.Start.ToShortDateString();
@@ -102,7 +114,7 @@ namespace TeteHardware
                 if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["transQty"].Value.ToString()))
                 {
                     MessageBox.Show("Quantity returned is greater than the defective quantity!");
-                    txtQty.Focus();
+                    //txtQty.Focus();
                     txtQty.SelectAll();
                 }
             }
@@ -138,11 +150,11 @@ namespace TeteHardware
         {
             //insert to tbl_returnfrom
             int myRowIndex = dataGridProduct.CurrentRow.Index;
-            MessageBox.Show("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", "", MessageBoxButtons.OK);
+            MessageBox.Show("INSERT INTO tbl_returnfrom(transNum, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", "", MessageBoxButtons.OK);
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(retRef, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnfrom(transNum, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 func.ChangeLog("tbl_returnfrom", "All", "None");
@@ -177,5 +189,6 @@ namespace TeteHardware
         {
             populateDataGridProducts();
         }
+
     }
 }

@@ -107,6 +107,10 @@ namespace TeteHardware
             {
                 MessageBox.Show("No quantity!", "", MessageBoxButtons.OK);
             }
+            if (txtDate.Text == "" || txtName.Text == "" || txtProdName.Text == "" || txtQty.Text == "") //DATA VALIDATION
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
             else
             {
                 saveData();
@@ -151,11 +155,17 @@ namespace TeteHardware
 
         private void txtQty_TextChanged(object sender, EventArgs e)
         {
-            if (!func.IsFloat(txtQty.Text))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtQty.Text, "  ^ [0-9]")) //textbox only accepts numbers
             {
-                //MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
-                txtQty.Text = "0";
-                txtQty.SelectAll();
+                txtQty.Text = "";
+            }
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
             }
         }
 
@@ -248,5 +258,7 @@ namespace TeteHardware
             conn.Close();
             func.ChangeLog("tbl_product", "prodStock", myStock.ToString());
         }
+
     }
 }
+

@@ -53,7 +53,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,6 +205,8 @@
             this.txtScontactNum.Name = "txtScontactNum";
             this.txtScontactNum.Size = new System.Drawing.Size(158, 25);
             this.txtScontactNum.TabIndex = 6;
+            this.txtScontactNum.TextChanged += new System.EventHandler(this.txtScontactNum_TextChanged);
+            this.txtScontactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtScontactNum_KeyPress);
             // 
             // labelSaddress
             // 
@@ -329,17 +330,6 @@
             this.label4.TabIndex = 215;
             this.label4.Text = "*";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(112, 243);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(12, 14);
-            this.label5.TabIndex = 216;
-            this.label5.Text = "*";
-            // 
             // formEditSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,7 +337,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(408, 358);
             this.ControlBox = false;
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -411,6 +400,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }

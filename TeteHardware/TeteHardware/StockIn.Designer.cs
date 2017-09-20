@@ -60,7 +60,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboSupID = new System.Windows.Forms.ComboBox();
             this.txtTheID = new System.Windows.Forms.TextBox();
@@ -90,7 +89,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(407, 12);
+            this.btnClose.Location = new System.Drawing.Point(409, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 193;
@@ -122,9 +121,9 @@
             this.lblArrival.ForeColor = System.Drawing.Color.White;
             this.lblArrival.Location = new System.Drawing.Point(24, 13);
             this.lblArrival.Name = "lblArrival";
-            this.lblArrival.Size = new System.Drawing.Size(87, 31);
+            this.lblArrival.Size = new System.Drawing.Size(96, 31);
             this.lblArrival.TabIndex = 101;
-            this.lblArrival.Text = "Arrival";
+            this.lblArrival.Text = "Stock In";
             // 
             // panel1
             // 
@@ -207,7 +206,7 @@
             this.dataGridProduct.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridProduct.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dataGridProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProduct.Size = new System.Drawing.Size(369, 155);
+            this.dataGridProduct.Size = new System.Drawing.Size(385, 155);
             this.dataGridProduct.TabIndex = 200;
             this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             // 
@@ -217,7 +216,7 @@
             this.txtItemName.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName.Location = new System.Drawing.Point(109, 351);
             this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(302, 25);
+            this.txtItemName.Size = new System.Drawing.Size(310, 25);
             this.txtItemName.TabIndex = 201;
             // 
             // lblItemName
@@ -272,7 +271,7 @@
             this.txtStatus.Location = new System.Drawing.Point(109, 442);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(301, 40);
+            this.txtStatus.Size = new System.Drawing.Size(310, 40);
             this.txtStatus.TabIndex = 206;
             // 
             // btnCancel
@@ -330,7 +329,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(204, 382);
+            this.label1.Location = new System.Drawing.Point(199, 386);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 212;
@@ -339,7 +338,7 @@
             // txtdateArrival
             // 
             this.txtdateArrival.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdateArrival.Location = new System.Drawing.Point(293, 381);
+            this.txtdateArrival.Location = new System.Drawing.Point(301, 383);
             this.txtdateArrival.Name = "txtdateArrival";
             this.txtdateArrival.Size = new System.Drawing.Size(118, 25);
             this.txtdateArrival.TabIndex = 211;
@@ -347,7 +346,7 @@
             // 
             // calArrival
             // 
-            this.calArrival.Location = new System.Drawing.Point(171, 534);
+            this.calArrival.Location = new System.Drawing.Point(192, 545);
             this.calArrival.Name = "calArrival";
             this.calArrival.TabIndex = 213;
             this.calArrival.Visible = false;
@@ -395,23 +394,12 @@
             this.label5.TabIndex = 217;
             this.label5.Text = "*";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(86, 441);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(12, 14);
-            this.label6.TabIndex = 218;
-            this.label6.Text = "*";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(282, 378);
+            this.label7.Location = new System.Drawing.Point(283, 388);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(12, 14);
             this.label7.TabIndex = 219;
@@ -470,7 +458,7 @@
             this.comboSupName.FormattingEnabled = true;
             this.comboSupName.Location = new System.Drawing.Point(109, 135);
             this.comboSupName.Name = "comboSupName";
-            this.comboSupName.Size = new System.Drawing.Size(301, 28);
+            this.comboSupName.Size = new System.Drawing.Size(310, 28);
             this.comboSupName.TabIndex = 231;
             // 
             // label8
@@ -499,8 +487,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(448, 576);
+            this.ClientSize = new System.Drawing.Size(450, 576);
             this.ControlBox = false;
+            this.Controls.Add(this.calArrival);
             this.Controls.Add(this.comboSupName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblSupplier);
@@ -508,9 +497,7 @@
             this.Controls.Add(this.lblRef);
             this.Controls.Add(this.txtRef);
             this.Controls.Add(this.txtTheID);
-            this.Controls.Add(this.calArrival);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -579,7 +566,6 @@
         public System.Windows.Forms.Label lblArrival;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboSupID;
         private System.Windows.Forms.TextBox txtTheID;
