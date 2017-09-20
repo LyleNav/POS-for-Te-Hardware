@@ -35,6 +35,22 @@ namespace TeteHardware
             this.Close(); //closes current form
         }
 
+        private void txtScontactNum_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtScontactNum.Text, "  ^ [0-9]")) //textbox only accepts numbers
+            {
+                txtScontactNum.Text = "";
+            }
+        }
+
+        private void txtScontactNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //strictly integers
+            {
+                e.Handled = true;
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close(); //closes current form
@@ -104,7 +120,7 @@ namespace TeteHardware
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (txtSname.Text == "" || txtSaddress.Text == "" || txtScontact.Text == "" || txtScontactNum.Text == "" || txtSothers.Text == "") //DATA VALIDATION
+            if (txtSname.Text == "" || txtSaddress.Text == "" || txtScontact.Text == "" || txtScontactNum.Text == "") //DATA VALIDATION
             {
                 MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
             }

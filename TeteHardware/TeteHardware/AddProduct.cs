@@ -24,6 +24,7 @@ namespace TeteHardware
             conn = new MySqlConnection("Server=localhost;Database=tetehardware;Uid=root;Pwd=root"); //connection
             this.Opacity = 0; //form transition using timer
             timer1.Start(); //form transition using timer
+            System.Text.RegularExpressions.Regex.IsMatch(txtMOQ.Text, "[ ^ 0-9]");
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -183,19 +184,50 @@ namespace TeteHardware
         }
         private void txtMOQ_Leave(object sender, EventArgs e)
         {
-            if (!func.IsFloat(txtMOQ.Text))
+           /* if (!func.IsFloat(txtMOQ.Text))
             {
                 MessageBox.Show("Invalid MOQ", "", MessageBoxButtons.OK);
-            }
+            }*/
         }
 
         private void txtPprice_Leave(object sender, EventArgs e)
         {
-            if (!func.IsFloat(txtPprice.Text))
+            /*if (!func.IsFloat(txtPprice.Text))
             {
                 MessageBox.Show("Invalid Price", "", MessageBoxButtons.OK);
+            }*/
+        }
+
+        private void txtMOQ_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtMOQ.Text, "  ^ [0-9]")) //textbox only accepts numbers
+            {
+                txtMOQ.Text = "";
             }
         }
 
+        private void txtMOQ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPprice_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPprice.Text, "  ^ [0-9]"))
+            {
+                txtPprice.Text = "";
+            }
+        }
+
+        private void txtPprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

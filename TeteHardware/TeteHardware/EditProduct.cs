@@ -22,6 +22,39 @@ namespace TeteHardware
         public string oldDesc, oldStatus, newDesc, newStatus;
         public int oldEmpID, newEmpID;
         public float oldPrice, newPrice, oldMOQ, newMOQ;
+
+        private void txtMOQ_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtMOQ.Text, "  ^ [0-9]"))
+            {
+                txtMOQ.Text = "";
+            }
+        }
+
+        private void txtMOQ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPprice_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPprice.Text, "  ^ [0-9]"))
+            {
+                txtPprice.Text = "";
+            }
+        }
+
+        private void txtPprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
+
         public formEditProduct()
         {
             InitializeComponent();

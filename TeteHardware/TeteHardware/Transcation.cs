@@ -384,13 +384,14 @@ namespace TeteHardware
                         myMOQ = Convert.ToString(reader1[1]);
                     }
                     conn.Close();
-                    if (decimal.Parse(myStock)<decimal.Parse(myMOQ))
+                    if (decimal.Parse(myStock) < decimal.Parse(myMOQ))
                     {
                         conn.Open();
                         MySqlCommand query3 = new MySqlCommand("UPDATE tbl_product SET prodStatus = 'Stock is depleted, please make an order' WHERE prodID = '" + myProdID + "'", conn);
                         query3.ExecuteNonQuery();
                         conn.Close();
                     }
+                    else{}
                 }
                 catch (Exception x)
                 {

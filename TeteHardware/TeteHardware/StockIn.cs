@@ -57,7 +57,7 @@ namespace TeteHardware
 
         private void formArrival_Load(object sender, EventArgs e)
         {
-            this.calArrival.Location = txtdateArrival.Location;
+            this.calArrival.Location = new Point(192, 383);
             txtdateArrival.Text = DateTime.Now.Date.ToShortDateString();
             clearFormArrival();
             populateSupCombos();

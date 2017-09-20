@@ -91,6 +91,8 @@
             this.txtPvalue.Name = "txtPvalue";
             this.txtPvalue.Size = new System.Drawing.Size(134, 25);
             this.txtPvalue.TabIndex = 5;
+            this.txtPvalue.TextChanged += new System.EventHandler(this.txtPvalue_TextChanged);
+            this.txtPvalue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPvalue_KeyPress);
             // 
             // timer1
             // 
@@ -297,6 +299,7 @@
             this.txtPpercent.Size = new System.Drawing.Size(134, 25);
             this.txtPpercent.TabIndex = 174;
             this.txtPpercent.TextChanged += new System.EventHandler(this.txtPpercent_TextChanged);
+            this.txtPpercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPpercent_KeyPress);
             // 
             // label2
             // 

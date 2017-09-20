@@ -24,18 +24,16 @@ namespace TeteHardware
             //get screen
             int myScreenWidth = Screen.PrimaryScreen.Bounds.Width;
             int myScreenHeight = Screen.PrimaryScreen.Bounds.Height;
-            int mydatagridOrderedWidth = 1000;
 
             //MessageBox.Show(myScreenWidth.ToString(), "", MessageBoxButtons.OK);
-            /*
+
             if(myScreenWidth<1300)
             {
                 MessageBox.Show("Please select at least 1400 X 900 Scree Resolution");
                 ReferenceToAfterLogin.Show();
                 this.Dispose();
             }
-            */
-            pnlTransact.Location = new Point((myScreenWidth - mydatagridOrderedWidth - pnlTransact.Width) / 2, 0);
+            pnlTransact.Location = new Point((myScreenWidth - 1000 - pnlTransact.Width) / 2, 0);
             dataGridProduct.Location = new Point(pnlTransact.Location.X, dataGridProduct.Location.Y);
             pnlButtons2.Location = new Point(pnlTransact.Location.X, myScreenHeight - pnlButtons2.Height);
             pnlButtons.Location = new Point(pnlTransact.Location.X, myScreenHeight - pnlButtons2.Height - pnlButtons.Height);
@@ -53,8 +51,8 @@ namespace TeteHardware
             dataGridProduct.Size = new Size(600, 500);
             dataGridProduct.Location = new Point(5,75);
             pnlgridProduct.Visible = false;
-            dataGridOrdered.Size = new Size(mydatagridOrderedWidth, myScreenHeight-100);
-            dataGridOrdered.Location = new Point(myScreenWidth - mydatagridOrderedWidth, 50);
+            dataGridOrdered.Size = new Size(800, myScreenHeight-100);
+            dataGridOrdered.Location = new Point(myScreenWidth - 1000, 50);
             txtGrandTot.Text = "0.00";
             dataGridProduct.ClearSelection();
             dataGridOrdered.ClearSelection();
@@ -92,8 +90,12 @@ namespace TeteHardware
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            ReferenceToAfterLogin.Show();
-            this.Dispose();
+            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            else { }
         }
 
         bool mouseDown; //boolean for mousedown
@@ -159,7 +161,7 @@ namespace TeteHardware
         }
         public void clearFormTransact()
         {
-            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product");
+            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodStock > 0");
             comboPromoLoad("SELECT promoName, promoID, promoType, promoValue, promoPercent FROM tbl_promo WHERE promoStatus = 0");
             txtdateTransact.Text = DateTime.Now.ToString();
             txtTransDate2.Text= DateTime.Now.ToString();
@@ -197,7 +199,6 @@ namespace TeteHardware
             txtDiscAmt.Text = "0";
             txtTotPrice.Text = "0";
             txtStatus.Text = "";
-            //clear datagrid
         }
 
         public void gridProductLoad(string selectCommand) //loads the data from the database
@@ -484,6 +485,7 @@ namespace TeteHardware
                         query3.ExecuteNonQuery();
                         conn.Close();
                     }
+                    else{}
                 }
                 catch (Exception x)
                 {
@@ -565,8 +567,12 @@ namespace TeteHardware
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ReferenceToAfterLogin.Show();
-            this.Dispose();
+            if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            else { }
         }
 
         private void txtQty_KeyDown(object sender, KeyEventArgs e)
@@ -633,10 +639,14 @@ namespace TeteHardware
         }
 
 
-        
-        //Hot Keys Handling
+
+        //Hot Keys Handling5
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.Tab || keyData == (Keys.Shift | Keys.Tab))
+            {
+                return true;
+            }
             if (keyData == Keys.F1)
             {
                 MessageBox.Show("You pressed the F1 key");
@@ -688,8 +698,13 @@ namespace TeteHardware
             }
             else if(keyData==Keys.Escape)     //Close Window
             {
-                ReferenceToAfterLogin.Show();
-                this.Dispose();
+
+                if (MessageBox.Show("Are you sure you want to exit this window?", "Exit Window", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ReferenceToAfterLogin.Show();
+                    this.Dispose();
+                }
+                else { }
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
@@ -730,7 +745,7 @@ namespace TeteHardware
                 txtPrice.Text = dataGridOrdered.Rows[myRowIndex].Cells["U Price"].Value.ToString();
                 txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"), 2));
                 txtQty.Text = dataGridOrdered.Rows[myRowIndex].Cells["Qty"].Value.ToString();
-                //myStock = int.Parse(dataGridOrdered.Rows[myRowIndex].Cells["Stock"].Value.ToString());
+                myStock = int.Parse(dataGridOrdered.Rows[myRowIndex].Cells["Stock"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }
             txtQty.Enabled = true;

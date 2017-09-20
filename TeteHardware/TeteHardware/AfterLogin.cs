@@ -54,6 +54,7 @@ namespace TeteHardware
         private void formAfterLogin_Load(object sender, EventArgs e)
         {
             labelName.Text = employeeName + "!"; //sets the value of labelName to employeeName
+            btnPOS.Image = TeteHardware.Properties.Resources.TransactionIcon;
         }
 
         private void formAfterLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -104,10 +105,11 @@ namespace TeteHardware
         private void btnCatManage_Click(object sender, EventArgs e)
         {
             formCatalogManage formCM = new formCatalogManage(); //variable reference to formCatalogManage
-            formCM.ReferenceToAfterLogin = this; //sets the reference form to this form
+            formCM.ReferenceToAfterLogin = this; //sets the reference form to this form           
             formCM.Show(); //shows referenced form
             this.Hide(); //hides current form
         }
+            
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {

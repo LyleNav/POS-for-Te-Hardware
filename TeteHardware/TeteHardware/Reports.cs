@@ -238,7 +238,6 @@ namespace TeteHardware
                                     datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
-                                    datagridTableChild.Rows.Add("admin","","","","","","");
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                             }
