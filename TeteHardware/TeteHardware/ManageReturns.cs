@@ -31,6 +31,7 @@ namespace TeteHardware
             populatecomboSupplier();
             txtCalReturn.Text = DateTime.Now.ToString("d");
             calReturned.Location = txtCalReturn.Location;
+            calReturned.MaxDate = DateTime.Now;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -63,12 +64,7 @@ namespace TeteHardware
         //Hot Keys Handling - put any special keys with special functions here
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.F1)
-            {
-                MessageBox.Show("You pressed the F1 key");
-                return true;    // indicate that you handled this keystroke
-            }
-            else if (keyData == Keys.Escape)     //Close Window
+            if (keyData == Keys.Escape)     //Close Window
             {
                 ReferenceToAfterLogin.Show();
                 this.Dispose();

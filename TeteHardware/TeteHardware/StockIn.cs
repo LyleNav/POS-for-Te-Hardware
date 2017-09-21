@@ -29,6 +29,7 @@ namespace TeteHardware
 
         public void gridProductLoad(string selectCommand) //loads the data from the database
         {
+            calArrival.MaxDate = DateTime.Now;
             try
             {
                 conn.Open(); //opens the connection

@@ -627,19 +627,12 @@ namespace TeteHardware
             txtSearchName.Visible = myVisible;
         }
 
-
-
-        //Hot Keys Handling5
+        //Hot Keys Handling
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
+        {  
             if (keyData == Keys.Tab || keyData == (Keys.Shift | Keys.Tab))
             {
                 return true;
-            }
-            if (keyData == Keys.F1)
-            {
-                MessageBox.Show("You pressed the F1 key");
-                return true;    // indicate that you handled this keystroke
             }
             else if(keyData == Keys.F12)   //Promo and Discounts
             {
@@ -760,7 +753,7 @@ namespace TeteHardware
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
-            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product where prodName like '%" + txtSearchName.Text + "%'");
+            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodName LIKE '%" + txtSearchName.Text + "%'");
         }
         private void txtSearchName_KeyDown(object sender, KeyEventArgs e)
         {

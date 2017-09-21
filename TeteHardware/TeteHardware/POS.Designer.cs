@@ -387,10 +387,11 @@
             // 
             // txtdateTransact
             // 
+            this.txtdateTransact.Enabled = false;
             this.txtdateTransact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdateTransact.Location = new System.Drawing.Point(158, 351);
             this.txtdateTransact.Name = "txtdateTransact";
-            this.txtdateTransact.Size = new System.Drawing.Size(127, 25);
+            this.txtdateTransact.Size = new System.Drawing.Size(153, 25);
             this.txtdateTransact.TabIndex = 224;
             this.txtdateTransact.Enter += new System.EventHandler(this.txtdateTransact_Enter);
             // 
@@ -400,7 +401,7 @@
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 586);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 24);
+            this.label1.Size = new System.Drawing.Size(86, 24);
             this.label1.TabIndex = 227;
             this.label1.Text = "Discount";
             // 
@@ -695,7 +696,7 @@
             this.lblHardware2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblHardware2.Location = new System.Drawing.Point(119, 235);
             this.lblHardware2.Name = "lblHardware2";
-            this.lblHardware2.Size = new System.Drawing.Size(150, 43);
+            this.lblHardware2.Size = new System.Drawing.Size(158, 43);
             this.lblHardware2.TabIndex = 251;
             this.lblHardware2.Text = "Ver 1.00";
             // 
@@ -707,7 +708,7 @@
             this.lblButtons.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblButtons.Location = new System.Drawing.Point(11, 4);
             this.lblButtons.Name = "lblButtons";
-            this.lblButtons.Size = new System.Drawing.Size(155, 22);
+            this.lblButtons.Size = new System.Drawing.Size(178, 22);
             this.lblButtons.TabIndex = 252;
             this.lblButtons.Text = "F6 = Search Item ID";
             // 
@@ -733,7 +734,7 @@
             this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label9.Location = new System.Drawing.Point(203, 58);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(174, 22);
+            this.label9.Size = new System.Drawing.Size(199, 22);
             this.label9.TabIndex = 258;
             this.label9.Text = "F12 = Discount/Promo";
             // 
@@ -745,7 +746,7 @@
             this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label10.Location = new System.Drawing.Point(203, 31);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 22);
+            this.label10.Size = new System.Drawing.Size(113, 22);
             this.label10.TabIndex = 257;
             this.label10.Text = "F11 = Clear";
             // 
@@ -757,7 +758,7 @@
             this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label11.Location = new System.Drawing.Point(203, 4);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(190, 22);
+            this.label11.Size = new System.Drawing.Size(220, 22);
             this.label11.TabIndex = 256;
             this.label11.Text = "F10 = Edit Item Ordered";
             // 
@@ -769,7 +770,7 @@
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Location = new System.Drawing.Point(11, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 22);
+            this.label3.Size = new System.Drawing.Size(182, 22);
             this.label3.TabIndex = 255;
             this.label3.Text = "F9 = Checkout (Pay)";
             // 
@@ -781,7 +782,7 @@
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Location = new System.Drawing.Point(11, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(181, 22);
+            this.label5.Size = new System.Drawing.Size(210, 22);
             this.label5.TabIndex = 254;
             this.label5.Text = "F8 = Select Item to buy";
             // 
@@ -793,7 +794,7 @@
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(11, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 22);
+            this.label2.Size = new System.Drawing.Size(211, 22);
             this.label2.TabIndex = 253;
             this.label2.Text = "F7 = Search Item Name";
             // 
@@ -829,7 +830,7 @@
             this.lblPayChange.ForeColor = System.Drawing.Color.White;
             this.lblPayChange.Location = new System.Drawing.Point(175, 240);
             this.lblPayChange.Name = "lblPayChange";
-            this.lblPayChange.Size = new System.Drawing.Size(68, 22);
+            this.lblPayChange.Size = new System.Drawing.Size(78, 22);
             this.lblPayChange.TabIndex = 263;
             this.lblPayChange.Text = "Change:";
             // 
@@ -851,7 +852,7 @@
             this.lblPayCash.ForeColor = System.Drawing.Color.White;
             this.lblPayCash.Location = new System.Drawing.Point(175, 146);
             this.lblPayCash.Name = "lblPayCash";
-            this.lblPayCash.Size = new System.Drawing.Size(48, 22);
+            this.lblPayCash.Size = new System.Drawing.Size(54, 22);
             this.lblPayCash.TabIndex = 261;
             this.lblPayCash.Text = "Cash:";
             // 
@@ -873,7 +874,7 @@
             this.lblPayCharge.ForeColor = System.Drawing.Color.White;
             this.lblPayCharge.Location = new System.Drawing.Point(175, 58);
             this.lblPayCharge.Name = "lblPayCharge";
-            this.lblPayCharge.Size = new System.Drawing.Size(66, 22);
+            this.lblPayCharge.Size = new System.Drawing.Size(76, 22);
             this.lblPayCharge.TabIndex = 259;
             this.lblPayCharge.Text = "Charge:";
             // 

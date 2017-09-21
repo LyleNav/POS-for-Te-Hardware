@@ -68,7 +68,7 @@
             this.comboPstatus.Location = new System.Drawing.Point(197, 243);
             this.comboPstatus.Name = "comboPstatus";
             this.comboPstatus.Size = new System.Drawing.Size(134, 25);
-            this.comboPstatus.TabIndex = 7;
+            this.comboPstatus.TabIndex = 6;
             // 
             // labelPstatus
             // 
@@ -109,7 +109,7 @@
             this.txtPname.Location = new System.Drawing.Point(197, 104);
             this.txtPname.Name = "txtPname";
             this.txtPname.Size = new System.Drawing.Size(134, 25);
-            this.txtPname.TabIndex = 3;
+            this.txtPname.TabIndex = 2;
             // 
             // txtPid
             // 
@@ -170,7 +170,7 @@
             this.btnCancel.Location = new System.Drawing.Point(249, 300);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -187,7 +187,7 @@
             this.btnClear.Location = new System.Drawing.Point(152, 300);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 9;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -204,7 +204,7 @@
             this.btnAdd.Location = new System.Drawing.Point(55, 300);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -222,7 +222,7 @@
             this.btnClose.Location = new System.Drawing.Point(363, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 11;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -238,7 +238,7 @@
             this.txtPvalue.Location = new System.Drawing.Point(197, 208);
             this.txtPvalue.Name = "txtPvalue";
             this.txtPvalue.Size = new System.Drawing.Size(134, 25);
-            this.txtPvalue.TabIndex = 6;
+            this.txtPvalue.TabIndex = 5;
             this.txtPvalue.TextChanged += new System.EventHandler(this.txtPvalue_TextChanged);
             this.txtPvalue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPvalue_KeyPress);
             // 
@@ -276,7 +276,7 @@
             this.comboPtype.Location = new System.Drawing.Point(197, 138);
             this.comboPtype.Name = "comboPtype";
             this.comboPtype.Size = new System.Drawing.Size(134, 25);
-            this.comboPtype.TabIndex = 4;
+            this.comboPtype.TabIndex = 3;
             this.comboPtype.SelectedIndexChanged += new System.EventHandler(this.comboPtype_SelectedIndexChanged);
             // 
             // labelPpercent
@@ -296,7 +296,7 @@
             this.txtPpercent.Location = new System.Drawing.Point(197, 173);
             this.txtPpercent.Name = "txtPpercent";
             this.txtPpercent.Size = new System.Drawing.Size(134, 25);
-            this.txtPpercent.TabIndex = 5;
+            this.txtPpercent.TabIndex = 4;
             this.txtPpercent.TextChanged += new System.EventHandler(this.txtPpercent_TextChanged);
             this.txtPpercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPpercent_KeyPress);
             // 

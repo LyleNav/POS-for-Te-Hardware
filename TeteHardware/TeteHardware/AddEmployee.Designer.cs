@@ -108,7 +108,7 @@
             this.txtEuser.Location = new System.Drawing.Point(196, 139);
             this.txtEuser.Name = "txtEuser";
             this.txtEuser.Size = new System.Drawing.Size(158, 25);
-            this.txtEuser.TabIndex = 4;
+            this.txtEuser.TabIndex = 3;
             // 
             // labelEpass
             // 
@@ -128,7 +128,7 @@
             this.txtEpass.Name = "txtEpass";
             this.txtEpass.PasswordChar = '*';
             this.txtEpass.Size = new System.Drawing.Size(158, 25);
-            this.txtEpass.TabIndex = 5;
+            this.txtEpass.TabIndex = 4;
             // 
             // btnCancel
             // 
@@ -142,7 +142,7 @@
             this.btnCancel.Location = new System.Drawing.Point(264, 246);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -159,7 +159,7 @@
             this.btnClear.Location = new System.Drawing.Point(167, 246);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 8;
+            this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -176,7 +176,7 @@
             this.btnAdd.Location = new System.Drawing.Point(70, 246);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 7;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -209,7 +209,7 @@
             this.txtEname.Location = new System.Drawing.Point(196, 105);
             this.txtEname.Name = "txtEname";
             this.txtEname.Size = new System.Drawing.Size(158, 25);
-            this.txtEname.TabIndex = 3;
+            this.txtEname.TabIndex = 2;
             // 
             // txtEid
             // 
@@ -234,7 +234,7 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 10;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -268,7 +268,7 @@
             this.comboElevel.Location = new System.Drawing.Point(196, 205);
             this.comboElevel.Name = "comboElevel";
             this.comboElevel.Size = new System.Drawing.Size(159, 25);
-            this.comboElevel.TabIndex = 6;
+            this.comboElevel.TabIndex = 5;
             // 
             // label1
             // 

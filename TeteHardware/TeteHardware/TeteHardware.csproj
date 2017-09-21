@@ -223,6 +223,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddPromo.resx">
       <DependentUpon>AddPromo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSupplier.resx">
       <DependentUpon>AddSupplier.cs</DependentUpon>
@@ -262,6 +263,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddCatalog.resx">
       <DependentUpon>AddCatalog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="EditCatalog.resx">
       <DependentUpon>EditCatalog.cs</DependentUpon>
@@ -314,15 +316,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DiscountIcon.png" />
-    <None Include="Resources\EmployeeIcon.png" />
     <None Include="Resources\InStoreDamageIcon.png" />
-    <None Include="Resources\ProductIcon.png" />
     <None Include="Resources\PromoIcon.png" />
     <None Include="Resources\ReportsIcon.png" />
+    <None Include="Resources\DiscountIcon.png" />
+    <None Include="Resources\EmployeeIcon.png" />
+    <None Include="Resources\ReportIcon.png" />
     <None Include="Resources\SupplierIcon.png" />
     <None Include="Resources\TransactionIcon.png" />
     <None Include="Resources\ViewIcon.png" />
+    <None Include="Resources\ProductIcon.png" />
+    <None Include="Resources\StockInDefIcon.png" />
+    <None Include="Resources\StockInIcon.png" />
+    <None Include="Resources\CustReturnIcon.png" />
+    <None Include="Resources\ReturnIcon.png" />
+    <None Include="Resources\CatalogIcon.png" />
+    <None Include="Resources\ViewsIcon2.png" />
+    <None Include="Resources\InStoreIcon.png" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>

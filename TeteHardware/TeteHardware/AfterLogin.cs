@@ -54,7 +54,26 @@ namespace TeteHardware
         private void formAfterLogin_Load(object sender, EventArgs e)
         {
             labelName.Text = employeeName + "!"; //sets the value of labelName to employeeName
+            //Icons Handling
+            //Point of Sale
             btnPOS.Image = TeteHardware.Properties.Resources.TransactionIcon;
+            btnPromos.Image = TeteHardware.Properties.Resources.DiscountIcon;
+            btnCustReturn.Image = TeteHardware.Properties.Resources.CustReturnIcon;
+            btnEmpManage.Image = TeteHardware.Properties.Resources.EmployeeIcon;
+
+            //Inventory
+            btnProdManage.Image = TeteHardware.Properties.Resources.ProductIcon;
+            btnInstoreDam.Image = TeteHardware.Properties.Resources.InStoreIcon;
+            btnStockIn.Image = TeteHardware.Properties.Resources.StockInIcon;
+            btnStockInDef.Image = TeteHardware.Properties.Resources.StockInDefIcon;
+            btnReturn.Image = TeteHardware.Properties.Resources.ReturnIcon;
+            btnSupplier.Image = TeteHardware.Properties.Resources.SupplierIcon;
+            btnCatManage.Image = TeteHardware.Properties.Resources.CatalogIcon;
+
+            //Views and Reports
+            btnViews.Image = TeteHardware.Properties.Resources.ViewIcon2;
+            btnReport.Image = TeteHardware.Properties.Resources.ReportIcon;
+            
         }
 
         private void formAfterLogin_FormClosing(object sender, FormClosingEventArgs e)

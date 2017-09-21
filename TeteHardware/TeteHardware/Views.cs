@@ -44,6 +44,8 @@ namespace TeteHardware
             txtDateFrom.Text = DateTime.Now.ToString();
             txtDateTo.Text = DateTime.Now.ToString();
             populateComboParent();
+            monCalFrom.MaxDate = DateTime.Now;
+            monCalTo.MaxDate = DateTime.Now;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -75,11 +77,6 @@ namespace TeteHardware
         //Hot Keys Handling - put any special keys with special functions here
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.F1)
-            {
-                MessageBox.Show("You pressed the F1 key");
-                return true;    // indicate that you handled this keystroke
-            }
             if (keyData == Keys.F5)   // To print report
             {
                 if(myType == "Report")

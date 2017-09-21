@@ -19,7 +19,7 @@ namespace TeteHardware.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,6 +63,26 @@ namespace TeteHardware.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CatalogIcon {
+            get {
+                object obj = ResourceManager.GetObject("CatalogIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CustReturnIcon {
+            get {
+                object obj = ResourceManager.GetObject("CustReturnIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DiscountIcon {
             get {
                 object obj = ResourceManager.GetObject("DiscountIcon", resourceCulture);
@@ -83,9 +103,9 @@ namespace TeteHardware.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap InStoreDamageIcon {
+        internal static System.Drawing.Bitmap InStoreIcon {
             get {
-                object obj = ResourceManager.GetObject("InStoreDamageIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("InStoreIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -112,9 +132,9 @@ namespace TeteHardware.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PromoIcon {
+        internal static System.Drawing.Bitmap ReportIcon {
             get {
-                object obj = ResourceManager.GetObject("PromoIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("ReportIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -122,9 +142,29 @@ namespace TeteHardware.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ReportsIcon {
+        internal static System.Drawing.Bitmap ReturnIcon {
             get {
-                object obj = ResourceManager.GetObject("ReportsIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("ReturnIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StockInDefIcon {
+            get {
+                object obj = ResourceManager.GetObject("StockInDefIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StockInIcon {
+            get {
+                object obj = ResourceManager.GetObject("StockInIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -155,6 +195,16 @@ namespace TeteHardware.Properties {
         internal static System.Drawing.Bitmap ViewIcon {
             get {
                 object obj = ResourceManager.GetObject("ViewIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("ViewIcon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

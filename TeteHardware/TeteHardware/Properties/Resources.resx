@@ -117,27 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="magic" xml:space="preserve">
+    <value>1</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CatalogIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CatalogIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustReturnIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReturnIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DiscountIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiscountIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EmployeeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EmployeeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InStoreDamageIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InStoreDamageIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="magic" xml:space="preserve">
-    <value>1</value>
+  <data name="InStoreIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InStoreIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProductIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProductIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PromoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PromoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ReportIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReportIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ReportsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ReportsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ReturnIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustReturnIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StockInDefIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StockInDefIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StockInIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StockInIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SupplierIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SupplierIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -147,5 +159,8 @@
   </data>
   <data name="ViewIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ViewIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ViewsIcon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

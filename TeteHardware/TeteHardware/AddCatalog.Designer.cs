@@ -98,7 +98,7 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 8;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -115,7 +115,7 @@
             this.btnCancel.Location = new System.Drawing.Point(264, 226);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -161,7 +161,7 @@
             this.txtCdesc.Multiline = true;
             this.txtCdesc.Name = "txtCdesc";
             this.txtCdesc.Size = new System.Drawing.Size(158, 61);
-            this.txtCdesc.TabIndex = 4;
+            this.txtCdesc.TabIndex = 3;
             // 
             // txtCname
             // 
@@ -169,7 +169,7 @@
             this.txtCname.Location = new System.Drawing.Point(200, 106);
             this.txtCname.Name = "txtCname";
             this.txtCname.Size = new System.Drawing.Size(158, 25);
-            this.txtCname.TabIndex = 3;
+            this.txtCname.TabIndex = 2;
             // 
             // txtCid
             // 
@@ -194,7 +194,7 @@
             this.btnAdd.Location = new System.Drawing.Point(70, 226);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -211,7 +211,7 @@
             this.btnClear.Location = new System.Drawing.Point(167, 226);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 6;
+            this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);

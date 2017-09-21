@@ -79,7 +79,7 @@
             this.txtPstatus.Multiline = true;
             this.txtPstatus.Name = "txtPstatus";
             this.txtPstatus.Size = new System.Drawing.Size(192, 43);
-            this.txtPstatus.TabIndex = 10;
+            this.txtPstatus.TabIndex = 9;
             // 
             // labelPcat
             // 
@@ -110,7 +110,7 @@
             this.txtPunit.Location = new System.Drawing.Point(199, 360);
             this.txtPunit.Name = "txtPunit";
             this.txtPunit.Size = new System.Drawing.Size(192, 25);
-            this.txtPunit.TabIndex = 9;
+            this.txtPunit.TabIndex = 8;
             // 
             // timer1
             // 
@@ -130,7 +130,7 @@
             this.btnClose.Location = new System.Drawing.Point(421, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 14;
+            this.btnClose.TabIndex = 13;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -168,7 +168,7 @@
             this.txtMOQ.Location = new System.Drawing.Point(199, 261);
             this.txtMOQ.Name = "txtMOQ";
             this.txtMOQ.Size = new System.Drawing.Size(192, 25);
-            this.txtMOQ.TabIndex = 6;
+            this.txtMOQ.TabIndex = 5;
             this.txtMOQ.TextChanged += new System.EventHandler(this.txtMOQ_TextChanged);
             this.txtMOQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMOQ_KeyPress);
             // 
@@ -194,7 +194,7 @@
             this.btnCancel.Location = new System.Drawing.Point(280, 452);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -211,7 +211,7 @@
             this.btnClear.Location = new System.Drawing.Point(183, 452);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -228,7 +228,7 @@
             this.btnEdit.Location = new System.Drawing.Point(86, 452);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(91, 40);
-            this.btnEdit.TabIndex = 11;
+            this.btnEdit.TabIndex = 10;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -251,7 +251,7 @@
             this.txtPstock.Location = new System.Drawing.Point(199, 294);
             this.txtPstock.Name = "txtPstock";
             this.txtPstock.Size = new System.Drawing.Size(192, 25);
-            this.txtPstock.TabIndex = 7;
+            this.txtPstock.TabIndex = 6;
             // 
             // labelPdesc
             // 
@@ -271,7 +271,7 @@
             this.txtPdesc.Multiline = true;
             this.txtPdesc.Name = "txtPdesc";
             this.txtPdesc.Size = new System.Drawing.Size(192, 78);
-            this.txtPdesc.TabIndex = 5;
+            this.txtPdesc.TabIndex = 4;
             // 
             // labelPremarks
             // 
@@ -324,7 +324,7 @@
             this.txtPprice.Location = new System.Drawing.Point(199, 327);
             this.txtPprice.Name = "txtPprice";
             this.txtPprice.Size = new System.Drawing.Size(192, 25);
-            this.txtPprice.TabIndex = 8;
+            this.txtPprice.TabIndex = 7;
             this.txtPprice.TextChanged += new System.EventHandler(this.txtPprice_TextChanged);
             this.txtPprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPprice_KeyPress);
             // 
@@ -335,7 +335,7 @@
             this.txtPname.Location = new System.Drawing.Point(199, 139);
             this.txtPname.Name = "txtPname";
             this.txtPname.Size = new System.Drawing.Size(192, 25);
-            this.txtPname.TabIndex = 4;
+            this.txtPname.TabIndex = 3;
             // 
             // txtPid
             // 
@@ -345,7 +345,7 @@
             this.txtPid.Name = "txtPid";
             this.txtPid.ReadOnly = true;
             this.txtPid.Size = new System.Drawing.Size(192, 25);
-            this.txtPid.TabIndex = 2;
+            this.txtPid.TabIndex = 200;
             this.txtPid.Visible = false;
             // 
             // txtPcat
@@ -356,7 +356,7 @@
             this.txtPcat.Name = "txtPcat";
             this.txtPcat.ReadOnly = true;
             this.txtPcat.Size = new System.Drawing.Size(192, 25);
-            this.txtPcat.TabIndex = 3;
+            this.txtPcat.TabIndex = 2;
             // 
             // label2
             // 

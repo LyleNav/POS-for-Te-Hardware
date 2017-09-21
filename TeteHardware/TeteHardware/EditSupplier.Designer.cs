@@ -105,7 +105,7 @@
             this.btnCancel.Location = new System.Drawing.Point(267, 294);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -122,7 +122,7 @@
             this.btnClear.Location = new System.Drawing.Point(170, 294);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 9;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -139,7 +139,7 @@
             this.btnEdit.Location = new System.Drawing.Point(73, 294);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(91, 40);
-            this.btnEdit.TabIndex = 8;
+            this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -157,7 +157,7 @@
             this.btnClose.Location = new System.Drawing.Point(367, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 11;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -185,7 +185,7 @@
             this.txtSothers.Multiline = true;
             this.txtSothers.Name = "txtSothers";
             this.txtSothers.Size = new System.Drawing.Size(158, 42);
-            this.txtSothers.TabIndex = 7;
+            this.txtSothers.TabIndex = 6;
             // 
             // labelScontactNum
             // 
@@ -204,7 +204,7 @@
             this.txtScontactNum.Location = new System.Drawing.Point(196, 204);
             this.txtScontactNum.Name = "txtScontactNum";
             this.txtScontactNum.Size = new System.Drawing.Size(158, 25);
-            this.txtScontactNum.TabIndex = 6;
+            this.txtScontactNum.TabIndex = 5;
             this.txtScontactNum.TextChanged += new System.EventHandler(this.txtScontactNum_TextChanged);
             this.txtScontactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtScontactNum_KeyPress);
             // 
@@ -225,7 +225,7 @@
             this.txtSaddress.Location = new System.Drawing.Point(196, 138);
             this.txtSaddress.Name = "txtSaddress";
             this.txtSaddress.Size = new System.Drawing.Size(158, 25);
-            this.txtSaddress.TabIndex = 4;
+            this.txtSaddress.TabIndex = 3;
             // 
             // labelScontact
             // 
@@ -244,7 +244,7 @@
             this.txtScontact.Location = new System.Drawing.Point(196, 171);
             this.txtScontact.Name = "txtScontact";
             this.txtScontact.Size = new System.Drawing.Size(158, 25);
-            this.txtScontact.TabIndex = 5;
+            this.txtScontact.TabIndex = 4;
             // 
             // labelSname
             // 
@@ -274,7 +274,7 @@
             this.txtSname.Location = new System.Drawing.Point(196, 105);
             this.txtSname.Name = "txtSname";
             this.txtSname.Size = new System.Drawing.Size(158, 25);
-            this.txtSname.TabIndex = 3;
+            this.txtSname.TabIndex = 2;
             // 
             // txtSid
             // 

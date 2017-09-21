@@ -105,6 +105,8 @@
             // 
             this.datagridTableParent.AllowUserToAddRows = false;
             this.datagridTableParent.AllowUserToDeleteRows = false;
+            this.datagridTableParent.AllowUserToResizeColumns = false;
+            this.datagridTableParent.AllowUserToResizeRows = false;
             this.datagridTableParent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.datagridTableParent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridTableParent.Location = new System.Drawing.Point(21, 208);
@@ -173,6 +175,8 @@
             // 
             this.datagridTableChild.AllowUserToAddRows = false;
             this.datagridTableChild.AllowUserToDeleteRows = false;
+            this.datagridTableChild.AllowUserToResizeColumns = false;
+            this.datagridTableChild.AllowUserToResizeRows = false;
             this.datagridTableChild.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.datagridTableChild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridTableChild.Location = new System.Drawing.Point(529, 125);

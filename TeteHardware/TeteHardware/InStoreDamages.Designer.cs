@@ -151,7 +151,7 @@
             this.txtDate.Location = new System.Drawing.Point(154, 102);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(151, 25);
-            this.txtDate.TabIndex = 167;
+            this.txtDate.TabIndex = 2;
             this.txtDate.Enter += new System.EventHandler(this.txtDate_Enter);
             // 
             // txtName
@@ -159,14 +159,14 @@
             this.txtName.Location = new System.Drawing.Point(154, 140);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(307, 25);
-            this.txtName.TabIndex = 168;
+            this.txtName.TabIndex = 3;
             // 
             // txtProdName
             // 
             this.txtProdName.Location = new System.Drawing.Point(154, 176);
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(307, 25);
-            this.txtProdName.TabIndex = 169;
+            this.txtProdName.TabIndex = 4;
             this.txtProdName.Enter += new System.EventHandler(this.txtProdName_Enter);
             // 
             // txtQty
@@ -174,7 +174,7 @@
             this.txtQty.Location = new System.Drawing.Point(154, 215);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(151, 25);
-            this.txtQty.TabIndex = 170;
+            this.txtQty.TabIndex = 5;
             this.txtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
@@ -184,7 +184,7 @@
             this.txtRem.Multiline = true;
             this.txtRem.Name = "txtRem";
             this.txtRem.Size = new System.Drawing.Size(307, 49);
-            this.txtRem.TabIndex = 171;
+            this.txtRem.TabIndex = 6;
             // 
             // calMon
             // 
@@ -215,10 +215,10 @@
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduct.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduct.ForeColor = System.Drawing.Color.White;
-            this.btnProduct.Location = new System.Drawing.Point(40, 338);
+            this.btnProduct.Location = new System.Drawing.Point(104, 338);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(91, 53);
-            this.btnProduct.TabIndex = 232;
+            this.btnProduct.TabIndex = 7;
             this.btnProduct.Text = "Product (F6)";
             this.btnProduct.UseVisualStyleBackColor = false;
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
@@ -232,10 +232,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(155, 338);
+            this.btnSave.Location = new System.Drawing.Point(219, 338);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(91, 53);
-            this.btnSave.TabIndex = 233;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -249,10 +249,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(262, 338);
+            this.btnClear.Location = new System.Drawing.Point(326, 338);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 53);
-            this.btnClear.TabIndex = 234;
+            this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -272,6 +272,7 @@
             this.btnExit.TabIndex = 235;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Visible = false;
             this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClose
@@ -287,7 +288,7 @@
             this.btnClose.Location = new System.Drawing.Point(480, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 236;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -394,14 +395,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(521, 414);
             this.ControlBox = false;
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.dataGridProduct);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridProduct);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnProduct);
             this.Controls.Add(this.txtProdID);

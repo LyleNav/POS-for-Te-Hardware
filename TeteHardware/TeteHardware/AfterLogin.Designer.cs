@@ -75,7 +75,7 @@
             this.labelName.ForeColor = System.Drawing.Color.White;
             this.labelName.Location = new System.Drawing.Point(155, 13);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(81, 31);
+            this.labelName.Size = new System.Drawing.Size(83, 31);
             this.labelName.TabIndex = 101;
             this.labelName.Text = "Name";
             // 
@@ -102,7 +102,7 @@
             this.labelWelcome.ForeColor = System.Drawing.Color.White;
             this.labelWelcome.Location = new System.Drawing.Point(35, 13);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(121, 31);
+            this.labelWelcome.Size = new System.Drawing.Size(131, 31);
             this.labelWelcome.TabIndex = 100;
             this.labelWelcome.Text = "Welcome,";
             // 
@@ -119,7 +119,7 @@
             this.btnClose.Location = new System.Drawing.Point(967, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 11;
+            this.btnClose.TabIndex = 15;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -136,7 +136,7 @@
             this.btnCatManage.Location = new System.Drawing.Point(149, 295);
             this.btnCatManage.Name = "btnCatManage";
             this.btnCatManage.Size = new System.Drawing.Size(286, 140);
-            this.btnCatManage.TabIndex = 2;
+            this.btnCatManage.TabIndex = 12;
             this.btnCatManage.Text = "Catalog Management";
             this.btnCatManage.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnCatManage.UseVisualStyleBackColor = false;
@@ -155,7 +155,7 @@
             this.btnPromos.Location = new System.Drawing.Point(3, 149);
             this.btnPromos.Name = "btnPromos";
             this.btnPromos.Size = new System.Drawing.Size(140, 140);
-            this.btnPromos.TabIndex = 7;
+            this.btnPromos.TabIndex = 3;
             this.btnPromos.Text = "Promos";
             this.btnPromos.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnPromos.UseVisualStyleBackColor = false;
@@ -173,7 +173,7 @@
             this.btnReturn.Location = new System.Drawing.Point(295, 149);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(140, 140);
-            this.btnReturn.TabIndex = 8;
+            this.btnReturn.TabIndex = 10;
             this.btnReturn.Text = "Return to Supplier";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnReturn.UseVisualStyleBackColor = false;
@@ -192,7 +192,7 @@
             this.btnProdManage.Location = new System.Drawing.Point(3, 3);
             this.btnProdManage.Name = "btnProdManage";
             this.btnProdManage.Size = new System.Drawing.Size(286, 140);
-            this.btnProdManage.TabIndex = 3;
+            this.btnProdManage.TabIndex = 6;
             this.btnProdManage.Text = "Product Management";
             this.btnProdManage.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnProdManage.UseVisualStyleBackColor = false;
@@ -210,7 +210,7 @@
             this.btnStockIn.Location = new System.Drawing.Point(3, 149);
             this.btnStockIn.Name = "btnStockIn";
             this.btnStockIn.Size = new System.Drawing.Size(140, 140);
-            this.btnStockIn.TabIndex = 11;
+            this.btnStockIn.TabIndex = 8;
             this.btnStockIn.Text = "Stock In";
             this.btnStockIn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnStockIn.UseVisualStyleBackColor = false;
@@ -228,7 +228,7 @@
             this.btnStockInDef.Location = new System.Drawing.Point(149, 149);
             this.btnStockInDef.Name = "btnStockInDef";
             this.btnStockInDef.Size = new System.Drawing.Size(140, 140);
-            this.btnStockInDef.TabIndex = 12;
+            this.btnStockInDef.TabIndex = 9;
             this.btnStockInDef.Text = "Stock In (Defective)";
             this.btnStockInDef.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnStockInDef.UseVisualStyleBackColor = false;
@@ -246,7 +246,7 @@
             this.btnCustReturn.Location = new System.Drawing.Point(149, 149);
             this.btnCustReturn.Name = "btnCustReturn";
             this.btnCustReturn.Size = new System.Drawing.Size(140, 140);
-            this.btnCustReturn.TabIndex = 9;
+            this.btnCustReturn.TabIndex = 4;
             this.btnCustReturn.Text = "Customer Returned";
             this.btnCustReturn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnCustReturn.UseVisualStyleBackColor = false;
@@ -264,7 +264,7 @@
             this.btnSupplier.Location = new System.Drawing.Point(3, 295);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(140, 140);
-            this.btnSupplier.TabIndex = 5;
+            this.btnSupplier.TabIndex = 11;
             this.btnSupplier.Text = "Supplier Management";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnSupplier.UseVisualStyleBackColor = false;
@@ -282,7 +282,7 @@
             this.btnEmpManage.Location = new System.Drawing.Point(3, 295);
             this.btnEmpManage.Name = "btnEmpManage";
             this.btnEmpManage.Size = new System.Drawing.Size(286, 140);
-            this.btnEmpManage.TabIndex = 10;
+            this.btnEmpManage.TabIndex = 5;
             this.btnEmpManage.Text = "Employee Management";
             this.btnEmpManage.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnEmpManage.UseVisualStyleBackColor = false;
@@ -300,7 +300,7 @@
             this.btnViews.Location = new System.Drawing.Point(833, 160);
             this.btnViews.Name = "btnViews";
             this.btnViews.Size = new System.Drawing.Size(140, 140);
-            this.btnViews.TabIndex = 14;
+            this.btnViews.TabIndex = 13;
             this.btnViews.Text = "Views";
             this.btnViews.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnViews.UseVisualStyleBackColor = false;
@@ -318,7 +318,7 @@
             this.btnReport.Location = new System.Drawing.Point(833, 309);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(140, 140);
-            this.btnReport.TabIndex = 16;
+            this.btnReport.TabIndex = 14;
             this.btnReport.Text = "Reports";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnReport.UseVisualStyleBackColor = false;
@@ -336,7 +336,7 @@
             this.btnPOS.Location = new System.Drawing.Point(3, 3);
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Size = new System.Drawing.Size(286, 140);
-            this.btnPOS.TabIndex = 13;
+            this.btnPOS.TabIndex = 2;
             this.btnPOS.Text = "Transactions";
             this.btnPOS.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnPOS.UseVisualStyleBackColor = false;
@@ -354,7 +354,7 @@
             this.btnInstoreDam.Location = new System.Drawing.Point(295, 3);
             this.btnInstoreDam.Name = "btnInstoreDam";
             this.btnInstoreDam.Size = new System.Drawing.Size(140, 140);
-            this.btnInstoreDam.TabIndex = 15;
+            this.btnInstoreDam.TabIndex = 7;
             this.btnInstoreDam.Text = "InStore Damages";
             this.btnInstoreDam.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnInstoreDam.UseVisualStyleBackColor = false;

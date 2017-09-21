@@ -30,6 +30,7 @@ namespace TeteHardware
         {
             txtCalReturn.Text = DateTime.Now.ToShortDateString();
             calReturned.Location = new Point(342, 137);
+            calReturned.MaxDate = DateTime.Now;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

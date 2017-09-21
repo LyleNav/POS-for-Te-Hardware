@@ -145,7 +145,7 @@
             this.btnClearSelection.Location = new System.Drawing.Point(434, 236);
             this.btnClearSelection.Name = "btnClearSelection";
             this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
-            this.btnClearSelection.TabIndex = 5;
+            this.btnClearSelection.TabIndex = 4;
             this.btnClearSelection.Text = "Clear Selection";
             this.btnClearSelection.UseVisualStyleBackColor = false;
             this.btnClearSelection.Click += new System.EventHandler(this.btnClearSelection_Click);
@@ -197,7 +197,7 @@
             this.btnClose.Location = new System.Drawing.Point(586, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 6;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);

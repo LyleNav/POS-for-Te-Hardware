@@ -84,7 +84,7 @@
             this.txtPdesc.Multiline = true;
             this.txtPdesc.Name = "txtPdesc";
             this.txtPdesc.Size = new System.Drawing.Size(192, 78);
-            this.txtPdesc.TabIndex = 5;
+            this.txtPdesc.TabIndex = 4;
             // 
             // labelPstatus
             // 
@@ -137,7 +137,7 @@
             this.txtPprice.Location = new System.Drawing.Point(198, 302);
             this.txtPprice.Name = "txtPprice";
             this.txtPprice.Size = new System.Drawing.Size(192, 25);
-            this.txtPprice.TabIndex = 8;
+            this.txtPprice.TabIndex = 6;
             this.txtPprice.TextChanged += new System.EventHandler(this.txtPprice_TextChanged);
             this.txtPprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPprice_KeyPress);
             this.txtPprice.Leave += new System.EventHandler(this.txtPprice_Leave);
@@ -148,7 +148,7 @@
             this.txtPname.Location = new System.Drawing.Point(198, 147);
             this.txtPname.Name = "txtPname";
             this.txtPname.Size = new System.Drawing.Size(192, 25);
-            this.txtPname.TabIndex = 4;
+            this.txtPname.TabIndex = 3;
             // 
             // txtPid
             // 
@@ -158,7 +158,7 @@
             this.txtPid.Name = "txtPid";
             this.txtPid.ReadOnly = true;
             this.txtPid.Size = new System.Drawing.Size(192, 25);
-            this.txtPid.TabIndex = 2;
+            this.txtPid.TabIndex = 200;
             this.txtPid.Visible = false;
             // 
             // btnCancel
@@ -173,7 +173,7 @@
             this.btnCancel.Location = new System.Drawing.Point(279, 427);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 40);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -190,7 +190,7 @@
             this.btnClear.Location = new System.Drawing.Point(182, 427);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(91, 40);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -207,7 +207,7 @@
             this.btnAdd.Location = new System.Drawing.Point(85, 427);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 40);
-            this.btnAdd.TabIndex = 11;
+            this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -262,7 +262,7 @@
             this.btnClose.Location = new System.Drawing.Point(421, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
-            this.btnClose.TabIndex = 14;
+            this.btnClose.TabIndex = 12;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -289,7 +289,7 @@
             this.txtPunit.Location = new System.Drawing.Point(198, 335);
             this.txtPunit.Name = "txtPunit";
             this.txtPunit.Size = new System.Drawing.Size(192, 25);
-            this.txtPunit.TabIndex = 9;
+            this.txtPunit.TabIndex = 7;
             // 
             // labelPcat
             // 
@@ -311,7 +311,7 @@
             this.comboPcat.Location = new System.Drawing.Point(198, 111);
             this.comboPcat.Name = "comboPcat";
             this.comboPcat.Size = new System.Drawing.Size(192, 25);
-            this.comboPcat.TabIndex = 3;
+            this.comboPcat.TabIndex = 2;
             this.comboPcat.SelectedIndexChanged += new System.EventHandler(this.comboPcat_SelectedIndexChanged);
             // 
             // txtPremarks
@@ -321,7 +321,7 @@
             this.txtPremarks.Multiline = true;
             this.txtPremarks.Name = "txtPremarks";
             this.txtPremarks.Size = new System.Drawing.Size(192, 43);
-            this.txtPremarks.TabIndex = 10;
+            this.txtPremarks.TabIndex = 8;
             // 
             // label1
             // 
@@ -340,7 +340,7 @@
             this.txtMOQ.Location = new System.Drawing.Point(198, 269);
             this.txtMOQ.Name = "txtMOQ";
             this.txtMOQ.Size = new System.Drawing.Size(192, 25);
-            this.txtMOQ.TabIndex = 6;
+            this.txtMOQ.TabIndex = 5;
             this.txtMOQ.TextChanged += new System.EventHandler(this.txtMOQ_TextChanged);
             this.txtMOQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMOQ_KeyPress);
             this.txtMOQ.Leave += new System.EventHandler(this.txtMOQ_Leave);
