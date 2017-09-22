@@ -127,7 +127,7 @@ namespace TeteHardware
 
         private void formAddCatalog_Load(object sender, EventArgs e)
         {
-            int mycounter = 0;
+            //int mycounter = 0;
 /*
             try
             {

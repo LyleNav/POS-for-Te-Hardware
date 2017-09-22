@@ -96,7 +96,7 @@
             this.labelEuser.AutoSize = true;
             this.labelEuser.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEuser.ForeColor = System.Drawing.Color.White;
-            this.labelEuser.Location = new System.Drawing.Point(51, 142);
+            this.labelEuser.Location = new System.Drawing.Point(35, 140);
             this.labelEuser.Name = "labelEuser";
             this.labelEuser.Size = new System.Drawing.Size(76, 19);
             this.labelEuser.TabIndex = 182;
@@ -107,7 +107,7 @@
             this.txtEuser.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEuser.Location = new System.Drawing.Point(196, 139);
             this.txtEuser.Name = "txtEuser";
-            this.txtEuser.Size = new System.Drawing.Size(158, 25);
+            this.txtEuser.Size = new System.Drawing.Size(143, 25);
             this.txtEuser.TabIndex = 3;
             // 
             // labelEpass
@@ -115,7 +115,7 @@
             this.labelEpass.AutoSize = true;
             this.labelEpass.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEpass.ForeColor = System.Drawing.Color.White;
-            this.labelEpass.Location = new System.Drawing.Point(51, 175);
+            this.labelEpass.Location = new System.Drawing.Point(35, 170);
             this.labelEpass.Name = "labelEpass";
             this.labelEpass.Size = new System.Drawing.Size(73, 19);
             this.labelEpass.TabIndex = 181;
@@ -127,7 +127,7 @@
             this.txtEpass.Location = new System.Drawing.Point(196, 172);
             this.txtEpass.Name = "txtEpass";
             this.txtEpass.PasswordChar = '*';
-            this.txtEpass.Size = new System.Drawing.Size(158, 25);
+            this.txtEpass.Size = new System.Drawing.Size(143, 25);
             this.txtEpass.TabIndex = 4;
             // 
             // btnCancel
@@ -137,11 +137,11 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(264, 246);
+            this.btnCancel.Location = new System.Drawing.Point(255, 249);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 40);
+            this.btnCancel.Size = new System.Drawing.Size(85, 30);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -154,11 +154,11 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(167, 246);
+            this.btnClear.Location = new System.Drawing.Point(155, 249);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(91, 40);
+            this.btnClear.Size = new System.Drawing.Size(85, 30);
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -171,11 +171,11 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(70, 246);
+            this.btnAdd.Location = new System.Drawing.Point(55, 249);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(91, 40);
+            this.btnAdd.Size = new System.Drawing.Size(85, 30);
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -186,7 +186,7 @@
             this.labelEname.AutoSize = true;
             this.labelEname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEname.ForeColor = System.Drawing.Color.White;
-            this.labelEname.Location = new System.Drawing.Point(51, 110);
+            this.labelEname.Location = new System.Drawing.Point(35, 110);
             this.labelEname.Name = "labelEname";
             this.labelEname.Size = new System.Drawing.Size(118, 19);
             this.labelEname.TabIndex = 179;
@@ -208,7 +208,7 @@
             this.txtEname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEname.Location = new System.Drawing.Point(196, 105);
             this.txtEname.Name = "txtEname";
-            this.txtEname.Size = new System.Drawing.Size(158, 25);
+            this.txtEname.Size = new System.Drawing.Size(143, 25);
             this.txtEname.TabIndex = 2;
             // 
             // txtEid
@@ -218,7 +218,7 @@
             this.txtEid.Location = new System.Drawing.Point(196, 105);
             this.txtEid.Name = "txtEid";
             this.txtEid.ReadOnly = true;
-            this.txtEid.Size = new System.Drawing.Size(158, 25);
+            this.txtEid.Size = new System.Drawing.Size(143, 25);
             this.txtEid.TabIndex = 2;
             // 
             // btnClose
@@ -231,7 +231,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(367, 12);
+            this.btnClose.Location = new System.Drawing.Point(358, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 9;
@@ -249,7 +249,7 @@
             this.labelLevel.AutoSize = true;
             this.labelLevel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLevel.ForeColor = System.Drawing.Color.White;
-            this.labelLevel.Location = new System.Drawing.Point(51, 208);
+            this.labelLevel.Location = new System.Drawing.Point(35, 200);
             this.labelLevel.Name = "labelLevel";
             this.labelLevel.Size = new System.Drawing.Size(45, 19);
             this.labelLevel.TabIndex = 184;
@@ -267,7 +267,7 @@
             "Cashier"});
             this.comboElevel.Location = new System.Drawing.Point(196, 205);
             this.comboElevel.Name = "comboElevel";
-            this.comboElevel.Size = new System.Drawing.Size(159, 25);
+            this.comboElevel.Size = new System.Drawing.Size(143, 25);
             this.comboElevel.TabIndex = 5;
             // 
             // label1
@@ -275,7 +275,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(164, 112);
+            this.label1.Location = new System.Drawing.Point(147, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(12, 14);
             this.label1.TabIndex = 185;
@@ -286,7 +286,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(122, 144);
+            this.label2.Location = new System.Drawing.Point(105, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 14);
             this.label2.TabIndex = 186;
@@ -297,7 +297,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(119, 177);
+            this.label3.Location = new System.Drawing.Point(102, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(12, 14);
             this.label3.TabIndex = 187;
@@ -308,7 +308,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(91, 210);
+            this.label4.Location = new System.Drawing.Point(74, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(12, 14);
             this.label4.TabIndex = 188;
@@ -319,7 +319,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 308);
+            this.ClientSize = new System.Drawing.Size(399, 308);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

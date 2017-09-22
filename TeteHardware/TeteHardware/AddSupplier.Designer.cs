@@ -122,7 +122,7 @@
             this.txtSid.Location = new System.Drawing.Point(196, 105);
             this.txtSid.Name = "txtSid";
             this.txtSid.ReadOnly = true;
-            this.txtSid.Size = new System.Drawing.Size(158, 25);
+            this.txtSid.Size = new System.Drawing.Size(144, 25);
             this.txtSid.TabIndex = 2;
             // 
             // txtSname
@@ -130,7 +130,7 @@
             this.txtSname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSname.Location = new System.Drawing.Point(196, 105);
             this.txtSname.Name = "txtSname";
-            this.txtSname.Size = new System.Drawing.Size(158, 25);
+            this.txtSname.Size = new System.Drawing.Size(144, 25);
             this.txtSname.TabIndex = 2;
             // 
             // btnClose
@@ -158,11 +158,11 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(267, 294);
+            this.btnCancel.Location = new System.Drawing.Point(255, 300);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 40);
+            this.btnCancel.Size = new System.Drawing.Size(85, 30);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -175,11 +175,11 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(170, 294);
+            this.btnClear.Location = new System.Drawing.Point(155, 300);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(91, 40);
+            this.btnClear.Size = new System.Drawing.Size(85, 30);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -192,11 +192,11 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(73, 294);
+            this.btnAdd.Location = new System.Drawing.Point(55, 300);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(91, 40);
+            this.btnAdd.Size = new System.Drawing.Size(85, 30);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -223,7 +223,7 @@
             this.txtSaddress.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaddress.Location = new System.Drawing.Point(196, 138);
             this.txtSaddress.Name = "txtSaddress";
-            this.txtSaddress.Size = new System.Drawing.Size(158, 25);
+            this.txtSaddress.Size = new System.Drawing.Size(144, 25);
             this.txtSaddress.TabIndex = 3;
             // 
             // labelScontact
@@ -242,7 +242,7 @@
             this.txtScontact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScontact.Location = new System.Drawing.Point(196, 171);
             this.txtScontact.Name = "txtScontact";
-            this.txtScontact.Size = new System.Drawing.Size(158, 25);
+            this.txtScontact.Size = new System.Drawing.Size(144, 25);
             this.txtScontact.TabIndex = 4;
             // 
             // labelScontactNum
@@ -261,7 +261,7 @@
             this.txtScontactNum.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScontactNum.Location = new System.Drawing.Point(196, 204);
             this.txtScontactNum.Name = "txtScontactNum";
-            this.txtScontactNum.Size = new System.Drawing.Size(158, 25);
+            this.txtScontactNum.Size = new System.Drawing.Size(144, 25);
             this.txtScontactNum.TabIndex = 5;
             // 
             // labelSremarks
@@ -281,7 +281,7 @@
             this.txtSothers.Location = new System.Drawing.Point(196, 238);
             this.txtSothers.Multiline = true;
             this.txtSothers.Name = "txtSothers";
-            this.txtSothers.Size = new System.Drawing.Size(158, 42);
+            this.txtSothers.Size = new System.Drawing.Size(144, 42);
             this.txtSothers.TabIndex = 6;
             // 
             // label2

@@ -25,18 +25,27 @@ namespace TeteHardware
             int myScreenWidth = Screen.PrimaryScreen.Bounds.Width;
             int myScreenHeight = Screen.PrimaryScreen.Bounds.Height;
 
-            //MessageBox.Show(myScreenWidth.ToString(), "", MessageBoxButtons.OK);
+            dataGridProduct.ClearSelection();
+            dataGridOrdered.ClearSelection();
+            txtGrandTot.Text = "0.00";
+            myboolEdit = false;
+            lblHardware1.SendToBack();
+            lblHardware2.SendToBack();
+            pnlPay.Location = new Point((myScreenWidth - pnlPay.Width) / 2, (myScreenHeight - pnlPay.Height) / 2);
+            pnlgridProduct.Location = new Point((myScreenWidth - pnlgridProduct.Width) / 2, (myScreenHeight - pnlgridProduct.Height) / 2);
+            btnClosePay.Location = new Point((myScreenWidth - btnClosePay.Width) / 2, (myScreenHeight - btnClosePay.Height - pnlPay.Height) / 2);
+            
 
+            //MessageBox.Show(myScreenWidth.ToString(), "", MessageBoxButtons.OK);
+            /*
             if(myScreenWidth<1300)
             {
                 MessageBox.Show("Please select at least 1400 X 900 Screen Resolution");
                 ReferenceToAfterLogin.Show();
                 this.Dispose();
             }
-            pnlTransact.Location = new Point((myScreenWidth - 1000 - pnlTransact.Width) / 2, 0);
-            dataGridProduct.Location = new Point(pnlTransact.Location.X, dataGridProduct.Location.Y);
-            pnlButtons2.Location = new Point(pnlTransact.Location.X, myScreenHeight - pnlButtons2.Height);
-            pnlButtons.Location = new Point(pnlTransact.Location.X, myScreenHeight - pnlButtons2.Height - pnlButtons.Height);
+
+            
 
             pnlgridProduct.Size = new Size(610, 600);
             pnlgridProduct.Controls.Add(dataGridProduct);
@@ -53,18 +62,13 @@ namespace TeteHardware
             pnlgridProduct.Visible = false;
             dataGridOrdered.Size = new Size(800, myScreenHeight-100);
             dataGridOrdered.Location = new Point(myScreenWidth - 1000, 50);
-            txtGrandTot.Text = "0.00";
-            dataGridProduct.ClearSelection();
-            dataGridOrdered.ClearSelection();
-            myboolEdit = false;
-            lblHardware1.SendToBack();
-            lblHardware2.SendToBack();
             pnlPay.Size = new Size(632, 379);
-            pnlPay.Location = new Point((myScreenWidth - pnlPay.Width) / 2, (myScreenHeight - pnlPay.Height) / 2);
+           
             pnlPay.Visible = false;
-            btnClosePay.Location = new Point((myScreenWidth - btnClosePay.Width) / 2, (myScreenHeight - btnClosePay.Height - pnlPay.Height) / 2);
+           
             btnClosePay.Visible = false;
             btnClosePay.BringToFront();
+            */
         }
         public formPOS()
         {
@@ -78,7 +82,6 @@ namespace TeteHardware
 
         private void formPOS_Load(object sender, EventArgs e)
         {
-            this.calTrans.Location = new Point(157, 351);
             clearFormTransact();
             initializeOrderedGrid();
         }
@@ -121,14 +124,7 @@ namespace TeteHardware
 
         private void txtdateTransact_Enter(object sender, EventArgs e)
         {
-            calTrans.Visible = true;
-        }
 
-        private void calTrans_DateSelected(object sender, DateRangeEventArgs e)
-        {
-            txtdateTransact.Text = calTrans.SelectionRange.Start.ToShortDateString();
-            txtTransDate2.Text = calTrans.SelectionRange.Start.ToShortDateString();
-            calTrans.Visible = false;
         }
         public void refreshTable()
         {
@@ -151,7 +147,6 @@ namespace TeteHardware
             txtSubTotPrice.Text = "0";
             txtDiscAmt.Text = "0";
             txtTotPrice.Text = "0";
-            txtStatus.Text = "";
         }
         public void clearFormTransact()
         {
@@ -168,7 +163,7 @@ namespace TeteHardware
             txtSubTotPrice.Text = "0";
             txtDiscAmt.Text = "0";
             txtTotPrice.Text = "0";
-            txtStatus.Text = "";
+
             dataGridProduct.ClearSelection();
 
         }
@@ -192,7 +187,10 @@ namespace TeteHardware
             txtSubTotPrice.Text = "0";
             txtDiscAmt.Text = "0";
             txtTotPrice.Text = "0";
-            txtStatus.Text = "";
+            if (txtItemName.Text == "")
+                txtQty.Enabled = false;
+            else
+                txtQty.Enabled = true;
         }
 
         public void gridProductLoad(string selectCommand) //loads the data from the database
@@ -629,12 +627,12 @@ namespace TeteHardware
 
         //Hot Keys Handling
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {  
+        {
             if (keyData == Keys.Tab || keyData == (Keys.Shift | Keys.Tab))
             {
                 return true;
             }
-            else if(keyData == Keys.F12)   //Promo and Discounts
+            else if (keyData == Keys.F12)   //Promo and Discounts
             {
                 comboDiscName.Focus();
             }
@@ -646,8 +644,16 @@ namespace TeteHardware
             }
             else if (keyData == Keys.F10)   //Select datagridOrdered
             {
-                dataGridOrdered.Focus();
-                dataGridOrdered.Rows[0].Selected = true;
+                if (dataGridOrdered.Rows.Count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    dataGridOrdered.Focus();
+                    dataGridOrdered.Rows[0].Selected = true;
+                }
+               
             }
             else if (keyData == Keys.F9)   //Pay
             {
@@ -661,7 +667,7 @@ namespace TeteHardware
             else if (keyData == Keys.F8)   //Select datagridProduct
             {
                 searchVisibility(true);
-                gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product");
+                gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodStock > 0");
                 dataGridProduct.Focus();
                 dataGridProduct.Rows[0].Selected = true;
                 dataGridProduct.CurrentCell.Selected = false;
@@ -678,9 +684,21 @@ namespace TeteHardware
                 txtSearchName.Text = "";
                 txtSearchID.Focus();
             }
-            else if(keyData==Keys.Escape)     //Close Window
+            else if (keyData == Keys.Escape)     //Close Window
             {
-                getOut();
+                if (pnlgridProduct.Visible == true)
+                {
+                    pnlgridProduct.Visible = false;
+                }
+                else if(pnlPay.Visible == true)
+                {
+                    pnlPay.Visible = false;
+                }
+                else
+                {
+                    getOut();
+                }
+                
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
@@ -705,6 +723,13 @@ namespace TeteHardware
                 txtQty.Text = "0";
                 txtQty.Focus();
                 txtQty.SelectAll();
+            }
+            if(txtQty.Text == "0")
+            {
+                MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
+                txtQty.Focus();
+                txtQty.SelectAll();
+
             }
         }
 
@@ -731,7 +756,7 @@ namespace TeteHardware
                 txtPrice.Text = dataGridOrdered.Rows[myRowIndex].Cells["U Price"].Value.ToString();
                 txtPrice.Text = Convert.ToString(decimal.Round(decimal.Parse(txtPrice.Text + "000"), 2));
                 txtQty.Text = dataGridOrdered.Rows[myRowIndex].Cells["Qty"].Value.ToString();
-                myStock = int.Parse(dataGridOrdered.Rows[myRowIndex].Cells["Stock"].Value.ToString());
+                //myStock = int.Parse(dataGridOrdered.Rows[myRowIndex].Cells["Stock"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }
             txtQty.Enabled = true;
@@ -739,7 +764,7 @@ namespace TeteHardware
 
         private void txtSearchID_TextChanged(object sender, EventArgs e)
         {
-            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product where prodID like '%" + txtSearchID.Text + "%'");
+            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodID LIKE '%" + txtSearchID.Text + "%' AND prodStock > 0");
         }
         private void txtSearchID_KeyDown(object sender, KeyEventArgs e)
         {
@@ -753,7 +778,7 @@ namespace TeteHardware
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
-            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodName LIKE '%" + txtSearchName.Text + "%'");
+            gridProductLoad("SELECT prodID AS 'ID', prodName AS 'Name', prodUPrice AS 'Price', prodStock AS 'Stock', prodUnit AS 'Unit' FROM tbl_product WHERE prodName LIKE '%" + txtSearchName.Text + "%' AND prodStock > 0");
         }
         private void txtSearchName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -774,11 +799,9 @@ namespace TeteHardware
 
         private void txtPayCash_TextChanged(object sender, EventArgs e)
         {
-            if (!func.IsFloat(txtQty.Text))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPayCash.Text, "  ^ [0-9]")) //textbox only accepts numbers
             {
-                //MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
-                txtQty.Text = "0";
-                txtQty.SelectAll();
+                txtPayCash.Text = "";
             }
         }
         private void txtPayCash_KeyDown(object sender, KeyEventArgs e)
@@ -823,5 +846,22 @@ namespace TeteHardware
             comboDiscName.ForeColor = Color.Maroon;
         }
 
+        private void txtItemID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTransDate2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPayCash_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

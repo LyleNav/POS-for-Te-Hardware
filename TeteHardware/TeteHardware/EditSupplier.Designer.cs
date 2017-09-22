@@ -102,9 +102,9 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(267, 294);
+            this.btnCancel.Location = new System.Drawing.Point(255, 300);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 40);
+            this.btnCancel.Size = new System.Drawing.Size(85, 30);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -119,9 +119,9 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(170, 294);
+            this.btnClear.Location = new System.Drawing.Point(155, 300);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(91, 40);
+            this.btnClear.Size = new System.Drawing.Size(85, 30);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -136,9 +136,9 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(73, 294);
+            this.btnEdit.Location = new System.Drawing.Point(55, 300);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(91, 40);
+            this.btnEdit.Size = new System.Drawing.Size(85, 30);
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -184,7 +184,7 @@
             this.txtSothers.Location = new System.Drawing.Point(196, 238);
             this.txtSothers.Multiline = true;
             this.txtSothers.Name = "txtSothers";
-            this.txtSothers.Size = new System.Drawing.Size(158, 42);
+            this.txtSothers.Size = new System.Drawing.Size(144, 42);
             this.txtSothers.TabIndex = 6;
             // 
             // labelScontactNum
@@ -203,7 +203,7 @@
             this.txtScontactNum.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScontactNum.Location = new System.Drawing.Point(196, 204);
             this.txtScontactNum.Name = "txtScontactNum";
-            this.txtScontactNum.Size = new System.Drawing.Size(158, 25);
+            this.txtScontactNum.Size = new System.Drawing.Size(144, 25);
             this.txtScontactNum.TabIndex = 5;
             this.txtScontactNum.TextChanged += new System.EventHandler(this.txtScontactNum_TextChanged);
             this.txtScontactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtScontactNum_KeyPress);
@@ -224,7 +224,7 @@
             this.txtSaddress.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaddress.Location = new System.Drawing.Point(196, 138);
             this.txtSaddress.Name = "txtSaddress";
-            this.txtSaddress.Size = new System.Drawing.Size(158, 25);
+            this.txtSaddress.Size = new System.Drawing.Size(144, 25);
             this.txtSaddress.TabIndex = 3;
             // 
             // labelScontact
@@ -243,7 +243,7 @@
             this.txtScontact.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScontact.Location = new System.Drawing.Point(196, 171);
             this.txtScontact.Name = "txtScontact";
-            this.txtScontact.Size = new System.Drawing.Size(158, 25);
+            this.txtScontact.Size = new System.Drawing.Size(144, 25);
             this.txtScontact.TabIndex = 4;
             // 
             // labelSname
@@ -273,7 +273,7 @@
             this.txtSname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSname.Location = new System.Drawing.Point(196, 105);
             this.txtSname.Name = "txtSname";
-            this.txtSname.Size = new System.Drawing.Size(158, 25);
+            this.txtSname.Size = new System.Drawing.Size(144, 25);
             this.txtSname.TabIndex = 2;
             // 
             // txtSid
@@ -283,7 +283,7 @@
             this.txtSid.Location = new System.Drawing.Point(196, 105);
             this.txtSid.Name = "txtSid";
             this.txtSid.ReadOnly = true;
-            this.txtSid.Size = new System.Drawing.Size(158, 25);
+            this.txtSid.Size = new System.Drawing.Size(144, 25);
             this.txtSid.TabIndex = 2;
             // 
             // label2

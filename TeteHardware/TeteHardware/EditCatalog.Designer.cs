@@ -53,7 +53,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.labelEditCatalog);
-            this.panel1.Location = new System.Drawing.Point(0, 18);
+            this.panel1.Location = new System.Drawing.Point(0, 15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(340, 58);
             this.panel1.TabIndex = 142;
@@ -79,7 +79,7 @@
             this.labelEditCatalog.AutoSize = true;
             this.labelEditCatalog.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEditCatalog.ForeColor = System.Drawing.Color.White;
-            this.labelEditCatalog.Location = new System.Drawing.Point(24, 13);
+            this.labelEditCatalog.Location = new System.Drawing.Point(32, 13);
             this.labelEditCatalog.Name = "labelEditCatalog";
             this.labelEditCatalog.Size = new System.Drawing.Size(149, 31);
             this.labelEditCatalog.TabIndex = 101;
@@ -92,11 +92,11 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(264, 226);
+            this.btnCancel.Location = new System.Drawing.Point(255, 226);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 40);
+            this.btnCancel.Size = new System.Drawing.Size(85, 30);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -107,7 +107,7 @@
             this.labelCdesc.AutoSize = true;
             this.labelCdesc.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCdesc.ForeColor = System.Drawing.Color.White;
-            this.labelCdesc.Location = new System.Drawing.Point(51, 147);
+            this.labelCdesc.Location = new System.Drawing.Point(35, 150);
             this.labelCdesc.Name = "labelCdesc";
             this.labelCdesc.Size = new System.Drawing.Size(137, 19);
             this.labelCdesc.TabIndex = 150;
@@ -118,7 +118,7 @@
             this.labelCname.AutoSize = true;
             this.labelCname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCname.ForeColor = System.Drawing.Color.White;
-            this.labelCname.Location = new System.Drawing.Point(51, 111);
+            this.labelCname.Location = new System.Drawing.Point(35, 110);
             this.labelCname.Name = "labelCname";
             this.labelCname.Size = new System.Drawing.Size(108, 19);
             this.labelCname.TabIndex = 151;
@@ -129,7 +129,7 @@
             this.labelCid.AutoSize = true;
             this.labelCid.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCid.ForeColor = System.Drawing.Color.White;
-            this.labelCid.Location = new System.Drawing.Point(51, 110);
+            this.labelCid.Location = new System.Drawing.Point(34, 110);
             this.labelCid.Name = "labelCid";
             this.labelCid.Size = new System.Drawing.Size(83, 19);
             this.labelCid.TabIndex = 152;
@@ -139,18 +139,18 @@
             // txtCdesc
             // 
             this.txtCdesc.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCdesc.Location = new System.Drawing.Point(200, 140);
+            this.txtCdesc.Location = new System.Drawing.Point(187, 140);
             this.txtCdesc.Multiline = true;
             this.txtCdesc.Name = "txtCdesc";
-            this.txtCdesc.Size = new System.Drawing.Size(158, 61);
+            this.txtCdesc.Size = new System.Drawing.Size(153, 61);
             this.txtCdesc.TabIndex = 3;
             // 
             // txtCname
             // 
             this.txtCname.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCname.Location = new System.Drawing.Point(200, 105);
+            this.txtCname.Location = new System.Drawing.Point(187, 105);
             this.txtCname.Name = "txtCname";
-            this.txtCname.Size = new System.Drawing.Size(158, 25);
+            this.txtCname.Size = new System.Drawing.Size(153, 25);
             this.txtCname.TabIndex = 2;
             // 
             // txtCid
@@ -160,7 +160,7 @@
             this.txtCid.Location = new System.Drawing.Point(200, 105);
             this.txtCid.Name = "txtCid";
             this.txtCid.ReadOnly = true;
-            this.txtCid.Size = new System.Drawing.Size(158, 25);
+            this.txtCid.Size = new System.Drawing.Size(140, 25);
             this.txtCid.TabIndex = 2;
             this.txtCid.Visible = false;
             // 
@@ -171,11 +171,11 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(167, 226);
+            this.btnClear.Location = new System.Drawing.Point(155, 226);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(91, 40);
+            this.btnClear.Size = new System.Drawing.Size(85, 30);
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -188,11 +188,11 @@
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(220)))), ((int)(((byte)(209)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Tw Cen MT", 10F);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(70, 226);
+            this.btnEdit.Location = new System.Drawing.Point(55, 226);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(91, 40);
+            this.btnEdit.Size = new System.Drawing.Size(85, 30);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -208,7 +208,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tw Cen MT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(367, 12);
+            this.btnClose.Location = new System.Drawing.Point(358, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(29, 27);
             this.btnClose.TabIndex = 7;
@@ -226,7 +226,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(153, 113);
+            this.label1.Location = new System.Drawing.Point(137, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(12, 14);
             this.label1.TabIndex = 153;
@@ -237,7 +237,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(182, 150);
+            this.label2.Location = new System.Drawing.Point(166, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 14);
             this.label2.TabIndex = 154;
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(408, 288);
+            this.ClientSize = new System.Drawing.Size(399, 288);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

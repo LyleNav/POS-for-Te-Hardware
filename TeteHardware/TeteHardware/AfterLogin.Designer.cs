@@ -75,7 +75,7 @@
             this.labelName.ForeColor = System.Drawing.Color.White;
             this.labelName.Location = new System.Drawing.Point(155, 13);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(83, 31);
+            this.labelName.Size = new System.Drawing.Size(81, 31);
             this.labelName.TabIndex = 101;
             this.labelName.Text = "Name";
             // 
@@ -102,7 +102,7 @@
             this.labelWelcome.ForeColor = System.Drawing.Color.White;
             this.labelWelcome.Location = new System.Drawing.Point(35, 13);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(131, 31);
+            this.labelWelcome.Size = new System.Drawing.Size(121, 31);
             this.labelWelcome.TabIndex = 100;
             this.labelWelcome.Text = "Welcome,";
             // 
@@ -133,6 +133,7 @@
             this.btnCatManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCatManage.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCatManage.ForeColor = System.Drawing.Color.White;
+            this.btnCatManage.Image = global::TeteHardware.Properties.Resources.CatalogIcon;
             this.btnCatManage.Location = new System.Drawing.Point(149, 295);
             this.btnCatManage.Name = "btnCatManage";
             this.btnCatManage.Size = new System.Drawing.Size(286, 140);
@@ -152,6 +153,7 @@
             this.btnPromos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPromos.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPromos.ForeColor = System.Drawing.Color.White;
+            this.btnPromos.Image = global::TeteHardware.Properties.Resources.DiscountIcon;
             this.btnPromos.Location = new System.Drawing.Point(3, 149);
             this.btnPromos.Name = "btnPromos";
             this.btnPromos.Size = new System.Drawing.Size(140, 140);
@@ -170,6 +172,7 @@
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Image = global::TeteHardware.Properties.Resources.ReturnIcon;
             this.btnReturn.Location = new System.Drawing.Point(295, 149);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(140, 140);
@@ -189,6 +192,7 @@
             this.btnProdManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdManage.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProdManage.ForeColor = System.Drawing.Color.White;
+            this.btnProdManage.Image = global::TeteHardware.Properties.Resources.ProductIcon;
             this.btnProdManage.Location = new System.Drawing.Point(3, 3);
             this.btnProdManage.Name = "btnProdManage";
             this.btnProdManage.Size = new System.Drawing.Size(286, 140);
@@ -207,6 +211,7 @@
             this.btnStockIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockIn.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStockIn.ForeColor = System.Drawing.Color.White;
+            this.btnStockIn.Image = global::TeteHardware.Properties.Resources.StockInIcon;
             this.btnStockIn.Location = new System.Drawing.Point(3, 149);
             this.btnStockIn.Name = "btnStockIn";
             this.btnStockIn.Size = new System.Drawing.Size(140, 140);
@@ -225,6 +230,7 @@
             this.btnStockInDef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockInDef.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStockInDef.ForeColor = System.Drawing.Color.White;
+            this.btnStockInDef.Image = global::TeteHardware.Properties.Resources.StockInDefIcon;
             this.btnStockInDef.Location = new System.Drawing.Point(149, 149);
             this.btnStockInDef.Name = "btnStockInDef";
             this.btnStockInDef.Size = new System.Drawing.Size(140, 140);
@@ -243,6 +249,7 @@
             this.btnCustReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustReturn.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustReturn.ForeColor = System.Drawing.Color.White;
+            this.btnCustReturn.Image = global::TeteHardware.Properties.Resources.CustReturnIcon;
             this.btnCustReturn.Location = new System.Drawing.Point(149, 149);
             this.btnCustReturn.Name = "btnCustReturn";
             this.btnCustReturn.Size = new System.Drawing.Size(140, 140);
@@ -261,6 +268,7 @@
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplier.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnSupplier.Image = global::TeteHardware.Properties.Resources.SupplierIcon;
             this.btnSupplier.Location = new System.Drawing.Point(3, 295);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(140, 140);
@@ -279,6 +287,7 @@
             this.btnEmpManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpManage.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpManage.ForeColor = System.Drawing.Color.White;
+            this.btnEmpManage.Image = global::TeteHardware.Properties.Resources.EmployeeIcon;
             this.btnEmpManage.Location = new System.Drawing.Point(3, 295);
             this.btnEmpManage.Name = "btnEmpManage";
             this.btnEmpManage.Size = new System.Drawing.Size(286, 140);
@@ -297,6 +306,7 @@
             this.btnViews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViews.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViews.ForeColor = System.Drawing.Color.White;
+            this.btnViews.Image = global::TeteHardware.Properties.Resources.ViewIcon2;
             this.btnViews.Location = new System.Drawing.Point(833, 160);
             this.btnViews.Name = "btnViews";
             this.btnViews.Size = new System.Drawing.Size(140, 140);
@@ -315,6 +325,7 @@
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Image = global::TeteHardware.Properties.Resources.ReportIcon;
             this.btnReport.Location = new System.Drawing.Point(833, 309);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(140, 140);
@@ -333,6 +344,7 @@
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPOS.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.ForeColor = System.Drawing.Color.White;
+            this.btnPOS.Image = global::TeteHardware.Properties.Resources.TransactionIcon;
             this.btnPOS.Location = new System.Drawing.Point(3, 3);
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Size = new System.Drawing.Size(286, 140);
@@ -351,6 +363,7 @@
             this.btnInstoreDam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInstoreDam.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInstoreDam.ForeColor = System.Drawing.Color.White;
+            this.btnInstoreDam.Image = global::TeteHardware.Properties.Resources.InStoreIcon;
             this.btnInstoreDam.Location = new System.Drawing.Point(295, 3);
             this.btnInstoreDam.Name = "btnInstoreDam";
             this.btnInstoreDam.Size = new System.Drawing.Size(140, 140);

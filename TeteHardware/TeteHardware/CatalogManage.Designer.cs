@@ -162,7 +162,7 @@
             this.btnAddCatalog.ForeColor = System.Drawing.Color.White;
             this.btnAddCatalog.Location = new System.Drawing.Point(405, 120);
             this.btnAddCatalog.Name = "btnAddCatalog";
-            this.btnAddCatalog.Size = new System.Drawing.Size(160, 53);
+            this.btnAddCatalog.Size = new System.Drawing.Size(160, 91);
             this.btnAddCatalog.TabIndex = 2;
             this.btnAddCatalog.Text = "Add New Catalog";
             this.btnAddCatalog.UseVisualStyleBackColor = false;
@@ -177,9 +177,9 @@
             this.btnEditCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditCatalog.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCatalog.ForeColor = System.Drawing.Color.White;
-            this.btnEditCatalog.Location = new System.Drawing.Point(405, 185);
+            this.btnEditCatalog.Location = new System.Drawing.Point(405, 230);
             this.btnEditCatalog.Name = "btnEditCatalog";
-            this.btnEditCatalog.Size = new System.Drawing.Size(160, 53);
+            this.btnEditCatalog.Size = new System.Drawing.Size(160, 91);
             this.btnEditCatalog.TabIndex = 3;
             this.btnEditCatalog.Text = "Edit Catalog";
             this.btnEditCatalog.UseVisualStyleBackColor = false;
@@ -199,9 +199,9 @@
             this.btnClearSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearSelection.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSelection.ForeColor = System.Drawing.Color.White;
-            this.btnClearSelection.Location = new System.Drawing.Point(405, 248);
+            this.btnClearSelection.Location = new System.Drawing.Point(405, 341);
             this.btnClearSelection.Name = "btnClearSelection";
-            this.btnClearSelection.Size = new System.Drawing.Size(160, 53);
+            this.btnClearSelection.Size = new System.Drawing.Size(160, 91);
             this.btnClearSelection.TabIndex = 4;
             this.btnClearSelection.Text = "Clear Selection";
             this.btnClearSelection.UseVisualStyleBackColor = false;

@@ -119,7 +119,7 @@ namespace TeteHardware
                     txtQty.SelectAll();
                 }
             }
-            catch (Exception x) { }
+            catch (Exception) { }
         }
         private void populateDataGridProducts()
         {
