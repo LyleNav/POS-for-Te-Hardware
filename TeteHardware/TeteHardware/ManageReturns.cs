@@ -112,7 +112,7 @@ namespace TeteHardware
             int myRowIndex = dataGridProduct.CurrentRow.Index;
             if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString()))
             {
-                MessageBox.Show("Quantity returned is greater than the defective quantity!");
+                MessageBox.Show("Quantity returned is greater than the defective quantity!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtQty.Focus();
                 txtQty.SelectAll();
             }

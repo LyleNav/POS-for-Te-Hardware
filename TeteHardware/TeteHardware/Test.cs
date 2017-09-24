@@ -75,6 +75,8 @@ namespace TeteHardware
         int iCellHeight = 0; //Used to get/set the datagridview cell height
         int iTotalWidth = 0; //
         int iRow = 0;//Used as counter
+        int _pageCounter = 0; //Used to count the pages
+        int _thePages = 0;
         bool bFirstPage = false; //Used to check whether we are printing first page
         bool bNewPage = false;// Used to check whether we are printing a new page
         int iHeaderHeight = 0; //Used for the header height
@@ -115,6 +117,10 @@ namespace TeteHardware
             //Open the print preview dialog
             PrintPreviewDialog objPPdialog = new PrintPreviewDialog();
             _printDocument.DefaultPageSettings.Landscape = true;
+            _printDocument.DefaultPageSettings.Margins.Top = 175;
+            _printDocument.DefaultPageSettings.Margins.Bottom = 75;
+            _printDocument.DefaultPageSettings.Margins.Left = 75;
+            _printDocument.DefaultPageSettings.Margins.Right = 75;
             objPPdialog.Document = _printDocument;
             objPPdialog.ShowDialog();
         }
@@ -132,6 +138,10 @@ namespace TeteHardware
             int iTmpWidth = 0;
 
             //For the first page to print set the cell width and header height
+            _pageCounter++;
+
+            e.Graphics.DrawString("Page " + _pageCounter.ToString() + " of " + _thePages.ToString(), new Font(gw.Font, FontStyle.Bold),
+                        Brushes.Black, new Point(75, 775));
             if (bFirstPage)
             {
                 foreach (DataGridViewColumn GridCol in gw.Columns)
@@ -177,6 +187,7 @@ namespace TeteHardware
                             new Font(gw.Font, FontStyle.Bold),
                             e.MarginBounds.Width).Height - 13);
 
+                        /*
                         String strDate = "";
                         //Draw Date
                         e.Graphics.DrawString(strDate,
@@ -188,6 +199,7 @@ namespace TeteHardware
                             e.MarginBounds.Top - e.Graphics.MeasureString(_ReportHeader,
                             new Font(new Font(gw.Font, FontStyle.Bold),
                             FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+                            */
 
                         //Draw Columns                 
                         iTopMargin = e.MarginBounds.Top;
@@ -266,12 +278,21 @@ namespace TeteHardware
                 }
                 iRow++;
                 iTopMargin += iCellHeight;
+
+
             }
+
             //If more lines exist, print another page.
             if (bMorePagesToPrint)
+            {
                 e.HasMorePages = true;
+            }
             else
+            {
                 e.HasMorePages = false;
+                _thePages = _pageCounter;
+                _pageCounter = 0;
+            }
             //}
             //catch (Exception exc)
             //{

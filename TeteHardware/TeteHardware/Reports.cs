@@ -42,6 +42,8 @@ namespace TeteHardware
 
         private void formReports_Load(object sender, EventArgs e)
         {
+            monCalFrom.Location = txtDateFrom.Location;
+            monCalFrom.Visible = true;
             int myScreenWidth = Screen.PrimaryScreen.Bounds.Width;
             int myScreenHeight = Screen.PrimaryScreen.Bounds.Height;
 /*
@@ -203,7 +205,7 @@ namespace TeteHardware
                 case 0:     //Sales by Product
                     {
                         myOrderSQL = "ORDER by prodName";
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product " + myOrderSQL);
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product " + myOrderSQL);
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
@@ -233,8 +235,9 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                           // MessageBox.Show("SELECT a.prodName, b.transDate, b.transQty, a.prodUnit, b.transTotPrice, b.transDiscount from tbl_product a, tbl_transact b WHERE a.prodID = b.prodID AND b.prodID ='" + myID + "' AND " + myDatesSQL[2]);
                             mySelectSQLChild = "SELECT a.prodName, b.transDate, b.transQty, a.prodUnit, b.transTotPrice, b.transDiscount from tbl_product a, tbl_transact b WHERE a.prodID = b.prodID AND b.prodID ='" + myID + "' AND " + myDatesSQL[2];
                             try
                             {
@@ -244,8 +247,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
                                 while (reader.Read())
@@ -255,6 +259,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], func.stringToDecimal(reader[4].ToString(), 2), func.stringToDecimal(reader[5].ToString(), 2));
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount-1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
 
                                         myTotSales = myTotSales + float.Parse(reader[4].ToString());
                                         myTotDiscount = myTotDiscount + float.Parse(reader[5].ToString());
@@ -265,9 +270,11 @@ namespace TeteHardware
                                 conn.Close();
                                 if(myGroupSales > 0)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "");
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                             }
@@ -280,13 +287,14 @@ namespace TeteHardware
                         }
                         datagridTableChild.Rows.Add("Grand Total", "", "", "", myTotSales.ToString("#,#.00#"),myTotDiscount.ToString("#,#.00#"));
                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                        datagridTableChild.AllowUserToResizeRows = false;
                         datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                         break;
                     }
 
                 case 1:         //Sales by Category
                     {
-                        populatedatagridParent("SELECT catID, catName from tbl_productcatalog ORDER by catName");
+                        populatedatagridParent("SELECT catID AS 'Catalog ID', catName AS 'Catalog Name' FROM tbl_productcatalog ORDER by catName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
@@ -317,10 +325,12 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["catID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Catalog ID"].Value.ToString();
                             myDatesSQL[2] = "b.transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                            //MessageBox.Show("SELECT a.catName, c.prodName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b, tbl_product c WHERE a.catID = left(b.prodID,2) AND c.prodID = b.prodID AND left(b.prodID,2) ='" + myID + "' ORDER by a.catName, c.prodName", "", MessageBoxButtons.OK);
-                            mySelectSQLChild = "SELECT a.catName, c.prodName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b, tbl_product c WHERE a.catID = left(b.prodID,2) AND c.prodID = b.prodID AND left(b.prodID,2) ='" + myID + "' ORDER by a.catName, c.prodName AND " + myDatesSQL[2];
+                            //MessageBox.Show(myID);
+                            //MessageBox.Show("SELECT a.catName, c.prodName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b, tbl_product c WHERE a.catID = left(b.prodID,2) AND c.prodID = b.prodID AND left(b.prodID,2) ='" + myID + "' ORDER by a.catName, c.prodName", "", MessageBoxButtons.OK)
+                            //MessageBox.Show("SELECT a.catName, c.prodName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b, tbl_product c WHERE a.catID = left(b.prodID,2) AND c.prodID = b.prodID AND left(b.prodID,2) ='" + myID + "' AND " + myDatesSQL[2] + " ORDER by a.catName, c.prodName");
+                            mySelectSQLChild = "SELECT a.catName, c.prodName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b, tbl_product c WHERE a.catID = left(b.prodID,2) AND c.prodID = b.prodID AND left(b.prodID,2) ='" + myID + "' AND " + myDatesSQL[2] + " ORDER by a.catName, c.prodName";
                             try
                             {
                                 conn.Open();
@@ -329,8 +339,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if(reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["catName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Catalog Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -341,8 +352,9 @@ namespace TeteHardware
                                         if (reader[0] != null)
                                         {
                                             myCounter++;
-                                            datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], func.stringToDecimal(reader[4].ToString(), 2), func.stringToDecimal(reader[4].ToString(), 2));
+                                            datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], func.stringToDecimal(reader[4].ToString(), 2), func.stringToDecimal(reader[5].ToString(), 2));
                                             datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                            datagridTableChild.AllowUserToResizeRows = false;
                                             myTotSales = myTotSales + float.Parse(reader[4].ToString());
                                             myTotDiscount = myTotDiscount + float.Parse(reader[5].ToString());
                                             myGroupSales = myGroupSales + float.Parse(reader[4].ToString());
@@ -353,8 +365,9 @@ namespace TeteHardware
                                 conn.Close();
                                 if (myGroupSales > 0)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["catName"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Catalog Name"].Value.ToString() + ": Sub-Total", "", "", "", myGroupSales.ToString("#,#.00#"), myGroupDiscount.ToString("#,#.00#"));
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                     datagridTableChild.Rows.Add("", "", "", "", "", "", "");
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
@@ -369,12 +382,13 @@ namespace TeteHardware
                         }
                         datagridTableChild.Rows.Add("Grand Total", "", "", "", myTotSales.ToString("#,#.00#"), myTotDiscount.ToString("#,#.00#"));
                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                        datagridTableChild.AllowUserToResizeRows = false;
                         datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                         break;
                     }
                 case 2:         //Inventory by Products
                     {
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product ORDER by prodName");
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product ORDER by prodName");
                         //MessageBox.Show("SELECT a.catName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b WHERE a.prodID = left(b.prodID,2) AND left(b.prodID,2) ='" + myID + "'", "", MessageBoxButtons.OK);
                         mySelectSQLChild = "SELECT prodName, prodDesc, prodStock, prodUnit, prodStatus FROM tbl_product ORDER by prodName";
 
@@ -404,7 +418,7 @@ namespace TeteHardware
                         for (int i = 0; i < datagridTableParent.RowCount; i++)
                         {
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             //MessageBox.Show("SELECT prodName, prodDesc, prodStock, prodUnit, prodStatus from tbl_product WHERE prodID ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT prodName, prodDesc, prodStock, prodUnit, prodStatus from tbl_product WHERE prodID ='" + myID + "'";
                             try
@@ -418,6 +432,7 @@ namespace TeteHardware
                                     myCounter++;
                                     datagridTableChild.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                 }
                                 conn.Close();
                             }
@@ -432,7 +447,7 @@ namespace TeteHardware
                     }
                 case 3:             //Products by Category
                     {
-                        populatedatagridParent("SELECT catID, catName from tbl_productcatalog ORDER by catName");
+                        populatedatagridParent("SELECT catID AS 'Catalog ID', catName AS 'Catalog Name' FROM tbl_productcatalog ORDER by catName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
@@ -464,7 +479,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["catID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Catalog ID"].Value.ToString();
                             //MessageBox.Show("SELECT a.catName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b WHERE a.prodID = left(b.prodID,2) AND left(b.prodID,2) ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.catName, b.prodName, b.prodDesc, b.prodStock, b.prodUnit, b.prodStatus FROM tbl_productcatalog a, tbl_product b WHERE LEFT(b.prodID,2) = catID AND catID = '" + myID + "'";
                             try
@@ -475,8 +490,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if(reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["catName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Catalog Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
                                 while (reader.Read())
@@ -484,6 +500,7 @@ namespace TeteHardware
                                     myCounter++;
                                     datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                 }
                                 conn.Close();
                                 if(myCounter>0)
@@ -503,7 +520,7 @@ namespace TeteHardware
                     }
                 case 4:             //Products by Supplier
                     {
-                        populatedatagridParent("SELECT supID, supName from tbl_supplier ORDER by supName");
+                        populatedatagridParent("SELECT supID AS 'Supplier ID', supName AS 'Supplier Name' FROM tbl_supplier ORDER by supName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 7;
@@ -537,7 +554,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["supID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Supplier ID"].Value.ToString();
                             //MessageBox.Show("SELECT a.catName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b WHERE a.prodID = left(b.prodID,2) AND left(b.prodID,2) ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.supName, c.arrRef, b.prodName, b.prodDesc, b.prodStock, b.prodUnit, b.prodStatus from tbl_supplier a, tbl_product b, tbl_arr c WHERE c.supID = a.supID AND b.prodID = c.prodID AND a.supID ='" + myID + "'";
                             try
@@ -548,8 +565,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if(reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["supName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Supplier Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -560,6 +578,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5], reader[6]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 conn.Close();
@@ -580,24 +599,26 @@ namespace TeteHardware
                     }
                 case 5:             //Good Deliveries by Supplier
                     {
-                        populatedatagridParent("SELECT supID, supName from tbl_supplier ORDER by supName");
+                        populatedatagridParent("SELECT supID AS 'Supplier ID', supName AS 'Supplier Name' FROM tbl_supplier ORDER by supName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
-                        datagridTableChild.ColumnCount = 6;
+                        datagridTableChild.ColumnCount = 7;
                         datagridTableChild.ColumnHeadersVisible = true;
                         datagridTableChild.Columns[0].Name = "Item                     ";
-                        datagridTableChild.Columns[1].Name = "Date Arrival";
-                        datagridTableChild.Columns[2].Name = "Product";
-                        datagridTableChild.Columns[3].Name = "Quantity";
-                        datagridTableChild.Columns[4].Name = "Unit";
-                        datagridTableChild.Columns[5].Name = "Status";
+                        datagridTableChild.Columns[1].Name = "Reference";
+                        datagridTableChild.Columns[2].Name = "Date Arrival";
+                        datagridTableChild.Columns[3].Name = "Product";
+                        datagridTableChild.Columns[4].Name = "Quantity";
+                        datagridTableChild.Columns[5].Name = "Unit";
+                        datagridTableChild.Columns[6].Name = "Status";
                         datagridTableChild.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                         datagridTableChild.Columns[0].Width = 200;
                         datagridTableChild.Columns[1].Width = 100;
                         datagridTableChild.Columns[2].Width = 100;
-                        datagridTableChild.Columns[3].Width = 75;
+                        datagridTableChild.Columns[3].Width = 100;
                         datagridTableChild.Columns[4].Width = 75;
-                        datagridTableChild.Columns[5].Width = 300;
+                        datagridTableChild.Columns[5].Width = 75;
+                        datagridTableChild.Columns[6].Width = 300;
 
                         for (int i = 0; i < datagridTableChild.ColumnCount; i++)
                         {
@@ -612,10 +633,11 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["supID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Supplier ID"].Value.ToString();
                             myDatesSQL[2] = "b.dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                            myOrderSQL = " ORDER BY b.arrRef";
                             //MessageBox.Show("SELECT a.supName, b.dateArrival, c.prodName, b.Quantity, c.prodUnit, b.Status from tbl_supplier a, tbl_arr b, tbl_product c WHERE b.supID = a.supID AND c.prodID = b.prodID AND a.supID ='" + myID + "'", "", MessageBoxButtons.OK);
-                            mySelectSQLChild = "SELECT a.supName, b.dateArrival, c.prodName, b.Quantity, c.prodUnit, b.Status from tbl_supplier a, tbl_arr b, tbl_product c WHERE b.supID = a.supID AND c.prodID = b.prodID AND a.supID ='" + myID + "' AND " + myDatesSQL[2];
+                            mySelectSQLChild = "SELECT b.arrRef, a.supName, b.dateArrival, c.prodName, b.Quantity, c.prodUnit, b.Status from tbl_supplier a, tbl_arr b, tbl_product c WHERE b.supID = a.supID AND c.prodID = b.prodID AND a.supID ='" + myID + "' AND " + myDatesSQL[2] + myOrderSQL;
                             try
                             {
                                 conn.Open();
@@ -624,8 +646,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if(reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["supName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Supplier Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -634,14 +657,15 @@ namespace TeteHardware
                                     if (reader[0] != null)
                                     {
                                         myCounter++;
-                                        datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
+                                        datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5], reader[6]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 conn.Close();
                                 if (!(myCounter == 0))
                                 {
-                                    datagridTableChild.Rows.Add("", "", "", "", "", "");
+                                    datagridTableChild.Rows.Add("", "", "", "", "", "", "");
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
                                 }
                             }
@@ -656,7 +680,7 @@ namespace TeteHardware
                     }
                 case 6:         //Bad Deliveries by Supplier
                     {
-                        populatedatagridParent("SELECT supID, supName from tbl_supplier ORDER by supName");
+                        populatedatagridParent("SELECT supID AS 'Supplier ID', supName AS 'Supplier Name' FROM tbl_supplier ORDER by supName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
@@ -688,7 +712,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["supID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Supplier ID"].Value.ToString();
                             myDatesSQL[2] = "b.dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                             //MessageBox.Show("SELECT a.supName, b.dateArrival, c.prodName, b.Quantity, c.prodUnit, b.Status from tbl_supplier a, tbl_arr b, tbl_product c WHERE b.supID = a.supID AND c.prodID = b.prodID AND a.supID ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.supName, b.dateArrival, c.prodName, b.Quantity, c.prodUnit, b.Status from tbl_supplier a, tbl_arrdef b, tbl_product c WHERE b.supID = a.supID AND c.prodID = b.prodID AND a.supID ='" + myID + "' AND " + myDatesSQL[2];
@@ -700,8 +724,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["supName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Supplier Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
                                 while (reader.Read())
@@ -711,6 +736,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 conn.Close();
@@ -731,7 +757,7 @@ namespace TeteHardware
                     }
                 case 7:             //Good Deliveries by Product
                     {
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product ORDER by prodName");
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product ORDER by prodName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 5;
@@ -760,7 +786,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                             //MessageBox.Show("SELECT a.catName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b WHERE a.prodID = left(b.prodID,2) AND left(b.prodID,2) ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, b.dateArrival, b.Quantity, a.prodUnit, b.status from tbl_product a, tbl_arr b WHERE b.prodID = a.prodID AND a.prodID ='" + myID + "' AND " + myDatesSQL[2];
@@ -772,8 +798,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -784,6 +811,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 conn.Close();
@@ -804,7 +832,7 @@ namespace TeteHardware
                     }
                 case 8:                //Bad Deliveries by Product
                     {
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product ORDER by prodName");
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product ORDER by prodName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 5;
@@ -833,7 +861,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                             //MessageBox.Show("SELECT a.catName, b.transDate, b.transQty, b.transTotPrice, b.transDiscount from tbl_productcatalog a, tbl_transact b WHERE a.prodID = left(b.prodID,2) AND left(b.prodID,2) ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, b.dateArrival, b.Quantity, a.prodUnit, b.status from tbl_product a, tbl_arrdef b WHERE b.prodID = a.prodID AND a.prodID ='" + myID + "' AND " + myDatesSQL[2];
@@ -845,8 +873,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -857,6 +886,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 conn.Close();
@@ -878,7 +908,7 @@ namespace TeteHardware
                     }
                 case 9:         //Returns To Supplier by Product
                     {
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product ORDER by prodName");
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName as 'Product Name' FROM tbl_product ORDER by prodName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
@@ -910,7 +940,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.retDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                             //MessageBox.Show("SELECT b.supName, a.prodName, c.retQty, b.prodUnit, c.reDate, c.retDefect from tbl_supplier a, tbl_product b, tbl_arr c WHERE b.supID = c.supID AND a.prodID = c.prodID AND c.prodID ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, a.prodDesc, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnto b WHERE b.prodID = a.prodID AND a.prodID ='" + myID + "' AND " + myDatesSQL[2];
@@ -922,8 +952,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -934,6 +965,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 conn.Close();
@@ -954,7 +986,7 @@ namespace TeteHardware
                     }
                 case 10:            //Returns From Customer by Product
                     {
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product ORDER by prodName");
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product ORDER by prodName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 7;
@@ -988,7 +1020,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.retDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                             //MessageBox.Show("SELECT a.prodName, b.custName, b.transNum, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnfrom b WHERE b.prodID = a.prodID AND a.prodID = '" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, b.custName, b.transNum, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnfrom b WHERE b.prodID = a.prodID AND a.prodID = '" + myID + "' AND " + myDatesSQL[2];
@@ -1000,8 +1032,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -1012,6 +1045,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5], reader[6]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 if (!(myCounter == 0))
@@ -1032,7 +1066,7 @@ namespace TeteHardware
                     }
                 case 11:            //Inhouse Damage by Product
                     {
-                        populatedatagridParent("SELECT prodID, prodName from tbl_product ORDER by prodName");
+                        populatedatagridParent("SELECT prodID AS 'Product ID', prodName AS 'Product Name' FROM tbl_product ORDER by prodName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
                         datagridTableChild.ColumnCount = 6;
@@ -1064,7 +1098,7 @@ namespace TeteHardware
                             myGroupSales = 0;
                             myGroupDiscount = 0;
                             datagridTableParent.Rows[i].Selected = true;
-                            myID = datagridTableParent.Rows[i].Cells["prodID"].Value.ToString();
+                            myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.damDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                             //MessageBox.Show("SELECT a.prodName, b.damDate, b.damBy, b.damQty, a.prodUnit, b.damDetails FROM tbl_product a, tbl_damage b WHERE b.prodID = a.prodID AND a.prodID ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, b.damDate, b.damBy, b.damQty, a.prodUnit, b.damDetails FROM tbl_product a, tbl_damage b WHERE b.prodID = a.prodID AND a.prodID ='" + myID + "' AND " + myDatesSQL[2];
@@ -1076,8 +1110,9 @@ namespace TeteHardware
                                 myCounter = 0;
                                 if (reader.HasRows)
                                 {
-                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["prodName"].Value.ToString());
+                                    datagridTableChild.Rows.Add(datagridTableParent.Rows[i].Cells["Product Name"].Value.ToString());
                                     datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                    datagridTableChild.AllowUserToResizeRows = false;
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
                                 }
 
@@ -1088,6 +1123,7 @@ namespace TeteHardware
                                         myCounter++;
                                         datagridTableChild.Rows.Add(myCounter, reader[1], reader[2], reader[3], reader[4], reader[5]);
                                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
+                                        datagridTableChild.AllowUserToResizeRows = false;
                                     }
                                 }
                                 if (!(myCounter == 0))
@@ -1184,8 +1220,17 @@ namespace TeteHardware
         {
             if (!(comboReports.Text == ""))
             {
-                string myStore = "Tete Hardware" + Environment.NewLine + "Matina, Davao City" + Environment.NewLine + Environment.NewLine;
-                ClsPrint printIT = new ClsPrint(datagridTableChild, myStore + comboReports.Text);
+                string myDate;
+                string myStore = "Tete Hardware" + Environment.NewLine + "Toril, Davao City" + Environment.NewLine + "09" + Environment.NewLine;
+                if (txtDateFrom.Text == txtDateTo.Text)
+                {
+                    myDate = "Daily Report: " + txtDateFrom;
+                }
+                else
+                {
+                    myDate = "From " + txtDateFrom.Text + " To " + txtDateTo.Text;
+                }
+                ClsPrint printIT = new ClsPrint(datagridTableChild, myStore + comboReports.Text + Environment.NewLine + myDate);
                 printIT.PrintForm();
             }
         }

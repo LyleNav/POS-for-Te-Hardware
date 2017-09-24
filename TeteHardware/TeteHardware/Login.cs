@@ -57,40 +57,47 @@ namespace TeteHardware
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            if (txtPass.Text.Contains("'") || txtUser.Text.Contains("'"))
             {
-                conn.Open(); //opens the connection to the database
-
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_employee WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //command to get the inputted username/password
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm); //loads data to datatable
-                DataTable dt = new DataTable(); //datatable
-                adp.Fill(dt);
-                if(dt.Rows.Count == 1)
-                {
-                    loginID = dt.Rows[0]["empID"].ToString();
-                    TeteHardware.Properties.Settings.Default.loginID = loginID;
-                    MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET empRemarks = 'logged' WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //query to set remark to Logged
-                    com.ExecuteNonQuery();
-                    formAfterLogin formAL = new formAfterLogin(); //variaxble reference to formAfterLogin
-                    formAL.ReferenceToLogin = this; //sets the reference to this form
-                    formAL.employeeName = dt.Rows[0]["empName"].ToString(); //gets the eName variable from the database and converts it to a string
-                    formAL.Show(); //shows the referenced form
-                    this.Hide(); //hides current form
-                }
-                else if(txtUser.Text == "" || txtPass.Text == "") //DATA VALIDATION
-                {
-                    MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Credentials!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if either one of the textboxes have wrong inputs
-                }
-                conn.Close(); //closes the connection
+                MessageBox.Show("Invalid Credentials!", "", MessageBoxButtons.OK);
             }
-            catch(Exception x)
+            else
             {
-                MessageBox.Show("Error: " + x.ToString()); //shows the error if there is one
-                conn.Close(); //closes the connection
+                try
+                {
+                    conn.Open(); //opens the connection to the database
+
+                    MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_employee WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //command to get the inputted username/password
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm); //loads data to datatable
+                    DataTable dt = new DataTable(); //datatable
+                    adp.Fill(dt);
+                    if (dt.Rows.Count == 1)
+                    {
+                        loginID = dt.Rows[0]["empID"].ToString();
+                        TeteHardware.Properties.Settings.Default.loginID = loginID;
+                        MySqlCommand com = new MySqlCommand("UPDATE tbl_employee SET empRemarks = 'logged' WHERE empUser = '" + txtUser.Text + "' AND empPass = '" + txtPass.Text + "'", conn); //query to set remark to Logged
+                        com.ExecuteNonQuery();
+                        formAfterLogin formAL = new formAfterLogin(); //variaxble reference to formAfterLogin
+                        formAL.ReferenceToLogin = this; //sets the reference to this form
+                        formAL.employeeName = dt.Rows[0]["empName"].ToString(); //gets the eName variable from the database and converts it to a string
+                        formAL.Show(); //shows the referenced form
+                        this.Hide(); //hides current form
+                    }
+                    else if (txtUser.Text == "" || txtPass.Text == "") //DATA VALIDATION
+                    {
+                        MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Credentials!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if either one of the textboxes have wrong inputs
+                    }
+                    conn.Close();
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("Error: " + x.ToString()); //shows the error if there is one
+                    conn.Close(); //closes the connection
+                }
             }
         }
 

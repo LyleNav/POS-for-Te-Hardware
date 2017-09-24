@@ -77,16 +77,7 @@ namespace TeteHardware
         //Hot Keys Handling - put any special keys with special functions here
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.F5)   // To print report
-            {
-                if(myType == "Report")
-                {
-                    ClsPrint ClsPrint = new ClsPrint(datagridTableChild, "Yoyo");
-                    ClsPrint.PrintForm();
-                }
-                return true;    // indicate that you handled this keystroke
-            }
-            else if (keyData == Keys.Escape)     //Close Window
+            if (keyData == Keys.Escape)     //Close Window
             {
                 ReferenceToAfterLogin.Show();
                 this.Dispose();
@@ -360,32 +351,32 @@ namespace TeteHardware
             {
                 if (myParent == "Promo")
                 {
-                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                    myDateSQL = "a.transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                     myOrderSQL = " ORDER BY promoName";
                     myChildselectCommand = "SELECT c.promoName as 'Promo', b.prodName as 'Product', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount+'000', 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID";
                 }
                 else if (myParent == "Transaction")
                 {
-                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                    myDateSQL = "a.transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                     myOrderSQL = " ORDER BY transNum";
                     myChildselectCommand = "SELECT a.transNum as 'Transaction', a.transDate as 'Date Sold', b.prodName as 'Product', transQty as 'Qty', b.prodUnit as 'unit', ROUND(transTotPrice + '000', 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(transDiscount, 2) as 'Discount' FROM tbl_transact a, tbl_product b, tbl_promo c WHERE b.prodID = a.prodID and c.promoID = a.promoID";
                 }
                 else
                 {
-                    myDateSQL = "transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                    myDateSQL = "a.transDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                     myOrderSQL = " ORDER BY prodName";
                     myChildselectCommand = "SELECT b.prodName as 'Name', a.transDate as 'Date Sold', a.transQty as 'Qty', b.prodUnit as 'unit', ROUND(a.transTotPrice, 2) as 'Total Sales', c.promoName as 'Availed Promo', ROUND(a.transDiscount, 2) as 'Discount' FROM tbl_Transact a, tbl_Product b, tbl_promo c WHERE b.prodID = a.prodID AND c.promoID = a.promoID";
                 }
             }
             else if (myChild == "Good Deliveries")
             {
-                myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                myDateSQL = "a.dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 myOrderSQL = " ORDER BY prodName";
                 myChildselectCommand = "SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arr a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID";
             }
             else if (myChild == "Defective Deliveries")
             {
-                myDateSQL = "dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
+                myDateSQL = "a.dateArrival between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
                 myOrderSQL = " ORDER BY prodName";
                 myChildselectCommand = "SELECT b.prodName as 'Name', c.supName as 'Supplier', a.dateArrival as 'Date Arrived', a.Quantity as 'Qty', a.Status as 'Details' from tbl_arrdef a, tbl_product b, tbl_supplier c WHERE b.prodID = a.prodID AND c.supID = a.supID";
             }

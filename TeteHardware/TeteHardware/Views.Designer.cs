@@ -193,9 +193,9 @@
             this.lblDetails.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDetails.Location = new System.Drawing.Point(525, 88);
             this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(59, 19);
+            this.lblDetails.Size = new System.Drawing.Size(55, 19);
             this.lblDetails.TabIndex = 13;
-            this.lblDetails.Text = "Details :";
+            this.lblDetails.Text = "Details:";
             // 
             // btnClose
             // 

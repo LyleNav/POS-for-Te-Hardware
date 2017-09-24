@@ -181,6 +181,7 @@ namespace TeteHardware
             oldpPercent = promPercent;
             oldType = promType;
             oldStatus = promStatus;
+
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -206,7 +207,8 @@ namespace TeteHardware
                 conn.Open();
                 MySqlCommand query = new MySqlCommand("SELECT * FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 query.ExecuteNonQuery();
-                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + promStatus + "' WHERE promoID = '" + promID + "'", conn);
+                MySqlCommand query1 = new MySqlCommand("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + comboPstatus.SelectedIndex + "' WHERE promoID = '" + promID + "'", conn);
+               // MessageBox.Show("UPDATE tbl_promo SET promoName = '" + txtPname.Text + "', promoType = '" + promType + "', promoPercent = '" + txtPpercent.Text + "', promoValue = '" + txtPvalue.Text + "', promoStatus = '" + comboPstatus.SelectedIndex + "' WHERE promoID = '" + promID + "'");
                 query1.ExecuteNonQuery();
                 MySqlCommand query2 = new MySqlCommand("SELECT promoName, promoType, promoPercent, promoValue, promoStatus FROM tbl_promo WHERE promoID = '" + promID + "'", conn);
                 MySqlDataReader reader = query2.ExecuteReader();

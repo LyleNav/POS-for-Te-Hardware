@@ -81,6 +81,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlPay = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPayChange = new System.Windows.Forms.TextBox();
             this.lblPayChange = new System.Windows.Forms.Label();
@@ -97,13 +98,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.pnlButtons2 = new System.Windows.Forms.Panel();
             this.pnlgridProduct = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboDiscValue = new System.Windows.Forms.ComboBox();
             this.comboDiscPercent = new System.Windows.Forms.ComboBox();
             this.comboDiscType = new System.Windows.Forms.ComboBox();
             this.comboDiscID = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOrdered)).BeginInit();
@@ -720,6 +720,18 @@
             this.pnlPay.TabIndex = 254;
             this.pnlPay.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(350, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 22);
+            this.label3.TabIndex = 266;
+            this.label3.Text = "Esc = Cancel";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -799,7 +811,7 @@
             // 
             // btnClosePay
             // 
-            this.btnClosePay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.btnClosePay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnClosePay.FlatAppearance.BorderSize = 0;
             this.btnClosePay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosePay.Font = new System.Drawing.Font("Tw Cen MT", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -932,6 +944,18 @@
             this.pnlgridProduct.TabIndex = 258;
             this.pnlgridProduct.Visible = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
+            this.label10.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Location = new System.Drawing.Point(407, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(111, 22);
+            this.label10.TabIndex = 254;
+            this.label10.Text = "Esc = Cancel";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -977,30 +1001,6 @@
             this.comboDiscID.Size = new System.Drawing.Size(79, 27);
             this.comboDiscID.TabIndex = 242;
             this.comboDiscID.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(350, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 22);
-            this.label3.TabIndex = 266;
-            this.label3.Text = "Esc = Cancel";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
-            this.label10.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(407, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 22);
-            this.label10.TabIndex = 254;
-            this.label10.Text = "Esc = Cancel";
             // 
             // formPOS
             // 

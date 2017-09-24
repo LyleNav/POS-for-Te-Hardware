@@ -294,5 +294,16 @@ namespace TeteHardware
         {
             comboSupID.SelectedIndex = comboSupName.SelectedIndex;
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)     //Close Window
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }

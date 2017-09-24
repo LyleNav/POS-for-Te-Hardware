@@ -112,9 +112,9 @@ namespace TeteHardware
             try
             {
 
-                if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["transQty"].Value.ToString()))
+                if (int.Parse(txtQty.Text) > int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString()))
                 {
-                    MessageBox.Show("Quantity returned is greater than the defective quantity!");
+                    MessageBox.Show("Quantity returned is greater than the defective quantity!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //txtQty.Focus();
                     txtQty.SelectAll();
                 }
@@ -151,7 +151,6 @@ namespace TeteHardware
         {
             //insert to tbl_returnfrom
             int myRowIndex = dataGridProduct.CurrentRow.Index;
-            MessageBox.Show("INSERT INTO tbl_returnfrom(transNum, prodID, custName, retQty, retDate, retDefect, empID) VALUES('" + txtTrans.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + txtCust.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", "", MessageBoxButtons.OK);
             try
             {
                 conn.Open();
@@ -189,6 +188,17 @@ namespace TeteHardware
         private void txtTrans_Leave(object sender, EventArgs e)
         {
             populateDataGridProducts();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)     //Close Window
+            {
+                ReferenceToAfterLogin.Show();
+                this.Dispose();
+            }
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
     }

@@ -34,7 +34,8 @@ namespace TeteHardware
             pnlPay.Location = new Point((myScreenWidth - pnlPay.Width) / 2, (myScreenHeight - pnlPay.Height) / 2);
             pnlgridProduct.Location = new Point((myScreenWidth - pnlgridProduct.Width) / 2, (myScreenHeight - pnlgridProduct.Height) / 2);
             btnClosePay.Location = new Point((myScreenWidth - btnClosePay.Width) / 2, (myScreenHeight - btnClosePay.Height - pnlPay.Height) / 2);
-            
+            btnClosePay.Visible = false;
+            btnClosePay.BringToFront();
 
             //MessageBox.Show(myScreenWidth.ToString(), "", MessageBoxButtons.OK);
             /*
@@ -446,7 +447,7 @@ namespace TeteHardware
                     conn.Close();
                     if (myRow == dataGridOrdered.Rows.Count - 1)
                     {
-                        MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                        MessageBox.Show("Transaction Successful!", "", MessageBoxButtons.OK);
                     }
                     func.ChangeLog("tbl_product", "prodStock", myStock);
                 }
@@ -811,7 +812,7 @@ namespace TeteHardware
                 txtPayChange.Text = Convert.ToString(decimal.Round((decimal.Parse(txtPayCash.Text) - decimal.Parse(txtPayCharge.Text)), 2));
                 if ((decimal.Parse(txtPayChange.Text) < 0))
                 {
-                    MessageBox.Show("Payment is less than the Charge Amount!!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Payment is less than the Charge Amount!", "", MessageBoxButtons.OK);
                     txtPayCash.Focus();
                     txtPayCash.SelectAll();
                 }
@@ -819,6 +820,7 @@ namespace TeteHardware
                 {
                     Txtboxto2DecPlaces(txtPayCash);
                     btnClosePay.Visible = true;
+                    btnClosePay.BringToFront();
                     btnClosePay.Focus();
                 }
             }
