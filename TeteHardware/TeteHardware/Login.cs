@@ -57,7 +57,7 @@ namespace TeteHardware
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtPass.Text.Contains("'") || txtUser.Text.Contains("'"))
+            if (txtPass.Text.Contains("'") || txtUser.Text.Contains("'") || txtUser.Text.Contains("\\") || txtPass.Text.Contains("\\"))
             {
                 MessageBox.Show("Invalid Credentials!", "", MessageBoxButtons.OK);
             }
