@@ -1221,7 +1221,7 @@ namespace TeteHardware
             if (!(comboReports.Text == ""))
             {
                 string myDate;
-                string myStore = "Tete Hardware" + Environment.NewLine + "Toril, Davao City" + Environment.NewLine + "09" + Environment.NewLine;
+                string myStore = "Toril Advance Marketing Corporation" + Environment.NewLine + "J Saavedra St., Toril, Davao City, 8000 Davao del Sur" + Environment.NewLine + "(082) 291 0053" + Environment.NewLine;
                 if (txtDateFrom.Text == txtDateTo.Text)
                 {
                     myDate = "Daily Report: " + txtDateFrom;

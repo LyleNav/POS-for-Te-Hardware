@@ -35,7 +35,7 @@ namespace TeteHardware
             txtDate.Text = DateTime.Now.ToString();
             calMon.Location = txtDate.Location;
             calMon.Visible = false;
-            gridProductLoad("SELECT prodName, prodID FROM tbl_product");
+            gridProductLoad("SELECT prodName AS 'Product Name', prodID AS 'Product ID', prodStock AS 'Product Stock' FROM tbl_product WHERE prodStock > 0");
             calMon.MaxDate = DateTime.Now;
             clearForm();
         }
@@ -73,7 +73,7 @@ namespace TeteHardware
             if (keyData == Keys.F6)
             {
                 dataGridProduct.Visible = true;
-                gridProductLoad("SELECT prodName, prodID FROM tbl_product");
+                gridProductLoad("SELECT prodName AS 'Product Name', prodID AS 'Product ID', prodStock AS 'Product Stock' FROM tbl_product WHERE prodStock > 0");
 
                 return true;    // indicate that you handled this keystroke
             }
@@ -95,7 +95,7 @@ namespace TeteHardware
         private void btnProduct_Click(object sender, EventArgs e)
         {
             dataGridProduct.Visible = true;
-            gridProductLoad("SELECT prodName, prodID FROM tbl_product");
+            gridProductLoad("SELECT prodName AS 'Product Name', prodID AS 'Product ID', prodStock AS 'Product Stock' FROM tbl_product WHERE prodStock > 0");
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -117,7 +117,7 @@ namespace TeteHardware
         private void txtProdName_Enter(object sender, EventArgs e)
         {
             dataGridProduct.Visible = true;
-            gridProductLoad("SELECT prodName, prodID, prodStock FROM tbl_product WHERE prodStock > 0");
+            
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -201,9 +201,9 @@ namespace TeteHardware
 
             try
             {
-                txtProdName.Text = dataGridProduct.Rows[myRowIndex].Cells["prodName"].Value.ToString();
-                txtProdID.Text = dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString();
-                myStock = float.Parse(dataGridProduct.Rows[myRowIndex].Cells["prodStock"].Value.ToString());
+                txtProdName.Text = dataGridProduct.Rows[myRowIndex].Cells["Product Name"].Value.ToString();
+                txtProdID.Text = dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString();
+                myStock = float.Parse(dataGridProduct.Rows[myRowIndex].Cells["Product Stock"].Value.ToString());
             }
             catch (ArgumentOutOfRangeException) { }
 
