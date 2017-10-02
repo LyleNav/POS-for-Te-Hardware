@@ -137,7 +137,7 @@ namespace TeteHardware
             {
                 //for tbl_arr or tbl_arrdef
                 conn.Open();
-                //MessageBox.Show("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID, " + myID + ", " + myRef + ") VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString("d") + "', '" + Convert.ToDateTime(txtdateArrival.Text).ToString("d") + "', '" + txtStatus.Text + "','" + comboSupID.Text + "','" + txtTheID.Text + "', '" + txtRef.Text + "')", "", MessageBoxButtons.OK);
+                MessageBox.Show("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID, " + myID + ", " + myRef + ") VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString("d") + "', '" + Convert.ToDateTime(txtdateArrival.Text).ToString("d") + "', '" + txtStatus.Text + "','" + comboSupID.Text + "','" + txtTheID.Text + "', '" + txtRef.Text + "')", "", MessageBoxButtons.OK);
                 MySqlCommand query = new MySqlCommand("INSERT INTO " + txtTable.Text + "(prodID, empID, Quantity, dateEncoded, dateArrival, Status, supID, " + myID + ", " + myRef + ") VALUES('" + txtItemID.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "', '" + txtQty.Text + "', '" + DateTime.Now.ToString("d") + "', '" + Convert.ToDateTime(txtdateArrival.Text).ToString("d") + "', '" + txtStatus.Text + "','" + comboSupID.Text + "','" + txtTheID.Text + "', '" + txtRef.Text + "')", conn);
                 query.ExecuteNonQuery();
                 func.ChangeLog(txtTable.Text, "All", "None");
@@ -178,7 +178,7 @@ namespace TeteHardware
             }
             else if (txtTable.Text == "tbl_arrdef")
             {
-                MessageBox.Show("Added Successfully to defective database!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
 
         }
@@ -304,6 +304,11 @@ namespace TeteHardware
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void comboSupName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            comboSupID.SelectedIndex = comboSupName.SelectedIndex;
         }
     }
 }

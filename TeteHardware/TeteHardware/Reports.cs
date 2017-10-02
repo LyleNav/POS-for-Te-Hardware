@@ -60,6 +60,7 @@ namespace TeteHardware
             datagridTableChild.RowTemplate.Height = 60;
             txtDateFrom.Text = DateTime.Now.ToString();
             txtDateTo.Text = DateTime.Now.ToString();
+            monCalFrom.MinDate = Convert.ToDateTime("6/13/2017");
             monCalFrom.MaxDate = DateTime.Now;
             monCalTo.MaxDate = DateTime.Now;
             populateComboReport();
@@ -139,6 +140,7 @@ namespace TeteHardware
         private void monCalFrom_DateSelected(object sender, DateRangeEventArgs e)
         {
             txtDateFrom.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
+            monCalTo.MinDate = monCalFrom.SelectionStart;
             monCalFrom.Visible = false;
             txtDateTo.Focus();
             maketheDataGrid();
@@ -908,6 +910,7 @@ namespace TeteHardware
                     }
                 case 9:         //Returns To Supplier by Product
                     {
+                        //MessageBox.Show("SELECT b.supName, a.prodName, c.retQty, b.prodUnit, c.reDate, c.retDefect from tbl_supplier a, tbl_product b, tbl_arr c WHERE b.supID = c.supID AND a.prodID = c.prodID AND c.prodID ='" + myID + "'", "", MessageBoxButtons.OK);
                         populatedatagridParent("SELECT prodID AS 'Product ID', prodName as 'Product Name' FROM tbl_product ORDER by prodName");
                         //set up datagridchild columns
                         datagridTableChild.Rows.Clear();
@@ -942,7 +945,6 @@ namespace TeteHardware
                             datagridTableParent.Rows[i].Selected = true;
                             myID = datagridTableParent.Rows[i].Cells["Product ID"].Value.ToString();
                             myDatesSQL[2] = "b.retDate between '" + txtDateFrom.Text + "' AND '" + txtDateTo.Text + "'";
-                            //MessageBox.Show("SELECT b.supName, a.prodName, c.retQty, b.prodUnit, c.reDate, c.retDefect from tbl_supplier a, tbl_product b, tbl_arr c WHERE b.supID = c.supID AND a.prodID = c.prodID AND c.prodID ='" + myID + "'", "", MessageBoxButtons.OK);
                             mySelectSQLChild = "SELECT a.prodName, a.prodDesc, b.retQty, a.prodUnit, b.retDate, b.retDefect from tbl_product a, tbl_returnto b WHERE b.prodID = a.prodID AND a.prodID ='" + myID + "' AND " + myDatesSQL[2];
                             try
                             {

@@ -235,7 +235,7 @@
             this.btnStockInDef.Name = "btnStockInDef";
             this.btnStockInDef.Size = new System.Drawing.Size(140, 140);
             this.btnStockInDef.TabIndex = 9;
-            this.btnStockInDef.Text = "Stock In (Defective)";
+            this.btnStockInDef.Text = "Defective";
             this.btnStockInDef.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnStockInDef.UseVisualStyleBackColor = false;
             this.btnStockInDef.Click += new System.EventHandler(this.btnArrDef_Click);

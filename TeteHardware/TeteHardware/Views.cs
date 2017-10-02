@@ -44,6 +44,7 @@ namespace TeteHardware
             txtDateFrom.Text = DateTime.Now.ToString();
             txtDateTo.Text = DateTime.Now.ToString();
             populateComboParent();
+            monCalFrom.MinDate = Convert.ToDateTime("6/13/2017");
             monCalFrom.MaxDate = DateTime.Now;
             monCalTo.MaxDate = DateTime.Now;
         }
@@ -115,6 +116,7 @@ namespace TeteHardware
         {
             txtDateFrom.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
             txtDateTo.Text = monCalFrom.SelectionRange.Start.ToShortDateString();
+            monCalTo.MinDate = monCalFrom.SelectionStart;
             monCalFrom.Visible = false;
             txtDateTo.Focus();
         }

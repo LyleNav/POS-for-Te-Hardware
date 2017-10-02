@@ -82,7 +82,14 @@ namespace TeteHardware
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveToDatabase();
+            if(txtReference.Text == "" || comboSupplier.Text == "" || txtQty.Text == "" || txtCalReturn.Text == "")
+            {
+                MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
+            }
+            else
+            {
+                saveToDatabase();
+            }
         }
 
         private void txtCalReturn_Click(object sender, EventArgs e)
@@ -153,7 +160,7 @@ namespace TeteHardware
             try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand query = new MySqlCommand("SELECT a.prodID, b.prodName, a.Quantity, a.DateArrival, a.Status FROM tbl_arrdef a, tbl_product b WHERE a.supID = '" + combosupID.Text + "' AND a.prodID = b.prodID", conn); //query to select all entries in tbl_productcatalog
+                MySqlCommand query = new MySqlCommand("SELECT a.prodID, b.prodName, a.Quantity, a.DateArrival, a.Status FROM tbl_arrdef a, tbl_product b WHERE a.supID = '" + combosupID.Text + "' AND a.prodID = b.prodID AND a.Quantity > 0", conn); //query to select all entries in tbl_productcatalog
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter
                 BindingSource bs = new BindingSource();
@@ -195,7 +202,7 @@ namespace TeteHardware
             //update tbl_arrdef
             int newQuantity = int.Parse(dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString()) - int.Parse(txtQty.Text);
 
-            MessageBox.Show("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "', retDate = '" + txtCalReturn.Text + "' WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'");
+            //MessageBox.Show("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "', retDate = '" + txtCalReturn.Text + "' WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'");
             try
             {
                 conn.Open();
