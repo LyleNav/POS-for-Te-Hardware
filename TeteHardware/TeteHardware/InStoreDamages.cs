@@ -79,8 +79,15 @@ namespace TeteHardware
             }
             else if (keyData == Keys.Escape)     //Close Window
             {
-                ReferenceToAfterLogin.Show();
-                this.Dispose();
+                if (dataGridProduct.Visible == true)
+                {
+                    dataGridProduct.Visible = false;
+                }
+                else
+                {
+                    ReferenceToAfterLogin.Show();
+                    this.Dispose();
+                }
             }
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
@@ -231,7 +238,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_damage(damDate, damBy, prodID, damQty, damRemarks, empID) VALUES('" + Convert.ToDateTime(txtDate.Text).ToString("d") + "', '" + txtName.Text + "', '" + txtProdID.Text + "', '" + txtQty.Text + "', '" + txtRem.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "')", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_damage(damDate, damBy, prodID, damQty, damDetails, empID) VALUES('" + Convert.ToDateTime(txtDate.Text).ToString("d") + "', '" + txtName.Text + "', '" + txtProdID.Text + "', '" + txtQty.Text + "', '" + txtRem.Text + "', '" + TeteHardware.Properties.Settings.Default.loginID + "')", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 func.ChangeLog("tbl_damage", "All", "None");
@@ -255,6 +262,10 @@ namespace TeteHardware
             func.ChangeLog("tbl_product", "prodStock", myStock.ToString());
         }
 
+        private void txtDate_Click(object sender, EventArgs e)
+        {
+            calMon.Visible = true;
+        }
     }
 }
 

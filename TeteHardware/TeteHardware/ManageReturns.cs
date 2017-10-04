@@ -30,7 +30,7 @@ namespace TeteHardware
         {
             populatecomboSupplier();
             txtCalReturn.Text = DateTime.Now.ToString("d");
-            calReturned.Location = txtCalReturn.Location;
+            calReturned.Location = new Point(342, 140);
             calReturned.MaxDate = DateTime.Now;
         }
 
@@ -160,7 +160,7 @@ namespace TeteHardware
             try
             {
                 conn.Open(); //opens the connection
-                MySqlCommand query = new MySqlCommand("SELECT a.prodID, b.prodName, a.Quantity, a.DateArrival, a.Status FROM tbl_arrdef a, tbl_product b WHERE a.supID = '" + combosupID.Text + "' AND a.prodID = b.prodID AND a.Quantity > 0", conn); //query to select all entries in tbl_productcatalog
+                MySqlCommand query = new MySqlCommand("SELECT a.prodID AS 'Product ID', b.prodName AS 'Product Name', a.Quantity, a.DateArrival, a.Status FROM tbl_arrdef a, tbl_product b WHERE a.supID = '" + combosupID.Text + "' AND a.prodID = b.prodID AND a.Quantity > 0", conn); //query to select all entries in tbl_productcatalog
                 MySqlDataAdapter adp = new MySqlDataAdapter(query); //adapter for query
                 DataTable dt = new DataTable(); //datatable for adapter
                 BindingSource bs = new BindingSource();
@@ -186,7 +186,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnto(retRef, prodID, supID, retQty, retDate, retDefect, empID) VALUES('" + txtReference.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "','" + combosupID.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO tbl_returnto(retRef, prodID, supID, retQty, retDate, retDefect, empID) VALUES('" + txtReference.Text + "','" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "','" + combosupID.Text + "','" + txtQty.Text + "','" + txtCalReturn.Text + "', '" + txtRemarks.Text + "', " + TeteHardware.Properties.Settings.Default.loginID + ")", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 func.ChangeLog("tbl_returnto", "All", "None");
@@ -206,7 +206,7 @@ namespace TeteHardware
             try
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "', retDate = '" + txtCalReturn.Text + "', retQty = " + txtQty.Text + " WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["prodID"].Value.ToString() + "'", conn);
+                MySqlCommand query = new MySqlCommand("UPDATE tbl_arrdef SET Quantity = '" + newQuantity + "', retDate = '" + txtCalReturn.Text + "', retQty = " + txtQty.Text + " WHERE prodID = '" + dataGridProduct.Rows[myRowIndex].Cells["Product ID"].Value.ToString() + "'", conn);
                 query.ExecuteNonQuery();
                 conn.Close();
                 func.ChangeLog("tbl_arrdef", "Quantity", dataGridProduct.Rows[myRowIndex].Cells["Quantity"].Value.ToString());

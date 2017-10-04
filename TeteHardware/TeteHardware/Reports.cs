@@ -291,6 +291,7 @@ namespace TeteHardware
                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                         datagridTableChild.AllowUserToResizeRows = false;
                         datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
 
@@ -386,6 +387,7 @@ namespace TeteHardware
                         datagridTableChild.AutoResizeRow(datagridTableChild.RowCount - 1, DataGridViewAutoSizeRowMode.AllCells);
                         datagridTableChild.AllowUserToResizeRows = false;
                         datagridTableChild.Rows[datagridTableChild.RowCount - 1].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Bold);
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 2:         //Inventory by Products
@@ -445,6 +447,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 3:             //Products by Category
@@ -518,6 +521,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 4:             //Products by Supplier
@@ -597,6 +601,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 5:             //Good Deliveries by Supplier
@@ -678,6 +683,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 6:         //Bad Deliveries by Supplier
@@ -755,6 +761,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 7:             //Good Deliveries by Product
@@ -830,6 +837,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 8:                //Bad Deliveries by Product
@@ -906,6 +914,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 9:         //Returns To Supplier by Product
@@ -975,7 +984,7 @@ namespace TeteHardware
                                 {
                                     datagridTableChild.Rows.Add("", "", "", "", "");
                                     datagridTableChild.Rows[datagridTableChild.RowCount - 1].Height = 8;
-                                }
+                                }                         
                             }
                             catch (Exception x)
 
@@ -984,6 +993,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 10:            //Returns From Customer by Product
@@ -1064,6 +1074,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
                 case 11:            //Inhouse Damage by Product
@@ -1142,6 +1153,7 @@ namespace TeteHardware
                                 conn.Close();
                             }
                         }
+                        datagridTableChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         break;
                     }
             }
@@ -1226,7 +1238,7 @@ namespace TeteHardware
                 string myStore = "Toril Advance Marketing Corporation" + Environment.NewLine + "J Saavedra St., Toril, Davao City, 8000 Davao del Sur" + Environment.NewLine + "(082) 291 0053" + Environment.NewLine;
                 if (txtDateFrom.Text == txtDateTo.Text)
                 {
-                    myDate = "Daily Report: " + txtDateFrom;
+                    myDate = "Daily Report: " + txtDateFrom.Text;
                 }
                 else
                 {
