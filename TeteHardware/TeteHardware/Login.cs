@@ -126,4 +126,6 @@ namespace TeteHardware
             txtPass.Text = ""; //sets the value of txtPass to blank after mouseclick
         }
     }
+
+    
 }
