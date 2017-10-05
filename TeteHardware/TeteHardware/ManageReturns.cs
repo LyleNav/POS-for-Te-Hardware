@@ -237,5 +237,20 @@ namespace TeteHardware
             }
         }
 
+        private void txtQty_TextChanged_1(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtQty.Text, "  ^ [0-9]"))
+            {
+                txtQty.Text = "";
+            }
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

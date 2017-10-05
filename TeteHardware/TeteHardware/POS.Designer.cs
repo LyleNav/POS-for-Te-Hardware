@@ -213,7 +213,7 @@
             this.dataGridProduct.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridProduct.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dataGridProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProduct.Size = new System.Drawing.Size(469, 386);
+            this.dataGridProduct.Size = new System.Drawing.Size(605, 386);
             this.dataGridProduct.TabIndex = 201;
             this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             this.dataGridProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridProduct_KeyDown);
@@ -938,9 +938,9 @@
             this.pnlgridProduct.Controls.Add(this.txtSearchID);
             this.pnlgridProduct.Controls.Add(this.lblSearchName);
             this.pnlgridProduct.Controls.Add(this.txtSearchName);
-            this.pnlgridProduct.Location = new System.Drawing.Point(1246, 605);
+            this.pnlgridProduct.Location = new System.Drawing.Point(1246, 459);
             this.pnlgridProduct.Name = "pnlgridProduct";
-            this.pnlgridProduct.Size = new System.Drawing.Size(530, 565);
+            this.pnlgridProduct.Size = new System.Drawing.Size(665, 565);
             this.pnlgridProduct.TabIndex = 258;
             this.pnlgridProduct.Visible = false;
             // 
@@ -950,7 +950,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(152)))));
             this.label10.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(407, 14);
+            this.label10.Location = new System.Drawing.Point(526, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 22);
             this.label10.TabIndex = 254;
