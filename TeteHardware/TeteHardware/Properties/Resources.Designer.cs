@@ -63,6 +63,16 @@ namespace TeteHardware.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow {
+            get {
+                object obj = ResourceManager.GetObject("arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CatalogIcon {
             get {
                 object obj = ResourceManager.GetObject("CatalogIcon", resourceCulture);
@@ -96,6 +106,16 @@ namespace TeteHardware.Properties {
         internal static System.Drawing.Bitmap EmployeeIcon {
             get {
                 object obj = ResourceManager.GetObject("EmployeeIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap froggy {
+            get {
+                object obj = ResourceManager.GetObject("froggy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -85,6 +85,9 @@ namespace TeteHardware
         {
             clearFormTransact();
             initializeOrderedGrid();
+            pictureBox1.Image = TeteHardware.Properties.Resources.arrow;
+            pictureBox2.Image = TeteHardware.Properties.Resources.arrow;
+            pictureBox3.Image = TeteHardware.Properties.Resources.froggy;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -576,6 +579,7 @@ namespace TeteHardware
             if(e.KeyCode==Keys.Enter)
             {
                 getItemData();
+                pictureBox1.Show();
                 searchVisibility(false);
             }
         }
@@ -589,6 +593,7 @@ namespace TeteHardware
                 addToOrdered();
                 comboDiscName.Font = new Font("Tw Cen MT", 12);
                 comboDiscName.ForeColor = Color.Black;
+                pictureBox2.Hide();
             }
         }
 
@@ -695,6 +700,11 @@ namespace TeteHardware
                 {
                     pnlPay.Visible = false;
                 }
+                else if(pictureBox3.Visible == true && label15.Visible == true)
+                {
+                    pictureBox3.Visible = false;
+                    label15.Visible = false;
+                }
                 else
                 {
                     getOut();
@@ -730,8 +740,9 @@ namespace TeteHardware
                 MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK);
                 txtQty.Focus();
                 txtQty.SelectAll();
-
             }
+            pictureBox1.Hide();
+            pictureBox2.Show();
         }
 
         private void dataGridOrdered_KeyDown(object sender, KeyEventArgs e)
@@ -742,6 +753,7 @@ namespace TeteHardware
                 txtQty.Focus();
                 txtGrandTot.Text = Convert.ToString(decimal.Round((decimal.Parse(txtGrandTot.Text) - decimal.Parse(txtSubTotPrice.Text)), 2));
                 myboolEdit = true;
+                pictureBox1.Show();
             }
         }
 
@@ -864,6 +876,12 @@ namespace TeteHardware
             {
                 e.Handled = true;
             }
+        }
+
+        private void lblHardware1_Click(object sender, EventArgs e)
+        {
+            pictureBox3.Show();
+            label15.Show();
         }
     }
 }

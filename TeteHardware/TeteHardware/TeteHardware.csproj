@@ -338,6 +338,8 @@
     <None Include="Resources\InStoreIcon.png" />
     <None Include="Resources\Shop-128.png" />
     <None Include="Resources\shop_128_P6R_icon.ico" />
+    <None Include="Resources\arrow.gif" />
+    <None Include="Resources\froggy.gif" />
     <Content Include="shop_128_P6R_icon.ico" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
