@@ -263,6 +263,8 @@
             this.txtScontactNum.Name = "txtScontactNum";
             this.txtScontactNum.Size = new System.Drawing.Size(144, 25);
             this.txtScontactNum.TabIndex = 5;
+            this.txtScontactNum.TextChanged += new System.EventHandler(this.txtScontactNum_TextChanged);
+            this.txtScontactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtScontactNum_KeyPress);
             // 
             // labelSremarks
             // 

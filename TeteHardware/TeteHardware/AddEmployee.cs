@@ -112,9 +112,19 @@ namespace TeteHardware
                 ReferenceToEmpManage.dataLoad();
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Add() :" + x.ToString());
+                if (x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Username already exists!");
+                    txtEuser.Focus();
+                    txtEuser.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Add() :" + x.ToString());
+
+                }
                 conn.Close();
             }
         }

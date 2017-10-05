@@ -214,9 +214,19 @@ namespace TeteHardware
                 ReferenceToSupManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Edit: " + x.ToString());
+                if (x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Supplier already exists!");
+                    txtSname.Focus();
+                    txtSname.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Edit() :" + x.ToString());
+
+                }
                 conn.Close();
             }
         }

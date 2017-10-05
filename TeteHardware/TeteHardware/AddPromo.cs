@@ -207,9 +207,19 @@ namespace TeteHardware
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Add() :" + x.ToString());
+                if (x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Promo already exists!");
+                    txtPname.Focus();
+                    txtPname.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Add() :" + x.ToString());
+
+                }
                 conn.Close();
             }
         }

@@ -106,12 +106,22 @@ namespace TeteHardware
                 conn.Close();
                 ReferenceToSupManage.getData();
                 ReferenceToSupManage.dataLoad();
-                
+
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Add() :" + x.ToString());
+                if (x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Supplier already exists!");
+                    txtSname.Focus();
+                    txtSname.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Add() :" + x.ToString());
+
+                }
                 conn.Close();
             }
         }
@@ -119,6 +129,22 @@ namespace TeteHardware
         private void formAddSupplier_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtScontactNum_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtScontactNum.Text, "  ^ [0-9]"))
+            {
+                txtScontactNum.Text = "";  
+            }
+        }
+
+        private void txtScontactNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //with decimals
+            {
+                e.Handled = true;
+            }
         }
     }
 }

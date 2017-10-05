@@ -286,9 +286,19 @@ namespace TeteHardware
                 ReferenceToPromoManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Edit: " + x.ToString());
+                if (x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Promo already exists!");
+                    txtPname.Focus();
+                    txtPname.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Edit() :" + x.ToString());
+
+                }
                 conn.Close();
             }
         }

@@ -844,7 +844,7 @@ namespace TeteHardware
 
         private void comboDiscName_Enter(object sender, EventArgs e)
         {
-            comboDiscName.Font = new Font("Tw Cen MT", 20);
+            comboDiscName.Font = new Font("Tw Cen MT", 10);
             comboDiscName.ForeColor = Color.Maroon;
         }
 

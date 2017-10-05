@@ -151,7 +151,7 @@ namespace TeteHardware
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (txtPcat.Text == "" || txtPname.Text == "" || txtPdesc.Text == "" || txtMOQ.Text == "" || txtPstock.Text == "" || txtPprice.Text == "" || txtPunit.Text == "" || txtPstatus.Text == "") //DATA VALIDATION
+            if (txtPcat.Text == "" || txtPname.Text == "" || txtPdesc.Text == "" || txtMOQ.Text == "" || txtPstock.Text == "" || txtPprice.Text == "" || txtPunit.Text == "") //DATA VALIDATION
             {
                 MessageBox.Show("Please supply all necessary fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); //shows a message box if textboxes are blank
             }
@@ -238,9 +238,19 @@ namespace TeteHardware
                 ReferenceToProdManage.dataLoad();
                 MessageBox.Show("Edited Successfully!", "", MessageBoxButtons.OK);
             }
-            catch (Exception x)
+            catch (MySqlException x)
             {
-                MessageBox.Show("Error in Edit: " + x.ToString());
+                if (x.Number.ToString() == "1062")
+                {
+                    MessageBox.Show("Product already exists!");
+                    txtPname.Focus();
+                    txtPname.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("Error in Edit() :" + x.ToString());
+
+                }
                 conn.Close();
             }
         }
