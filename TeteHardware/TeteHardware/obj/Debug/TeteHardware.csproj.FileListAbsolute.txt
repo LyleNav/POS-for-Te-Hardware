@@ -99,3 +99,4 @@ C:\Users\Lyle\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\ob
 C:\Users\Lyle\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.exe
 C:\Users\Lyle\Documents\Visual Studio 2017\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.pdb
 C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\obj\Debug\TeteHardware.csprojResolveAssemblyReference.cache
+C:\Users\ljcnavarro\Documents\Visual Studio 2015\Projects\TeteHardware\TeteHardware\bin\Debug\MySql.Data.dll

@@ -212,7 +212,7 @@ namespace TeteHardware
                 dataGridProduct.Columns["prodStock"].HeaderText = "Stock"; //gets the pSupplierID and sets it as a header
                 dataGridProduct.Columns["prodUnit"].HeaderText = "Unit"; //gets the pPromoID and sets it as a header
                 dataGridProduct.Columns["prodUPrice"].HeaderText = "Unit Price"; //gets the productStock and sets it as a header
-                dataGridProduct.Columns["prodMOQ"].HeaderText = "MOQ"; //gets the productDesc and sets it as a header
+                dataGridProduct.Columns["prodMOQ"].HeaderText = "Reorder Level"; //gets the productDesc and sets it as a header
                 dataGridProduct.Columns["prodStatus"].HeaderText = "Remarks"; //gets the productPrice and sets it as a header
                 dataGridProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 

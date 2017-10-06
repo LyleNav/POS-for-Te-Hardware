@@ -29,8 +29,7 @@ namespace TeteHardware
 
         private void formInStoreDamages_Load(object sender, EventArgs e)
         {
-            dataGridProduct.Size = new Size(500, 500);
-            dataGridProduct.Location = new Point(97, 18);
+            dataGridProduct.Location = new Point(33, 100);
             dataGridProduct.Visible = false;
             txtDate.Text = DateTime.Now.ToString();
             calMon.Location = txtDate.Location;
